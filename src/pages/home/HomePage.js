@@ -1,13 +1,28 @@
 import * as React from 'react';
-import {Grid} from "@mui/material";
+import {Container, Stack, Typography} from "@mui/material";
+import {Item1} from "./elements/Item1";
 
 export function HomePage() {
     return (
-        <Grid container spacing={3} rowSpacing={3}>
-            <Grid item xl={4} lg={6} md={6} sm={6} xs={12}>
-                TEST 2
-            </Grid>
-        </Grid>
+        <Stack>
+            <Item1/>
+
+
+
+
+
+            <Container maxWidth="xl" sx={{
+                height: 800,
+                backgroundColor: '#F7F9FB'
+            }}>
+                <Typography variant="body1" sx={{
+                    padding: 2
+                }}>
+                    Content
+                </Typography>
+            </Container>
+        </Stack>
+
     );
 }
 

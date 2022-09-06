@@ -15,17 +15,6 @@ body, html, #root {
   overflow: hidden;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.App {
-  height: 100%;
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
 /** TABLE **/
 .AppTable {
   display: table;
@@ -40,39 +29,42 @@ a {
 .AppTableCell {
   display: table-cell;
   width: 100%;
-  height: 100%;
   vertical-align: middle;
 }
 
-/** Grid **/
-.MuiDataGrid-menu .MuiPaper-root {
-  box-shadow: rgb(0 0 0 / 6%) 0 3px 5px -1px, rgb(0 0 0 / 6%) 0px 5px 8px 0px, rgb(0 0 0 / 6%) 0px 1px 14px 0px;
-  border: 1px solid #d3d3d3;
-  border-radius: 15px;
-  min-width: 200px;
-}
-
-.MuiDataGrid-panel .MuiPaper-root {
-  box-shadow: rgb(0 0 0 / 6%) 0 3px 5px -1px, rgb(0 0 0 / 6%) 0px 5px 8px 0px, rgb(0 0 0 / 6%) 0px 1px 14px 0px;
-  padding: 5px 10px;
-  border: 1px solid #d3d3d3;
-}
-
 /** Scroll **/
-.section {
-  overflow: auto;
+.ScrollSection {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
 }
 
-.section::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/** Base tags **/
+header.AppTableCell {
+  background: #514470;
 }
 
-.section::-webkit-scrollbar-track {
-  background-color: white;
+main.AppTableCell {
+  height: 100%;
 }
 
-.section::-webkit-scrollbar-thumb {
-  background: rgba(128, 128, 128, 0.4);
-  border-radius: 4px;
+footer.AppTableCell {
+  background: #3d354e;
+  height: 300px;
+  color: white;
+}
+
+/** Menu **/
+.Menu {
+  height: 100%;
+  color: white;
+  z-index: 1;
+  position: relative;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  box-shadow: rgb(0 0 0 / 20%) 0 2px 4px -1px, rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
+}
+
+.Menu .MuiContainer-root {
+  padding: 25px 0;
 }
