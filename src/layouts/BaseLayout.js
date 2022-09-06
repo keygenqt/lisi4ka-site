@@ -1,7 +1,6 @@
 import * as React from 'react';
 import PropTypes from "prop-types";
 import {Box, Container, Stack, Typography} from "@mui/material";
-import {Item1} from "../pages/home/elements/Item1";
 
 export function BaseLayout(props) {
     return (
@@ -21,14 +20,13 @@ export function BaseLayout(props) {
                 <main className={"AppTableCell"} style={{
                     verticalAlign: props.isCenter ? 'middle' : 'top'
                 }}>
-                    <Stack >
+                    <Stack>
                         {props.children}
                     </Stack>
                 </main>
             </div>
             <div className={"AppTableRow"}>
                 <footer className={"AppTableCell"}>
-
                     <Container maxWidth="xl">
                         <Typography variant="body1" sx={{
                             padding: 2
