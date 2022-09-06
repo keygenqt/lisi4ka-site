@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+// color variants
+@import 'colors.scss';
+
+/** Base **/
+body, html, #root {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Albert Sans', 'Roboto', sans-serif;
+  background-color: $paper;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.App {
+  height: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+/** TABLE **/
+.AppTable {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.AppTableRow {
+  display: table-row;
+}
+
+.AppTableCell {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+/** Grid **/
+.MuiDataGrid-menu .MuiPaper-root {
+  box-shadow: rgb(0 0 0 / 6%) 0 3px 5px -1px, rgb(0 0 0 / 6%) 0px 5px 8px 0px, rgb(0 0 0 / 6%) 0px 1px 14px 0px;
+  border: 1px solid #d3d3d3;
+  border-radius: 15px;
+  min-width: 200px;
+}
+
+.MuiDataGrid-panel .MuiPaper-root {
+  box-shadow: rgb(0 0 0 / 6%) 0 3px 5px -1px, rgb(0 0 0 / 6%) 0px 5px 8px 0px, rgb(0 0 0 / 6%) 0px 1px 14px 0px;
+  padding: 5px 10px;
+  border: 1px solid #d3d3d3;
+}
+
+/** Scroll **/
+.section {
+  overflow: auto;
+}
+
+.section::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.section::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.section::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.4);
+  border-radius: 4px;
+}
