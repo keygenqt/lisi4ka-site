@@ -1,17 +1,27 @@
 import * as React from 'react';
 import {Stack} from "@mui/material";
-import {Item1} from "./elements/Item1";
-import {Item2} from "./elements/Item2";
-import {Item3} from "./elements/Item3";
-import {Item4} from "./elements/Item4";
+import {ItemMain} from "./elements/ItemMain";
+import {ItemAboutMe} from "./elements/ItemAboutMe";
+import {ItemBlocks} from "./elements/ItemBlocks";
+import {ItemProud} from "./elements/ItemProud";
+import {ItemReview} from "./elements/ItemReview";
+import {ItemStart} from "./elements/ItemStart";
 
 export function HomePage() {
     return (
         <Stack>
-            <Item1/>
-            <Item2/>
-            <Item3/>
-            <Item4/>
+            {/*main*/}
+            <ItemMain/>
+            {/*about me*/}
+            <ItemAboutMe/>
+            {/*blocks*/}
+            <ItemBlocks/>
+            {/*proud*/}
+            <ItemProud/>
+            {/*reviews*/}
+            <ItemReview/>
+            {/*start*/}
+            <ItemStart/>
         </Stack>
     );
 }

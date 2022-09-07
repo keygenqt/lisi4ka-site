@@ -2,9 +2,9 @@ import * as React from 'react';
 import {Container, Stack, Typography} from "@mui/material";
 import {ConstantImages} from "../../../base";
 
-export function Item1(props) {
+export function ItemMain(props) {
     return (
-        <Stack className={'Item1Container'}>
+        <Stack className={'ItemMainContainer'}>
 
             <div className={'Wave'}/>
             <div className={'Wave item2'}/>
@@ -61,4 +61,4 @@ export function Item1(props) {
     );
 }
 
-Item1.propTypes = {};
+ItemMain.propTypes = {};

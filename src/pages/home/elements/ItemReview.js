@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Avatar, Box, Button, Container, Fab, Grid, Stack, Typography} from "@mui/material";
+import {Avatar, Box, Container, Fab, Grid, Stack, Typography} from "@mui/material";
 import Carousel from 'react-material-ui-carousel'
 import {ConstantImages} from "../../../base";
-import {ArrowForward, ArrowLeft, ArrowRight} from "@mui/icons-material";
+import {ArrowLeft, ArrowRight} from "@mui/icons-material";
 
-export function Item3(props) {
+export function ItemReview(props) {
 
     let items = [
         {
@@ -17,13 +17,13 @@ export function Item3(props) {
             icon: ConstantImages.home.user2,
             name: "Travis Howard",
             role: "UX Designer",
-            description: "“ Barmy loo sloshed porkiesdo with me down the pub say bubble and squeak. ”"
+            description: "“ Explore learning tips, career advice. Unlock new opportunities with unlimited access. ”"
         },
         {
             icon: ConstantImages.home.user3,
             name: "Cindy Baker",
             role: "UX Designer",
-            description: "“ Barmy loo sloshed porkiesdo with me down the pub say bubble and squeak. ”"
+            description: "“ We’ll then ask you to tell us your current level of English or invite you to take our quick 20 minute placement test so we can make sure you start learning English. ”"
         }
     ].map((item, i) => <Stack key={`item-${i}`} spacing={4}>
 
@@ -50,13 +50,14 @@ export function Item3(props) {
     </Stack>)
 
     return (
-        <Stack className={'Item3Container'}>
+        <Stack className={'ItemReviewContainer'}>
             <Box className={'Content'}>
                 <Container maxWidth={'lg'}>
                     <Carousel
+                        height={290}
                         swipe={true}
                         autoPlay={false}
-                        animation={'slide'}
+                        // animation={'slide'}
                         navButtonsAlwaysVisible={true}
                         NavButton={({onClick, className, style, next, prev}) => {
                             return (
@@ -75,4 +76,4 @@ export function Item3(props) {
     );
 }
 
-Item3.propTypes = {};
+ItemReview.propTypes = {};

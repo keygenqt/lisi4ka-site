@@ -1,11 +1,11 @@
 // color variants
 @import 'colors.scss';
 
-/************/
-/** ITEM 1 **/
-/************/
+/*************************/
+/** ITEM Main ************/
+/*************************/
 
-.Item1Container {
+.ItemMainContainer {
   background: #FFEBF4;
   width: 100%;
   padding: 140px 30px;
@@ -13,7 +13,7 @@
   overflow: hidden;
 }
 
-.Item1Container:before {
+.ItemMainContainer:before {
   content: "";
   position: absolute;
   right: 60px;
@@ -23,7 +23,7 @@
   background: linear-gradient(180deg, #c7b0fb 0%, #7e6aab 100%);
 }
 
-.Item1Container .Content {
+.ItemMainContainer .Content {
   position: relative;
   text-align: right;
 }
@@ -88,31 +88,35 @@
   background: linear-gradient(100deg, #ffdbbe, #FF2574);
 }
 
-/************/
-/** ITEM 2 **/
-/************/
-.Item2Container {
-  padding: 100px 30px;
+/*************************/
+/** ITEM Blocks **********/
+/*************************/
+.ItemBlocksContainer {
+  padding: 130px 30px;
   text-align: center;
+  background-image: url('../images/home/bg_home.png');
+  background-repeat: repeat-x;
+  background-position: center;
+  color: white !important;
 }
 
-.Item2Container .InfoBlock {
+.ItemBlocksContainer .InfoBlock {
   text-align: left;
   padding: 40px;
   color: white;
 }
 
-.Item2Container .InfoBlock .BoxWithButton {
+.ItemBlocksContainer .InfoBlock .BoxWithButton {
   position: relative;
 }
 
-.Item2Container .InfoBlock .BoxWithButton span.MuiTypography-root {
+.ItemBlocksContainer .InfoBlock .BoxWithButton span.MuiTypography-root {
   visibility: visible;
   transition-duration: 400ms;
   transition-property: opacity;
 }
 
-.Item2Container .InfoBlock .BoxWithButton button {
+.ItemBlocksContainer .InfoBlock .BoxWithButton button {
   width: 38px;
   height: 38px;
   opacity: 0;
@@ -124,60 +128,60 @@
   transition-property: opacity;
 }
 
-.Item2Container .InfoBlock .BoxWithButton button svg {
+.ItemBlocksContainer .InfoBlock .BoxWithButton button svg {
   font-size: 24px;
 }
 
-.Item2Container .InfoBlock:hover .BoxWithButton span.MuiTypography-root {
+.ItemBlocksContainer .InfoBlock:hover .BoxWithButton span.MuiTypography-root {
   opacity: 0;
   visibility: hidden;
 }
 
-.Item2Container .InfoBlock:hover .BoxWithButton button {
+.ItemBlocksContainer .InfoBlock:hover .BoxWithButton button {
   visibility: visible;
   opacity: 1;
 }
 
-.Item2Container .InfoBlock.item1 {
+.ItemBlocksContainer .InfoBlock.item1 {
   background: #2D69F0;
 }
 
-.Item2Container .InfoBlock.item2 {
+.ItemBlocksContainer .InfoBlock.item2 {
   background: #DD246E;
 }
 
-.Item2Container .InfoBlock.item3 {
+.ItemBlocksContainer .InfoBlock.item3 {
   background: #8007E6;
 }
 
-.Item2Container .InfoBlock.item4 {
+.ItemBlocksContainer .InfoBlock.item4 {
   background: #0CAE74;
 }
 
-.Item2Container .InfoBlock.item1 .BoxWithButton button svg {
+.ItemBlocksContainer .InfoBlock.item1 .BoxWithButton button svg {
   color: #2D69F0;
 }
 
-.Item2Container .InfoBlock.item2 .BoxWithButton button svg {
+.ItemBlocksContainer .InfoBlock.item2 .BoxWithButton button svg {
   color: #DD246E;
 }
 
-.Item2Container .InfoBlock.item3 .BoxWithButton button svg {
+.ItemBlocksContainer .InfoBlock.item3 .BoxWithButton button svg {
   color: #8007E6;
 }
 
-.Item2Container .InfoBlock.item4 .BoxWithButton button svg {
+.ItemBlocksContainer .InfoBlock.item4 .BoxWithButton button svg {
   color: #0CAE74;
 }
 
-.Item2Container .InfoBlock svg {
+.ItemBlocksContainer .InfoBlock svg {
   font-size: 50px;
 }
 
-/************/
-/** ITEM 3 **/
-/************/
-.Item3Container {
+/*************************/
+/** ITEM Review **********/
+/*************************/
+.ItemReviewContainer {
   background-image: url('../images/home/header-bg-team.jpg');
   position: relative;
   padding: 140px 0;
@@ -186,7 +190,7 @@
   background-position: center;
 }
 
-.Item3Container:after {
+.ItemReviewContainer:after {
   content: "";
   background: #2b4effd6;
   position: absolute;
@@ -196,14 +200,14 @@
   bottom: 0;
 }
 
-.Item3Container .Content {
+.ItemReviewContainer .Content {
   position: relative;
   z-index: 1;
   color: white;
   text-align: center;
 }
 
-.Item3Container .Content .MuiFab-circular {
+.ItemReviewContainer .Content .MuiFab-circular {
   background-color: white !important;
   margin: 10px 15px;
   -webkit-filter: inherit !important;
@@ -211,17 +215,24 @@
   opacity: 1 !important;
 }
 
-.Item3Container .Content .MuiFab-circular svg {
+.ItemReviewContainer .Content .MuiFab-circular svg {
   color: #2b4effd6;
 }
 
-.Item3Container .Content .MuiIconButton-sizeMedium {
+.ItemReviewContainer .Content .MuiIconButton-sizeMedium {
   margin-top: 20px;
 }
 
-/************/
-/** ITEM 4 **/
-/************/
-.Item4Container {
+/*************************/
+/** ITEM AboutMe *********/
+/*************************/
+.ItemAboutMeContainer {
+
+}
+
+/*************************/
+/** ITEM Proud ***********/
+/*************************/
+.ItemProudContainer {
 
 }

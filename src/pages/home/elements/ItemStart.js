@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Container, Stack, Typography} from "@mui/material";
 
-export function Item4(props) {
+export function ItemStart(props) {
     return (
-        <Stack className={'Item4Container'}>
+        <Stack className={'ItemStartContainer'}>
             <Container maxWidth="xl" sx={{
-                height: 800,
+                height: 300,
                 backgroundColor: '#F7F9FB'
             }}>
                 <Typography variant="body1" sx={{
@@ -18,4 +18,4 @@ export function Item4(props) {
     );
 }
 
-Item4.propTypes = {};
+ItemStart.propTypes = {};
