@@ -1,28 +1,18 @@
 import * as React from 'react';
-import {Container, Stack, Typography} from "@mui/material";
+import {Stack} from "@mui/material";
 import {Item1} from "./elements/Item1";
+import {Item2} from "./elements/Item2";
+import {Item3} from "./elements/Item3";
+import {Item4} from "./elements/Item4";
 
 export function HomePage() {
     return (
         <Stack>
             <Item1/>
-
-
-
-
-
-            <Container maxWidth="xl" sx={{
-                height: 800,
-                backgroundColor: '#F7F9FB'
-            }}>
-                <Typography variant="body1" sx={{
-                    padding: 2
-                }}>
-                    Content
-                </Typography>
-            </Container>
+            <Item2/>
+            <Item3/>
+            <Item4/>
         </Stack>
-
     );
 }
 

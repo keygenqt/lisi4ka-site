@@ -88,3 +88,140 @@
   background: linear-gradient(100deg, #ffdbbe, #FF2574);
 }
 
+/************/
+/** ITEM 2 **/
+/************/
+.Item2Container {
+  padding: 100px 30px;
+  text-align: center;
+}
+
+.Item2Container .InfoBlock {
+  text-align: left;
+  padding: 40px;
+  color: white;
+}
+
+.Item2Container .InfoBlock .BoxWithButton {
+  position: relative;
+}
+
+.Item2Container .InfoBlock .BoxWithButton span.MuiTypography-root {
+  visibility: visible;
+  transition-duration: 400ms;
+  transition-property: opacity;
+}
+
+.Item2Container .InfoBlock .BoxWithButton button {
+  width: 38px;
+  height: 38px;
+  opacity: 0;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  visibility: hidden;
+  transition-duration: 400ms;
+  transition-property: opacity;
+}
+
+.Item2Container .InfoBlock .BoxWithButton button svg {
+  font-size: 24px;
+}
+
+.Item2Container .InfoBlock:hover .BoxWithButton span.MuiTypography-root {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.Item2Container .InfoBlock:hover .BoxWithButton button {
+  visibility: visible;
+  opacity: 1;
+}
+
+.Item2Container .InfoBlock.item1 {
+  background: #2D69F0;
+}
+
+.Item2Container .InfoBlock.item2 {
+  background: #DD246E;
+}
+
+.Item2Container .InfoBlock.item3 {
+  background: #8007E6;
+}
+
+.Item2Container .InfoBlock.item4 {
+  background: #0CAE74;
+}
+
+.Item2Container .InfoBlock.item1 .BoxWithButton button svg {
+  color: #2D69F0;
+}
+
+.Item2Container .InfoBlock.item2 .BoxWithButton button svg {
+  color: #DD246E;
+}
+
+.Item2Container .InfoBlock.item3 .BoxWithButton button svg {
+  color: #8007E6;
+}
+
+.Item2Container .InfoBlock.item4 .BoxWithButton button svg {
+  color: #0CAE74;
+}
+
+.Item2Container .InfoBlock svg {
+  font-size: 50px;
+}
+
+/************/
+/** ITEM 3 **/
+/************/
+.Item3Container {
+  background-image: url('../images/home/header-bg-team.jpg');
+  position: relative;
+  padding: 140px 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.Item3Container:after {
+  content: "";
+  background: #2b4effd6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.Item3Container .Content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+}
+
+.Item3Container .Content .MuiFab-circular {
+  background-color: white !important;
+  margin: 10px 15px;
+  -webkit-filter: inherit !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.Item3Container .Content .MuiFab-circular svg {
+  color: #2b4effd6;
+}
+
+.Item3Container .Content .MuiIconButton-sizeMedium {
+  margin-top: 20px;
+}
+
+/************/
+/** ITEM 4 **/
+/************/
+.Item4Container {
+
+}
