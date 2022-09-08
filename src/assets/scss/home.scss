@@ -6,21 +6,45 @@
 /*************************/
 
 .ItemMainContainer {
-  background: #FFEBF4;
+  background: #e5cece;
   width: 100%;
-  padding: 140px 30px;
+  padding: 140px 0;
   position: relative;
   overflow: hidden;
+}
+
+.ItemMainContainer .MuiContainer-root {
+  position: relative;
+}
+
+.ItemMainContainer .TitleMain {
+  color: #4d5d83;
+}
+
+.ItemMainContainer .SubtitleMain {
+  color: #03af72;
+  position: relative;
+}
+
+.ItemMainContainer .SubtitleMain:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 34px;
+  height: 3px;
+  border-radius: 2px;
+  width: 188px;
+  background: #03af72;
 }
 
 .ItemMainContainer:before {
   content: "";
   position: absolute;
-  right: 60px;
+  right: 0;
   top: 0;
   bottom: 0;
-  width: 500px;
-  background: linear-gradient(180deg, #c7b0fb 0%, #7e6aab 100%);
+  width: 50%;
+  background: linear-gradient(180deg, #3e4862 0%, #edacac 100%);
 }
 
 .ItemMainContainer .Content {
@@ -31,11 +55,11 @@
 /** Wave **/
 .Wave {
   position: absolute;
-  right: 300px;
+  right: -120px;
   top: -730px;
   height: 1900px;
   width: 1800px;
-  background: #ffebf4;
+  background: #e5cece;
   border-radius: 30%;
   -webkit-animation: waveSpin 20s linear infinite;
   -moz-animation: waveSpin 20s linear infinite;
@@ -43,14 +67,14 @@
 }
 
 .Wave.item2 {
-  top: -800px;
+  top: -710px;
   height: 1900px;
   width: 1800px;
   opacity: 0.5;
 }
 
 .Wave.item3 {
-  top: -870px;
+  top: -690px;
   height: 1900px;
   width: 1800px;
   opacity: 0.5;
@@ -66,7 +90,7 @@
 .Circle {
   width: 60px;
   height: 60px;
-  background: linear-gradient(60deg, #ffdbbe, #FF2574);
+  background: #03af72;
   border-radius: 50%;
   top: -76px;
   right: 84px;
@@ -78,6 +102,7 @@
   height: 40px;
   right: 25px;
   top: 183px;
+  background: #ff8053;
 }
 
 .Circle.item3 {
@@ -85,7 +110,15 @@
   height: 25px;
   right: 250px;
   top: -3px;
-  background: linear-gradient(100deg, #ffdbbe, #FF2574);
+  background: #c832f9;
+}
+
+.Circle.item4 {
+  width: 36px;
+  height: 36px;
+  right: 551px;
+  top: 121px;
+  background: #51c0ff;
 }
 
 /*************************/
@@ -98,6 +131,22 @@
   background-repeat: repeat-x;
   background-position: center;
   color: white !important;
+  position: relative;
+}
+
+.ItemBlocksContainer:after {
+  content: "";
+  background: #4d5d83db;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.ItemBlocksContainer .MuiContainer-root {
+  position: relative;
+  z-index: 1;
 }
 
 .ItemBlocksContainer .InfoBlock {
@@ -143,35 +192,35 @@
 }
 
 .ItemBlocksContainer .InfoBlock.item1 {
-  background: #2D69F0;
+  background: #337aa3;
 }
 
 .ItemBlocksContainer .InfoBlock.item2 {
-  background: #DD246E;
+  background: #bb6141;
 }
 
 .ItemBlocksContainer .InfoBlock.item3 {
-  background: #8007E6;
+  background: #8621a7;
 }
 
 .ItemBlocksContainer .InfoBlock.item4 {
-  background: #0CAE74;
+  background: #01744b;
 }
 
 .ItemBlocksContainer .InfoBlock.item1 .BoxWithButton button svg {
-  color: #2D69F0;
+  color: #337aa3;
 }
 
 .ItemBlocksContainer .InfoBlock.item2 .BoxWithButton button svg {
-  color: #DD246E;
+  color: #bb6141;
 }
 
 .ItemBlocksContainer .InfoBlock.item3 .BoxWithButton button svg {
-  color: #8007E6;
+  color: #8621a7;
 }
 
 .ItemBlocksContainer .InfoBlock.item4 .BoxWithButton button svg {
-  color: #0CAE74;
+  color: #01744b;
 }
 
 .ItemBlocksContainer .InfoBlock svg {
@@ -184,7 +233,7 @@
 .ItemReviewContainer {
   background-image: url('../images/home/header-bg-team.jpg');
   position: relative;
-  padding: 140px 0;
+  padding: 80px 0;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -192,7 +241,7 @@
 
 .ItemReviewContainer:after {
   content: "";
-  background: #2b4effd6;
+  background: #4d5d83db;
   position: absolute;
   top: 0;
   left: 0;
@@ -227,12 +276,143 @@
 /** ITEM AboutMe *********/
 /*************************/
 .ItemAboutMeContainer {
+  padding: 140px 0;
+  text-align: right;
+}
 
+.ItemAboutMeContainer .title {
+  color: #51c0ff;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1em;
+  letter-spacing: -1px;
+  text-transform: lowercase;
+  position: relative;
+}
+
+.ItemAboutMeContainer .title:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #51c0ff;
+  border-radius: 30%;
+  top: 58px;
+  right: -19px;
+  position: absolute;
+  animation: spin2 5s linear infinite;
+}
+
+@keyframes spin2 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ItemAboutMeContainer .subtitle {
+  color: #515151;
+  font-weight: normal;
 }
 
 /*************************/
 /** ITEM Proud ***********/
 /*************************/
 .ItemProudContainer {
+  padding: 120px 0;
+  text-align: right;
+}
 
+.ItemProudContainer .title {
+  color: #ff8053;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1em;
+  letter-spacing: -1px;
+  text-transform: lowercase;
+  position: relative;
+}
+
+.ItemProudContainer .title:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #ff8053;
+  border-radius: 30%;
+  top: 58px;
+  right: -19px;
+  position: absolute;
+  animation: spin2 5s linear infinite;
+}
+
+.ItemProudContainer .subtitle {
+  color: #515151;
+  font-weight: normal;
+}
+
+.ItemProudContainer .MuiGrid-item .MuiSvgIcon-root {
+  font-size: 36px;
+  stroke-width: 1;
+}
+
+.ItemProudContainer .MuiGrid-item:nth-child(1) .MuiSvgIcon-root {
+  color: #fc4d93;
+}
+
+.ItemProudContainer .MuiGrid-item:nth-child(2) .MuiSvgIcon-root {
+  color: #FF8F21;
+}
+
+.ItemProudContainer .MuiGrid-item:nth-child(3) .MuiSvgIcon-root {
+  color: #14C0DA;
+}
+
+.ItemProudContainer .MuiGrid-item:nth-child(4) .MuiSvgIcon-root {
+  color: #516EFF;
+}
+
+/*************************/
+/** ITEM Start ***********/
+/*************************/
+.ItemStartContainer {
+  padding: 120px 0 180px;
+  text-align: center;
+}
+
+.ItemStartContainer .MuiContainer-root {
+  position: relative;
+}
+
+.ItemStartContainer .MuiGrid-root {
+  text-align: left;
+}
+
+.ItemStartContainer .StartBlock h2 {
+  text-transform: none;
+}
+
+.ItemStartContainer .StartBlock {
+  text-align: left;
+  position: absolute;
+  bottom: -260px;
+  left: 24px;
+  right: 24px;
+  background: #4d5d83;
+  overflow: hidden;
+  color: white;
+  padding: 40px;
+}
+
+.ItemStartContainer .StartBlock .Content {
+  position: relative;
+  z-index: 1;
+}
+
+.ItemStartContainer .StartBlock:after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: -300px;
+  right: -130px;
+  background: #edacac;
+  border-radius: 50%;
 }

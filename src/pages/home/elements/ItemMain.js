@@ -5,12 +5,12 @@ import {ConstantImages} from "../../../base";
 export function ItemMain(props) {
     return (
         <Stack className={'ItemMainContainer'}>
-
-            <div className={'Wave'}/>
-            <div className={'Wave item2'}/>
-            <div className={'Wave item3'}/>
-
             <Container maxWidth={'xl'}>
+
+                <div className={'Wave'}/>
+                <div className={'Wave item2'}/>
+                <div className={'Wave item3'}/>
+
                 <Stack
                     className={'Content'}
                     direction="row"
@@ -22,30 +22,17 @@ export function ItemMain(props) {
                     <div className={'Circle'}/>
                     <div className={'Circle item2'}/>
                     <div className={'Circle item3'}/>
+                    <div className={'Circle item4'}/>
 
                     <Stack spacing={2}>
 
-                        <Typography gutterBottom variant="h1" sx={{
-                            color: '#3d354e'
-                        }}>
+                        <Typography gutterBottom variant="h1" className={'TitleMain'}>
                             Best
                             <br/>
                             teacher
                         </Typography>
 
-                        <Typography gutterBottom variant="h3" sx={{
-                            position: 'relative',
-                            '&:after': {
-                                content: '""',
-                                position: 'absolute',
-                                right: 0,
-                                top: '34px',
-                                height: '3px',
-                                borderRadius: 2,
-                                width: 188,
-                                background: 'linear-gradient(240deg, #ffcda5, #FF2574)',
-                            }
-                        }}>
+                        <Typography className={'SubtitleMain'} variant="h3">
                             Julia
                             Zarubina
                         </Typography>
