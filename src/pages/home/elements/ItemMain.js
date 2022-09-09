@@ -28,7 +28,7 @@ export function ItemMain(props) {
                     <Stack spacing={2}>
 
                         <Typography gutterBottom variant="h1" className={'TitleMain'}>
-                            Best
+                            English
                             <br/>
                             teacher
                         </Typography>

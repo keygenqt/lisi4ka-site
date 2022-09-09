@@ -13,11 +13,12 @@ export function ItemAboutMe(props) {
                     </Typography>
 
                     <Typography variant="body1" className={'subtitle'}>
-                        Hello ! Im Mohamed arafa and i do web design, Graphic Design, User Experiences. habitant morbi
-                        tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
-                        feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
-                        semper. Aenean ultricies mi vitae est. Mauris placerat feugiat vitae, ultricies eget, tempor sit
-                        amet, ante.
+                        Hello! I am an English teacher. I teach at school 666. Just a hell of a teacher. I teach
+                        everyone, I don’t torture anyone. We watch cartoons in class while I sleep. I'm also cool and I
+                        love sweets: 5 candies is a grade of 5. I always dreamed of becoming a teacher so that I
+                        wouldn't have to work. Well, it has become, but you have to work. I made my husband write a
+                        website for me so that the students would study on it themselves. Actually part of this is a
+                        joke.
                     </Typography>
 
                     <Stack

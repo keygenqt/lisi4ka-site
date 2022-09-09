@@ -1,11 +1,9 @@
 import * as React from 'react';
 import {
-    Avatar,
     Button,
     Card,
     CardActions,
     CardContent,
-    CardHeader,
     CardMedia,
     Container,
     Grid,
@@ -14,38 +12,28 @@ import {
     Stack,
     Typography
 } from "@mui/material";
-import {Favorite, MoreVert, Share, Shop} from "@mui/icons-material";
+import {Favorite, Share, Shop} from "@mui/icons-material";
 import {ConstantImages} from "../../../base";
 
 function CardItem(props) {
     return (
         <Card>
-            <CardHeader
-                avatar={
-                    <Avatar sx={{bgcolor: 'red'}} aria-label="recipe">
-                        R
-                    </Avatar>
-                }
-                action={
-                    <IconButton aria-label="settings">
-                        <MoreVert/>
-                    </IconButton>
-                }
-                title="Shrimp and Chorizo Paella"
-                subheader="September 14, 2016"
-            />
             <CardMedia
                 component="img"
                 height="194"
-                image={ConstantImages.home.headerBgTeam}
+                image={props.image}
                 alt="Paella dish"
             />
             <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                    This impressive paella is a perfect party dish and a fun meal to cook
-                    together with your guests. Add 1 cup of frozen peas along with the mussels,
-                    if you like.
-                </Typography>
+                <Stack spacing={2}>
+                    <Typography variant="h5">
+                        {props.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        Here will be the text that Julia will write. I have nothing to do with it, so while I write
+                        something that I can. For example, I was able to write this text for an example.
+                    </Typography>
+                </Stack>
             </CardContent>
             <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
@@ -65,11 +53,11 @@ export function ItemStart(props) {
             <Container maxWidth="lg">
                 <Stack spacing={3}>
                     <Typography gutterBottom variant="h2">
-                        Why An Scholercity Out Of The Ordinary
+                        My experience for teachers
                     </Typography>
 
                     <Typography gutterBottom variant="subtitle2">
-                        You don't have to struggle alone, you've got our assistance and help
+                        My achievements that can help my colleagues in their work
                     </Typography>
                 </Stack>
 
@@ -77,13 +65,22 @@ export function ItemStart(props) {
                     paddingTop: 9
                 }}>
                     <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
-                        <CardItem/>
+                        <CardItem
+                            image={ConstantImages.home.post1}
+                            title={"How to learn words without pain to remember them"}
+                        />
                     </Grid>
                     <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
-                        <CardItem/>
+                        <CardItem
+                            image={ConstantImages.home.post2}
+                            title={"How to sleep in class without students noticing"}
+                        />
                     </Grid>
                     <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
-                        <CardItem/>
+                        <CardItem
+                            image={ConstantImages.home.post3}
+                            title={"Teaching untrained students with the super method"}
+                        />
                     </Grid>
                 </Grid>
 

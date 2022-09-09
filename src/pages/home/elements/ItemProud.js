@@ -18,7 +18,7 @@ export function ItemProud(props) {
                     </Typography>
 
                     <Typography variant="body1" className={'subtitle'}>
-                        You don't have to struggle alone, you've got our assistance and help
+                        You don't have to struggle alone, you've got my assistance and help
                     </Typography>
 
                     <Grid container spacing={0} rowSpacing={3}>
@@ -50,11 +50,11 @@ export function ItemProud(props) {
                                 <Typography variant="h5" sx={{
                                     paddingTop: 1
                                 }}>
-                                    5,298
+                                    1,158
                                 </Typography>
 
                                 <Typography variant="caption">
-                                    Online Learners
+                                    Favorite students
                                 </Typography>
                             </Stack>
                         </Grid>
@@ -69,11 +69,11 @@ export function ItemProud(props) {
                                 <Typography variant="h5" sx={{
                                     paddingTop: 1
                                 }}>
-                                    5,298
+                                    3,829
                                 </Typography>
 
                                 <Typography variant="caption">
-                                    Online Learners
+                                    Painted flowers
                                 </Typography>
                             </Stack>
                         </Grid>

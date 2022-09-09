@@ -14,19 +14,19 @@ export function ItemReview(props) {
             icon: ConstantImages.home.user1,
             name: "Remy Sharp",
             role: "UX Designer",
-            description: "“ Barmy loo sloshed porkiesdo with me down the pub say bubble and squeak. ”"
+            description: "“My first teacher. I'm 56 and still remember those great lessons. Stop though. Who should write a review? And I thought about Olga Petrovna's speech, but who is Julia Zarubina?”"
         },
         {
             icon: ConstantImages.home.user2,
             name: "Travis Howard",
             role: "UX Designer",
-            description: "“ Explore learning tips, career advice. Unlock new opportunities with unlimited access. ”"
+            description: "“I have blue eyes, I'm tall and handsome. There is a cube on the press. I train every day. I like to ride a skateboard and dance different dances. And yes, I learned English, I have already learned a lot of words, I understand when the British swear at me.”"
         },
         {
             icon: ConstantImages.home.user3,
             name: "Cindy Baker",
             role: "UX Designer",
-            description: "“ We’ll then ask you to tell us your current level of English or invite you to take our quick 20 minute placement test so we can make sure you start learning English. ”"
+            description: "“She taught me well. When I arrived in England, the English did not surprise me. I knew they didn't speak our language.”"
         }
     ].map((item, i) => <Stack key={`item-${i}`} spacing={4}>
 
@@ -60,7 +60,6 @@ export function ItemReview(props) {
                         height={isMD ? null : 290}
                         swipe={true}
                         autoPlay={false}
-                        // animation={'slide'}
                         navButtonsAlwaysVisible={true}
                         NavButton={({onClick, className, style, next, prev}) => {
                             return (

@@ -3,9 +3,9 @@ import {Box, Container, Fab, Grid, Paper, Stack, Typography} from "@mui/material
 import {
     ArrowForward,
     Diversity1Outlined,
-    LocalLibraryOutlined,
+    LocalLibraryOutlined, MenuBookOutlined,
     NotificationsOutlined,
-    PlayCircleOutlined
+    PlayCircleOutlined, TranslateOutlined
 } from "@mui/icons-material";
 
 export function ItemBlocks(props) {
@@ -15,11 +15,11 @@ export function ItemBlocks(props) {
 
                 <Stack spacing={3}>
                     <Typography gutterBottom variant="h2">
-                        Why An Scholercity Out Of The Ordinary
+                        What can you learn from this site
                     </Typography>
 
                     <Typography gutterBottom variant="subtitle2">
-                        You don't have to struggle alone, you've got our assistance and help
+                        The site provides convenient tools to help learn English, all for my favorite students
                     </Typography>
                 </Stack>
 
@@ -29,17 +29,17 @@ export function ItemBlocks(props) {
                     <Grid item xl={3} lg={6} md={6} sm={6} xs={12}>
                         <Paper elevation={3} className={'InfoBlock item1'}>
                             <Stack spacing={3}>
-                                <LocalLibraryOutlined/>
+                                <TranslateOutlined/>
 
                                 <Typography gutterBottom variant="h5">
-                                    4,000
+                                    9,000 words
                                     <br/>
-                                    Online courses
+                                    for learning
                                 </Typography>
 
                                 <Box className={'BoxWithButton'}>
                                     <Typography gutterBottom variant="caption">
-                                        Arse over tit morish wind up gormless butty.!
+                                        Learn English words in a convenient format
                                     </Typography>
 
                                     <Fab>
@@ -56,14 +56,14 @@ export function ItemBlocks(props) {
                                 <NotificationsOutlined/>
 
                                 <Typography gutterBottom variant="h5">
-                                    Job placement
+                                    Weekly
                                     <br/>
-                                    Support
+                                    detailed reviews
                                 </Typography>
 
                                 <Box className={'BoxWithButton'}>
                                     <Typography gutterBottom variant="caption">
-                                        Arse over tit morish wind up gormless butty.!
+                                        Read weekly my posts and learn English
                                     </Typography>
 
                                     <Fab>
@@ -79,14 +79,14 @@ export function ItemBlocks(props) {
                                 <PlayCircleOutlined/>
 
                                 <Typography gutterBottom variant="h5">
-                                    Lifetime Slack
+                                    Video
                                     <br/>
-                                    chat support
+                                    text detailing
                                 </Typography>
 
                                 <Box className={'BoxWithButton'}>
                                     <Typography gutterBottom variant="caption">
-                                        Arse over tit morish wind up gormless butty.!
+                                        Possibility to watch a video detailing text sentences
                                     </Typography>
 
                                     <Fab>
@@ -99,17 +99,17 @@ export function ItemBlocks(props) {
                     <Grid item xl={3} lg={6} md={6} sm={6} xs={12}>
                         <Paper elevation={3} className={'InfoBlock item4'}>
                             <Stack spacing={3}>
-                                <Diversity1Outlined/>
+                                <MenuBookOutlined/>
 
                                 <Typography gutterBottom variant="h5">
-                                    Research
+                                    Books with
                                     <br/>
-                                    and Innovation
+                                    native voice
                                 </Typography>
 
                                 <Box className={'BoxWithButton'}>
                                     <Typography gutterBottom variant="caption">
-                                        Arse over tit morish wind up gormless butty.!
+                                        Read books and listen to how the native reads
                                     </Typography>
 
                                     <Fab>
