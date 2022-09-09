@@ -23,7 +23,7 @@ export function ItemProud(props) {
 
                     <Grid container spacing={0} rowSpacing={3}>
 
-                        <Grid item xl={3} lg={6} md={6} sm={6} xs={12}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={6}>
                             <Stack spacing={1}>
                                 <Box className={'SvgIcon'}>
                                     <AccessTimeOutlined/>
@@ -41,7 +41,7 @@ export function ItemProud(props) {
                             </Stack>
                         </Grid>
 
-                        <Grid item xl={3} lg={6} md={6} sm={6} xs={12}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={6}>
                             <Stack spacing={1}>
                                 <Box className={'SvgIcon'}>
                                     <Diversity1Outlined/>
@@ -59,7 +59,7 @@ export function ItemProud(props) {
                             </Stack>
                         </Grid>
 
-                        <Grid item xl={3} lg={6} md={6} sm={6} xs={12}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={6}>
                             <Stack spacing={1}>
 
                                 <Box className={'SvgIcon'}>
@@ -78,7 +78,7 @@ export function ItemProud(props) {
                             </Stack>
                         </Grid>
 
-                        <Grid item xl={3} lg={6} md={6} sm={6} xs={12}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={6}>
                             <Stack spacing={1}>
                                 <Box className={'SvgIcon'}>
                                     <MonitorHeartOutlined/>

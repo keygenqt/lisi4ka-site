@@ -56,7 +56,9 @@ export function ItemBlocks(props) {
                                 <NotificationsOutlined/>
 
                                 <Typography gutterBottom variant="h5">
-                                    Job placement Support
+                                    Job placement
+                                    <br/>
+                                    Support
                                 </Typography>
 
                                 <Box className={'BoxWithButton'}>
@@ -77,8 +79,9 @@ export function ItemBlocks(props) {
                                 <PlayCircleOutlined/>
 
                                 <Typography gutterBottom variant="h5">
-                                    Lifetime
-                                    Slack chat support
+                                    Lifetime Slack
+                                    <br/>
+                                    chat support
                                 </Typography>
 
                                 <Box className={'BoxWithButton'}>

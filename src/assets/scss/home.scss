@@ -17,12 +17,113 @@
   position: relative;
 }
 
+@media (max-width: 2030px) {
+  .ItemMainContainer .MuiContainer-root {
+    max-width: 1300px;
+  }
+}
+
+@media (max-width: 1750px) {
+  .ItemMainContainer .MuiContainer-root {
+    max-width: 1100px;
+  }
+  .ItemMainContainer .TitleMain {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 1550px) {
+  .ItemMainContainer .MuiContainer-root {
+    max-width: 900px;
+  }
+  .ItemMainContainer {
+    padding: 100px 0;
+  }
+  .ItemMainContainer .MuiContainer-root .Content {
+    display: block;
+    text-align: left;
+  }
+  .ItemMainContainer .MuiContainer-root .Content img {
+    margin-top: 60px;
+  }
+  .ItemMainContainer .SubtitleMain:after {
+    left: 0;
+    right: unset;
+  }
+  .ItemMainContainer .MuiContainer-root .Content .Circle {
+    right: auto;
+    left: 300px;
+    top: -40px;
+  }
+  .ItemMainContainer .MuiContainer-root .Content .Circle.item2 {
+    right: auto;
+    left: 440px;
+    top: 240px;
+  }
+  .ItemMainContainer .MuiContainer-root .Content .Circle.item3 {
+    right: auto;
+    left: 567px;
+    top: 100px;
+  }
+  .ItemMainContainer .MuiContainer-root .Content .Circle.item4 {
+    right: auto;
+    left: 540px;
+    top: 500px;
+  }
+}
+
+@media (max-width: 1330px) {
+  .Wave {
+    display: none;
+  }
+  .ItemMainContainer:before {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .ItemMainContainer .Content .TitleMain {
+    font-size: 50px;
+  }
+  .ItemMainContainer .Content .SubtitleMain {
+    font-size: 15px;
+  }
+  .ItemMainContainer .Content .SubtitleMain:after {
+    top: 25px;
+    height: 1px;
+    width: 119px;
+  }
+  .ItemMainContainer .Content img {
+    width: 100%;
+    margin: 0;
+  }
+  .ItemMainContainer .MuiContainer-root .Content .Circle {
+    left: 204px;
+    top: -60px;
+  }
+  .ItemMainContainer .MuiContainer-root .Content .Circle.item2 {
+    left: auto;
+    top: 167px;
+    right: 83px;
+  }
+  .ItemMainContainer .MuiContainer-root .Content .Circle.item3 {
+    left: 0;
+    top: 241px;
+  }
+  .ItemMainContainer .MuiContainer-root .Content .Circle.item4 {
+    right: 32px;
+    left: auto;
+    top: auto;
+    bottom: 10px;
+  }
+}
+
 .ItemMainContainer .TitleMain {
   color: #4d5d83;
 }
 
 .ItemMainContainer .SubtitleMain {
-  color: #03af72;
+  color: #8d6262;
   position: relative;
 }
 
@@ -34,7 +135,7 @@
   height: 3px;
   border-radius: 2px;
   width: 188px;
-  background: #03af72;
+  background: #8d6262;
 }
 
 .ItemMainContainer:before {
@@ -55,7 +156,7 @@
 /** Wave **/
 .Wave {
   position: absolute;
-  right: -120px;
+  right: -20px;
   top: -730px;
   height: 1900px;
   width: 1800px;
@@ -125,7 +226,7 @@
 /** ITEM Blocks **********/
 /*************************/
 .ItemBlocksContainer {
-  padding: 130px 30px;
+  padding: 130px 0;
   text-align: center;
   background-image: url('../images/home/bg_home.png');
   background-repeat: repeat-x;
@@ -227,6 +328,12 @@
   font-size: 50px;
 }
 
+@media (max-width: 700px) {
+  .ItemBlocksContainer {
+    padding: 80px 0;
+  }
+}
+
 /*************************/
 /** ITEM Review **********/
 /*************************/
@@ -272,6 +379,22 @@
   margin-top: 20px;
 }
 
+.ItemReviewContainer .MuiGrid-root {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .ItemReviewContainer .MuiGrid-root > div {
+    padding: 0;
+  }
+  .ItemReviewContainer .MuiGrid-root > div:first-child {
+    display: none;
+  }
+  .ItemReviewContainer .MuiGrid-root > div:last-child {
+    display: none;
+  }
+}
+
 /*************************/
 /** ITEM AboutMe *********/
 /*************************/
@@ -311,6 +434,36 @@
 .ItemAboutMeContainer .subtitle {
   color: #515151;
   font-weight: normal;
+}
+
+@media (max-width: 1000px) {
+  .ItemAboutMeContainer {
+    padding: 90px 0;
+  }
+  .ItemAboutMeContainer .title {
+    width: calc(100% - 18px);
+  }
+}
+
+@media (max-width: 600px) {
+  .ItemAboutMeContainer {
+    padding: 60px 0;
+  }
+  .ItemAboutMeContainer h1.title {
+    font-size: 60px;
+  }
+  .ItemAboutMeContainer .title:before {
+    top: 41px;
+  }
+}
+
+@media (max-width: 400px) {
+  .ItemAboutMeContainer img {
+    display: none;
+  }
+  .ItemAboutMeContainer .SignatureBlock {
+    justify-content: end;
+  }
 }
 
 /*************************/
@@ -369,6 +522,33 @@
   color: #516EFF;
 }
 
+@media (max-width: 1000px) {
+  .ItemProudContainer {
+    padding: 90px 0;
+  }
+  .ItemProudContainer .title {
+    width: calc(100% - 18px);
+  }
+}
+
+@media (max-width: 600px) {
+  .ItemProudContainer {
+    padding: 60px 0;
+  }
+  .ItemProudContainer h1.title {
+    font-size: 60px;
+  }
+  .ItemProudContainer .title:after {
+    top: 41px;
+  }
+}
+
+@media (max-width: 375px) {
+  .ItemProudContainer .title:after {
+    top: 101px;
+  }
+}
+
 /*************************/
 /** ITEM Start ***********/
 /*************************/
@@ -415,4 +595,51 @@
   right: -130px;
   background: #edacac;
   border-radius: 50%;
+}
+
+@media (max-width: 1000px) {
+  .ItemStartContainer {
+    padding: 90px 0 110px;
+    text-align: center;
+  }
+  .ItemStartContainer .StartBlock {
+    bottom: -174px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ItemStartContainer {
+    padding: 60px 0 110px;
+    text-align: center;
+  }
+  .ItemStartContainer .StartBlock {
+    bottom: -174px;
+  }
+}
+
+@media (max-width: 500px) {
+  .ItemStartContainer {
+    padding: 60px 0 90px;
+    text-align: center;
+  }
+  .ItemStartContainer .StartBlock {
+    padding: 20px;
+    bottom: -135px;
+  }
+}
+
+@media (max-width: 450px) {
+  .ItemStartContainer {
+    padding: 60px 0 110px;
+  }
+  .ItemStartContainer .StartBlock .Content {
+    display: block;
+  }
+  .ItemStartContainer .StartBlock {
+    bottom: -186px;
+  }
+  .ItemStartContainer .StartBlock .Content button {
+    margin: 20px 0 0;
+    float: right;
+  }
 }

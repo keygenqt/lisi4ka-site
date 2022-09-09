@@ -1,10 +1,13 @@
 import * as React from 'react';
-import {Avatar, Box, Container, Fab, Grid, Stack, Typography} from "@mui/material";
+import {Avatar, Box, Container, Fab, Grid, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
 import Carousel from 'react-material-ui-carousel'
 import {ConstantImages} from "../../../base";
 import {ArrowLeft, ArrowRight} from "@mui/icons-material";
 
 export function ItemReview(props) {
+
+    const theme = useTheme()
+    const isMD = useMediaQuery(theme.breakpoints.down('md'));
 
     let items = [
         {
@@ -34,13 +37,13 @@ export function ItemReview(props) {
         />
 
         <Grid container spacing={3} rowSpacing={3}>
-            <Grid item xl={3} lg={3} md={3} sm={3} xs={3}/>
-            <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
+            <Grid item xl={2} lg={2} md={2} sm={1} xs={0}/>
+            <Grid item xl={8} lg={8} md={8} sm={10} xs={12}>
                 <Typography gutterBottom variant="h5">
                     {item.description}
                 </Typography>
             </Grid>
-            <Grid item xl={3} lg={3} md={3} sm={3} xs={3}/>
+            <Grid item xl={2} lg={2} md={2} sm={1} xs={0}/>
         </Grid>
 
         <Typography gutterBottom variant="subtitle2">
@@ -54,7 +57,7 @@ export function ItemReview(props) {
             <Box className={'Content'}>
                 <Container maxWidth={'lg'}>
                     <Carousel
-                        height={290}
+                        height={isMD ? null : 290}
                         swipe={true}
                         autoPlay={false}
                         // animation={'slide'}

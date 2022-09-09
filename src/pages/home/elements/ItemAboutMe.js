@@ -21,6 +21,7 @@ export function ItemAboutMe(props) {
                     </Typography>
 
                     <Stack
+                        className={'SignatureBlock'}
                         direction={'row'}
                         spacing={3}
                         justifyContent='space-between'

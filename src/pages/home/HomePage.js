@@ -12,15 +12,15 @@ export function HomePage() {
         <Stack>
             {/*main*/}
             <ItemMain/>
-            {/*about me*/}
+            {/*/!*about me*!/*/}
             <ItemAboutMe/>
-            {/*blocks*/}
+            {/*/!*blocks*!/*/}
             <ItemBlocks/>
-            {/*proud*/}
+            {/*/!*proud*!/*/}
             <ItemProud/>
-            {/*reviews*/}
+            {/*/!*reviews*!/*/}
             <ItemReview/>
-            {/*start*/}
+            {/*/!*start*!/*/}
             <ItemStart/>
         </Stack>
     );

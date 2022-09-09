@@ -76,13 +76,13 @@ export function ItemStart(props) {
                 <Grid container spacing={3} rowSpacing={3} sx={{
                     paddingTop: 9
                 }}>
-                    <Grid item xl={4} lg={6} md={6} sm={6} xs={12}>
+                    <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
                         <CardItem/>
                     </Grid>
-                    <Grid item xl={4} lg={6} md={6} sm={6} xs={12}>
+                    <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
                         <CardItem/>
                     </Grid>
-                    <Grid item xl={4} lg={6} md={6} sm={6} xs={12}>
+                    <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
                         <CardItem/>
                     </Grid>
                 </Grid>
