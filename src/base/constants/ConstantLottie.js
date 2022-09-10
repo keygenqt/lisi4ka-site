@@ -1,5 +1,4 @@
 /**
  * Apps constants lottie json
  */
-export const ConstantLottie = {
-};
+export const ConstantLottie = {};

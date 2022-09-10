@@ -15,6 +15,39 @@ body, html, #root {
   overflow: hidden;
 }
 
+a {
+  color: #4d5d83;
+  text-decoration: none;
+  opacity: 0.8;
+  transition-duration: 200ms;
+  transition-property: opacity;
+}
+
+a:hover {
+  opacity: 1;
+}
+
+/** Link **/
+.Link {
+  background: transparent;
+  color: #4d5d83;
+  text-decoration: none;
+  opacity: 0.8;
+  transition-duration: 200ms;
+  transition-property: opacity;
+  border: none;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+
+.Link:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
 /** TABLE **/
 .AppTable {
   display: table;
@@ -61,6 +94,14 @@ footer.AppTableCell hr {
   border-color: #ffffff54;
 }
 
+footer.AppTableCell a {
+  color: white;
+}
+
+footer.AppTableCell .Link {
+  color: white;
+}
+
 footer.AppTableCell .Copyright {
   color: #ffffff54;
 }
@@ -105,7 +146,106 @@ footer.AppTableCell .CardFooter .MuiCardHeader-subheader {
   box-shadow: rgb(0 0 0 / 20%) 0 2px 4px -1px, rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
 }
 
+.TopBarMenuElement .MenuCollapseMD {
+  position: absolute;
+  top: 87px;
+  left: 0;
+  right: 0;
+  box-shadow: rgb(0 0 0 / 20%) 0 2px 4px -1px, rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
+}
+
+.TopBarMenuElement .MenuListMD {
+  color: #4d5d83;
+}
+
+.TopBarMenuElement .MenuListMD svg {
+  color: #4d5d83;
+}
+
+.TopBarMenuElement .Logo {
+  color: white;
+  text-decoration: none;
+  opacity: 0.8;
+  transition-duration: 200ms;
+  transition-property: opacity;
+  position: relative;
+  top: 2px
+}
+
+.TopBarMenuElement .LogoBlock button {
+  color: #fff;
+  background-color: #4d5d83;
+  border: 1px solid #fff;
+  padding: 5px 8px;
+  min-width: 46px;
+  opacity: 0.8;
+  transition-duration: 200ms;
+  transition-property: opacity;
+}
+
+.TopBarMenuElement .LogoBlock button.Mui-disabled {
+  color: #fff;
+  background-color: #4d5d83;
+  border: 1px solid #fff;
+}
+
+.TopBarMenuElement .LogoBlock button:hover {
+  opacity: 1;
+}
+
+.TopBarMenuElement .Logo:hover {
+  color: white;
+  opacity: 1;
+}
+
 .TopBarMenuElement .MuiContainer-root {
   padding-top: 25px;
   padding-bottom: 25px;
+}
+
+.TopBarMenuElement .MenuButtons button {
+  color: white;
+  background-color: transparent;
+  opacity: 0.8;
+  transition-duration: 200ms;
+  transition-property: opacity;
+}
+
+.TopBarMenuElement .MenuButtons button.MuiButton-outlined {
+  border: 1px solid white;
+}
+
+.TopBarMenuElement .MenuButtons button:hover {
+  opacity: 1;
+}
+
+.MuiPaper-root .MenuPopper {
+  padding: 10px 16px;
+  margin-top: 5px;
+}
+
+.MuiPaper-root .MenuPopper button .MuiButton-startIcon {
+  margin-right: 16px
+}
+
+.MuiPaper-root .MenuPopper button {
+  color: #4d5d83;
+  padding: 5px 16px;
+}
+
+.MuiPaper-root .MenuPopper button:hover {
+  background-color: #4d5d8314;
+}
+
+@media (min-width: 600px) {
+  .TopBarMenuElement .MenuButtonMD {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .TopBarMenuElement .Logo,
+  .TopBarMenuElement .MenuButtonsXL {
+    display: none;
+  }
 }

@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import {Email, LinkedIn, Telegram} from "@mui/icons-material";
 import {ConstantImages} from "../../../base";
+import {Link} from "react-router-dom";
 
 export function FooterElement(props) {
     return (
@@ -37,11 +38,21 @@ export function FooterElement(props) {
                                 </Typography>
 
                                 <Typography variant="body1">
-                                    Email: iguru@mail.com
+                                    Email:
+                                    <button className={'Link'} type="button" onClick={() => {
+
+                                    }}>
+                                        lisi4ka@mail.com
+                                    </button>
                                 </Typography>
 
                                 <Typography variant="body1">
-                                    Phone: 507-452-1254
+                                    Phone:
+                                    <button className={'Link'} type="button" onClick={() => {
+
+                                    }}>
+                                        234-777-8888
+                                    </button>
                                 </Typography>
 
                                 <ButtonGroup color="white6" size="small" aria-label="small button group">
@@ -72,28 +83,33 @@ export function FooterElement(props) {
                                     Platform
                                 </Typography>
 
-                                <Stack spacing={1}>
-                                    <Typography variant="body1">
-                                        Words
-                                    </Typography>
-
-                                    <Typography variant="body1">
-                                        Reviews
-                                    </Typography>
-
-                                    <Typography variant="body1">
-                                        Video detailing
-                                    </Typography>
-
-                                    <Typography variant="body1">
-                                        Books
-                                    </Typography>
-
-                                    <Typography variant="body1">
-                                        Blog
-                                    </Typography>
+                                <Stack spacing={1} className={'Links'}>
+                                    <Link to="/">
+                                        <Typography variant="body1">
+                                            Blog
+                                        </Typography>
+                                    </Link>
+                                    <Link to="/">
+                                        <Typography variant="body1">
+                                            Reviews
+                                        </Typography>
+                                    </Link>
+                                    <Link to="/">
+                                        <Typography variant="body1">
+                                            Words
+                                        </Typography>
+                                    </Link>
+                                    <Link to="/">
+                                        <Typography variant="body1">
+                                            Video detailing
+                                        </Typography>
+                                    </Link>
+                                    <Link to="/">
+                                        <Typography variant="body1">
+                                            Books
+                                        </Typography>
+                                    </Link>
                                 </Stack>
-
                             </Stack>
 
                         </Grid>
