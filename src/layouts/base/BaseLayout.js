@@ -1,19 +1,15 @@
 import * as React from 'react';
 import PropTypes from "prop-types";
-import {Box, Container, Stack, Typography} from "@mui/material";
+import {Stack} from "@mui/material";
+import {FooterElement} from "./elements/FooterElement";
+import {TopBarMenuElement} from "./elements/TopBarMenuElement";
 
 export function BaseLayout(props) {
     return (
         <div className={"AppTable"}>
             <div className={"AppTableRow"}>
                 <header className={"AppTableCell"}>
-                    <Box className={"Menu"}>
-                        <Container maxWidth="xl">
-                            <Typography variant="h5">
-                                @lisi4ka
-                            </Typography>
-                        </Container>
-                    </Box>
+                    <TopBarMenuElement/>
                 </header>
             </div>
             <div className={"AppTableRow"}>
@@ -27,13 +23,7 @@ export function BaseLayout(props) {
             </div>
             <div className={"AppTableRow"}>
                 <footer className={"AppTableCell"}>
-                    <Container maxWidth="xl">
-                        <Typography variant="body1" sx={{
-                            padding: 2
-                        }}>
-                            FOOTER
-                        </Typography>
-                    </Container>
+                    <FooterElement/>
                 </footer>
             </div>
         </div>

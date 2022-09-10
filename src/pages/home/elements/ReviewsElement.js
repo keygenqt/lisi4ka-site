@@ -4,7 +4,7 @@ import Carousel from 'react-material-ui-carousel'
 import {ConstantImages} from "../../../base";
 import {ArrowLeft, ArrowRight} from "@mui/icons-material";
 
-export function ItemReview(props) {
+export function ReviewsElement(props) {
 
     const theme = useTheme()
     const isMD = useMediaQuery(theme.breakpoints.down('md'));
@@ -78,4 +78,4 @@ export function ItemReview(props) {
     );
 }
 
-ItemReview.propTypes = {};
+ReviewsElement.propTypes = {};

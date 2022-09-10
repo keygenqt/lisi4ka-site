@@ -1,5 +1,5 @@
 import {Route} from "react-router-dom";
-import {BaseLayout} from "../../layouts/BaseLayout";
+import {BaseLayout} from "../../layouts/base/BaseLayout";
 import {HomePage} from "../../pages";
 import * as React from "react";
 

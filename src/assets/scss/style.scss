@@ -51,12 +51,48 @@ main.AppTableCell {
 
 footer.AppTableCell {
   background: #3e4862;
-  height: 500px;
   color: white;
+  padding-top: 130px;
+  padding-bottom: 22px;
+}
+
+footer.AppTableCell hr {
+  padding-top: 30px;
+  border-color: #ffffff54;
+}
+
+footer.AppTableCell .Copyright {
+  color: #ffffff54;
+}
+
+footer.AppTableCell .MuiCardHeader-content {
+  width: calc(100% - 55px);
+}
+
+footer.AppTableCell .CardFooter .MuiCardHeader-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+footer.AppTableCell .CardFooter .MuiCardHeader-subheader {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  footer.AppTableCell .CardFooter .MuiCardHeader-title {
+    white-space: normal;
+  }
+
+  footer.AppTableCell .CardFooter .MuiCardHeader-subheader {
+    white-space: normal;
+  }
 }
 
 /** Menu **/
-.Menu {
+.TopBarMenuElement {
   height: 100%;
   color: white;
   z-index: 1;
@@ -65,6 +101,7 @@ footer.AppTableCell {
   box-shadow: rgb(0 0 0 / 20%) 0 2px 4px -1px, rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
 }
 
-.Menu .MuiContainer-root {
-  padding: 25px 0;
+.TopBarMenuElement .MuiContainer-root {
+  padding-top: 25px;
+  padding-bottom: 25px;
 }

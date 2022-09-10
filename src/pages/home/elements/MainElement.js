@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Container, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
+import {Container, Stack, Typography} from "@mui/material";
 import {ConstantImages} from "../../../base";
 
-export function ItemMain(props) {
+export function MainElement(props) {
 
     return (
         <Stack className={'ItemMainContainer'}>
@@ -49,4 +49,4 @@ export function ItemMain(props) {
     );
 }
 
-ItemMain.propTypes = {};
+MainElement.propTypes = {};

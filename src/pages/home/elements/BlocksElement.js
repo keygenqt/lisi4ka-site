@@ -8,7 +8,7 @@ import {
     PlayCircleOutlined, TranslateOutlined
 } from "@mui/icons-material";
 
-export function ItemBlocks(props) {
+export function BlocksElement(props) {
     return (
         <Box className={'ItemBlocksContainer'}>
             <Container  maxWidth={'lg'}>
@@ -126,4 +126,4 @@ export function ItemBlocks(props) {
     );
 }
 
-ItemBlocks.propTypes = {};
+BlocksElement.propTypes = {};

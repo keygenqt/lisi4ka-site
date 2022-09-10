@@ -3,7 +3,7 @@ import {ScrollToTop} from "../../components";
 import {Route, Routes} from "react-router-dom";
 import {RouteType} from "./RouteType";
 import {ErrorPage} from "../../pages";
-import {BaseLayout} from "../../layouts/BaseLayout";
+import {BaseLayout} from "../../layouts/base/BaseLayout";
 
 export default class RouteCore {
 

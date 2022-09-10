@@ -99,16 +99,16 @@ export function ItemStart(props) {
                         </Typography>
 
                         <Button variant="outlined" size="large" startIcon={<Shop/>} sx={{
-                            color: 'white',
-                            border: '1px solid white',
+                            color: '#3e4862',
+                            border: '1px solid #3e4862',
                             backgroundColor: 'transparent',
                             opacity: 0.8,
                             transitionDuration: '200ms',
                             transitionProperty: 'opacity',
                             '&:hover': {
                                 opacity: 1,
-                                color: 'white',
-                                border: '1px solid white',
+                                color: '#3e4862',
+                                border: '1px solid #3e4862',
                                 backgroundColor: 'transparent',
                             },
                         }}>

@@ -3,7 +3,7 @@ import {Button, Container, Stack, Typography} from "@mui/material";
 import {ConstantImages} from "../../../base";
 import {FileDownload} from "@mui/icons-material";
 
-export function ItemAboutMe(props) {
+export function AboutMeElement(props) {
     return (
         <Stack className={'ItemAboutMeContainer'}>
             <Container maxWidth={'md'}>
@@ -46,4 +46,4 @@ export function ItemAboutMe(props) {
     );
 }
 
-ItemAboutMe.propTypes = {};
+AboutMeElement.propTypes = {};

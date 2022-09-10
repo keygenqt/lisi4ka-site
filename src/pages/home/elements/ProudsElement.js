@@ -8,7 +8,7 @@ import {
     MonitorHeartOutlined
 } from "@mui/icons-material";
 
-export function ItemProud(props) {
+export function ProudsElement(props) {
     return (
         <Stack className={'ItemProudContainer'}>
             <Container maxWidth={'md'}>
@@ -102,4 +102,4 @@ export function ItemProud(props) {
     );
 }
 
-ItemProud.propTypes = {};
+ProudsElement.propTypes = {};

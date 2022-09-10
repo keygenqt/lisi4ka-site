@@ -1,25 +1,25 @@
 import * as React from 'react';
 import {Stack} from "@mui/material";
-import {ItemMain} from "./elements/ItemMain";
-import {ItemAboutMe} from "./elements/ItemAboutMe";
-import {ItemBlocks} from "./elements/ItemBlocks";
-import {ItemProud} from "./elements/ItemProud";
-import {ItemReview} from "./elements/ItemReview";
+import {MainElement} from "./elements/MainElement";
+import {AboutMeElement} from "./elements/AboutMeElement";
+import {BlocksElement} from "./elements/BlocksElement";
+import {ProudsElement} from "./elements/ProudsElement";
+import {ReviewsElement} from "./elements/ReviewsElement";
 import {ItemStart} from "./elements/ItemStart";
 
 export function HomePage() {
     return (
         <Stack>
             {/*main*/}
-            <ItemMain/>
+            <MainElement/>
             {/*/!*about me*!/*/}
-            <ItemAboutMe/>
+            <AboutMeElement/>
             {/*/!*blocks*!/*/}
-            <ItemBlocks/>
+            <BlocksElement/>
             {/*/!*proud*!/*/}
-            <ItemProud/>
+            <ProudsElement/>
             {/*/!*reviews*!/*/}
-            <ItemReview/>
+            <ReviewsElement/>
             {/*/!*start*!/*/}
             <ItemStart/>
         </Stack>
