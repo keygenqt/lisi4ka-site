@@ -52,12 +52,12 @@ main.AppTableCell {
 footer.AppTableCell {
   background: #3e4862;
   color: white;
-  padding-top: 130px;
+  padding-top: 150px;
   padding-bottom: 22px;
 }
 
 footer.AppTableCell hr {
-  padding-top: 30px;
+  padding-top: 50px;
   border-color: #ffffff54;
 }
 
@@ -65,8 +65,12 @@ footer.AppTableCell .Copyright {
   color: #ffffff54;
 }
 
+footer.AppTableCell .MuiCardHeader-root {
+  padding-right: 20px;
+}
+
 footer.AppTableCell .MuiCardHeader-content {
-  width: calc(100% - 55px);
+  width: calc(100% - 56px)
 }
 
 footer.AppTableCell .CardFooter .MuiCardHeader-title {
