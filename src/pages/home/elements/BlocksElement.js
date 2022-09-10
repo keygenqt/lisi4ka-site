@@ -2,16 +2,16 @@ import * as React from 'react';
 import {Box, Container, Fab, Grid, Paper, Stack, Typography} from "@mui/material";
 import {
     ArrowForward,
-    Diversity1Outlined,
-    LocalLibraryOutlined, MenuBookOutlined,
+    MenuBookOutlined,
     NotificationsOutlined,
-    PlayCircleOutlined, TranslateOutlined
+    PlayCircleOutlined,
+    TranslateOutlined
 } from "@mui/icons-material";
 
 export function BlocksElement(props) {
     return (
         <Box className={'ItemBlocksContainer'}>
-            <Container  maxWidth={'lg'}>
+            <Container maxWidth={'lg'}>
 
                 <Stack spacing={3}>
                     <Typography gutterBottom variant="h2">

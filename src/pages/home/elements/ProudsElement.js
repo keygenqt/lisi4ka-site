@@ -1,12 +1,6 @@
 import * as React from 'react';
 import {Box, Container, Grid, Stack, Typography} from "@mui/material";
-import {
-    AccessTimeOutlined,
-    Diversity1Outlined,
-    LocalFloristOutlined,
-    LocalLibraryOutlined,
-    MonitorHeartOutlined
-} from "@mui/icons-material";
+import {AccessTimeOutlined, Diversity1Outlined, LocalFloristOutlined, MonitorHeartOutlined} from "@mui/icons-material";
 
 export function ProudsElement(props) {
     return (

@@ -39,6 +39,7 @@ export function MainElement(props) {
                         </Typography>
                     </Stack>
 
+                    {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                     <img style={{
                         maxWidth: 600
                     }} src={ConstantImages.home.photo} alt={'Photo'}/>
