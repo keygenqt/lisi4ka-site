@@ -58,7 +58,7 @@ export function ReviewsElement(props) {
                 <Container maxWidth={'lg'}>
                     <Carousel
                         height={isMD ? null : 290}
-                        swipe={true}
+                        swipe={false}
                         autoPlay={false}
                         navButtonsAlwaysVisible={true}
                         NavButton={({onClick, className, style, next, prev}) => {
