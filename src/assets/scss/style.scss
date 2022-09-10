@@ -136,6 +136,15 @@ footer.AppTableCell .CardFooter .MuiCardHeader-subheader {
   }
 }
 
+@media (max-width: 600px) {
+  footer.AppTableCell {
+    padding-top: 105px;
+  }
+  footer.AppTableCell hr {
+    padding-top: 24px;
+  }
+}
+
 /** Menu **/
 .TopBarMenuElement {
   height: 100%;

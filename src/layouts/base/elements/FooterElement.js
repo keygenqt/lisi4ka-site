@@ -10,13 +10,19 @@ import {
     Divider,
     Grid,
     Stack,
-    Typography
+    Typography,
+    useMediaQuery,
+    useTheme
 } from "@mui/material";
 import {Email, LinkedIn, Telegram} from "@mui/icons-material";
 import {ConstantImages} from "../../../base";
 import {Link} from "react-router-dom";
 
 export function FooterElement(props) {
+
+    const theme = useTheme()
+    const isSM = useMediaQuery(theme.breakpoints.down('sm'));
+
     return (
         <Stack className={'FooterElement'}>
             <Container maxWidth="lg">
@@ -76,83 +82,88 @@ export function FooterElement(props) {
                             </Stack>
                         </Grid>
 
-                        <Grid item xl={3} lg={3} md={3} sm={4} xs={12}>
-                            <Stack spacing={2}>
-
-                                <Typography variant="h6">
-                                    Platform
-                                </Typography>
-
-                                <Stack spacing={1} className={'Links'}>
-                                    <Link to="/">
-                                        <Typography variant="body1">
-                                            Blog
-                                        </Typography>
-                                    </Link>
-                                    <Link to="/">
-                                        <Typography variant="body1">
-                                            Reviews
-                                        </Typography>
-                                    </Link>
-                                    <Link to="/">
-                                        <Typography variant="body1">
-                                            Words
-                                        </Typography>
-                                    </Link>
-                                    <Link to="/">
-                                        <Typography variant="body1">
-                                            Video detailing
-                                        </Typography>
-                                    </Link>
-                                    <Link to="/">
-                                        <Typography variant="body1">
-                                            Books
-                                        </Typography>
-                                    </Link>
-                                </Stack>
-                            </Stack>
-
-                        </Grid>
-                        <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
-                            <Stack spacing={2}>
-
-                                <Typography variant="h6">
-                                    Recent Post
-                                </Typography>
-
+                        {isSM ? null : (
+                            <Grid item xl={3} lg={3} md={3} sm={4} xs={12}>
                                 <Stack spacing={2}>
-                                    <Card className={'CardFooter'}>
-                                        <CardActionArea>
-                                            <CardHeader
-                                                avatar={
-                                                    <Avatar aria-label="recipe" src={ConstantImages.home.post1}>
-                                                        R
-                                                    </Avatar>
-                                                }
-                                                title="How to learn words without pain to remember them"
-                                                subheader="September 14, 2016"
-                                            />
-                                        </CardActionArea>
-                                    </Card>
 
-                                    <Card className={'CardFooter'}>
-                                        <CardActionArea>
-                                            <CardHeader
-                                                avatar={
-                                                    <Avatar aria-label="recipe" src={ConstantImages.home.post2}>
-                                                        R
-                                                    </Avatar>
-                                                }
-                                                title="How to sleep in class without students noticing"
-                                                subheader="September 14, 2016"
-                                            />
-                                        </CardActionArea>
-                                    </Card>
+                                    <Typography variant="h6">
+                                        Platform
+                                    </Typography>
 
+                                    <Stack spacing={1} className={'Links'}>
+                                        <Link to="/">
+                                            <Typography variant="body1">
+                                                Blog
+                                            </Typography>
+                                        </Link>
+                                        <Link to="/">
+                                            <Typography variant="body1">
+                                                Reviews
+                                            </Typography>
+                                        </Link>
+                                        <Link to="/">
+                                            <Typography variant="body1">
+                                                Words
+                                            </Typography>
+                                        </Link>
+                                        <Link to="/">
+                                            <Typography variant="body1">
+                                                Video detailing
+                                            </Typography>
+                                        </Link>
+                                        <Link to="/">
+                                            <Typography variant="body1">
+                                                Books
+                                            </Typography>
+                                        </Link>
+                                    </Stack>
                                 </Stack>
 
-                            </Stack>
-                        </Grid>
+                            </Grid>
+                        )}
+                        {isSM ? null : (
+                            <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
+                                <Stack spacing={2}>
+
+                                    <Typography variant="h6">
+                                        Recent Post
+                                    </Typography>
+
+                                    <Stack spacing={2}>
+                                        <Card className={'CardFooter'}>
+                                            <CardActionArea>
+                                                <CardHeader
+                                                    avatar={
+                                                        <Avatar aria-label="recipe" src={ConstantImages.home.post1}>
+                                                            R
+                                                        </Avatar>
+                                                    }
+                                                    title="How to learn words without pain to remember them"
+                                                    subheader="September 14, 2016"
+                                                />
+                                            </CardActionArea>
+                                        </Card>
+
+                                        <Card className={'CardFooter'}>
+                                            <CardActionArea>
+                                                <CardHeader
+                                                    avatar={
+                                                        <Avatar aria-label="recipe" src={ConstantImages.home.post2}>
+                                                            R
+                                                        </Avatar>
+                                                    }
+                                                    title="How to sleep in class without students noticing"
+                                                    subheader="September 14, 2016"
+                                                />
+                                            </CardActionArea>
+                                        </Card>
+
+                                    </Stack>
+
+                                </Stack>
+                            </Grid>
+                        )}
+
                     </Grid>
 
                     <Divider/>
