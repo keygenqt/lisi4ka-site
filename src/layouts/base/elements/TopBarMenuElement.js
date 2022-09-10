@@ -32,7 +32,8 @@ import {
     TranslateOutlined
 } from "@mui/icons-material";
 import {Link} from "react-router-dom";
-import {ConstantImages} from "../../../base";
+import {ConstantImages, useWindowResize} from "../../../base";
+import {useEffect} from "react";
 
 export function TopBarMenuElement(props) {
 
@@ -42,6 +43,8 @@ export function TopBarMenuElement(props) {
     const canBeOpen = open && Boolean(anchorEl);
     const id = canBeOpen ? 'transition-popper' : undefined;
 
+    const sizeWindow = useWindowResize()
+
     // State menu list
     const [collapseState, setCollapseState] = React.useState(false);
     const [subMenuOpen, setSubMenuOpen] = React.useState(false);
@@ -49,6 +52,10 @@ export function TopBarMenuElement(props) {
     const handleClick = () => {
         setSubMenuOpen(!subMenuOpen);
     };
+
+    useEffect(() => {
+        setOpen(false)
+    }, [sizeWindow])
 
     return (
         <Stack className={'TopBarMenuElement'}>
