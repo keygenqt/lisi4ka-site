@@ -61,7 +61,7 @@ export function FooterElement(props) {
                                     </button>
                                 </Typography>
 
-                                <ButtonGroup color="white6" size="small" aria-label="small button group">
+                                <ButtonGroup color={'secondary'} size="small" aria-label="small button group">
                                     <Button onClick={() => {
 
                                     }}>
@@ -178,6 +178,7 @@ export function FooterElement(props) {
                         </Typography>
 
                         <ButtonGroup
+                            color={'secondary'}
                             className={'Localization'}
                             size="small"
                             variant="text"
