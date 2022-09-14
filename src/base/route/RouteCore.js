@@ -344,7 +344,6 @@ export default class RouteCore {
                             <BaseLayout
                                 pageClassName={'Error-Page'}
                                 isCenter={true}
-                                background={'#ECF0F1'}
                             >
                                 <ErrorPage/>
                             </BaseLayout>
