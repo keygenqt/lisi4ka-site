@@ -6,7 +6,7 @@
 /*************************/
 
 .ItemMainContainer {
-  background: #e5cece;
+  background: $secondaryMain;
   width: 100%;
   padding: 140px 0;
   position: relative;
@@ -19,11 +19,11 @@
 
 .ItemMainContainer .TitleMain {
   white-space: pre;
-  color: #4d5d83;
+  color: $primaryMain;
 }
 
 .ItemMainContainer .SubtitleMain {
-  color: #8d6262;
+  color: $warningDark;
   position: relative;
 }
 
@@ -34,7 +34,7 @@
   top: 34px;
   height: 3px;
   border-radius: 2px;
-  background: #8d6262;
+  background: $warningDark;
 }
 
 .ItemMainContainer:before {
@@ -44,7 +44,7 @@
   top: 0;
   bottom: 0;
   width: 50%;
-  background: linear-gradient(180deg, #3e4862 0%, #edacac 100%);
+  background: linear-gradient(180deg, $primaryDark 0%, $secondaryDark 100%);
 }
 
 .ItemMainContainer .Content {
@@ -153,7 +153,7 @@
   top: -730px;
   height: 1900px;
   width: 1800px;
-  background: #e5cece;
+  background: $secondaryMain;
   border-radius: 30%;
   -webkit-animation: waveSpin 20s linear infinite;
   -moz-animation: waveSpin 20s linear infinite;
@@ -184,7 +184,7 @@
 .Circle {
   width: 60px;
   height: 60px;
-  background: #03af72;
+  background: $successMain;
   border-radius: 50%;
   top: -76px;
   right: 84px;
@@ -196,7 +196,7 @@
   height: 40px;
   right: 25px;
   top: 183px;
-  background: #ff8053;
+  background: $warningMain;
 }
 
 .Circle.item3 {
@@ -204,7 +204,7 @@
   height: 25px;
   right: 250px;
   top: -3px;
-  background: #c832f9;
+  background: $errorMain;
 }
 
 .Circle.item4 {
@@ -212,7 +212,7 @@
   height: 36px;
   right: 551px;
   top: 121px;
-  background: #51c0ff;
+  background: $infoMain;
 }
 
 /*************************/
@@ -230,7 +230,7 @@
 
 .ItemBlocksContainer:after {
   content: "";
-  background: #4d5d83db;
+  background: $primaryMain + db;
   position: absolute;
   top: 0;
   left: 0;
@@ -290,35 +290,35 @@
 }
 
 .ItemBlocksContainer .InfoBlock.item1 {
-  background: #337aa3;
+  background: $infoDark;
 }
 
 .ItemBlocksContainer .InfoBlock.item2 {
-  background: #bb6141;
+  background: $warningDark;
 }
 
 .ItemBlocksContainer .InfoBlock.item3 {
-  background: #8621a7;
+  background: $errorDark;
 }
 
 .ItemBlocksContainer .InfoBlock.item4 {
-  background: #01744b;
+  background: $successDark;
 }
 
 .ItemBlocksContainer .InfoBlock.item1 .BoxWithButton button svg {
-  color: #337aa3;
+  color: $infoDark;
 }
 
 .ItemBlocksContainer .InfoBlock.item2 .BoxWithButton button svg {
-  color: #bb6141;
+  color: $warningDark;
 }
 
 .ItemBlocksContainer .InfoBlock.item3 .BoxWithButton button svg {
-  color: #8621a7;
+  color: $errorDark;
 }
 
 .ItemBlocksContainer .InfoBlock.item4 .BoxWithButton button svg {
-  color: #01744b;
+  color: $successDark;
 }
 
 .ItemBlocksContainer .InfoBlock svg {
@@ -345,7 +345,7 @@
 
 .ItemReviewContainer:after {
   content: "";
-  background: #4d5d83db;
+  background: $primaryMain + db;
   position: absolute;
   top: 0;
   left: 0;
@@ -369,7 +369,7 @@
 }
 
 .ItemReviewContainer .Content .MuiFab-circular svg {
-  color: #2b4effd6;
+  color: $primaryMain;
 }
 
 .ItemReviewContainer .Content .MuiIconButton-sizeMedium {
@@ -401,7 +401,7 @@
 }
 
 .ItemAboutMeContainer .title {
-  color: #51c0ff;
+  color: $infoMain;
   font-size: 80px;
   font-weight: 700;
   line-height: 1em;
@@ -414,7 +414,7 @@
   content: "";
   width: 10px;
   height: 10px;
-  background: #51c0ff;
+  background: $infoMain;
   border-radius: 30%;
   top: 58px;
   right: -19px;
@@ -429,7 +429,7 @@
 }
 
 .ItemAboutMeContainer .subtitle {
-  color: #515151;
+  color: $grayDark;
   font-weight: normal;
 }
 
@@ -472,7 +472,7 @@
 }
 
 .ItemProudContainer .title {
-  color: #ff8053;
+  color: $warningMain;
   font-size: 80px;
   font-weight: 700;
   line-height: 1em;
@@ -485,7 +485,7 @@
   content: "";
   width: 10px;
   height: 10px;
-  background: #ff8053;
+  background: $warningMain;
   border-radius: 30%;
   top: 58px;
   right: -19px;
@@ -494,7 +494,7 @@
 }
 
 .ItemProudContainer .subtitle {
-  color: #515151;
+  color: $grayDark;
   font-weight: normal;
 }
 
@@ -504,19 +504,19 @@
 }
 
 .ItemProudContainer .MuiGrid-item:nth-child(1) .MuiSvgIcon-root {
-  color: #fc4d93;
+  color: $errorMain;
 }
 
 .ItemProudContainer .MuiGrid-item:nth-child(2) .MuiSvgIcon-root {
-  color: #FF8F21;
+  color: $successMain;
 }
 
 .ItemProudContainer .MuiGrid-item:nth-child(3) .MuiSvgIcon-root {
-  color: #14C0DA;
+  color: $infoMain;
 }
 
 .ItemProudContainer .MuiGrid-item:nth-child(4) .MuiSvgIcon-root {
-  color: #516EFF;
+  color: $warningMain;
 }
 
 @media (max-width: 1000px) {
@@ -573,7 +573,7 @@
   bottom: -260px;
   left: 24px;
   right: 24px;
-  background: #4d5d83;
+  background: $primaryMain;
   overflow: hidden;
   color: white;
   padding: 40px;
@@ -591,7 +591,7 @@
   height: 500px;
   top: -300px;
   right: -130px;
-  background: #edacac;
+  background: $secondaryDark;
   border-radius: 50%;
 }
 

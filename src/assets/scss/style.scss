@@ -16,7 +16,7 @@ body, html, #root {
 }
 
 a {
-  color: #4d5d83;
+  color: $primaryMain;
   text-decoration: none;
   opacity: 0.8;
   transition-duration: 200ms;
@@ -42,7 +42,7 @@ button.MuiButton-sizeSmall {
 /** Link **/
 .Link {
   background: transparent;
-  color: #4d5d83;
+  color: $primaryMain;
   text-decoration: none;
   opacity: 0.8;
   transition-duration: 200ms;
@@ -87,7 +87,7 @@ button.MuiButton-sizeSmall {
 
 /** Base tags **/
 header.AppTableCell {
-  background: #4d5d83;
+  background: $primaryMain;
 }
 
 main.AppTableCell {
@@ -95,7 +95,7 @@ main.AppTableCell {
 }
 
 footer.AppTableCell {
-  background: #3e4862;
+  background: $primaryDark;
   color: white;
   padding-top: 80px;
   padding-bottom: 22px;
@@ -107,7 +107,7 @@ footer.AppTableCell {
 
 footer.AppTableCell hr {
   padding-top: 50px;
-  border-color: #ffffff54;
+  border-color: $grayMain;
 }
 
 footer.AppTableCell a {
@@ -119,7 +119,7 @@ footer.AppTableCell .Link {
 }
 
 footer.AppTableCell .Copyright {
-  color: #ffffff54;
+  color: $grayMain;
 }
 
 footer.AppTableCell .MuiCardHeader-root {
@@ -152,11 +152,11 @@ footer.AppTableCell .Localization button {
   padding-top: 5px;
   font-size: 11px;
   min-width: 30px;
-  color: #ffffff54;
+  color: $grayMain;
 }
 
 footer.AppTableCell .Localization button.Active {
-  color: #2298db;
+  color: $infoMain;
 }
 
 @media (max-width: 900px) {
@@ -203,11 +203,11 @@ footer.AppTableCell .Localization button.Active {
 }
 
 .TopBarMenuElement .MenuListMD {
-  color: #4d5d83;
+  color: $primaryMain;
 }
 
 .TopBarMenuElement .MenuListMD svg {
-  color: #4d5d83;
+  color: $primaryMain;
 }
 
 .TopBarMenuElement .Logo {
@@ -221,9 +221,9 @@ footer.AppTableCell .Localization button.Active {
 }
 
 .TopBarMenuElement .LogoBlock button {
-  color: #fff;
-  background-color: #4d5d83;
-  border: 1px solid #fff;
+  color: white;
+  background-color: $primaryMain;
+  border: 1px solid white;
   padding: 5px 8px;
   min-width: 46px;
   opacity: 0.8;
@@ -232,9 +232,9 @@ footer.AppTableCell .Localization button.Active {
 }
 
 .TopBarMenuElement .LogoBlock button.Mui-disabled {
-  color: #fff;
-  background-color: #4d5d83;
-  border: 1px solid #fff;
+  color: white;
+  background-color: $primaryMain;
+  border: 1px solid white;
 }
 
 .TopBarMenuElement .LogoBlock button:hover {
@@ -278,12 +278,12 @@ footer.AppTableCell .Localization button.Active {
 }
 
 .MuiPaper-root .MenuPopper button {
-  color: #4d5d83;
+  color: $primaryMain;
   padding: 5px 16px;
 }
 
 .MuiPaper-root .MenuPopper button:hover {
-  background-color: #4d5d8314;
+  background-color: $primaryLight;
 }
 
 @media (min-width: 600px) {

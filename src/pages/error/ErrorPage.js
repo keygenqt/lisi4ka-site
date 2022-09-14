@@ -8,7 +8,7 @@ import {ConstantLottie} from "../../base/constants/ConstantLottie";
 export function ErrorPage(props) {
 
     const {t} = useContext(LanguageContext)
-    const {route, conf} = useContext(NavigateContext)
+    const {route} = useContext(NavigateContext)
 
     useEffect(() => {
         document.title = t("pages.error.t_title");
@@ -34,7 +34,7 @@ export function ErrorPage(props) {
                 </Typography>
                 <Button
                     onClick={() => {
-                        route.toLocation(conf.routes.home)
+                        route.toLocation('/')
                     }}
                     variant="outlined"
                 >
