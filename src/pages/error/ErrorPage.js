@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useContext, useEffect} from 'react';
+import {useContext} from 'react';
 import {Button, Container, Stack, Typography} from "@mui/material";
 import {LanguageContext, NavigateContext} from "../../base";
 import Lottie from "lottie-react";
@@ -9,10 +9,6 @@ export function ErrorPage(props) {
 
     const {t} = useContext(LanguageContext)
     const {route} = useContext(NavigateContext)
-
-    useEffect(() => {
-        document.title = t("pages.error.t_title");
-    });
 
     return (
         <Container maxWidth={"sm"} className={"Page UtilsList"}>
