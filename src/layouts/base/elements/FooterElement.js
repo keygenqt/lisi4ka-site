@@ -16,14 +16,16 @@ import {
     useTheme
 } from "@mui/material";
 import {Email, LinkedIn, Telegram} from "@mui/icons-material";
-import {ConstantImages, LanguageContext} from "../../../base";
+import {ConstantImages, LanguageContext, NavigateContext} from "../../../base";
 import {Link} from "react-router-dom";
 
 export function FooterElement(props) {
 
     const theme = useTheme()
     const isSM = useMediaQuery(theme.breakpoints.down('sm'));
+
     const {t, i18n, isLocEn} = useContext(LanguageContext)
+    const {route, routes} = useContext(NavigateContext)
 
     return (
         <Stack className={'FooterElement'}>
@@ -46,7 +48,7 @@ export function FooterElement(props) {
                                 <Typography variant="body1">
                                     {t('layouts.footer.t_block1_email')}
                                     <button className={'Link'} type="button" onClick={() => {
-
+                                        route.openEmail('lisi4ka@mail.com')
                                     }}>
                                         lisi4ka@mail.com
                                     </button>
@@ -55,7 +57,7 @@ export function FooterElement(props) {
                                 <Typography variant="body1">
                                     {t('layouts.footer.t_block1_phone')}
                                     <button className={'Link'} type="button" onClick={() => {
-
+                                        route.openPhone('234-777-8888')
                                     }}>
                                         234-777-8888
                                     </button>
@@ -91,27 +93,27 @@ export function FooterElement(props) {
                                     </Typography>
 
                                     <Stack spacing={1} className={'Links'}>
-                                        <Link to="/">
+                                        <Link to={routes.blogArticles.path}>
                                             <Typography variant="body1">
                                                 {t('layouts.footer.t_block2_link_blog')}
                                             </Typography>
                                         </Link>
-                                        <Link to="/">
+                                        <Link to={routes.blogReviews.path}>
                                             <Typography variant="body1">
                                                 {t('layouts.footer.t_block2_link_reviews')}
                                             </Typography>
                                         </Link>
-                                        <Link to="/">
+                                        <Link to={routes.words.path}>
                                             <Typography variant="body1">
                                                 {t('layouts.footer.t_block2_link_words')}
                                             </Typography>
                                         </Link>
-                                        <Link to="/">
+                                        <Link to={routes.videos.path}>
                                             <Typography variant="body1">
                                                 {t('layouts.footer.t_block2_link_video_detailing')}
                                             </Typography>
                                         </Link>
-                                        <Link to="/">
+                                        <Link to={routes.books.path}>
                                             <Typography variant="body1">
                                                 {t('layouts.footer.t_block2_link_books')}
                                             </Typography>

@@ -11,13 +11,17 @@ export default function NavigateContextProvider(props) {
     const navigate = useNavigate()
     const type = useNavigationType()
 
-    const [route] = useState(new RouteCore(RouteConf, location, navigate, type));
+    const conf = RouteConf
+    const [route] = useState(new RouteCore(conf, location, navigate, type));
 
     route.update(location, navigate, type)
 
     return (
         <NavigateContext.Provider
-            value={{route}}>
+            value={{
+                route,
+                routes: conf.routes
+            }}>
             {props.children}
         </NavigateContext.Provider>
     )

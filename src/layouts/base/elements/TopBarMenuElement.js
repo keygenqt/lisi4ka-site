@@ -33,11 +33,12 @@ import {
     TranslateOutlined
 } from "@mui/icons-material";
 import {Link} from "react-router-dom";
-import {ConstantImages, LanguageContext, useWindowResize} from "../../../base";
+import {ConstantImages, LanguageContext, NavigateContext, useWindowResize} from "../../../base";
 
 export function TopBarMenuElement(props) {
 
     const {t} = useContext(LanguageContext)
+    const {route, routes} = useContext(NavigateContext)
 
     const [isLogin, setIsLogin] = React.useState(false);
     const [open, setOpen] = React.useState(false);
@@ -103,13 +104,19 @@ export function TopBarMenuElement(props) {
                                             component="nav"
                                             aria-labelledby="nested-list-subheader"
                                         >
-                                            <ListItemButton>
+                                            <ListItemButton onClick={() => {
+                                                setCollapseState(false)
+                                                route.toLocation(routes.blogArticles)
+                                            }}>
                                                 <ListItemIcon>
                                                     <ListAltOutlined/>
                                                 </ListItemIcon>
                                                 <ListItemText primary={t('layouts.header.t_blog')}/>
                                             </ListItemButton>
-                                            <ListItemButton>
+                                            <ListItemButton onClick={() => {
+                                                setCollapseState(false)
+                                                route.toLocation(routes.blogReviews)
+                                            }}>
                                                 <ListItemIcon>
                                                     <RssFeedOutlined/>
                                                 </ListItemIcon>
@@ -125,19 +132,28 @@ export function TopBarMenuElement(props) {
 
                                             <Collapse in={subMenuOpen} timeout="auto" unmountOnExit>
                                                 <List component="div" disablePadding>
-                                                    <ListItemButton sx={{pl: 4}}>
+                                                    <ListItemButton sx={{pl: 4}} onClick={() => {
+                                                        setCollapseState(false)
+                                                        route.toLocation(routes.words)
+                                                    }}>
                                                         <ListItemIcon>
                                                             <TranslateOutlined/>
                                                         </ListItemIcon>
                                                         <ListItemText primary={t('layouts.header.t_words')}/>
                                                     </ListItemButton>
-                                                    <ListItemButton sx={{pl: 4}}>
+                                                    <ListItemButton sx={{pl: 4}} onClick={() => {
+                                                        setCollapseState(false)
+                                                        route.toLocation(routes.books)
+                                                    }}>
                                                         <ListItemIcon>
                                                             <MenuBookOutlined/>
                                                         </ListItemIcon>
                                                         <ListItemText primary={t('layouts.header.t_books')}/>
                                                     </ListItemButton>
-                                                    <ListItemButton sx={{pl: 4}}>
+                                                    <ListItemButton sx={{pl: 4}} onClick={() => {
+                                                        setCollapseState(false)
+                                                        route.toLocation(routes.videos)
+                                                    }}>
                                                         <ListItemIcon>
                                                             <PlayCircleOutlined/>
                                                         </ListItemIcon>
@@ -170,10 +186,14 @@ export function TopBarMenuElement(props) {
                             direction={'row'}
                             spacing={2}
                         >
-                            <Button className={'ButtonXL'}>
+                            <Button onClick={() => {
+                                route.toLocation(routes.blogArticles)
+                            }}>
                                 {t('layouts.header.t_blog')}
                             </Button>
-                            <Button className={'ButtonXL'}>
+                            <Button onClick={() => {
+                                route.toLocation(routes.blogReviews)
+                            }}>
                                 {t('layouts.header.t_reviews')}
                             </Button>
                             <Button
@@ -248,15 +268,24 @@ export function TopBarMenuElement(props) {
                                 <Fade {...TransitionProps} timeout={350}>
                                     <Paper>
                                         <Stack spacing={1} className={'MenuPopper'}>
-                                            <Button startIcon={<TranslateOutlined/>}>
+                                            <Button startIcon={<TranslateOutlined/>} onClick={() => {
+                                                setOpen(false)
+                                                route.toLocation(routes.words)
+                                            }}>
                                                 {t('layouts.header.t_words')}
                                             </Button>
                                             <Divider/>
-                                            <Button startIcon={<MenuBookOutlined/>}>
+                                            <Button startIcon={<MenuBookOutlined/>} onClick={() => {
+                                                setOpen(false)
+                                                route.toLocation(routes.books)
+                                            }}>
                                                 {t('layouts.header.t_books')}
                                             </Button>
                                             <Divider/>
-                                            <Button startIcon={<PlayCircleOutlined/>}>
+                                            <Button startIcon={<PlayCircleOutlined/>} onClick={() => {
+                                                setOpen(false)
+                                                route.toLocation(routes.videos)
+                                            }}>
                                                 {t('layouts.header.t_video')}
                                             </Button>
                                         </Stack>

@@ -364,6 +364,24 @@ export default class RouteCore {
     }
 
     /**
+     * Open email
+     *
+     * @param email
+     */
+    openEmail(email) {
+        window.location.href = `mailto:${email}`
+    }
+
+    /**
+     * Open phone
+     *
+     * @param phone
+     */
+    openPhone(phone) {
+        window.location.href = `tel:${phone}`
+    }
+
+    /**
      * Open outer url
      *
      * @param url
