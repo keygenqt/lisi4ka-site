@@ -177,7 +177,6 @@ export function TopBarMenuElement(props) {
                                 {t('layouts.header.t_reviews')}
                             </Button>
                             <Button
-                                className={'ButtonXL'}
                                 startIcon={<Extension/>}
                                 endIcon={<ArrowDropDown/>}
                                 onClick={(event) => {
@@ -200,7 +199,7 @@ export function TopBarMenuElement(props) {
                                         <Avatar
                                             alt={'Travis Howard'}
                                             src={ConstantImages.home.user2}
-                                            sx={{width: 25, height: 25}}
+                                            sx={{width: 24, height: 24}}
                                         />
                                     }
                                     variant="outlined"
