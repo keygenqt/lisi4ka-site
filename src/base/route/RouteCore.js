@@ -318,6 +318,7 @@ export default class RouteCore {
                     if (validate.includes(false)) {
                         pages.push(
                             <Route
+                                pageClassName={'Error-Page'}
                                 key={pageIndex}
                                 path={path}
                                 element={<ErrorPage/>}
@@ -340,7 +341,11 @@ export default class RouteCore {
                     <Route
                         path="*"
                         element={
-                            <BaseLayout isCenter={true}>
+                            <BaseLayout
+                                pageClassName={'Error-Page'}
+                                isCenter={true}
+                                background={'#ECF0F1'}
+                            >
                                 <ErrorPage/>
                             </BaseLayout>
                         }

@@ -1,18 +1,23 @@
 import * as React from 'react';
+import {useContext} from 'react';
 import {Box, Container, Grid, Stack, Typography} from "@mui/material";
 import {AccessTimeOutlined, Diversity1Outlined, LocalFloristOutlined, MonitorHeartOutlined} from "@mui/icons-material";
+import {LanguageContext} from "../../../base";
 
-export function ProudsElement(props) {
+export function PridesElement(props) {
+
+    const {t} = useContext(LanguageContext)
+
     return (
         <Stack className={'ItemProudContainer'}>
             <Container maxWidth={'md'}>
                 <Stack spacing={3}>
                     <Typography variant="h1" className={'title'}>
-                        IM proud of
+                        {t('pages.home.t_prides_title')}
                     </Typography>
 
                     <Typography variant="body1" className={'subtitle'}>
-                        You don't have to struggle alone, you've got my assistance and help
+                        {t('pages.home.t_prides_subtitle')}
                     </Typography>
 
                     <Grid container spacing={0} rowSpacing={3}>
@@ -26,11 +31,11 @@ export function ProudsElement(props) {
                                 <Typography variant="h5" sx={{
                                     paddingTop: 1
                                 }}>
-                                    5,298
+                                    {t('pages.home.t_prides_item1_title')}
                                 </Typography>
 
                                 <Typography variant="caption">
-                                    Online Learners
+                                    {t('pages.home.t_prides_item1_text')}
                                 </Typography>
                             </Stack>
                         </Grid>
@@ -44,11 +49,11 @@ export function ProudsElement(props) {
                                 <Typography variant="h5" sx={{
                                     paddingTop: 1
                                 }}>
-                                    1,158
+                                    {t('pages.home.t_prides_item2_title')}
                                 </Typography>
 
                                 <Typography variant="caption">
-                                    Favorite students
+                                    {t('pages.home.t_prides_item2_text')}
                                 </Typography>
                             </Stack>
                         </Grid>
@@ -63,11 +68,11 @@ export function ProudsElement(props) {
                                 <Typography variant="h5" sx={{
                                     paddingTop: 1
                                 }}>
-                                    3,829
+                                    {t('pages.home.t_prides_item3_title')}
                                 </Typography>
 
                                 <Typography variant="caption">
-                                    Painted flowers
+                                    {t('pages.home.t_prides_item3_text')}
                                 </Typography>
                             </Stack>
                         </Grid>
@@ -81,11 +86,11 @@ export function ProudsElement(props) {
                                 <Typography variant="h5" sx={{
                                     paddingTop: 1
                                 }}>
-                                    150/120
+                                    {t('pages.home.t_prides_item4_title')}
                                 </Typography>
 
                                 <Typography variant="caption">
-                                    Hypertension
+                                    {t('pages.home.t_prides_item4_text')}
                                 </Typography>
                             </Stack>
                         </Grid>
@@ -96,4 +101,4 @@ export function ProudsElement(props) {
     );
 }
 
-ProudsElement.propTypes = {};
+PridesElement.propTypes = {};

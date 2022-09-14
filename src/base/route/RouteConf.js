@@ -14,7 +14,7 @@ export const RouteConf = {
                     exact
                     path={path}
                     element={
-                        <BaseLayout>
+                        <BaseLayout pageClassName={'Home-Page'}>
                             <HomePage/>
                         </BaseLayout>
                     }

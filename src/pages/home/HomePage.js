@@ -3,7 +3,7 @@ import {Stack} from "@mui/material";
 import {MainElement} from "./elements/MainElement";
 import {AboutMeElement} from "./elements/AboutMeElement";
 import {BlocksElement} from "./elements/BlocksElement";
-import {ProudsElement} from "./elements/ProudsElement";
+import {PridesElement} from "./elements/PridesElement";
 import {ReviewsElement} from "./elements/ReviewsElement";
 import {ItemStart} from "./elements/ItemStart";
 
@@ -12,15 +12,15 @@ export function HomePage() {
         <Stack>
             {/*main*/}
             <MainElement/>
-            {/*/!*about me*!/*/}
+            {/*about me*/}
             <AboutMeElement/>
-            {/*/!*blocks*!/*/}
+            {/*blocks*/}
             <BlocksElement/>
-            {/*/!*proud*!/*/}
-            <ProudsElement/>
-            {/*/!*reviews*!/*/}
+            {/*prides*/}
+            <PridesElement/>
+            {/*reviews*/}
             <ReviewsElement/>
-            {/*/!*start*!/*/}
+            {/*start*/}
             <ItemStart/>
         </Stack>
     );

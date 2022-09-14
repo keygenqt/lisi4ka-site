@@ -85,8 +85,12 @@ main.AppTableCell {
 footer.AppTableCell {
   background: #3e4862;
   color: white;
-  padding-top: 150px;
+  padding-top: 80px;
   padding-bottom: 22px;
+}
+
+.Home-Page footer.AppTableCell {
+  padding-top: 150px;
 }
 
 footer.AppTableCell hr {
@@ -126,6 +130,23 @@ footer.AppTableCell .CardFooter .MuiCardHeader-subheader {
   white-space: nowrap;
 }
 
+footer.AppTableCell .Localization {
+  height: 16px;
+  position: relative;
+  top: -2px;
+}
+
+footer.AppTableCell .Localization button {
+  padding-top: 5px;
+  font-size: 11px;
+  min-width: 30px;
+  color: #ffffff54;
+}
+
+footer.AppTableCell .Localization button.Active {
+  color: #2298db;
+}
+
 @media (max-width: 900px) {
   footer.AppTableCell .CardFooter .MuiCardHeader-title {
     white-space: normal;
@@ -138,9 +159,15 @@ footer.AppTableCell .CardFooter .MuiCardHeader-subheader {
 
 @media (max-width: 600px) {
   footer.AppTableCell {
-    padding-top: 105px;
+    padding-top: 50px;
   }
   footer.AppTableCell hr {
+    padding-top: 24px;
+  }
+  .Home-Page footer.AppTableCell {
+    padding-top: 105px;
+  }
+  .Home-Page footer.AppTableCell hr {
     padding-top: 24px;
   }
 }

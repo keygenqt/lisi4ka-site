@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useContext} from 'react';
 import {
     Avatar,
     Button,
@@ -15,13 +16,14 @@ import {
     useTheme
 } from "@mui/material";
 import {Email, LinkedIn, Telegram} from "@mui/icons-material";
-import {ConstantImages} from "../../../base";
+import {ConstantImages, LanguageContext} from "../../../base";
 import {Link} from "react-router-dom";
 
 export function FooterElement(props) {
 
     const theme = useTheme()
     const isSM = useMediaQuery(theme.breakpoints.down('sm'));
+    const {t, i18n, isLocEn} = useContext(LanguageContext)
 
     return (
         <Stack className={'FooterElement'}>
@@ -34,17 +36,15 @@ export function FooterElement(props) {
                             <Stack spacing={2}>
 
                                 <Typography variant="h6">
-                                    @lisi4ka
+                                    {t('layouts.footer.t_block1_title')}
                                 </Typography>
 
                                 <Typography variant="caption">
-                                    Learn English. An international language, it has not belonged to anyone for a long
-                                    time. You can say
-                                    it was generalized :)
+                                    {t('layouts.footer.t_block1_desc')}
                                 </Typography>
 
                                 <Typography variant="body1">
-                                    Email:
+                                    {t('layouts.footer.t_block1_email')}
                                     <button className={'Link'} type="button" onClick={() => {
 
                                     }}>
@@ -53,7 +53,7 @@ export function FooterElement(props) {
                                 </Typography>
 
                                 <Typography variant="body1">
-                                    Phone:
+                                    {t('layouts.footer.t_block1_phone')}
                                     <button className={'Link'} type="button" onClick={() => {
 
                                     }}>
@@ -87,33 +87,33 @@ export function FooterElement(props) {
                                 <Stack spacing={2}>
 
                                     <Typography variant="h6">
-                                        Platform
+                                        {t('layouts.footer.t_block2_title')}
                                     </Typography>
 
                                     <Stack spacing={1} className={'Links'}>
                                         <Link to="/">
                                             <Typography variant="body1">
-                                                Blog
+                                                {t('layouts.footer.t_block2_link_blog')}
                                             </Typography>
                                         </Link>
                                         <Link to="/">
                                             <Typography variant="body1">
-                                                Reviews
+                                                {t('layouts.footer.t_block2_link_reviews')}
                                             </Typography>
                                         </Link>
                                         <Link to="/">
                                             <Typography variant="body1">
-                                                Words
+                                                {t('layouts.footer.t_block2_link_words')}
                                             </Typography>
                                         </Link>
                                         <Link to="/">
                                             <Typography variant="body1">
-                                                Video detailing
+                                                {t('layouts.footer.t_block2_link_video_detailing')}
                                             </Typography>
                                         </Link>
                                         <Link to="/">
                                             <Typography variant="body1">
-                                                Books
+                                                {t('layouts.footer.t_block2_link_books')}
                                             </Typography>
                                         </Link>
                                     </Stack>
@@ -126,7 +126,7 @@ export function FooterElement(props) {
                                 <Stack spacing={2}>
 
                                     <Typography variant="h6">
-                                        Recent Post
+                                        {t('layouts.footer.t_block3_title')}
                                     </Typography>
 
                                     <Stack spacing={2}>
@@ -168,11 +168,43 @@ export function FooterElement(props) {
 
                     <Divider/>
 
-                    <Typography variant="caption" className={'Copyright'}>
-                        © 2022 KeyGenQt. All Right Reserved.
-                    </Typography>
-                </Stack>
+                    <Stack
+                        direction={'row'}
+                        spacing={3}
+                        justifyContent='space-between'>
 
+                        <Typography variant="caption" className={'Copyright'}>
+                            © 2022 KeyGenQt. All Right Reserved.
+                        </Typography>
+
+                        <ButtonGroup
+                            className={'Localization'}
+                            size="small"
+                            variant="text"
+                            aria-label="Localization"
+                        >
+                            <Button
+                                className={isLocEn ? 'Active' : ''}
+                                disabled={isLocEn}
+                                onClick={() => {
+                                    i18n.changeLanguage('en')
+                                }}
+                            >
+                                En
+                            </Button>
+                            <Button
+                                className={!isLocEn ? 'Active' : ''}
+                                disabled={!isLocEn}
+                                onClick={() => {
+                                    i18n.changeLanguage('ru')
+                                }}
+                            >
+                                Ru
+                            </Button>
+                        </ButtonGroup>
+
+                    </Stack>
+                </Stack>
             </Container>
         </Stack>
     );

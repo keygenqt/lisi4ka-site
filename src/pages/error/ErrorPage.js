@@ -18,6 +18,10 @@ export function ErrorPage(props) {
         <Container maxWidth={"sm"} className={"Page UtilsList"}>
             <Stack alignItems={"center"} spacing={2}>
 
+                <Lottie style={{
+                    width: 250,
+                }} animationData={ConstantLottie.error404}/>
+
                 <Typography variant="h3" style={{
                     marginTop: 30
                 }}>

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useContext} from 'react';
 import {
     Button,
     Card,
@@ -13,7 +14,7 @@ import {
     Typography
 } from "@mui/material";
 import {Favorite, Share, Shop} from "@mui/icons-material";
-import {ConstantImages} from "../../../base";
+import {ConstantImages, LanguageContext} from "../../../base";
 
 function CardItem(props) {
     return (
@@ -48,16 +49,19 @@ function CardItem(props) {
 }
 
 export function ItemStart(props) {
+
+    const {t} = useContext(LanguageContext)
+
     return (
         <Stack className={'ItemStartContainer'}>
             <Container maxWidth="lg">
                 <Stack spacing={3}>
                     <Typography gutterBottom variant="h2">
-                        My experience for teachers
+                        {t('pages.home.t_start_title')}
                     </Typography>
 
                     <Typography gutterBottom variant="subtitle2">
-                        My achievements that can help my colleagues in their work
+                        {t('pages.home.t_start_subtitle')}
                     </Typography>
                 </Stack>
 
@@ -93,9 +97,7 @@ export function ItemStart(props) {
                         spacing={2}
                     >
                         <Typography variant="h2">
-                            Start learning by
-                            <br/>
-                            Downloading Apps.
+                            {t('pages.home.t_start_download_block')}
                         </Typography>
 
                         <Button variant="outlined" size="large" startIcon={<Shop/>} sx={{

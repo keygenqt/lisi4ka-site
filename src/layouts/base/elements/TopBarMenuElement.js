@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect} from 'react';
+import {useContext, useEffect} from 'react';
 import {
     Avatar,
     Box,
@@ -33,9 +33,11 @@ import {
     TranslateOutlined
 } from "@mui/icons-material";
 import {Link} from "react-router-dom";
-import {ConstantImages, useWindowResize} from "../../../base";
+import {ConstantImages, LanguageContext, useWindowResize} from "../../../base";
 
 export function TopBarMenuElement(props) {
+
+    const {t} = useContext(LanguageContext)
 
     const [isLogin, setIsLogin] = React.useState(false);
     const [open, setOpen] = React.useState(false);
@@ -105,19 +107,19 @@ export function TopBarMenuElement(props) {
                                                 <ListItemIcon>
                                                     <ListAltOutlined/>
                                                 </ListItemIcon>
-                                                <ListItemText primary="Blog"/>
+                                                <ListItemText primary={t('layouts.header.t_blog')}/>
                                             </ListItemButton>
                                             <ListItemButton>
                                                 <ListItemIcon>
                                                     <RssFeedOutlined/>
                                                 </ListItemIcon>
-                                                <ListItemText primary="Reviews"/>
+                                                <ListItemText primary={t('layouts.header.t_reviews')}/>
                                             </ListItemButton>
                                             <ListItemButton onClick={handleClick}>
                                                 <ListItemIcon>
                                                     <Extension/>
                                                 </ListItemIcon>
-                                                <ListItemText primary="Platform"/>
+                                                <ListItemText primary={t('layouts.header.t_platform')}/>
                                                 {subMenuOpen ? <ExpandLess/> : <ExpandMore/>}
                                             </ListItemButton>
 
@@ -127,19 +129,19 @@ export function TopBarMenuElement(props) {
                                                         <ListItemIcon>
                                                             <TranslateOutlined/>
                                                         </ListItemIcon>
-                                                        <ListItemText primary="Words"/>
+                                                        <ListItemText primary={t('layouts.header.t_words')}/>
                                                     </ListItemButton>
                                                     <ListItemButton sx={{pl: 4}}>
                                                         <ListItemIcon>
                                                             <MenuBookOutlined/>
                                                         </ListItemIcon>
-                                                        <ListItemText primary="Books"/>
+                                                        <ListItemText primary={t('layouts.header.t_books')}/>
                                                     </ListItemButton>
                                                     <ListItemButton sx={{pl: 4}}>
                                                         <ListItemIcon>
                                                             <PlayCircleOutlined/>
                                                         </ListItemIcon>
-                                                        <ListItemText primary="Videos"/>
+                                                        <ListItemText primary={t('layouts.header.t_video')}/>
                                                     </ListItemButton>
                                                 </List>
                                             </Collapse>
@@ -152,7 +154,7 @@ export function TopBarMenuElement(props) {
 
                         <Link to="/" className={'Logo'}>
                             <Typography variant="h5">
-                                @lisi4ka
+                                {t('layouts.header.t_title')}
                             </Typography>
                         </Link>
 
@@ -168,8 +170,12 @@ export function TopBarMenuElement(props) {
                             direction={'row'}
                             spacing={2}
                         >
-                            <Button className={'ButtonXL'}>Blog</Button>
-                            <Button className={'ButtonXL'}>Reviews</Button>
+                            <Button className={'ButtonXL'}>
+                                {t('layouts.header.t_blog')}
+                            </Button>
+                            <Button className={'ButtonXL'}>
+                                {t('layouts.header.t_reviews')}
+                            </Button>
                             <Button
                                 className={'ButtonXL'}
                                 startIcon={<Extension/>}
@@ -180,7 +186,7 @@ export function TopBarMenuElement(props) {
                                     setOpen((previousOpen) => !previousOpen);
                                 }}
                             >
-                                Platform
+                                {t('layouts.header.t_platform')}
                             </Button>
                         </Stack>
 
@@ -209,7 +215,7 @@ export function TopBarMenuElement(props) {
                                         setIsLogin(true)
                                     }}
                                 >
-                                    Sign In
+                                    {t('layouts.header.t_sign_in')}
                                 </Button>
                             )}
                         </Box>
@@ -244,15 +250,15 @@ export function TopBarMenuElement(props) {
                                     <Paper>
                                         <Stack spacing={1} className={'MenuPopper'}>
                                             <Button startIcon={<TranslateOutlined/>}>
-                                                Words
+                                                {t('layouts.header.t_words')}
                                             </Button>
                                             <Divider/>
                                             <Button startIcon={<MenuBookOutlined/>}>
-                                                Books
+                                                {t('layouts.header.t_books')}
                                             </Button>
                                             <Divider/>
                                             <Button startIcon={<PlayCircleOutlined/>}>
-                                                Videos
+                                                {t('layouts.header.t_video')}
                                             </Button>
                                         </Stack>
                                     </Paper>

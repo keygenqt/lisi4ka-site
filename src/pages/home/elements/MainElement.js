@@ -1,8 +1,11 @@
 import * as React from 'react';
+import {useContext} from 'react';
 import {Container, Stack, Typography} from "@mui/material";
-import {ConstantImages} from "../../../base";
+import {ConstantImages, LanguageContext} from "../../../base";
 
 export function MainElement(props) {
+
+    const {t, isLocEn} = useContext(LanguageContext)
 
     return (
         <Stack className={'ItemMainContainer'}>
@@ -26,16 +29,57 @@ export function MainElement(props) {
                     <div className={'Circle item4'}/>
 
                     <Stack spacing={2}>
-
-                        <Typography gutterBottom variant="h1" className={'TitleMain'}>
-                            English
-                            <br/>
-                            teacher
+                        <Typography gutterBottom variant="h1" className={'TitleMain'} sx={{
+                            ...(isLocEn ? (
+                                {
+                                    '@media (max-width: 1750px)': {
+                                        fontSize: '80px',
+                                    },
+                                    '@media (max-width: 1550px)': {
+                                        fontSize: '55px',
+                                    },
+                                }
+                            ) : (
+                                {
+                                    fontSize: '90px',
+                                    '@media (max-width: 2030px)': {
+                                        fontSize: '70px',
+                                    },
+                                    '@media (max-width: 1000px)': {
+                                        fontSize: '35px',
+                                    },
+                                }
+                            ))
+                        }}>
+                            {t('pages.home.t_main_title')}
                         </Typography>
 
-                        <Typography className={'SubtitleMain'} variant="h3">
-                            Julia
-                            Zarubina
+                        <Typography className={'SubtitleMain'} variant="h3" sx={{
+                            ...(isLocEn ? (
+                                {
+                                    '&:after': {
+                                        width: '188px'
+                                    },
+                                    '@media (max-width: 700px)': {
+                                        '&:after': {
+                                            width: '119px'
+                                        },
+                                    },
+                                }
+                            ) : (
+                                {
+                                    '&:after': {
+                                        width: '202px'
+                                    },
+                                    '@media (max-width: 700px)': {
+                                        '&:after': {
+                                            width: '127px'
+                                        },
+                                    },
+                                }
+                            ))
+                        }}>
+                            {t('pages.home.t_main_subtitle')}
                         </Typography>
                     </Stack>
 

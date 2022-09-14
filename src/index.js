@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import "./localization/Localization";
 
 import './assets/scss/colors.scss';
 import './assets/scss/style.scss';

@@ -17,6 +17,41 @@
   position: relative;
 }
 
+.ItemMainContainer .TitleMain {
+  white-space: pre;
+  color: #4d5d83;
+}
+
+.ItemMainContainer .SubtitleMain {
+  color: #8d6262;
+  position: relative;
+}
+
+.ItemMainContainer .SubtitleMain:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 34px;
+  height: 3px;
+  border-radius: 2px;
+  background: #8d6262;
+}
+
+.ItemMainContainer:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(180deg, #3e4862 0%, #edacac 100%);
+}
+
+.ItemMainContainer .Content {
+  position: relative;
+  text-align: right;
+}
+
 @media (max-width: 2030px) {
   .ItemMainContainer .MuiContainer-root {
     max-width: 1300px;
@@ -26,9 +61,6 @@
 @media (max-width: 1750px) {
   .ItemMainContainer .MuiContainer-root {
     max-width: 1100px;
-  }
-  .ItemMainContainer .TitleMain {
-    font-size: 80px;
   }
 }
 
@@ -82,16 +114,12 @@
 }
 
 @media (max-width: 700px) {
-  .ItemMainContainer .Content .TitleMain {
-    font-size: 50px;
-  }
   .ItemMainContainer .Content .SubtitleMain {
     font-size: 15px;
   }
   .ItemMainContainer .Content .SubtitleMain:after {
     top: 25px;
     height: 1px;
-    width: 119px;
   }
   .ItemMainContainer .Content img {
     width: 100%;
@@ -116,41 +144,6 @@
     top: auto;
     bottom: 10px;
   }
-}
-
-.ItemMainContainer .TitleMain {
-  color: #4d5d83;
-}
-
-.ItemMainContainer .SubtitleMain {
-  color: #8d6262;
-  position: relative;
-}
-
-.ItemMainContainer .SubtitleMain:after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 34px;
-  height: 3px;
-  border-radius: 2px;
-  width: 188px;
-  background: #8d6262;
-}
-
-.ItemMainContainer:before {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  background: linear-gradient(180deg, #3e4862 0%, #edacac 100%);
-}
-
-.ItemMainContainer .Content {
-  position: relative;
-  text-align: right;
 }
 
 /** Wave **/
@@ -276,6 +269,10 @@
   visibility: hidden;
   transition-duration: 400ms;
   transition-property: opacity;
+}
+
+.ItemBlocksContainer .InfoBlock h5 {
+  white-space: pre;
 }
 
 .ItemBlocksContainer .InfoBlock .BoxWithButton button svg {
@@ -567,6 +564,7 @@
 
 .ItemStartContainer .StartBlock h2 {
   text-transform: none;
+  white-space: pre;
 }
 
 .ItemStartContainer .StartBlock {

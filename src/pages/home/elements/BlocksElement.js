@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useContext} from 'react';
 import {Box, Container, Fab, Grid, Paper, Stack, Typography} from "@mui/material";
 import {
     ArrowForward,
@@ -7,19 +8,23 @@ import {
     PlayCircleOutlined,
     TranslateOutlined
 } from "@mui/icons-material";
+import {LanguageContext} from "../../../base";
 
 export function BlocksElement(props) {
+
+    const {t} = useContext(LanguageContext)
+
     return (
         <Box className={'ItemBlocksContainer'}>
             <Container maxWidth={'lg'}>
 
                 <Stack spacing={3}>
                     <Typography gutterBottom variant="h2">
-                        What can you learn from this site
+                        {t('pages.home.t_blocks_title')}
                     </Typography>
 
                     <Typography gutterBottom variant="subtitle2">
-                        The site provides convenient tools to help learn English, all for my favorite students
+                        {t('pages.home.t_blocks_subtitle')}
                     </Typography>
                 </Stack>
 
@@ -32,14 +37,12 @@ export function BlocksElement(props) {
                                 <TranslateOutlined/>
 
                                 <Typography gutterBottom variant="h5">
-                                    9,000 words
-                                    <br/>
-                                    for learning
+                                    {t('pages.home.t_blocks_item1_title')}
                                 </Typography>
 
                                 <Box className={'BoxWithButton'}>
                                     <Typography gutterBottom variant="caption">
-                                        Learn English words in a convenient format
+                                        {t('pages.home.t_blocks_item1_text')}
                                     </Typography>
 
                                     <Fab>
@@ -56,14 +59,13 @@ export function BlocksElement(props) {
                                 <NotificationsOutlined/>
 
                                 <Typography gutterBottom variant="h5">
-                                    Weekly
-                                    <br/>
-                                    detailed reviews
+                                    {t('pages.home.t_blocks_item2_title')}
+
                                 </Typography>
 
                                 <Box className={'BoxWithButton'}>
                                     <Typography gutterBottom variant="caption">
-                                        Read weekly my posts and learn English
+                                        {t('pages.home.t_blocks_item2_text')}
                                     </Typography>
 
                                     <Fab>
@@ -79,14 +81,13 @@ export function BlocksElement(props) {
                                 <PlayCircleOutlined/>
 
                                 <Typography gutterBottom variant="h5">
-                                    Video
-                                    <br/>
-                                    text detailing
+                                    {t('pages.home.t_blocks_item3_title')}
+
                                 </Typography>
 
                                 <Box className={'BoxWithButton'}>
                                     <Typography gutterBottom variant="caption">
-                                        Possibility to watch a video detailing text sentences
+                                        {t('pages.home.t_blocks_item3_text')}
                                     </Typography>
 
                                     <Fab>
@@ -102,14 +103,12 @@ export function BlocksElement(props) {
                                 <MenuBookOutlined/>
 
                                 <Typography gutterBottom variant="h5">
-                                    Books with
-                                    <br/>
-                                    native voice
+                                    {t('pages.home.t_blocks_item4_title')}
                                 </Typography>
 
                                 <Box className={'BoxWithButton'}>
                                     <Typography gutterBottom variant="caption">
-                                        Read books and listen to how the native reads
+                                        {t('pages.home.t_blocks_item4_text')}
                                     </Typography>
 
                                     <Fab>

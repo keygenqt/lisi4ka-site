@@ -1,24 +1,23 @@
 import * as React from 'react';
+import {useContext} from 'react';
 import {Button, Container, Stack, Typography} from "@mui/material";
-import {ConstantImages} from "../../../base";
+import {ConstantImages, LanguageContext} from "../../../base";
 import {FileDownload} from "@mui/icons-material";
 
 export function AboutMeElement(props) {
+
+    const {t} = useContext(LanguageContext)
+
     return (
         <Stack className={'ItemAboutMeContainer'}>
             <Container maxWidth={'md'}>
                 <Stack spacing={3}>
                     <Typography variant="h1" className={'title'}>
-                        about me
+                        {t('pages.home.t_about_title')}
                     </Typography>
 
                     <Typography variant="body1" className={'subtitle'}>
-                        Hello! I am an English teacher. I teach at school 666. Just a hell of a teacher. I teach
-                        everyone, I don’t torture anyone. We watch cartoons in class while I sleep. I'm also cool and I
-                        love sweets: 5 candies is a grade of 5. I always dreamed of becoming a teacher so that I
-                        wouldn't have to work. Well, it has become, but you have to work. I made my husband write a
-                        website for me so that the students would study on it themselves. Actually part of this is a
-                        joke.
+                        {t('pages.home.t_about_description')}
                     </Typography>
 
                     <Stack
@@ -32,7 +31,7 @@ export function AboutMeElement(props) {
                     >
 
                         <Button variant="outlined" startIcon={<FileDownload/>}>
-                            Download my resume
+                            {t('pages.home.t_about_btn')}
                         </Button>
 
                         <img style={{
