@@ -1,11 +1,12 @@
 import {Route} from "react-router-dom";
 import {BaseLayout} from "../../layouts/base/BaseLayout";
 import {
+    AboutPage,
     ArticlePage,
-    HomePage,
     BlogPage,
-    BooksPage,
     BookPage,
+    BooksPage,
+    HomePage,
     ReviewPage,
     VideoPage,
     VideosPage,
@@ -25,7 +26,10 @@ export const RouteConf = {
                     exact
                     path={path}
                     element={
-                        <BaseLayout pageClassName={'Home-Page'}>
+                        <BaseLayout
+                            disablePadding={true}
+                            pageClassName={'Home-Page'}
+                        >
                             <HomePage/>
                         </BaseLayout>
                     }
@@ -40,7 +44,10 @@ export const RouteConf = {
                     exact
                     path={path}
                     element={
-                        <BaseLayout isCenter={true} pageClassName={'Blog-Page'}>
+                        <BaseLayout
+                            isCenter={true}
+                            pageClassName={'Blog-Page'}
+                        >
                             <BlogPage/>
                         </BaseLayout>
                     }
@@ -55,7 +62,10 @@ export const RouteConf = {
                     exact
                     path={path}
                     element={
-                        <BaseLayout isCenter={true} pageClassName={'Blog-Page'}>
+                        <BaseLayout
+                            isCenter={true}
+                            pageClassName={'Blog-Page'}
+                        >
                             <BlogPage/>
                         </BaseLayout>
                     }
@@ -70,7 +80,10 @@ export const RouteConf = {
                     exact
                     path={path}
                     element={
-                        <BaseLayout isCenter={true} pageClassName={'Blog-Page'}>
+                        <BaseLayout
+                            isCenter={true}
+                            pageClassName={'Blog-Page'}
+                        >
                             <BlogPage/>
                         </BaseLayout>
                     }
@@ -88,7 +101,10 @@ export const RouteConf = {
                     exact
                     path={path}
                     element={
-                        <BaseLayout isCenter={true} pageClassName={'Article-Page'}>
+                        <BaseLayout
+                            isCenter={true}
+                            pageClassName={'Article-Page'}
+                        >
                             <ArticlePage/>
                         </BaseLayout>
                     }
@@ -106,7 +122,10 @@ export const RouteConf = {
                     exact
                     path={path}
                     element={
-                        <BaseLayout isCenter={true} pageClassName={'Review-Page'}>
+                        <BaseLayout
+                            isCenter={true}
+                            pageClassName={'Review-Page'}
+                        >
                             <ReviewPage/>
                         </BaseLayout>
                     }
@@ -121,7 +140,10 @@ export const RouteConf = {
                     exact
                     path={path}
                     element={
-                        <BaseLayout isCenter={true} pageClassName={'Books-Page'}>
+                        <BaseLayout
+                            isCenter={true}
+                            pageClassName={'Books-Page'}
+                        >
                             <BooksPage/>
                         </BaseLayout>
                     }
@@ -139,7 +161,10 @@ export const RouteConf = {
                     exact
                     path={path}
                     element={
-                        <BaseLayout isCenter={true} pageClassName={'Book-Page'}>
+                        <BaseLayout
+                            isCenter={true}
+                            pageClassName={'Book-Page'}
+                        >
                             <BookPage/>
                         </BaseLayout>
                     }
@@ -154,7 +179,10 @@ export const RouteConf = {
                     exact
                     path={path}
                     element={
-                        <BaseLayout isCenter={true} pageClassName={'Videos-Page'}>
+                        <BaseLayout
+                            isCenter={true}
+                            pageClassName={'Videos-Page'}
+                        >
                             <VideosPage/>
                         </BaseLayout>
                     }
@@ -172,7 +200,10 @@ export const RouteConf = {
                     exact
                     path={path}
                     element={
-                        <BaseLayout isCenter={true} pageClassName={'Video-Page'}>
+                        <BaseLayout
+                            isCenter={true}
+                            pageClassName={'Video-Page'}
+                        >
                             <VideoPage/>
                         </BaseLayout>
                     }
@@ -187,8 +218,29 @@ export const RouteConf = {
                     exact
                     path={path}
                     element={
-                        <BaseLayout isCenter={true} pageClassName={'Words-Page'}>
+                        <BaseLayout
+                            isCenter={true}
+                            pageClassName={'Words-Page'}
+                        >
                             <WordsPage/>
+                        </BaseLayout>
+                    }
+                />
+            }
+        },
+        about: {
+            path: '/about',
+            render: function (key, path) {
+                return <Route
+                    key={key}
+                    exact
+                    path={path}
+                    element={
+                        <BaseLayout
+                            disablePadding={true}
+                            pageClassName={'About-Page'}
+                        >
+                            <AboutPage/>
                         </BaseLayout>
                     }
                 />

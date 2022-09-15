@@ -36,6 +36,7 @@ export const enLocalization = {
                 // about me
                 t_about_title: 'about me',
                 t_about_description: 'Hello! I am an English teacher. I teach at school 666. Just a hell of a teacher. I teach everyone, I don’t torture anyone. We watch cartoons in class while I sleep. I\'m also cool and I love sweets: 5 candies is a grade of 5. I always dreamed of becoming a teacher so that I wouldn\'t have to work. Well, it has become, but you have to work. I made my husband write a website for me so that the students would study on it themselves. Actually part of this is a joke.',
+                t_btn_more: 'More',
                 t_about_btn: 'Download my resume',
                 // blocks
                 t_blocks_title: 'What can you learn from this site',

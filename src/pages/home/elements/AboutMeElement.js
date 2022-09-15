@@ -1,12 +1,13 @@
 import * as React from 'react';
 import {useContext} from 'react';
 import {Button, Container, Stack, Typography} from "@mui/material";
-import {ConstantImages, LanguageContext} from "../../../base";
+import {ConstantImages, LanguageContext, NavigateContext} from "../../../base";
 import {FileDownload} from "@mui/icons-material";
 
 export function AboutMeElement(props) {
 
     const {t} = useContext(LanguageContext)
+    const {route, routes} = useContext(NavigateContext)
 
     return (
         <Stack className={'ItemAboutMeContainer'}>
@@ -16,9 +17,27 @@ export function AboutMeElement(props) {
                         {t('pages.home.t_about_title')}
                     </Typography>
 
-                    <Typography variant="body1" className={'subtitle'}>
-                        {t('pages.home.t_about_description')}
-                    </Typography>
+                    <Stack
+                        sx={{display: 'block'}}
+                        spacing={1}
+                    >
+                        <Typography variant="body1" className={'subtitle'}>
+                            {t('pages.home.t_about_description')}
+                        </Typography>
+
+                        <Button
+                            size={'small'}
+                            variant={'outlined'}
+                            sx={{
+                                maxWidth: 2,
+                            }}
+                            onClick={() => {
+                                route.toLocation(routes.about)
+                            }}
+                        >
+                            {t('pages.home.t_btn_more')}
+                        </Button>
+                    </Stack>
 
                     <Stack
                         className={'SignatureBlock'}
@@ -30,7 +49,7 @@ export function AboutMeElement(props) {
                         }}
                     >
 
-                        <Button variant="outlined" startIcon={<FileDownload/>}>
+                        <Button variant={'contained'} startIcon={<FileDownload/>}>
                             {t('pages.home.t_about_btn')}
                         </Button>
 

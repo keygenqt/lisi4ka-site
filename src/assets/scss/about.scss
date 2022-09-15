@@ -1,0 +1,176 @@
+// color variants
+@import 'colors.scss';
+
+/*************************/
+/** ITEM Main ************/
+/*************************/
+
+.AboutMainElementContainer {
+  width: 100%;
+  padding: 140px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+  background-image: url('../images/about/IMG_20220901_095650.png');
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+.AboutMainElementContainer:after {
+  content: "";
+  background: #21293cd9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.AboutMainElementContainer .MuiContainer-root {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+/*************************/
+/** ITEM Experience ************/
+/*************************/
+
+.AboutExperienceElementContainer {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0 0 0;
+}
+
+
+.AboutExperienceElementContainer .TitleBlock {
+  padding-bottom: 60px;
+}
+
+.AboutExperienceElementContainer .ContentBlock {
+  padding-bottom: 60px;
+}
+
+.AboutExperienceElementContainer .ContentBlock .MuiGrid-container {
+  border-bottom: 1px solid $grayLight;
+  padding-bottom: 30px;
+}
+
+.AboutExperienceElementContainer .ContentBlock .MuiGrid-container:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.AboutExperienceElementContainer .ContentBlock .MuiAvatar-root {
+  box-shadow: rgb(0 0 0 / 20%) 0 3px 5px -1px, rgb(0 0 0 / 14%) 0px 5px 8px 0px, rgb(0 0 0 / 12%) 0px 1px 14px 0px;
+}
+
+.AboutExperienceElementContainer .ContentBlock .ContentName {
+  color: $grayDark;
+  font-size: 14px;
+  padding-right: 16px;
+}
+
+.AboutExperienceElementContainer .ContentBlock .LineTime {
+  margin-left: 80px;
+  margin-top: 21px;
+  position: relative;
+}
+
+.AboutExperienceElementContainer .ContentBlock .LineTime:before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: -25px;
+  top: 4px;
+  border-radius: 50%;
+  background: $grayDark;
+}
+
+.AboutExperienceElementContainer .ContentBlock .MuiGrid-container:first-child .LineTime:before {
+  background: $successMain;
+}
+
+.AboutExperienceElementContainer .ContentBlock .MuiGrid-container:first-child .LineTime:after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: -30px;
+  top: -1px;
+  border-radius: 50%;
+  border: 1px solid $successMain;
+  opacity: 0;
+
+  -webkit-animation: waveLineTime 3s linear infinite;
+  -moz-animation: waveLineTime 3s linear infinite;
+  animation: waveLineTime 3s linear infinite;
+}
+
+@keyframes waveLineTime {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.AboutExperienceElementContainer .ContentBlock .Map-Frame {
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+  height: 250px;
+  box-shadow: rgb(0 0 0 / 20%) 0 3px 5px -1px, rgb(0 0 0 / 14%) 0px 5px 8px 0px, rgb(0 0 0 / 12%) 0px 1px 14px 0px;
+}
+
+/*************************/
+/** ITEM MySkills ************/
+/*************************/
+
+.AboutMySkillsElementContainer {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.AboutMySkillsElementContainer2 {
+  padding: 140px 0;
+  background: $secondaryMain;
+}
+
+.AboutMySkillsElementContainer:after {
+  content: "";
+  background: $primaryMain;
+  position: absolute;
+  top: 0;
+  right: 55%;
+  width: 100%;
+  height: 1800px;
+  border-radius: 50%;
+}
+
+.AboutMySkillsElementContainer .MuiContainer-root {
+  position: relative;
+  z-index: 1;
+}
+
+.AboutMySkillsElementContainer .MuiGrid-container {
+  margin-top: 40px;
+}
+
+.AboutMySkillsElementContainer .MuiGrid-container .PaperItem {
+  padding: 30px;
+}
+
+/*************************/
+/** ITEM Questions ************/
+/*************************/
+
+.AboutQuestionsElementContainer {
+  width: 100%;
+  padding: 140px 0;
+  position: relative;
+  overflow: hidden;
+}

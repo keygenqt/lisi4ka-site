@@ -5,6 +5,7 @@ import "./localization/Localization";
 import './assets/scss/colors.scss';
 import './assets/scss/style.scss';
 import './assets/scss/home.scss';
+import './assets/scss/about.scss';
 
 import App from './App';
 import reportWebVitals from './tests/reportWebVitals';

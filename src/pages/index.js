@@ -8,3 +8,4 @@ export * from './review/ReviewPage';
 export * from './video/VideoPage';
 export * from './videos/VideosPage';
 export * from './words/WordsPage';
+export * from './about/AboutPage';

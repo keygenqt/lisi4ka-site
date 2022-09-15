@@ -8,6 +8,8 @@ import headerBgTeam from "../../assets/images/home/header-bg-team.jpg";
 import post1 from "../../assets/images/home/post_1.jpg";
 import post2 from "../../assets/images/home/post_2.webp";
 import post3 from "../../assets/images/home/post_3.jpg";
+import school from "../../assets/images/about/screenshot-457.png";
+import aboutMainImage from "../../assets/images/about/IMG_20220901_095650.png";
 
 /**
  * Apps constants images for easy import
@@ -24,5 +26,9 @@ export const ConstantImages = {
         post1: post1,
         post2: post2,
         post3: post3,
+    },
+    about: {
+        school: school,
+        aboutMainImage: aboutMainImage
     }
 };
