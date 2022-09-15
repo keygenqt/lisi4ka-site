@@ -1,21 +1,36 @@
 import * as React from 'react';
-import {Button, ButtonGroup, Container, Grid, Stack, Typography} from "@mui/material";
+import {Avatar, Button, ButtonGroup, Container, Grid, Stack, Typography} from "@mui/material";
 import {Email, LinkedIn, Telegram} from "@mui/icons-material";
 import {ConstantImages} from "../../../base";
 
 export function MainElement(props) {
     return (
         <Stack className={'AboutMainElementContainer'}>
-            <Container maxWidth={'md'}>
+            <Container maxWidth={'lg'}>
                 <Grid container>
                     <Grid item xl={4} lg={5} md={5} sm={8} xs={12}>
                         <Stack spacing={2}>
-                            <Typography variant="h4" color={'warning.main'}>
+
+                            <Avatar
+                                alt={'Julia Zarubina'}
+                                src={ConstantImages.home.user1}
+                                sx={{width: 240, height: 240, marginBottom: 2, borderRadius: 2}}
+                            />
+
+                            <Typography variant="h3" color={'warning.main'}>
                                 About Me
                             </Typography>
 
-                            <Typography variant="h6">
-                                I'm a teacher
+                            <Typography variant="subtitle2">
+                                English teacher
+                                <br/>
+                                mother
+                                <br/>
+                                and loving wife
+                            </Typography>
+
+                            <Typography variant="h4">
+                                Julia Zarubina
                             </Typography>
                         </Stack>
                     </Grid>
@@ -49,7 +64,7 @@ export function MainElement(props) {
                                 Follow me
                             </Typography>
 
-                            <ButtonGroup color={'secondary'} size="small" aria-label="small button group">
+                            <ButtonGroup color={'primary'} size="small" aria-label="small button group">
                                 <Button onClick={() => {
 
                                 }}>

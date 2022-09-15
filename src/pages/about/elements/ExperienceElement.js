@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {Avatar, Container, Grid, Stack, Typography} from "@mui/material";
+import {Avatar, Box, Button, Container, Divider, Grid, Stack, Typography} from "@mui/material";
 import {ConstantImages} from "../../../base";
+import {LinkOutlined} from "@mui/icons-material";
 
 export function ExperienceElement(props) {
 
@@ -15,12 +16,13 @@ export function ExperienceElement(props) {
                     </Typography>
 
                     <Typography variant="subtitle2" align={'center'}>
-                        My work, I take into account only educational practice. I don't think anyone here is interested
-                        in my work in the police ;)
+                        My work, I take into account only educational practice.
+                        <br/>
+                        I don't think anyone here is interested in my work in the police ;)
                     </Typography>
                 </Stack>
 
-                <Stack spacing={2} className={'ContentBlock'}>
+                <Stack spacing={3} className={'ContentBlock'}>
 
                     <Grid container spacing={0} rowSpacing={3}>
                         <Grid item xl={4} lg={5} md={5} sm={8} xs={12}>
@@ -46,7 +48,7 @@ export function ExperienceElement(props) {
                                     English teacher
                                 </Typography>
 
-                                <Typography variant="subtitle1">
+                                <Typography variant="subtitle1" color={'#cfcfcf'}>
                                     Sep 2021 - Present
                                 </Typography>
                             </Stack>
@@ -62,8 +64,12 @@ export function ExperienceElement(props) {
                                 <iframe
                                     className={'Map-Frame'}
                                     title="Lyceum-666"
-                                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A73488f4f00d6c668285c437eed142df5dd461d41528ad84a62f756e4fd09482b&amp;source=constructor"
+                                    src="https://yandex.com/map-widget/v1/?um=constructor%3Acc745608557c75d8a689723c0a64c06e3315eccea3eceb476c5d74896dcff4bd&amp;source=constructor"
                                 />
+
+                                <Divider sx={{
+                                    paddingTop: '32px'
+                                }}/>
                             </Stack>
                         </Grid>
                     </Grid>
@@ -77,7 +83,7 @@ export function ExperienceElement(props) {
                             >
                                 <Avatar
                                     alt={'Graduation icon, Education College School Logo'}
-                                    src={ConstantImages.about.school}
+                                    src={ConstantImages.about.university}
                                     sx={{width: 40, height: 40}}
                                 />
 
@@ -92,7 +98,7 @@ export function ExperienceElement(props) {
                                     Student
                                 </Typography>
 
-                                <Typography variant="subtitle1">
+                                <Typography variant="subtitle1" color={'#cfcfcf'}>
                                     Graduated in 2021
                                 </Typography>
                             </Stack>
@@ -101,13 +107,30 @@ export function ExperienceElement(props) {
                         <Grid item xl={8} lg={5} md={5} sm={8} xs={12}>
                             <Stack spacing={3}>
                                 <Typography variant="body1">
-                                    Capital ranking of universities in 2022, according to Round University Ranking (RUR),
-                                    includes 27 higher educational institutions. The most prestigious or best universities
+                                    Capital ranking of universities in 2022, according to Round University Ranking
+                                    (RUR),
+                                    includes 27 higher educational institutions. The most prestigious or best
+                                    universities
                                     Moscow, there are three contenders who are placed in the so-called diamond
-                                    league. This is the permanent leader of almost all such ratings - Moscow
+                                    league.
+                                    <br/>
+                                    <br/>
+                                    This is the permanent leader of almost all such ratings - Moscow
                                     State University (MGU), as well as MEPhI and the Moscow Physics and Technology
                                     institute.
                                 </Typography>
+
+                                <Box>
+                                    <Button
+                                        size={'small'}
+                                        color={'info'}
+                                        startIcon={<LinkOutlined/>}
+                                        sx={{textTransform: 'none'}}
+                                    >
+                                        https://www.msu.ru/
+                                    </Button>
+                                </Box>
+
                             </Stack>
                         </Grid>
                     </Grid>

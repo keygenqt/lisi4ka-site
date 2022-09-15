@@ -8,12 +8,13 @@ import {QuestionsElement} from "./elements/QuestionsElement";
 export function AboutPage() {
     return (
         <Stack>
+            {/*skills*/}
+            <MySkillsElement/>
             {/*main*/}
             <MainElement/>
             {/*experience*/}
             <ExperienceElement/>
-            {/*skills*/}
-            <MySkillsElement/>
+
             {/*connect*/}
             <QuestionsElement/>
         </Stack>

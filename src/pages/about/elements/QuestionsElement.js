@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {useContext} from 'react';
-import {Button, Container, Stack, Typography} from "@mui/material";
-import {ConstantImages, LanguageContext, NavigateContext} from "../../../base";
-import {FileDownload} from "@mui/icons-material";
+import {Box, Button, Container, Stack, Typography} from "@mui/material";
+import {SendOutlined} from "@mui/icons-material";
+import Lottie from "lottie-react";
+import {ConstantLottie} from "../../../base/constants/ConstantLottie";
 
 export function QuestionsElement(props) {
     return (
@@ -13,9 +13,19 @@ export function QuestionsElement(props) {
                         Do you have any questions?
                     </Typography>
 
-                    <Typography variant="subtitle2"  align={'center'}>
+                    <Typography variant="subtitle2" align={'center'}>
                         Don't be shy, say Hello!
                     </Typography>
+
+                    <Lottie className={'IconBg'} animationData={ConstantLottie.mailbox}/>
+
+                    <Box textAlign='center'>
+                        <Button variant="outlined" size="large" endIcon={<SendOutlined/>} sx={{
+                            maxWidth: 'max-content',
+                        }}>
+                            to write a message
+                        </Button>
+                    </Box>
                 </Stack>
             </Container>
         </Stack>
