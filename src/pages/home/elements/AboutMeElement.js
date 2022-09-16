@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useContext} from 'react';
-import {Button, Container, Stack, Typography} from "@mui/material";
+import {Box, Button, Container, Stack, Typography} from "@mui/material";
 import {ConstantImages, LanguageContext, NavigateContext} from "../../../base";
 import {FileDownload} from "@mui/icons-material";
 
@@ -25,18 +25,18 @@ export function AboutMeElement(props) {
                             {t('pages.home.t_about_description')}
                         </Typography>
 
-                        <Button
-                            size={'small'}
-                            variant={'outlined'}
-                            sx={{
-                                maxWidth: 2,
-                            }}
-                            onClick={() => {
-                                route.toLocation(routes.about)
-                            }}
-                        >
-                            {t('pages.home.t_btn_more')}
-                        </Button>
+                        <Box>
+                            <Button
+                                size={'small'}
+                                variant={'outlined'}
+                                onClick={() => {
+                                    route.toLocation(routes.about)
+                                }}
+                            >
+                                {t('pages.home.t_btn_more')}
+                            </Button>
+                        </Box>
+
                     </Stack>
 
                     <Stack
