@@ -286,13 +286,13 @@ footer.AppTableCell .Localization button.Active {
   background-color: $primaryLight;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 650px) {
   .TopBarMenuElement .MenuButtonMD {
     display: none;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .TopBarMenuElement .Logo,
   .TopBarMenuElement .MenuButtonsXL {
     display: none;

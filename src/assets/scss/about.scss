@@ -1,9 +1,73 @@
 // color variants
 @import 'colors.scss';
 
-/*************************/
-/** ITEM Main ************/
-/*************************/
+/*******************************/
+/** ITEM MySkills **************/
+/*******************************/
+
+.AboutMySkillsElementContainer {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.AboutMySkillsElementContainer2 {
+  padding: 140px 0;
+  background: $secondaryMain;
+}
+
+.AboutMySkillsElementContainer:after {
+  content: "";
+  background: linear-gradient(180deg, $primaryDark 30%, $secondaryDark 100%);
+  position: absolute;
+  bottom: 199px;
+  left: -204px;
+  width: 1600px;
+  height: 1600px;
+  border-radius: 20%;
+  transform: rotate(313deg);
+}
+
+.AboutMySkillsElementContainer .MuiContainer-root {
+  position: relative;
+  z-index: 1;
+}
+
+.AboutMySkillsElementContainer .MuiGrid-container {
+  margin-top: 40px;
+}
+
+.AboutMySkillsElementContainer .MuiGrid-container .PaperItem {
+  padding: 30px;
+}
+
+.AboutMySkillsElementContainer .MuiGrid-container .PaperItem .MuiTypography-body1 {
+  padding-top: 20px;
+}
+
+.AboutMySkillsElementContainer .MuiGrid-container .PaperItem .MuiTypography-subtitle2 {
+  font-size: 16px;
+}
+
+@media (max-width: 900px) {
+  .AboutMySkillsElementContainer2 {
+    padding: 100px 0;
+    color: white;
+  }
+}
+
+@media (max-width: 600px) {
+  .AboutMySkillsElementContainer2 {
+    padding: 60px 0;
+  }
+  .AboutMySkillsElementContainer .MuiGrid-container {
+    margin-top: 20px;
+  }
+}
+
+/*******************************/
+/** ITEM Main ******************/
+/*******************************/
 
 .AboutMainElementContainer {
   width: 100%;
@@ -30,9 +94,38 @@
   font-size: 18px;
 }
 
-/*************************/
+@media (max-width: 1000px) {
+  .AboutMainElementContainer {
+    padding: 60px 0 80px 0;
+  }
+}
+
+@media (max-width: 880px) {
+  .AboutMainElementContainer .MuiAvatar-root {
+    width: 190px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 700px) {
+  .AboutMainElementContainer .MuiAvatar-root {
+    width: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .AboutMainElementContainer .MuiAvatar-root {
+    width: 190px;
+    height: 190px;
+  }
+  .AboutMainElementContainer {
+    padding: 30px 0 70px 0;
+  }
+}
+
+/*******************************/
 /** ITEM Experience ************/
-/*************************/
+/*******************************/
 
 .AboutExperienceElementContainer {
   width: 100%;
@@ -77,11 +170,13 @@
   color: $warningMain;
   font-size: 14px;
   padding-right: 16px;
+  white-space: pre;
 }
 
 .AboutExperienceElementContainer .ContentBlock .LineTime {
   margin-left: 80px;
   margin-top: 21px;
+  padding-right: 20px;
   position: relative;
 }
 
@@ -128,61 +223,32 @@
 .AboutExperienceElementContainer .ContentBlock .Map-Frame {
   border: none;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 4px;
   height: 250px;
 }
 
-/*************************/
-/** ITEM MySkills ************/
-/*************************/
-
-.AboutMySkillsElementContainer {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
+.AboutExperienceElementContainer .ContentBlock .MuiTypography-body1 {
+  white-space: break-spaces;
 }
 
-.AboutMySkillsElementContainer2 {
-  padding: 140px 0;
-  background: $secondaryMain;
+@media (max-width: 700px) {
+  .AboutExperienceElementContainer {
+    padding: 80px 0 20px 0;
+  }
 }
 
-.AboutMySkillsElementContainer:after {
-  content: "";
-  background: linear-gradient(180deg, #3e4862 30%, #edacac 100%);
-  position: absolute;
-  bottom: 199px;
-  left: -204px;
-  width: 1600px;
-  height: 1600px;
-  border-radius: 20%;
-  transform: rotate(313deg);
+@media (max-width: 600px) {
+  .AboutExperienceElementContainer {
+    padding: 70px 0 0 0;
+  }
+  .AboutExperienceElementContainer .ContentBlock .MuiDivider-root {
+    margin-bottom: -16px;
+  }
 }
 
-.AboutMySkillsElementContainer .MuiContainer-root {
-  position: relative;
-  z-index: 1;
-}
-
-.AboutMySkillsElementContainer .MuiGrid-container {
-  margin-top: 40px;
-}
-
-.AboutMySkillsElementContainer .MuiGrid-container .PaperItem {
-  padding: 30px;
-}
-
-.AboutMySkillsElementContainer .MuiGrid-container .PaperItem .MuiTypography-body1 {
-  padding-top: 20px;
-}
-
-.AboutMySkillsElementContainer .MuiGrid-container .PaperItem .MuiTypography-subtitle2 {
-  font-size: 16px;
-}
-
-/*************************/
-/** ITEM Questions ************/
-/*************************/
+/*******************************/
+/** ITEM Questions *************/
+/*******************************/
 
 .AboutQuestionsElementContainer {
   width: 100%;
@@ -194,4 +260,16 @@
 .AboutQuestionsElementContainer .IconBg {
   width: 180px;
   margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+  .AboutQuestionsElementContainer {
+    padding: 80px 0 80px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .AboutQuestionsElementContainer {
+    padding: 70px 0 70px 0;
+  }
 }

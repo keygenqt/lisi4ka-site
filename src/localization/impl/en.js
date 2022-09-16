@@ -65,6 +65,72 @@ export const enLocalization = {
                 t_start_subtitle: 'My achievements that can help my colleagues in their work',
                 t_start_download_block: 'Start learning by\nDownloading Apps',
             },
+            about: {
+                // skills
+                't_skills_title': 'My skills',
+                't_skills_subtitle': 'Awards and skills in which I am 100% sure',
+
+                't_skills_item1_title': 'Education',
+                't_skills_item1_text': 'I graduated from 2 universities Sevatopol (PTU) and Moscow (MGU). It was not possible to unlearn to the end in Simferopl (due to the well-known events of the 14th year).',
+
+                't_skills_item2_title': 'Mother\'s Award',
+                't_skills_item2_text': 'My beloved daughter gave me an award on the 8th of March. Made by hand. She is a fine fellow and a beauty, I love her very much and she me too. Peace to the world. ',
+
+                't_skills_item3_title': 'Husband Award',
+                't_skills_item3_text': 'My husband is by far the best. He has not graduated from any university, but works as the best programmer in the world and the universe. He wrote this site for me.',
+
+                't_skills_item4_title': 'Teacher of the Year Award',
+                't_skills_item4_text': 'Someday I will get it. I try and I\'m a topper. I will train everyone so that my disciples will be taken by the Neyites for their own, and sanctions will be lifted from them.',
+
+                // about
+                't_about_title': 'About Me',
+                't_about_title_role': 'English teacher, mother, and loving wife',
+                't_about_title_name': 'Julia Zarubina',
+                't_about_text': 'Hello! Welcome to my site and thanks for your interest! I am glad that you are here, reading this page, interested in education and knowledge.' +
+                    '\n' +
+                    '\n' +
+                    'I have been working as an English teacher for more than 2 years, without stopping studying myself - there is no limit to perfection. Studied at 3 universities (2 of them graduated). Now I\'m preparing to take the C2 level exam.' +
+                    '\n' +
+                    '\n' +
+                    'This site was written to help prepare my students. Working on education maximizing learning progress. The best tools for my favorite students :)' +
+                    '\n' +
+                    '\n' +
+                    'Learning a foreign language is a way to a parallel world, and learning English is language freedom as a bonus.',
+                't_about_follow_text': 'Follow me',
+
+                // experience
+                't_experience_title': 'Experience',
+                't_experience_subtitle': 'My work, I take into account only educational practice.' +
+                    '\n' +
+                    'I don\'t think anyone here is interested in my work in the police ;)',
+
+                't_experience_school_1_title': 'Romanov' +
+                    '\n' +
+                    'Secondary school',
+                't_experience_school_1_role': 'English teacher',
+                't_experience_school_1_date': 'Sep 2020 - Present',
+                't_experience_school_1_text': 'The number of classes is 39. On the basis of grades 10-11, 6 profile groups were created: physical and mathematical, natural science profiles, a universal profile group with an in-depth study of the Russian language and history, with an in-depth study of physics and mathematics.' +
+                    '\n' +
+                    '\n' +
+                    'There are 992 students in total. There are 446 students at the level of primary general education, 488 students at the level of basic general education, and 58 students at the level of secondary general education.',
+                't_experience_school_1_link': 'http://www.romanovschool.ru/',
+
+                't_experience_school_2_title': 'Moscow State University' +
+                    '\n' +
+                    '\'M. V. Lomonosov\'',
+                't_experience_school_2_role': 'Student',
+                't_experience_school_2_date': 'Graduated in 2020',
+                't_experience_school_2_text': 'Moscow State University \'M. V. Lomonosov\' (MSU; Russian: Московский государственный университет имени М. В. Ломоносова, sometimes abbreviated МГУ, MGU) is a public research university located in Moscow, Russia. It was founded in 1755 by Ivan Shuvalov and Mikhail Lomonosov, after whom it was renamed \'Lomonosov University\' in 1940. Its rector is Viktor Sadovnichiy.' +
+                    '\n' +
+                    '\n' +
+                    'Alumni of the university include past leaders of the Soviet Union and other governments, as well as a Patriarch of the Russian Orthodox Church. As of 2019, 13 Nobel laureates, six Fields Medal winners and one Turing Award winner had been affiliated with the university.',
+                't_experience_school_2_link': 'https://www.msu.ru/',
+
+                // questions
+                't_questions_title': 'Do you have any questions?',
+                't_questions_subtitle': 'Don\'t be shy, say Hello!',
+                't_questions_btn_send': 'To write a message'
+            },
             error: {
                 t_text: 'Page not found',
                 t_subtext: 'The Page you are looking for doesn\'t exist',

@@ -8,9 +8,9 @@ import headerBgTeam from "../../assets/images/home/header-bg-team.jpg";
 import post1 from "../../assets/images/home/post_1.jpg";
 import post2 from "../../assets/images/home/post_2.webp";
 import post3 from "../../assets/images/home/post_3.jpg";
-import school from "../../assets/images/about/screenshot-457.png";
+import school from "../../assets/images/about/rschool.png";
 import university from "../../assets/images/about/mgu.jpeg";
-import map from "../../assets/images/about/screenshot-458.png";
+import aboutPhoto from "../../assets/images/about/about_photo.png";
 
 /**
  * Apps constants images for easy import
@@ -31,6 +31,6 @@ export const ConstantImages = {
     about: {
         school: school,
         university: university,
-        map: map,
+        aboutPhoto: aboutPhoto,
     }
 };

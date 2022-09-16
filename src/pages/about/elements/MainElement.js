@@ -1,67 +1,51 @@
 import * as React from 'react';
+import {useContext} from 'react';
 import {Avatar, Button, ButtonGroup, Container, Grid, Stack, Typography} from "@mui/material";
 import {Email, LinkedIn, Telegram} from "@mui/icons-material";
-import {ConstantImages} from "../../../base";
+import {ConstantImages, LanguageContext} from "../../../base";
 
 export function MainElement(props) {
+
+    const {t} = useContext(LanguageContext)
+
     return (
         <Stack className={'AboutMainElementContainer'}>
             <Container maxWidth={'lg'}>
                 <Grid container>
-                    <Grid item xl={4} lg={5} md={5} sm={8} xs={12}>
+                    <Grid item xl={4} lg={4} md={4} sm={4} xs={12}>
                         <Stack spacing={2}>
 
                             <Avatar
-                                alt={'Julia Zarubina'}
-                                src={ConstantImages.home.user1}
+                                alt={t('pages.about.t_about_title_name')}
+                                src={ConstantImages.about.aboutPhoto}
                                 sx={{width: 240, height: 240, marginBottom: 2, borderRadius: 2}}
                             />
 
                             <Typography variant="h3" color={'warning.main'}>
-                                About Me
+                                {t('pages.about.t_about_title')}
                             </Typography>
 
-                            <Typography variant="subtitle2">
-                                English teacher
-                                <br/>
-                                mother
-                                <br/>
-                                and loving wife
+                            <Typography variant="subtitle2" sx={{
+                                whiteSpace: 'break-spaces'
+                            }}>
+                                {t('pages.about.t_about_title_role')}
                             </Typography>
 
                             <Typography variant="h4">
-                                Julia Zarubina
+                                {t('pages.about.t_about_title_name')}
                             </Typography>
                         </Stack>
                     </Grid>
-                    <Grid item xl={8} lg={5} md={5} sm={8} xs={12}>
+                    <Grid item xl={8} lg={8} md={8} sm={8} xs={12}>
                         <Stack spacing={3}>
-                            <Typography variant="body1">
-                                Hello! I am an English teacher. I teach at school 666. Just a hell of a teacher. I teach
-                                everyone, I don’t torture anyone. We watch cartoons in class while I sleep. I'm also
-                                cool and I love sweets: 5 candies is a grade of 5.
-                                <br/>
-                                <br/>
-                                Hello! I am an English teacher. I teach at school 666. Just a hell of a teacher. I teach
-                                everyone, I don’t torture anyone. We watch cartoons in class while I sleep. I'm also
-                                cool and I love sweets: 5 candies is a grade of 5.
-                                <br/>
-                                <br/>
-                                Hello! I am an English teacher. I teach at school 666. Just a hell of a teacher. I teach
-                                everyone, I don’t torture anyone. We watch cartoons in class while I sleep. I'm also
-                                cool and I love sweets: 5 candies is a grade of 5.
-                                <br/>
-                                <br/>
-                                I always dreamed of becoming a teacher so that I wouldn't have to work. Well, it has
-                                become, but you have to work.
-                                <br/>
-                                <br/>
-                                I made my husband write a website for me so that the students would study on it
-                                themselves. Actually part of this is a joke.
+                            <Typography variant="body1" sx={{
+                                whiteSpace: 'break-spaces'
+                            }}>
+                                {t('pages.about.t_about_text')}
                             </Typography>
 
                             <Typography variant="h4">
-                                Follow me
+                                {t('pages.about.t_about_follow_text')}
                             </Typography>
 
                             <ButtonGroup color={'primary'} size="small" aria-label="small button group">

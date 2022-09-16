@@ -14,7 +14,6 @@ export function AboutPage() {
             <MainElement/>
             {/*experience*/}
             <ExperienceElement/>
-
             {/*connect*/}
             <QuestionsElement/>
         </Stack>
