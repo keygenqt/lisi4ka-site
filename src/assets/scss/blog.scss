@@ -1,0 +1,55 @@
+// color variants
+@import 'colors.scss';
+
+.Blog-Page .BlogContent {
+  margin-bottom: 60px;
+}
+
+.Blog-Page .BlogContent .BlogTitleHeader {
+  background-color: $secondaryMain;
+  margin-bottom: 60px;
+  padding: 60px 0 60px 0;
+  text-align: center;
+}
+
+.Blog-Page .BlogContent .BlogTitleHeader .Title h2 {
+  color: $primaryMain;
+}
+
+.Blog-Page .BlogContent .BlogTitleHeader .Lottie {
+  width: 300px;
+  margin: auto;
+}
+
+.Blog-Page .BlogContent .BlogTitleHeader .Title h6 {
+  color: $primaryDark;
+  white-space: break-spaces;
+}
+
+.Blog-Page .BlogContent .MuiAccordionSummary-root {
+  background-color: $grayLight;
+}
+
+.Blog-Page .BlogContent .Topics {
+  display: block;
+}
+
+.Blog-Page .BlogContent .Topics .MuiChip-root {
+  margin-bottom: 6px;
+  margin-right: 6px;
+}
+
+@media (max-width: 900px) {
+  .Blog-Page .Filter {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .Blog-Page .BlogContent .BlogTitleHeader .Lottie {
+    width: 200px;
+  }
+  .Blog-Page .BlogContent .BlogTitleHeader .Title h6 {
+    white-space: normal;
+  }
+}

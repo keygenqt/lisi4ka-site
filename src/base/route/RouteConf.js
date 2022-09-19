@@ -45,7 +45,7 @@ export const RouteConf = {
                     path={path}
                     element={
                         <BaseLayout
-                            isCenter={true}
+                            disablePadding={true}
                             pageClassName={'Blog-Page'}
                         >
                             <BlogPage/>
@@ -63,7 +63,7 @@ export const RouteConf = {
                     path={path}
                     element={
                         <BaseLayout
-                            isCenter={true}
+                            disablePadding={true}
                             pageClassName={'Blog-Page'}
                         >
                             <BlogPage/>
@@ -81,7 +81,7 @@ export const RouteConf = {
                     path={path}
                     element={
                         <BaseLayout
-                            isCenter={true}
+                            disablePadding={true}
                             pageClassName={'Blog-Page'}
                         >
                             <BlogPage/>

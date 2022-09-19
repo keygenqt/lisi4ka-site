@@ -37,7 +37,6 @@ export const enLocalization = {
                 t_about_title: 'about me',
                 t_about_description: 'Hello! I am an English teacher. I teach at school 666. Just a hell of a teacher. I teach everyone, I don’t torture anyone. We watch cartoons in class while I sleep. I\'m also cool and I love sweets: 5 candies is a grade of 5. I always dreamed of becoming a teacher so that I wouldn\'t have to work. Well, it has become, but you have to work. I made my husband write a website for me so that the students would study on it themselves. Actually part of this is a joke.',
                 t_btn_more: 'More',
-                t_about_btn: 'Download my resume',
                 // blocks
                 t_blocks_title: 'What can you learn from this site',
                 t_blocks_subtitle: 'The site provides convenient tools to help learn English, all for my favorite students',
@@ -130,6 +129,22 @@ export const enLocalization = {
                 't_questions_title': 'Do you have any questions?',
                 't_questions_subtitle': 'Don\'t be shy, say Hello!',
                 't_questions_btn_send': 'To write a message'
+            },
+            blog: {
+                't_blog_title': 'I try for you',
+                't_blog_subtitle': 'I share my teaching experience, knowledge, \nand also write various interesting details about different things every week...',
+                't_blog_list_btn_more': 'Read...',
+
+                't_filter_title': 'Configuration',
+                't_filter_types_title': 'Types',
+                't_filter_types_item_1': 'Articles',
+                't_filter_types_item_2': 'Reviews',
+                't_filter_sort_title': 'Sort',
+                't_filter_sort_item_1': 'Recently added',
+                't_filter_sort_item_3': 'Alphabetically',
+                't_filter_sort_item_2': 'Most likes',
+
+                't_filter_btn': 'Apply',
             },
             error: {
                 t_text: 'Page not found',
