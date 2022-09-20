@@ -1,0 +1,54 @@
+// color variants
+@import 'colors.scss';
+
+.Books-Page .BooksContent {
+  margin-bottom: 60px;
+}
+
+.Books-Page .BooksContent .BooksTitleHeader {
+  background-color: $secondaryMain;
+  margin-bottom: 60px;
+  padding: 60px 0 60px 0;
+  text-align: center;
+}
+
+.Books-Page .BooksContent .BooksTitleHeader .Title h2 {
+  color: $primaryMain;
+}
+
+.Books-Page .BooksContent .BooksTitleHeader .Lottie {
+  width: 300px;
+  margin: -65px auto;
+}
+
+.Books-Page .BooksContent .BooksTitleHeader .Title h6 {
+  color: $primaryDark;
+  white-space: break-spaces;
+}
+
+.Books-Page .BooksContent .MuiAutocomplete-root {
+  max-width: 435px;
+  width: 100%;
+  float: right;
+}
+
+.Books-Page .BooksContent .MuiCardContent-root .MuiTypography-subtitle2 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .Books-Page .BooksContent .MuiCardContent-root .MuiTypography-subtitle2 {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 450px) {
+  .Books-Page .BooksContent .BooksTitleHeader .Lottie {
+    width: 200px;
+  }
+  .Books-Page .BooksContent .BooksTitleHeader .Title h6 {
+    white-space: normal;
+  }
+}

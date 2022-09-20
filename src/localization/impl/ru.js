@@ -146,6 +146,17 @@ export const ruLocalization = {
 
                 't_filter_btn': 'Пременить',
             },
+            books: {
+                't_books_title': 'Книги',
+                't_books_subtitle': 'Книги для учебы которые доступны в открытом доступе.\nАудио книга совмещена с текстом и можно прослушать каждое предложение отдельно. ',
+                't_books_search': 'Поиск...',
+                't_books_search_group_param': 'По параметрам',
+                't_books_search_group_param_1': 'Закладки',
+                't_books_search_group_param_2': 'Рейтинг',
+                't_books_search_group_title': 'По названию',
+                't_books_search_group_author': 'По автору',
+                't_books_btn_read': 'Читать',
+            },
             error: {
                 t_text: 'Страница не найдена',
                 t_subtext: 'Страница, которую вы ищете, не существует',

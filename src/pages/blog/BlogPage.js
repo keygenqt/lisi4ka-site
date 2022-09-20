@@ -113,7 +113,7 @@ function CardItemArticle(props) {
     })
 
     return (
-        <Card>
+        <Card variant={'outlined'}>
             <CardHeader
                 avatar={
                     <Avatar sx={{bgcolor: 'primary'}} aria-label="recipe" src={props.image}>
@@ -242,7 +242,6 @@ export function BlogPage() {
 
                             <Typography variant={'h4'}>
                                 {t('pages.blog.t_filter_title')}
-
                             </Typography>
 
                             <Stack spacing={0}>
@@ -302,8 +301,6 @@ export function BlogPage() {
             </Container>
 
         </Stack>
-
-
     );
 }
 

@@ -145,6 +145,18 @@ export const enLocalization = {
                 't_filter_sort_item_2': 'Most likes',
 
                 't_filter_btn': 'Apply',
+                't_books_btn_read': 'Read',
+            },
+            books: {
+                't_books_title': 'Books',
+                't_books_subtitle': 'Books for study that are available in the public domain. \nThe audio book is combined with the text and you can listen to each sentence separately.',
+                't_books_search': 'Search...',
+                't_books_search_group_param': 'By param',
+                't_books_search_group_param_1': 'Bookmark',
+                't_books_search_group_param_2': 'Top rating',
+                't_books_search_group_title': 'By title',
+                't_books_search_group_author': 'By author',
+                't_books_btn_read': 'Read',
             },
             error: {
                 t_text: 'Page not found',

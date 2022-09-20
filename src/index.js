@@ -7,6 +7,7 @@ import './assets/scss/style.scss';
 import './assets/scss/home.scss';
 import './assets/scss/about.scss';
 import './assets/scss/blog.scss';
+import './assets/scss/books.scss';
 
 import App from './App';
 import reportWebVitals from './tests/reportWebVitals';

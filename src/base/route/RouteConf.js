@@ -141,7 +141,7 @@ export const RouteConf = {
                     path={path}
                     element={
                         <BaseLayout
-                            isCenter={true}
+                            disablePadding={true}
                             pageClassName={'Books-Page'}
                         >
                             <BooksPage/>
