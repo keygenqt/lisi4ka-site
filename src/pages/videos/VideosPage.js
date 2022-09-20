@@ -85,7 +85,6 @@ function CardItemVideo(props) {
 
     return (
         <Card
-            key={props.idYouTube}
             variant={'outlined'}
         >
             <Box className={'ImageCard'}>
@@ -137,6 +136,7 @@ export function VideosPage() {
 
     data.forEach((item) => {
         content.push(<CardItemVideo
+            key={item.idYouTube}
             idYouTube={item.idYouTube}
             title={item.title}
             author={item.author}
