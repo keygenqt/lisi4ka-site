@@ -157,6 +157,14 @@ export const ruLocalization = {
                 't_books_search_group_author': 'По автору',
                 't_books_btn_read': 'Читать',
             },
+            videos: {
+                't_videos_title': 'Видео',
+                't_videos_subtitle': 'Видео с интерактивными субтитрами.\nСмотрите, читайте, изучайте что сказал ваш любимый блогер (ну или мой).',
+                't_videos_search': 'Поиск...',
+                't_videos_btn_read': 'Смотреть',
+                't_videos_card_time': 'Продолжительность',
+                't_videos_card_author': 'Автор',
+            },
             error: {
                 t_text: 'Страница не найдена',
                 t_subtext: 'Страница, которую вы ищете, не существует',

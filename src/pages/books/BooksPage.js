@@ -179,6 +179,7 @@ export function BooksPage() {
             type: t('pages.books.t_books_search_group_param')
         },
     ]
+
     const content = []
 
     data.forEach((item) => {

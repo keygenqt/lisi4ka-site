@@ -180,7 +180,7 @@ export const RouteConf = {
                     path={path}
                     element={
                         <BaseLayout
-                            isCenter={true}
+                            disablePadding={true}
                             pageClassName={'Videos-Page'}
                         >
                             <VideosPage/>

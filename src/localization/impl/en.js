@@ -158,6 +158,14 @@ export const enLocalization = {
                 't_books_search_group_author': 'By author',
                 't_books_btn_read': 'Read',
             },
+            videos: {
+                't_videos_title': 'Videos',
+                't_videos_subtitle': 'Video with interactive subtitles.\nWatch, read, study what your favorite blogger (well, or mine) said.',
+                't_videos_search': 'Search...',
+                't_videos_btn_read': 'Watch',
+                't_videos_card_time': 'Duration',
+                't_videos_card_author': 'Author',
+            },
             error: {
                 t_text: 'Page not found',
                 t_subtext: 'The Page you are looking for doesn\'t exist',
