@@ -16,7 +16,7 @@ import {
     useMediaQuery,
     useTheme, Zoom
 } from "@mui/material";
-import {LanguageContext, useWindowResize, useWindowScroll} from "../../base";
+import {LanguageContext, NavigateContext, useWindowResize, useWindowScroll} from "../../base";
 import {ArrowBackOutlined, ArrowForwardOutlined} from "@mui/icons-material";
 import Lottie from "lottie-react";
 import {ConstantLottie} from "../../base/constants/ConstantLottie";
@@ -82,6 +82,7 @@ const data = [
 function CardItemVideo(props) {
 
     const {t} = useContext(LanguageContext)
+    const {route, routes} = useContext(NavigateContext)
 
     return (
         <Card
@@ -98,7 +99,11 @@ function CardItemVideo(props) {
                     <Button
                         color={'warning'}
                         variant={'outlined'}
-                        size={'small'}>
+                        size={'small'}
+                        onClick={() => {
+                            route.toLocation(routes.video, props.id)
+                        }}
+                    >
                         {t('pages.videos.t_videos_btn_read')}
                     </Button>
                 </Box>
@@ -155,6 +160,7 @@ export function VideosPage() {
 
     data.forEach((item) => {
         content.push(<CardItemVideo
+            id={item.id}
             key={item.idYouTube}
             idYouTube={item.idYouTube}
             title={item.title}

@@ -20,7 +20,7 @@ import {
 } from "@mui/material";
 import Lottie from "lottie-react";
 import {ConstantLottie} from "../../base/constants/ConstantLottie";
-import {ConstantImages, LanguageContext, useWindowResize, useWindowScroll} from "../../base";
+import {ConstantImages, LanguageContext, NavigateContext, useWindowResize, useWindowScroll} from "../../base";
 import {BookmarkOutlined, StarOutlined} from "@mui/icons-material";
 import Masonry from "@mui/lab/Masonry";
 
@@ -110,6 +110,7 @@ const data = [
 function CardItemBook(props) {
 
     const {t} = useContext(LanguageContext)
+    const {route, routes} = useContext(NavigateContext)
 
     return (
         <Card elevation={0} variant={'outlined'}>
@@ -127,7 +128,11 @@ function CardItemBook(props) {
                     <Button
                         color={'warning'}
                         variant={'outlined'}
-                        size={'small'}>
+                        size={'small'}
+                        onClick={() => {
+                            route.toLocation(routes.book, props.id)
+                        }}
+                    >
                         {t('pages.books.t_books_btn_read')}
                     </Button>
                 </Box>
@@ -232,6 +237,7 @@ export function BooksPage() {
         content.push(
             <CardItemBook
                 key={item.id}
+                id={item.id}
                 image={item.image}
                 title={item.title}
                 author={item.author}

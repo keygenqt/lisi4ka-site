@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {useContext} from 'react';
 import {
-    Avatar, Box,
+    Avatar,
+    Box,
     Button,
     Card,
     CardActions,
@@ -20,9 +21,11 @@ import {
     Radio,
     RadioGroup,
     Stack,
-    Typography, useMediaQuery, useTheme
+    Typography,
+    useMediaQuery,
+    useTheme
 } from "@mui/material";
-import {ConstantImages, LanguageContext} from "../../base";
+import {ConstantImages, LanguageContext, NavigateContext} from "../../base";
 import {ArrowBackOutlined, ArrowForwardOutlined, ExpandMoreOutlined, Favorite} from "@mui/icons-material";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -90,6 +93,7 @@ const data = [
 function CardItemArticle(props) {
 
     const {t} = useContext(LanguageContext)
+    const {route, routes} = useContext(NavigateContext)
 
     const topics = []
     const colors = [
@@ -165,10 +169,21 @@ function CardItemArticle(props) {
                         </Typography>
                     </Stack>
 
-                    <Button variant={'outlined'} size={'small'} sx={{
-                        height: 'fit-content',
-                        marginTop: '4px !important'
-                    }}>
+                    <Button
+                        variant={'outlined'}
+                        size={'small'}
+                        sx={{
+                            height: 'fit-content',
+                            marginTop: '4px !important'
+                        }}
+                        onClick={() => {
+                            if (props.type === 'article') {
+                                route.toLocation(routes.article, props.id)
+                            } else {
+                                route.toLocation(routes.review, props.id)
+                            }
+                        }}
+                    >
                         {t('pages.blog.t_blog_list_btn_more')}
                     </Button>
 
@@ -191,17 +206,19 @@ export function BlogPage() {
     data.forEach((item) => {
         content.push(<CardItemArticle
             key={item.id}
+            id={item.id}
             image={item.image}
             title={isLocEn ? item.title : item.titleRu}
             description={isLocEn ? item.description : item.descriptionRu}
             topics={item.topics}
+            type={item.type}
         />)
     })
 
     return (
         <Stack className={'BlogContent'}>
             <Box className={'BlogTitleHeader'}>
-                <Container maxWidth={"lg"} >
+                <Container maxWidth={"lg"}>
                     <Stack className={'Title'} spacing={3}>
                         <Typography gutterBottom variant="h2" sx={{
                             marginBottom: 4
@@ -226,7 +243,7 @@ export function BlogPage() {
                             {content}
 
                             <Pagination
-                                size={isMD ? 'small': 'medium'}
+                                size={isMD ? 'small' : 'medium'}
                                 count={99}
                                 renderItem={(item) => (
                                     <PaginationItem

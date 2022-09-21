@@ -10,7 +10,6 @@ import {
     ReviewPage,
     VideoPage,
     VideosPage,
-    WordsPage,
 } from "../../pages";
 import * as React from "react";
 import {RouteType} from "./RouteType";
@@ -91,7 +90,7 @@ export const RouteConf = {
             }
         },
         article: {
-            path: '/article:id',
+            path: 'blog/article/:id',
             match: {
                 id: RouteType.integer,
             },
@@ -112,7 +111,7 @@ export const RouteConf = {
             }
         },
         review: {
-            path: '/review/:id',
+            path: 'blog/review/:id',
             match: {
                 id: RouteType.integer,
             },
