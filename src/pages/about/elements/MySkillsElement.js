@@ -3,22 +3,28 @@ import {useContext} from 'react';
 import {Box, Container, Grid, Paper, Stack, Typography} from "@mui/material";
 import {ApartmentOutlined, EmojiEventsOutlined, MilitaryTechOutlined, PregnantWomanOutlined} from "@mui/icons-material";
 import {LanguageContext} from "../../../base";
+import Lottie from "lottie-react";
+import {ConstantLottie} from "../../../base/constants/ConstantLottie";
 
 export function MySkillsElement(props) {
 
     const {t} = useContext(LanguageContext)
 
     return (
-        <Stack className={'AboutMySkillsElementContainer'}>
-            <Stack className={'AboutMySkillsElementContainer2'}>
-                <Container maxWidth={'lg'}>
-                    <Stack spacing={3}>
-                        <Typography variant="h2" align={'center'}>
-                            {t('pages.about.t_skills_title')}
+        <Stack className={'AboutMySkillsContent'}>
+            <Box className={'AboutMySkillsTitleHeader'}>
+                <Container maxWidth={"lg"}>
+                    <Stack className={'Title'} spacing={3}>
+                        <Typography gutterBottom variant="h2" sx={{
+                            marginBottom: 4
+                        }}>
+                            {t('pages.about.t_experience_title')}
                         </Typography>
 
-                        <Typography variant="subtitle2" align={'center'}>
-                            {t('pages.about.t_skills_subtitle')}
+                        <Lottie className={'Lottie'} animationData={ConstantLottie.aboutIcon}/>
+
+                        <Typography gutterBottom variant="subtitle2">
+                            {t('pages.about.t_experience_subtitle')}
                         </Typography>
                     </Stack>
 
@@ -97,10 +103,10 @@ export function MySkillsElement(props) {
                         </Grid>
                     </Grid>
                 </Container>
-            </Stack>
-            <Box sx={{height: 50}}/>
+
+            </Box>
         </Stack>
-    );
+    )
 }
 
 MySkillsElement.propTypes = {};

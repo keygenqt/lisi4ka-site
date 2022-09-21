@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useContext} from 'react';
-import {Box, Button, Container, Stack, Typography} from "@mui/material";
+import {Button, Container, Stack, Typography} from "@mui/material";
 import {ConstantImages, LanguageContext, NavigateContext} from "../../../base";
 
 export function AboutMeElement(props) {

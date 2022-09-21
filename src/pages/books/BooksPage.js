@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useContext} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {
     Autocomplete,
     Box,
@@ -8,21 +8,21 @@ import {
     CardActions,
     CardContent,
     CardMedia,
+    CircularProgress,
     Container,
-    Grid,
     IconButton,
-    Pagination,
-    PaginationItem,
     Stack,
     TextField,
     Typography,
     useMediaQuery,
-    useTheme
+    useTheme,
+    Zoom
 } from "@mui/material";
 import Lottie from "lottie-react";
 import {ConstantLottie} from "../../base/constants/ConstantLottie";
-import {ConstantImages, LanguageContext} from "../../base";
-import {ArrowBackOutlined, ArrowForwardOutlined, BookmarkOutlined, StarOutlined} from "@mui/icons-material";
+import {ConstantImages, LanguageContext, useWindowResize, useWindowScroll} from "../../base";
+import {BookmarkOutlined, StarOutlined} from "@mui/icons-material";
+import Masonry from "@mui/lab/Masonry";
 
 const data = [
     {
@@ -88,6 +88,22 @@ const data = [
         author: 'Antoine de Saint-Exupéry',
         rating: 4,
         isBookmark: false
+    },
+    {
+        id: 9,
+        image: ConstantImages.books.book8,
+        title: 'The Little Prince',
+        author: 'Antoine de Saint-Exupéry',
+        rating: 4,
+        isBookmark: false
+    },
+    {
+        id: 10,
+        image: ConstantImages.books.book8,
+        title: 'The Little Prince',
+        author: 'Antoine de Saint-Exupéry',
+        rating: 4,
+        isBookmark: false
     }
 ]
 
@@ -97,6 +113,38 @@ function CardItemBook(props) {
 
     return (
         <Card elevation={0} variant={'outlined'}>
+
+            <Box className={'ImageCard'}>
+
+                <CardMedia
+                    component="img"
+                    height="320"
+                    image={props.image}
+                    alt="Paella dish"
+                />
+
+                <Box>
+                    <Button
+                        color={'warning'}
+                        variant={'outlined'}
+                        size={'small'}>
+                        {t('pages.books.t_books_btn_read')}
+                    </Button>
+                </Box>
+            </Box>
+
+            <CardContent sx={{
+                paddingBottom: 0
+            }}>
+                <Stack spacing={0}>
+                    <Typography variant="subtitle2">
+                        {props.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        {props.author}
+                    </Typography>
+                </Stack>
+            </CardContent>
 
             <CardActions disableSpacing sx={{
                 display: 'block'
@@ -135,39 +183,37 @@ function CardItemBook(props) {
 
             </CardActions>
 
-            <CardMedia
-                component="img"
-                height="410"
-                image={props.image}
-                alt="Paella dish"
-            />
-
-            <CardContent>
-                <Stack spacing={0}>
-                    <Typography variant="subtitle2">
-                        {props.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {props.author}
-                    </Typography>
-                </Stack>
-
-                <Button variant={'outlined'} size={'small'} sx={{
-                    height: 'fit-content',
-                    marginTop: '16px'
-                }}>
-                    {t('pages.books.t_books_btn_read')}
-                </Button>
-            </CardContent>
         </Card>
     )
 }
 
 export function BooksPage() {
 
-    const theme = useTheme()
-    const isMD = useMediaQuery(theme.breakpoints.down('md'));
     const {t, isLocEn} = useContext(LanguageContext)
+
+    const theme = useTheme()
+    const isLG = useMediaQuery(theme.breakpoints.down('lg'));
+    const isMD = useMediaQuery(theme.breakpoints.down('md'));
+    const isSM = useMediaQuery(theme.breakpoints.down('sm'));
+    const isXS = useMediaQuery(theme.breakpoints.down('xs'));
+
+    const {y} = useWindowScroll()
+    const {height} = useWindowResize()
+
+    const loadingRef = React.useRef(null)
+
+    const [loading, setLoading] = useState(false)
+    const [isEnd, setIsEnd] = useState(false)
+
+    useEffect(() => {
+        if (!isEnd && !loading && y + height > loadingRef.current?.offsetTop) {
+            setLoading(true)
+            setTimeout(function () {
+                setIsEnd(true)
+                setLoading(false)
+            }, 2000);
+        }
+    }, [y, height, isEnd, loading])
 
     const autocomplete = [
         {
@@ -184,19 +230,15 @@ export function BooksPage() {
 
     data.forEach((item) => {
         content.push(
-            <Grid
+            <CardItemBook
                 key={item.id}
-                item xl={3} lg={3} md={4} sm={6} xs={12}
-            >
-                <CardItemBook
-                    image={item.image}
-                    title={item.title}
-                    author={item.author}
-                    rating={item.rating}
-                    isBookmark={item.isBookmark}
-                    description={isLocEn ? item.description : item.descriptionRu}
-                />
-            </Grid>
+                image={item.image}
+                title={item.title}
+                author={item.author}
+                rating={item.rating}
+                isBookmark={item.isBookmark}
+                description={isLocEn ? item.description : item.descriptionRu}
+            />
         )
     })
 
@@ -248,21 +290,21 @@ export function BooksPage() {
                     </Box>
 
                     <Box>
-                        <Grid container spacing={5} rowSpacing={3}>
+                        <Masonry columns={isLG ? (isMD ? (isSM ? (isXS ? 1 : 2) : 3) : 4) : 5} spacing={5}>
                             {content}
-                        </Grid>
+                        </Masonry>
                     </Box>
 
-                    <Pagination
-                        size={isMD ? 'small' : 'medium'}
-                        count={99}
-                        renderItem={(item) => (
-                            <PaginationItem
-                                components={{previous: ArrowBackOutlined, next: ArrowForwardOutlined}}
-                                {...item}
-                            />
-                        )}
-                    />
+                    <Box ref={loadingRef}>
+                        {loading ? (
+                            <Zoom timeout={1000} in={true}>
+                                <Stack alignItems={"center"}>
+                                    <CircularProgress/>
+                                </Stack>
+                            </Zoom>
+                        ) : null}
+                    </Box>
+
                 </Stack>
             </Container>
 

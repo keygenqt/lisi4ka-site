@@ -5,6 +5,11 @@
   margin-bottom: 60px;
 }
 
+.Books-Page .MuiMasonry-root {
+  width: calc(100% + 40px);
+  margin-left: -20px;
+}
+
 .Books-Page .BooksContent .BooksTitleHeader {
   background-color: $secondaryMain;
   margin-bottom: 60px;
@@ -32,16 +37,24 @@
   float: right;
 }
 
-.Books-Page .BooksContent .MuiCardContent-root .MuiTypography-subtitle2 {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+.Books-Page .BooksContent .ImageCard {
+  position: relative;
 }
 
-@media (max-width: 600px) {
-  .Books-Page .BooksContent .MuiCardContent-root .MuiTypography-subtitle2 {
-    white-space: normal;
-  }
+.Books-Page .BooksContent .ImageCard .MuiBox-root {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, #3e486247 79%, #283044e0 85%);
+  text-align: center;
+}
+
+.Books-Page .BooksContent .ImageCard .MuiBox-root .MuiButton-root {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 @media (max-width: 450px) {

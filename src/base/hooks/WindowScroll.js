@@ -10,6 +10,8 @@ export function useWindowScroll(effect = undefined) {
     const [position, setPosition] = useState({
         x: window.scrollX,
         y: window.scrollY,
+        scrollWidth: window.scrollWidth,
+        scrollHeight: window.scrollHeight
     });
 
     useLayoutEffect(() => {
@@ -21,6 +23,8 @@ export function useWindowScroll(effect = undefined) {
             const result = {
                 x: el.scrollLeft,
                 y: el.scrollTop,
+                scrollWidth: el.scrollWidth,
+                scrollHeight: el.scrollHeight,
             }
 
             setPosition(result);

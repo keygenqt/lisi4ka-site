@@ -4,11 +4,10 @@ export const ruLocalization = {
             header: {
                 t_title: '@lisi4ka',
                 t_blog: 'Блог',
+                t_articles: 'Статьи',
                 t_reviews: 'Разборы',
-                t_platform: 'Платформа',
-                t_words: 'Слова',
                 t_books: 'Книги',
-                t_video: 'Видео',
+                t_videos: 'Видео',
                 t_sign_in: 'Войти',
             },
             footer: {
@@ -19,11 +18,10 @@ export const ruLocalization = {
                 t_block1_phone: 'Телефон:',
                 // block 2
                 t_block2_title: 'Навигация',
-                t_block2_link_blog: 'Блог',
-                t_block2_link_reviews: 'Разборы',
-                t_block2_link_words: 'Слова',
-                t_block2_link_video_detailing: 'Видосики',
                 t_block2_link_books: 'Книги',
+                t_block2_link_video_detailing: 'Видео',
+                t_block2_link_articles: 'Статьи',
+                t_block2_link_reviews: 'Разборы',
                 // block 3
                 t_block3_title: 'Последние статьи',
             }

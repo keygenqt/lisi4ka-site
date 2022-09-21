@@ -4,66 +4,48 @@
 /*******************************/
 /** ITEM MySkills **************/
 /*******************************/
-
-.AboutMySkillsElementContainer {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
+.About-Page .MuiMasonry-root {
+  width: calc(100% + 24px);
+  margin-left: -12px;
 }
 
-.AboutMySkillsElementContainer2 {
-  padding: 140px 0;
-  background: $secondaryMain;
+.About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader {
+  background-color: $secondaryMain;
+  padding: 60px 0 60px 0;
+  text-align: center;
 }
 
-.AboutMySkillsElementContainer:after {
-  content: "";
-  background: linear-gradient(180deg, $primaryDark 30%, $secondaryDark 100%);
-  position: absolute;
-  bottom: 199px;
-  left: -204px;
-  width: 1600px;
-  height: 1600px;
-  border-radius: 20%;
-  transform: rotate(313deg);
+.About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader .Title h2 {
+  color: $primaryMain;
 }
 
-.AboutMySkillsElementContainer .MuiContainer-root {
-  position: relative;
-  z-index: 1;
+.About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader .Lottie {
+  width: 300px;
+  margin: -15px auto 0 auto;
 }
 
-.AboutMySkillsElementContainer .MuiGrid-container {
-  margin-top: 40px;
+.About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader .Title h6 {
+  color: $primaryDark;
+  white-space: break-spaces;
 }
 
-.AboutMySkillsElementContainer .MuiGrid-container .PaperItem {
+.About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader .MuiGrid-container {
+  margin-top: 30px;
+}
+
+.About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader .PaperItem {
   padding: 30px;
+  text-align: left;
 }
 
-.AboutMySkillsElementContainer .MuiGrid-container .PaperItem .MuiTypography-body1 {
+.About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader .PaperItem .MuiTypography-body1 {
   padding-top: 20px;
 }
 
-.AboutMySkillsElementContainer .MuiGrid-container .PaperItem .MuiTypography-subtitle2 {
+.About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader .PaperItem .MuiTypography-subtitle2 {
   font-size: 16px;
 }
 
-@media (max-width: 900px) {
-  .AboutMySkillsElementContainer2 {
-    padding: 100px 0;
-    color: white;
-  }
-}
-
-@media (max-width: 600px) {
-  .AboutMySkillsElementContainer2 {
-    padding: 60px 0;
-  }
-  .AboutMySkillsElementContainer .MuiGrid-container {
-    margin-top: 20px;
-  }
-}
 
 /*******************************/
 /** ITEM Main ******************/
@@ -96,7 +78,7 @@
 
 @media (max-width: 1000px) {
   .AboutMainElementContainer {
-    padding: 60px 0 80px 0;
+    padding: 60px 0 60px 0;
   }
 }
 
@@ -117,9 +99,6 @@
   .AboutMainElementContainer .MuiAvatar-root {
     width: 190px;
     height: 190px;
-  }
-  .AboutMainElementContainer {
-    padding: 30px 0 70px 0;
   }
 }
 

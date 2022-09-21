@@ -210,24 +210,6 @@ export const RouteConf = {
                 />
             }
         },
-        words: {
-            path: '/words',
-            render: function (key, path) {
-                return <Route
-                    key={key}
-                    exact
-                    path={path}
-                    element={
-                        <BaseLayout
-                            isCenter={true}
-                            pageClassName={'Words-Page'}
-                        >
-                            <WordsPage/>
-                        </BaseLayout>
-                    }
-                />
-            }
-        },
         about: {
             path: '/about',
             render: function (key, path) {

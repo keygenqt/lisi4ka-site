@@ -4,11 +4,10 @@ export const enLocalization = {
             header: {
                 t_title: '@lisi4ka',
                 t_blog: 'Blog',
+                t_articles: 'Articles',
                 t_reviews: 'Reviews',
-                t_platform: 'Platform',
-                t_words: 'Words',
                 t_books: 'Books',
-                t_video: 'Video',
+                t_videos: 'Videos',
                 t_sign_in: 'Sign In',
             },
             footer: {
@@ -19,10 +18,9 @@ export const enLocalization = {
                 t_block1_phone: 'Phone:',
                 // block 2
                 t_block2_title: 'Navigation',
-                t_block2_link_blog: 'Blog',
+                t_block2_link_articles: 'Articles',
                 t_block2_link_reviews: 'Reviews',
-                t_block2_link_words: 'Words',
-                t_block2_link_video_detailing: 'Video detailing',
+                t_block2_link_video_detailing: 'Videos',
                 t_block2_link_books: 'Books',
                 // block 3
                 t_block3_title: 'Recent Post',

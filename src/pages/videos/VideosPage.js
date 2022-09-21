@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {useContext} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {
     Autocomplete,
     Box,
     Button,
     Card,
     CardContent,
-    CardMedia,
+    CardMedia, CircularProgress,
     Container,
     Pagination,
     PaginationItem,
@@ -14,9 +14,9 @@ import {
     TextField,
     Typography,
     useMediaQuery,
-    useTheme
+    useTheme, Zoom
 } from "@mui/material";
-import {LanguageContext} from "../../base";
+import {LanguageContext, useWindowResize, useWindowScroll} from "../../base";
 import {ArrowBackOutlined, ArrowForwardOutlined} from "@mui/icons-material";
 import Lottie from "lottie-react";
 import {ConstantLottie} from "../../base/constants/ConstantLottie";
@@ -126,10 +126,29 @@ function CardItemVideo(props) {
 
 export function VideosPage() {
 
+    const {t} = useContext(LanguageContext)
+
     const theme = useTheme()
     const isMD = useMediaQuery(theme.breakpoints.down('md'));
     const isSM = useMediaQuery(theme.breakpoints.down('sm'));
-    const {t} = useContext(LanguageContext)
+
+    const {y} = useWindowScroll()
+    const {height} = useWindowResize()
+
+    const loadingRef = React.useRef(null)
+
+    const [loading, setLoading] = useState(false)
+    const [isEnd, setIsEnd] = useState(false)
+
+    useEffect(() => {
+        if (!isEnd && !loading && y + height > loadingRef.current?.offsetTop) {
+            setLoading(true)
+            setTimeout(function () {
+                setIsEnd(true)
+                setLoading(false)
+            }, 2000);
+        }
+    }, [y, height, isEnd, loading])
 
     const autocomplete = []
     const content = []
@@ -191,20 +210,21 @@ export function VideosPage() {
                         />
                     </Box>
 
-                    <Masonry columns={isMD ? (isSM ? 1 : 2) : 3} spacing={3}>
-                        {content}
-                    </Masonry>
+                    <Box>
+                        <Masonry columns={isMD ? (isSM ? 1 : 2) : 3} spacing={4}>
+                            {content}
+                        </Masonry>
+                    </Box>
 
-                    <Pagination
-                        size={isMD ? 'small' : 'medium'}
-                        count={99}
-                        renderItem={(item) => (
-                            <PaginationItem
-                                components={{previous: ArrowBackOutlined, next: ArrowForwardOutlined}}
-                                {...item}
-                            />
-                        )}
-                    />
+                    <Box ref={loadingRef}>
+                        {loading ? (
+                            <Zoom timeout={1000} in={true}>
+                                <Stack alignItems={"center"}>
+                                    <CircularProgress/>
+                                </Stack>
+                            </Zoom>
+                        ) : null}
+                    </Box>
                 </Stack>
             </Container>
 

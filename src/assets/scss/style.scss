@@ -282,6 +282,10 @@ footer.AppTableCell .Localization button.Active {
   padding: 5px 16px;
 }
 
+.MuiPaper-root .MenuPopper button .MuiBox-root {
+  width: 80px;
+}
+
 .MuiPaper-root .MenuPopper button:hover {
   background-color: $primaryLight;
 }
