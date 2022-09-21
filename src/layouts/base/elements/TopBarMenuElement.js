@@ -19,16 +19,15 @@ import {
     Typography
 } from "@mui/material";
 import {
-    ArrowDropDown, ArticleOutlined, BookOutlined,
+    ArrowDropDown,
+    BookOutlined,
     CloseOutlined,
     ExpandLess,
     ExpandMore,
-    Extension, FeedOutlined,
-    ListAltOutlined,
-    MenuBookOutlined,
-    MenuOutlined, PlayCircleOutline,
-    PlayCircleOutlined, ReceiptLong, ReceiptLongOutlined, ReceiptOutlined,
-    RssFeedOutlined,
+    MenuOutlined,
+    PlayCircleOutline,
+    ReceiptLong,
+    ReceiptOutlined,
     Settings,
     TranslateOutlined
 } from "@mui/icons-material";
@@ -64,15 +63,22 @@ export function TopBarMenuElement(props) {
         <Stack className={'TopBarMenuElement'}>
             <Container maxWidth="lg">
                 <Stack
+                    className={'LogoBlock'}
                     direction={'row'}
                     spacing={3}
                     justifyContent='space-between'
                 >
                     <Stack
-                        className={'LogoBlock'}
                         direction={'row'}
                         spacing={1}
+                        justifyContent='space-between'
                     >
+                        <Link to="/" className={'Logo'}>
+                            <Typography variant="h5">
+                                {t('layouts.header.t_title')}
+                            </Typography>
+                        </Link>
+
                         <ClickAwayListener onClickAway={() => {
                             setCollapseState(false);
                         }}>
@@ -164,11 +170,6 @@ export function TopBarMenuElement(props) {
 
                         </ClickAwayListener>
 
-                        <Link to="/" className={'Logo'}>
-                            <Typography variant="h5">
-                                {t('layouts.header.t_title')}
-                            </Typography>
-                        </Link>
 
                     </Stack>
 

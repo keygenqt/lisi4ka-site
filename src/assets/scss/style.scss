@@ -220,27 +220,6 @@ footer.AppTableCell .Localization button.Active {
   top: 2px
 }
 
-.TopBarMenuElement .LogoBlock button {
-  color: white;
-  background-color: $primaryMain;
-  border: 1px solid white;
-  padding: 5px 8px;
-  min-width: 46px;
-  opacity: 0.8;
-  transition-duration: 200ms;
-  transition-property: opacity;
-}
-
-.TopBarMenuElement .LogoBlock button.Mui-disabled {
-  color: white;
-  background-color: $primaryMain;
-  border: 1px solid white;
-}
-
-.TopBarMenuElement .LogoBlock button:hover {
-  opacity: 1;
-}
-
 .TopBarMenuElement .Logo:hover {
   color: white;
   opacity: 1;
@@ -297,7 +276,19 @@ footer.AppTableCell .Localization button.Active {
 }
 
 @media (max-width: 650px) {
-  .TopBarMenuElement .Logo,
+  .TopBarMenuElement .LogoBlock {
+    display: block;
+  }
+  .TopBarMenuElement .LogoBlock button {
+    color: white;
+    background-color: $primaryMain;
+    border: 1px solid white;
+    padding: 5px 8px;
+    min-width: 46px;
+    opacity: 0.8;
+    transition-duration: 200ms;
+    transition-property: opacity;
+  }
   .TopBarMenuElement .MenuButtonsXL {
     display: none;
   }
