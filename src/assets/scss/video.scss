@@ -1,15 +1,21 @@
 // color variants
 @import 'colors.scss';
 
-.Video-Page .VideoContent {
+.Video-Page .BoxYouTubeMove {
+  position: relative;
+  z-index: 1;
+}
 
+.Video-Page .BoxYouTubeFrameRad {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+  position: relative;
 }
 
 .Video-Page .BoxYouTubeFrame {
   margin: 0 auto;
   overflow: hidden;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   position: relative;
   width: 100%;
 }
@@ -58,7 +64,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, #3e486282 0%, #283044 100%);
+  background: linear-gradient(180deg, #3e486236 0%, #283044cf 100%);
 }
 
 .Video-Page .VideoContent .VideoText {
@@ -84,4 +90,50 @@
 .Video-Page .VideoContent .VideoText p.Active {
   background: $grayDark;
   color: white;
+}
+
+.Video-Page .VideoContent .VideoText p.Active.Pause {
+  opacity: 0.6;
+}
+
+@media (max-width: 800px) {
+  .Video-Page .BoxYouTubeFrame .IFrame {
+    height: 450px;
+  }
+}
+
+@media (max-width: 700px) {
+  .Video-Page .BoxYouTubeFrame .IFrame {
+    height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .Video-Page .BoxYouTubeFrame .IFrame {
+    height: 350px;
+  }
+}
+
+@media (max-width: 500px) {
+  .Video-Page .BoxYouTubeFrame .IFrame {
+    height: 300px;
+  }
+}
+
+@media (max-width: 400px) {
+  .Video-Page .BoxYouTubeFrame .IFrame {
+    height: 250px;
+  }
+}
+
+@media (max-width: 320px) {
+  .Video-Page .BoxYouTubeFrame .IFrame {
+    height: 200px;
+  }
+}
+
+@media (max-width: 350px) {
+  .Video-Page .BoxYouTubeFrame .IFrame {
+    height: 220px;
+  }
 }
