@@ -169,11 +169,17 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 350px) {
   .Video-Page .BoxYouTubeMove {
     height: 325px;
   }
   .Video-Page .BoxYouTubeFrame .IFrame {
     height: 200px;
+  }
+  .Video-Page .VideoContent .VideoText {
+    line-height: 33px;
+  }
+  .Video-Page .VideoContent .VideoText p {
+    font-size: 14px;
   }
 }
