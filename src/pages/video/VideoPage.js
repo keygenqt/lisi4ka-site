@@ -8,7 +8,8 @@ import {
     PauseCircleOutlined,
     PlayCircleOutline,
     SkipNextOutlined,
-    SkipPreviousOutlined, TranslateOutlined
+    SkipPreviousOutlined,
+    TranslateOutlined
 } from "@mui/icons-material";
 import {useWindowScroll} from "../../base";
 import {ToggleButton} from "@mui/lab";
@@ -439,18 +440,19 @@ export function VideoPage() {
 
                 <Box
                     ref={boxYouTubeFrameRef}
-                    className={'BoxYouTubeMove'}
+                    className={'BoxYouTubeMove' + (alignment.includes('frameHide') ? ' Audio' : '')}
                     sx={{
                         marginTop: '0px !important'
                     }}
                 >
                     <Box
-                        sx={{
-                            top: alignment.includes('frameScroll') ? (y - 10 > boxYouTubeFrameRef.current?.offsetTop ? (y - boxYouTubeFrameRef.current?.offsetTop - 10) : 0) : 0
-                        }}
-                        className={'BoxYouTubeFrame'}
+                        className={'BoxYouTubeFrame' + (alignment.includes('frameScroll') && y > boxYouTubeFrameRef.current?.offsetTop ? ' Fix' : '')}
                     >
-                        <Box sx={{height: '30px', backgroundColor: 'white'}}/>
+                        <Box sx={{
+                            height: '40px',
+                            backgroundColor: 'white',
+                            marginBottom: '-10px'
+                        }}/>
 
                         <Box
                             className={'BoxYouTubeFrameRad'}

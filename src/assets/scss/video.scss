@@ -4,6 +4,22 @@
 .Video-Page .BoxYouTubeMove {
   position: relative;
   z-index: 1;
+  height: 600px;
+}
+
+.Video-Page .BoxYouTubeMove.Audio {
+  height: 120px !important;
+}
+
+.Video-Page .BoxYouTubeFrame.Fix {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  max-width: 867px;
+  top: 0;
+  right: 0;
+  left: 0;
+  scrollbar-gutter: stable;
 }
 
 .Video-Page .BoxYouTubeFrameRad {
@@ -64,7 +80,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, #3e486236 0%, #283044cf 100%);
+  background: linear-gradient(180deg, #3e486282 0%, #283044 100%);
 }
 
 .Video-Page .VideoContent .VideoText {
@@ -96,44 +112,68 @@
   opacity: 0.6;
 }
 
+@media (max-width: 940px) {
+  .Video-Page .BoxYouTubeFrame.Fix {
+    width: calc(100% - 48px);
+  }
+}
+
+@media (max-width: 600px) {
+  .Video-Page .BoxYouTubeFrame.Fix {
+    width: calc(100% - 32px);
+  }
+}
+
 @media (max-width: 800px) {
+  .Video-Page .BoxYouTubeMove {
+    height: 575px;
+  }
   .Video-Page .BoxYouTubeFrame .IFrame {
     height: 450px;
   }
 }
 
 @media (max-width: 700px) {
+  .Video-Page .BoxYouTubeMove {
+    height: 525px;
+  }
   .Video-Page .BoxYouTubeFrame .IFrame {
     height: 400px;
   }
 }
 
 @media (max-width: 600px) {
+  .Video-Page .BoxYouTubeMove {
+    height: 475px;
+  }
   .Video-Page .BoxYouTubeFrame .IFrame {
     height: 350px;
   }
 }
 
 @media (max-width: 500px) {
+  .Video-Page .BoxYouTubeMove {
+    height: 425px;
+  }
   .Video-Page .BoxYouTubeFrame .IFrame {
     height: 300px;
   }
 }
 
 @media (max-width: 400px) {
+  .Video-Page .BoxYouTubeMove {
+    height: 375px;
+  }
   .Video-Page .BoxYouTubeFrame .IFrame {
     height: 250px;
   }
 }
 
 @media (max-width: 320px) {
+  .Video-Page .BoxYouTubeMove {
+    height: 325px;
+  }
   .Video-Page .BoxYouTubeFrame .IFrame {
     height: 200px;
-  }
-}
-
-@media (max-width: 350px) {
-  .Video-Page .BoxYouTubeFrame .IFrame {
-    height: 220px;
   }
 }
