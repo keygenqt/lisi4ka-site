@@ -9,6 +9,7 @@ import './assets/scss/about.scss';
 import './assets/scss/blog.scss';
 import './assets/scss/books.scss';
 import './assets/scss/videos.scss';
+import './assets/scss/video.scss';
 
 import App from './App';
 import reportWebVitals from './tests/reportWebVitals';

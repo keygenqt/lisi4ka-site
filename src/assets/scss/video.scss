@@ -1,0 +1,87 @@
+// color variants
+@import 'colors.scss';
+
+.Video-Page .VideoContent {
+
+}
+
+.Video-Page .BoxYouTubeFrame {
+  margin: 0 auto;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.Video-Page .BoxYouTubeFrame .IFrame {
+  height: 479px;
+  width: 100%;
+}
+
+.Video-Page .BoxYouTubeFrame .ContainerButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, #3e4862 0%, #283044 100%);
+  text-align: center;
+}
+
+.Video-Page .BoxYouTubeFrame .ContainerButton .MuiCircularProgress-root {
+  width: 70px !important;
+  height: 70px !important;
+}
+
+.Video-Page .BoxYouTubeFrame .ContainerButton .MuiSvgIcon-root {
+  width: 90px;
+  height: 90px;
+  color: $warningMain;
+}
+
+.Video-Page .BoxYouTubeFrame .ContainerButton .AppTableCell {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Video-Page .BoxYouTubeFrame .ContainerButton .AppTableCell .ContainerButtonItems {
+  position: relative;
+  z-index: 1;
+}
+
+.Video-Page .BoxYouTubeFrame .ContainerButton .AppTableCell:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, #3e486282 0%, #283044 100%);
+}
+
+.Video-Page .VideoContent .VideoText {
+  line-height: 34px;
+  text-align: justify;
+}
+
+.Video-Page .VideoContent .VideoText p {
+  display: inline;
+  padding: 4px 8px;
+  margin-right: 6px;
+  background-color: $grayLight;
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+}
+
+.Video-Page .VideoContent .VideoText p.Active {
+  background: $grayDark;
+  color: white;
+}

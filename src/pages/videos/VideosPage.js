@@ -6,18 +6,17 @@ import {
     Button,
     Card,
     CardContent,
-    CardMedia, CircularProgress,
+    CardMedia,
+    CircularProgress,
     Container,
-    Pagination,
-    PaginationItem,
     Stack,
     TextField,
     Typography,
     useMediaQuery,
-    useTheme, Zoom
+    useTheme,
+    Zoom
 } from "@mui/material";
 import {LanguageContext, NavigateContext, useWindowResize, useWindowScroll} from "../../base";
-import {ArrowBackOutlined, ArrowForwardOutlined} from "@mui/icons-material";
 import Lottie from "lottie-react";
 import {ConstantLottie} from "../../base/constants/ConstantLottie";
 import Masonry from '@mui/lab/Masonry';
