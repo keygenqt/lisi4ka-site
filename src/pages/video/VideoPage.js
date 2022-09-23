@@ -49,7 +49,7 @@ const data = {
             textRu: 'Для записи.'
         },
         {
-            start: 7.4219620267028805,
+            start: 7.5219620267028805,
             text: 'Are you a communist?',
             textRu: 'Вы коммунист?'
         },
@@ -69,17 +69,17 @@ const data = {
             textRu: 'Убирайся тогда отсюда.'
         },
         {
-            start: 13.119629118255615,
+            start: 12.919629118255615,
             text: 'Are you a communist?',
             textRu: 'Вы коммунист?'
         },
         {
-            start: 14.80633897329712,
+            start: 14.70633897329712,
             text: 'No I am not.',
             textRu: 'Нет, я не.'
         },
         {
-            start: 16.371769045776367,
+            start: 16.171769045776367,
             text: 'You\'re blacklisted.',
             textRu: 'Вы в черном списке.'
         },
@@ -89,47 +89,47 @@ const data = {
             textRu: 'Ты больше никогда не будешь работать в этой отрасли.'
         },
         {
-            start: 20.453153080108642,
+            start: 20.153153080108642,
             text: 'Do you support the president of this country.',
             textRu: 'Вы поддерживаете президента этой страны.'
         },
         {
-            start: 23.369926946594237,
+            start: 23.169926946594237,
             text: 'Yes i do.',
             textRu: 'Да.'
         },
         {
-            start: 24.51979594468689,
+            start: 24.31979594468689,
             text: 'Great.',
             textRu: 'Великолепно.'
         },
         {
-            start: 26.011659011444093,
+            start: 25.511659011444093,
             text: 'Do you support the president of this country?',
             textRu: 'Вы поддерживаете президента этой страны?'
         },
         {
-            start: 28.49172595994568,
+            start: 28.29172595994568,
             text: 'Which one?',
             textRu: 'Который из?'
         },
         {
-            start: 29.211827148773192,
+            start: 29.111827148773192,
             text: 'Biden.',
             textRu: 'Байден.'
         },
         {
-            start: 30.07043115640259,
+            start: 29.87043115640259,
             text: 'Yes I do.',
             textRu: 'Да.'
         },
         {
-            start: 30.851411977111818,
+            start: 30.751411977111818,
             text: 'And Trump?',
             textRu: 'И Трамп?'
         },
         {
-            start: 32.24181711825562,
+            start: 32.04181711825562,
             text: 'Absolutely not.',
             textRu: 'Точно нет.'
         },
@@ -139,7 +139,7 @@ const data = {
             textRu: 'Превосходно.'
         },
         {
-            start: 34.407284893188475,
+            start: 34.207284893188475,
             text: 'Do you think it\'s appropriate to show sexually explicit movie scenes to children.',
             textRu: 'Считаете ли вы уместным показывать детям откровенно сексуальные сцены из фильмов?'
         },
@@ -149,12 +149,12 @@ const data = {
             textRu: 'Нет, сэр, это было бы совершенно неуместно.'
         },
         {
-            start: 44.5354659294281,
+            start: 44.2354659294281,
             text: 'Exactly.',
             textRu: 'В яблочко.'
         },
         {
-            start: 45.367344998092655,
+            start: 45.267344998092655,
             text: 'Do you think it\'s appropriate to sexualize children in TV shows and films.',
             textRu: 'Считаете ли вы уместным сексуализировать детей в сериалах и фильмах.'
         },
@@ -194,7 +194,7 @@ const data = {
             textRu: 'Как вы оцениваете важность творчества и оригинального мышления в нашей отрасли?'
         },
         {
-            start: 74.2100531411438,
+            start: 74.0100531411438,
             text: 'I think quite frankly it interferes with what\'s most important in our pictures.',
             textRu: 'Я думаю, откровенно говоря, это мешает тому, что является самым важным в наших картинах.'
         },
@@ -219,7 +219,7 @@ const data = {
             textRu: 'Вы когда-нибудь читали или не читали работы Карла Маркса.'
         },
         {
-            start: 91.65473710681153,
+            start: 91.25473710681153,
             text: 'No sir just like i\'m supposed to i have never read a word of that.',
             textRu: 'Нет, сэр, как и положено, я никогда не читал ни слова об этом.'
         },
@@ -239,7 +239,7 @@ const data = {
             textRu: 'Конечно, я запомнил каждое слово, как и должен был.'
         },
         {
-            start: 105.76686211062623,
+            start: 105.56686211062623,
             text: 'Do you have any ties to the chinese communist party.',
             textRu: 'Есть ли у вас какие-либо связи с китайской коммунистической партией?'
         },
@@ -259,7 +259,7 @@ const data = {
             textRu: 'Есть ли у вас какие-либо связи с китайской коммунистической партией?'
         },
         {
-            start: 120.82405194850159,
+            start: 120.72405194850159,
             text: 'Yeah and i understand that being loyal to their funding and sympathetic to their messaging is important to the success of our major studios and my paycheck.',
             textRu: 'Да, и я понимаю, что лояльность к их финансированию и сочувствие к их сообщениям важны для успеха наших крупных студий и моей зарплаты.'
         },
@@ -285,7 +285,7 @@ const data = {
         },
         {
             start: 145.51435487602235,
-            end: 146.51435487602235,
+            end: 146.31435487602235,
             text: 'Yes.',
             textRu: 'Да.'
         },
@@ -412,22 +412,38 @@ export function VideoPage() {
                     }
 
                     setIndexAction(-1)
-                    for (let i = 0; i < data.content.length; i++) {
-                        const end = data.content[i].end ? data.content[i].end : data.content[i + 1].start
-                        if (data.content[i].start <= seconds && end > seconds) {
-                            if (indexActionSentence >= 0 && indexActionSentence !== i) {
-                                seekTo(indexActionSentence)
-                                if (modePlayerState === 'sentencePause') {
-                                    videoElement?.target?.pauseVideo();
-                                }
-                            } else {
-                                setIndexAction(i)
+
+                    if (indexActionSentence + 1 === data.content.length) {
+                        setIndexAction(indexActionSentence)
+
+                        const end = data.content[indexActionSentence].end
+                            ? data.content[indexActionSentence].end : data.content[indexActionSentence + 1].start
+
+                        if (end < seconds) {
+                            seekTo(indexActionSentence)
+                            if (modePlayerState === 'sentencePause') {
+                                videoElement?.target?.pauseVideo();
                             }
-                            break;
+                        }
+                    } else {
+                        for (let i = 0; i < data.content.length; i++) {
+                            const end = data.content[i].end ? data.content[i].end : data.content[i + 1].start
+                            if (data.content[i].start <= seconds && end > seconds) {
+                                if (indexActionSentence >= 0 && indexActionSentence !== i) {
+                                    seekTo(indexActionSentence)
+                                    if (modePlayerState === 'sentencePause') {
+                                        videoElement?.target?.pauseVideo();
+                                    }
+                                } else {
+                                    setIndexAction(i)
+                                }
+                                break;
+                            }
                         }
                     }
+
                 }
-            }, 200);
+            }, 50);
         }
 
         return () => {
