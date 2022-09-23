@@ -2,21 +2,21 @@
  * Colors MUI
  * @link https://mui.com/material-ui/customization/palette/
  */
-export const palette = () => {
+export const paletteDark = () => {
     return {
-        mode: 'light',
+        mode: 'dark',
         background: {
-            paper: '#fff',
-            default: '#fff',
+            paper: '#494949',
+            default: '#313131',
         },
         primary: {
             light: '#4d5d8314',
-            main: '#4d5d83',
+            main: '#809ad9',
             dark: '#3e4862',
         },
         secondary: {
             light: '#e5cece14',
-            main: '#e5cece',
+            main: '#b79797',
             dark: '#edacac',
         },
         error: {
@@ -27,11 +27,11 @@ export const palette = () => {
         warning: {
             light: '#ff805314',
             main: '#ff8053',
-            dark: '#bb6141',
+            dark: '#ed8966',
         },
         info: {
             light: '#51c0ff14',
-            main: '#51c0ff',
+            main: '#5bbbff',
             dark: '#337aa3',
         },
         success: {

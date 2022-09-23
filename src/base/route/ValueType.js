@@ -1,7 +1,7 @@
 /**
  * Route validate
  */
-export const RouteType = {
+export const ValueType = {
 
     string: 'string',
     number: 'number',
@@ -11,16 +11,16 @@ export const RouteType = {
 
     validate: (type, value) => {
         switch (type) {
-            case RouteType.string:
-                return RouteType.validateString(value)
-            case RouteType.number:
-                return RouteType.validateNumber(value)
-            case RouteType.integer:
-                return RouteType.validateInteger(value)
-            case RouteType.float:
-                return RouteType.validateFloat(value)
-            case RouteType.bool:
-                return RouteType.validateBool(value)
+            case ValueType.string:
+                return ValueType.validateString(value)
+            case ValueType.number:
+                return ValueType.validateNumber(value)
+            case ValueType.integer:
+                return ValueType.validateInteger(value)
+            case ValueType.float:
+                return ValueType.validateFloat(value)
+            case ValueType.bool:
+                return ValueType.validateBool(value)
             default:
                 return true
         }
@@ -31,7 +31,7 @@ export const RouteType = {
     },
 
     validateNumber: (value) => {
-        return RouteType.validateInteger(value) || RouteType.validateFloat(value)
+        return ValueType.validateInteger(value) || ValueType.validateFloat(value)
     },
 
     validateInteger: (value) => {

@@ -10,7 +10,12 @@ export function ExperienceElement(props) {
     const {route} = useContext(NavigateContext)
 
     return (
-        <Stack className={'AboutExperienceElementContainer'}>
+        <Stack className={'AboutExperienceElementContainer'} sx={{
+            '&:after': {
+                backgroundColor: 'primary.dark',
+                opacity: '0.9'
+            }
+        }}>
             <Container maxWidth={'md'}>
 
                 <Stack spacing={3} className={'TitleBlock'}>

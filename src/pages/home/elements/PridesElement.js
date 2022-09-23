@@ -12,11 +12,15 @@ export function PridesElement(props) {
         <Stack className={'ItemProudContainer'}>
             <Container maxWidth={'md'}>
                 <Stack spacing={3}>
-                    <Typography variant="h1" className={'title'}>
+                    <Typography variant="h1" className={'title'} color="warning.main" sx={{
+                        '&:after': {
+                            backgroundColor: 'warning.main'
+                        }
+                    }}>
                         {t('pages.home.t_prides_title')}
                     </Typography>
 
-                    <Typography variant="body1" className={'subtitle'}>
+                    <Typography variant="body1" className={'subtitle'} color={'text.primary'}>
                         {t('pages.home.t_prides_subtitle')}
                     </Typography>
 
@@ -25,16 +29,16 @@ export function PridesElement(props) {
                         <Grid item xl={3} lg={3} md={3} sm={3} xs={6}>
                             <Stack spacing={1}>
                                 <Box className={'SvgIcon'}>
-                                    <AccessTimeOutlined/>
+                                    <AccessTimeOutlined color={'error'}/>
                                 </Box>
 
                                 <Typography variant="h5" sx={{
                                     paddingTop: 1
-                                }}>
+                                }} color={'text.primary'}>
                                     {t('pages.home.t_prides_item1_title')}
                                 </Typography>
 
-                                <Typography variant="caption">
+                                <Typography variant="caption" color={'text.secondary'}>
                                     {t('pages.home.t_prides_item1_text')}
                                 </Typography>
                             </Stack>
@@ -43,16 +47,16 @@ export function PridesElement(props) {
                         <Grid item xl={3} lg={3} md={3} sm={3} xs={6}>
                             <Stack spacing={1}>
                                 <Box className={'SvgIcon'}>
-                                    <Diversity1Outlined/>
+                                    <Diversity1Outlined color={'warning'}/>
                                 </Box>
 
                                 <Typography variant="h5" sx={{
                                     paddingTop: 1
-                                }}>
+                                }} color={'text.primary'}>
                                     {t('pages.home.t_prides_item2_title')}
                                 </Typography>
 
-                                <Typography variant="caption">
+                                <Typography variant="caption" color={'text.secondary'}>
                                     {t('pages.home.t_prides_item2_text')}
                                 </Typography>
                             </Stack>
@@ -62,16 +66,16 @@ export function PridesElement(props) {
                             <Stack spacing={1}>
 
                                 <Box className={'SvgIcon'}>
-                                    <LocalFloristOutlined/>
+                                    <LocalFloristOutlined color={'info'}/>
                                 </Box>
 
                                 <Typography variant="h5" sx={{
                                     paddingTop: 1
-                                }}>
+                                }} color={'text.primary'}>
                                     {t('pages.home.t_prides_item3_title')}
                                 </Typography>
 
-                                <Typography variant="caption">
+                                <Typography variant="caption" color={'text.secondary'}>
                                     {t('pages.home.t_prides_item3_text')}
                                 </Typography>
                             </Stack>
@@ -80,16 +84,16 @@ export function PridesElement(props) {
                         <Grid item xl={3} lg={3} md={3} sm={3} xs={6}>
                             <Stack spacing={1}>
                                 <Box className={'SvgIcon'}>
-                                    <MonitorHeartOutlined/>
+                                    <MonitorHeartOutlined color={'success'}/>
                                 </Box>
 
                                 <Typography variant="h5" sx={{
                                     paddingTop: 1
-                                }}>
+                                }} color={'text.primary'}>
                                     {t('pages.home.t_prides_item4_title')}
                                 </Typography>
 
-                                <Typography variant="caption">
+                                <Typography variant="caption" color={'text.secondary'}>
                                     {t('pages.home.t_prides_item4_text')}
                                 </Typography>
                             </Stack>

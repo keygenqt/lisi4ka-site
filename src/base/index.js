@@ -4,6 +4,7 @@ export * from './constants/ConstantOther';
 // hooks
 export * from './hooks/WindowResize';
 export * from './hooks/WindowScroll';
+export * from './hooks/LocalStorage';
 // Locale
 export * from './contexts/LanguageContext';
 // route

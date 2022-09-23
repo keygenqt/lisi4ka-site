@@ -1,19 +1,29 @@
 import * as React from 'react';
 import {useContext} from 'react';
-import {Container, Stack, Typography} from "@mui/material";
-import {ConstantImages, LanguageContext} from "../../../base";
+import {Box, Container, Stack, Typography} from "@mui/material";
+import {ConstantImages, LanguageContext, useLocalStorage} from "../../../base";
+import {ValueType} from "../../../base/route/ValueType";
 
 export function MainElement(props) {
 
     const {t, isLocEn} = useContext(LanguageContext)
+    const darkMode = useLocalStorage("darkMode", ValueType.bool);
 
     return (
-        <Stack className={'ItemMainContainer'}>
+        <Stack className={'ItemMainContainer'} sx={{
+            backgroundColor: 'secondary.main'
+        }}>
             <Container maxWidth={'xl'}>
 
-                <div className={'Wave'}/>
-                <div className={'Wave item2'}/>
-                <div className={'Wave item3'}/>
+                <Box className={'Wave'} sx={{
+                    backgroundColor: 'secondary.main'
+                }}/>
+                <Box className={'Wave item2'} sx={{
+                    backgroundColor: 'secondary.main'
+                }}/>
+                <Box className={'Wave item3'} sx={{
+                    backgroundColor: 'secondary.main'
+                }}/>
 
                 <Stack
                     className={'Content'}
@@ -23,13 +33,22 @@ export function MainElement(props) {
                     spacing={2}
                 >
 
-                    <div className={'Circle'}/>
-                    <div className={'Circle item2'}/>
-                    <div className={'Circle item3'}/>
-                    <div className={'Circle item4'}/>
+                    <Box className={'Circle'} sx={{
+                        backgroundColor: 'success.main'
+                    }}/>
+                    <Box className={'Circle item2'} sx={{
+                        backgroundColor: 'warning.main'
+                    }}/>
+                    <Box className={'Circle item3'} sx={{
+                        backgroundColor: 'error.main'
+                    }}/>
+                    <Box className={'Circle item4'} sx={{
+                        backgroundColor: 'info.main'
+                    }}/>
 
                     <Stack spacing={2}>
                         <Typography gutterBottom variant="h1" className={'TitleMain'} sx={{
+                            color: darkMode ? '#fff' : 'primary.main',
                             ...(isLocEn ? (
                                 {
                                     '@media (max-width: 1750px)': {
@@ -55,10 +74,12 @@ export function MainElement(props) {
                         </Typography>
 
                         <Typography className={'SubtitleMain'} variant="h3" sx={{
+                            color: darkMode ? '#fbd5c8' : 'warning.main',
                             ...(isLocEn ? (
                                 {
                                     '&:after': {
-                                        width: '188px'
+                                        width: '188px',
+                                        backgroundColor: darkMode ? '#fbd5c8' : 'warning.main'
                                     },
                                     '@media (max-width: 700px)': {
                                         '&:after': {

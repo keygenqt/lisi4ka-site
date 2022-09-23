@@ -1,6 +1,3 @@
-// color variants
-@import 'colors.scss';
-
 /*******************************/
 /** ITEM MySkills **************/
 /*******************************/
@@ -10,13 +7,11 @@
 }
 
 .About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader {
-  background-color: $secondaryMain;
   padding: 60px 0 60px 0;
   text-align: center;
 }
 
 .About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader .Title h2 {
-  color: $primaryMain;
 }
 
 .About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader .Lottie {
@@ -25,7 +20,6 @@
 }
 
 .About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader .Title h6 {
-  color: $primaryDark;
   white-space: break-spaces;
 }
 
@@ -45,7 +39,6 @@
 .About-Page .AboutMySkillsContent .AboutMySkillsTitleHeader .PaperItem .MuiTypography-subtitle2 {
   font-size: 16px;
 }
-
 
 /*******************************/
 /** ITEM Main ******************/
@@ -111,7 +104,7 @@
   position: relative;
   overflow: hidden;
   padding: 120px 0 30px 0;
-  background-image: url('../images/about/pexels-photo-4050347.jpg');
+  background-image: url('../../images/about/pexels-photo-4050347.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -120,7 +113,6 @@
 
 .AboutExperienceElementContainer:after {
   content: "";
-  background: $primaryMain + f0;
   position: absolute;
   top: 0;
   left: 0;
@@ -138,7 +130,6 @@
   padding-bottom: 60px;
   position: relative;
   z-index: 1;
-  color: $grayLight;
 }
 
 .AboutExperienceElementContainer .ContentBlock .MuiAvatar-root {
@@ -146,7 +137,6 @@
 }
 
 .AboutExperienceElementContainer .ContentBlock .ContentName {
-  color: $warningMain;
   font-size: 14px;
   padding-right: 16px;
   white-space: pre;
@@ -167,11 +157,11 @@
   left: -25px;
   top: 4px;
   border-radius: 50%;
-  background: $infoMain;
+  background: #51c0ff;
 }
 
 .AboutExperienceElementContainer .ContentBlock .MuiGrid-container:first-child .LineTime:before {
-  background: $successMain;
+  background: #03af72;
 }
 
 .AboutExperienceElementContainer .ContentBlock .MuiGrid-container:first-child .LineTime:after {
@@ -182,7 +172,7 @@
   left: -30px;
   top: -1px;
   border-radius: 50%;
-  border: 1px solid $successMain;
+  border: 1px solid #03af72;
   opacity: 0;
 
   -webkit-animation: waveLineTime 3s linear infinite;

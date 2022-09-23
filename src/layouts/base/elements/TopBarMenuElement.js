@@ -32,10 +32,12 @@ import {
     TranslateOutlined
 } from "@mui/icons-material";
 import {Link} from "react-router-dom";
-import {ConstantImages, LanguageContext, NavigateContext, useWindowResize} from "../../../base";
+import {ConstantImages, LanguageContext, NavigateContext, useLocalStorage, useWindowResize} from "../../../base";
+import {ValueType} from "../../../base/route/ValueType";
 
 export function TopBarMenuElement(props) {
 
+    const darkMode = useLocalStorage("darkMode", ValueType.bool);
     const {t} = useContext(LanguageContext)
     const {route, routes} = useContext(NavigateContext)
 
@@ -271,19 +273,27 @@ export function TopBarMenuElement(props) {
                                 <Fade {...TransitionProps} timeout={350}>
                                     <Paper>
                                         <Stack spacing={1} className={'MenuPopper'}>
-                                            <Button startIcon={<ReceiptOutlined/>} onClick={() => {
-                                                setOpen(false)
-                                                route.toLocation(routes.blogArticles)
-                                            }}>
+                                            <Button
+                                                sx={darkMode ? {color: '#fff'} : {}}
+                                                startIcon={<ReceiptOutlined/>}
+                                                onClick={() => {
+                                                    setOpen(false)
+                                                    route.toLocation(routes.blogArticles)
+                                                }}
+                                            >
                                                 <Box>
                                                     {t('layouts.header.t_articles')}
                                                 </Box>
                                             </Button>
                                             <Divider/>
-                                            <Button startIcon={<TranslateOutlined/>} onClick={() => {
-                                                setOpen(false)
-                                                route.toLocation(routes.blogReviews)
-                                            }}>
+                                            <Button
+                                                sx={(darkMode ? {color: '#fff'} : {})}
+                                                startIcon={<TranslateOutlined/>}
+                                                onClick={() => {
+                                                    setOpen(false)
+                                                    route.toLocation(routes.blogReviews)
+                                                }}
+                                            >
                                                 <Box>
                                                     {t('layouts.header.t_reviews')}
                                                 </Box>

@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 
-// color variants
-@import 'colors.scss';
-
 /** Base **/
 body, html, #root {
   padding: 0;
@@ -11,20 +8,7 @@ body, html, #root {
   height: 100%;
   width: 100%;
   font-family: 'Albert Sans', 'Roboto', sans-serif;
-  background-color: $paper;
   overflow: hidden;
-}
-
-a {
-  color: $primaryMain;
-  text-decoration: none;
-  opacity: 0.8;
-  transition-duration: 200ms;
-  transition-property: opacity;
-}
-
-a:hover {
-  opacity: 1;
 }
 
 button.MuiButton-sizeLarge {
@@ -37,27 +21,6 @@ button.MuiButton-sizeMedium {
 
 button.MuiButton-sizeSmall {
   line-height: 24px;
-}
-
-/** Link **/
-.Link {
-  background: transparent;
-  color: $primaryMain;
-  text-decoration: none;
-  opacity: 0.8;
-  transition-duration: 200ms;
-  transition-property: opacity;
-  border: none;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5;
-  letter-spacing: 0.00938em;
-}
-
-.Link:hover {
-  opacity: 1;
-  cursor: pointer;
 }
 
 /** TABLE **/
@@ -86,17 +49,11 @@ button.MuiButton-sizeSmall {
 }
 
 /** Base tags **/
-header.AppTableCell {
-  background: $primaryMain;
-}
-
 main.AppTableCell {
   height: 100%;
 }
 
 footer.AppTableCell {
-  background: $primaryDark;
-  color: white;
   padding-top: 80px;
   padding-bottom: 22px;
 }
@@ -107,7 +64,8 @@ footer.AppTableCell {
 
 footer.AppTableCell hr {
   padding-top: 50px;
-  border-color: $grayMain;
+  // @todo
+  // border-color: $grayMain;
 }
 
 footer.AppTableCell a {
@@ -119,7 +77,8 @@ footer.AppTableCell .Link {
 }
 
 footer.AppTableCell .Copyright {
-  color: $grayMain;
+  // @todo
+  // color: $grayMain;
 }
 
 footer.AppTableCell .MuiCardHeader-root {
@@ -142,21 +101,10 @@ footer.AppTableCell .CardFooter .MuiCardHeader-subheader {
   white-space: nowrap;
 }
 
-footer.AppTableCell .Localization {
-  height: 16px;
-  position: relative;
-  top: -2px;
-}
-
 footer.AppTableCell .Localization button {
   padding-top: 5px;
   font-size: 11px;
   min-width: 30px;
-  color: $grayMain;
-}
-
-footer.AppTableCell .Localization button.Active {
-  color: $secondaryMain;
 }
 
 @media (max-width: 900px) {
@@ -200,14 +148,6 @@ footer.AppTableCell .Localization button.Active {
   left: 0;
   right: 0;
   box-shadow: rgb(0 0 0 / 20%) 0 2px 4px -1px, rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
-}
-
-.TopBarMenuElement .MenuListMD {
-  color: $primaryMain;
-}
-
-.TopBarMenuElement .MenuListMD svg {
-  color: $primaryMain;
 }
 
 .TopBarMenuElement .Logo {
@@ -257,16 +197,11 @@ footer.AppTableCell .Localization button.Active {
 }
 
 .MuiPaper-root .MenuPopper button {
-  color: $primaryMain;
   padding: 5px 16px;
 }
 
 .MuiPaper-root .MenuPopper button .MuiBox-root {
   width: 80px;
-}
-
-.MuiPaper-root .MenuPopper button:hover {
-  background-color: $primaryLight;
 }
 
 @media (min-width: 650px) {
@@ -281,7 +216,6 @@ footer.AppTableCell .Localization button.Active {
   }
   .TopBarMenuElement .LogoBlock button {
     color: white;
-    background-color: $primaryMain;
     border: 1px solid white;
     padding: 5px 8px;
     min-width: 46px;
@@ -296,5 +230,5 @@ footer.AppTableCell .Localization button.Active {
 
 /** ERROR BG PAGE **/
 .Error-Page {
-  background-color: $grayLight;
+   background-color: #ECF0F1;
 }

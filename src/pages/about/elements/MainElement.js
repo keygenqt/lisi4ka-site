@@ -25,26 +25,26 @@ export function MainElement(props) {
                                 {t('pages.about.t_about_title')}
                             </Typography>
 
-                            <Typography variant="subtitle2" sx={{
+                            <Typography variant="subtitle2" color="text.secondary" sx={{
                                 whiteSpace: 'break-spaces'
                             }}>
                                 {t('pages.about.t_about_title_role')}
                             </Typography>
 
-                            <Typography variant="h4">
+                            <Typography variant="h4" color="text.primary">
                                 {t('pages.about.t_about_title_name')}
                             </Typography>
                         </Stack>
                     </Grid>
                     <Grid item xl={8} lg={8} md={8} sm={8} xs={12}>
                         <Stack spacing={3}>
-                            <Typography variant="body1" sx={{
+                            <Typography variant="body1" color="text.primary" sx={{
                                 whiteSpace: 'break-spaces'
                             }}>
                                 {t('pages.about.t_about_text')}
                             </Typography>
 
-                            <Typography variant="h4">
+                            <Typography variant="h4" color="text.secondary">
                                 {t('pages.about.t_about_follow_text')}
                             </Typography>
 

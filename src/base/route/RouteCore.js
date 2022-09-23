@@ -1,7 +1,7 @@
 import * as React from "react";
 import {ScrollToTop} from "../../components";
 import {Route, Routes} from "react-router-dom";
-import {RouteType} from "./RouteType";
+import {ValueType} from "./ValueType";
 import {ErrorPage} from "../../pages";
 import {BaseLayout} from "../../layouts/base/BaseLayout";
 
@@ -311,9 +311,9 @@ export default class RouteCore {
                     const paramsPath = path.replace(clearPath, '').split("/").map((e) => e.replace(':', ''))
                     const validate = []
                     paramsPath.forEach((key, index) => {
-                        const type = match[key] ? match[key] : RouteType.string
+                        const type = match[key] ? match[key] : ValueType.string
                         const value = paramsUrl[index]
-                        validate.push(RouteType.validate(type, value))
+                        validate.push(ValueType.validate(type, value))
                     })
                     if (validate.includes(false)) {
                         pages.push(

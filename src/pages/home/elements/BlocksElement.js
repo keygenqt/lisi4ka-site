@@ -15,7 +15,12 @@ export function BlocksElement(props) {
     const {t} = useContext(LanguageContext)
 
     return (
-        <Box className={'ItemBlocksContainer'}>
+        <Box className={'ItemBlocksContainer'} sx={{
+            '&:after': {
+                backgroundColor: 'primary.dark',
+                opacity: '0.9'
+            }
+        }}>
             <Container maxWidth={'lg'}>
 
                 <Stack spacing={3}>
@@ -32,7 +37,9 @@ export function BlocksElement(props) {
                     paddingTop: 9
                 }}>
                     <Grid item xl={3} lg={6} md={6} sm={6} xs={12}>
-                        <Paper elevation={3} className={'InfoBlock item1'}>
+                        <Paper elevation={3} className={'InfoBlock item1'} sx={{
+                            backgroundColor: 'info.dark'
+                        }}>
                             <Stack spacing={3}>
                                 <TranslateOutlined/>
 
@@ -54,7 +61,9 @@ export function BlocksElement(props) {
                         </Paper>
                     </Grid>
                     <Grid item xl={3} lg={6} md={6} sm={6} xs={12}>
-                        <Paper elevation={3} className={'InfoBlock item2'}>
+                        <Paper elevation={3} className={'InfoBlock item2'} sx={{
+                            backgroundColor: 'warning.dark'
+                        }}>
                             <Stack spacing={3}>
                                 <NotificationsOutlined/>
 
@@ -76,7 +85,9 @@ export function BlocksElement(props) {
                         </Paper>
                     </Grid>
                     <Grid item xl={3} lg={6} md={6} sm={6} xs={12}>
-                        <Paper elevation={3} className={'InfoBlock item3'}>
+                        <Paper elevation={3} className={'InfoBlock item3'} sx={{
+                            backgroundColor: 'success.dark'
+                        }}>
                             <Stack spacing={3}>
                                 <PlayCircleOutlined/>
 
@@ -98,7 +109,9 @@ export function BlocksElement(props) {
                         </Paper>
                     </Grid>
                     <Grid item xl={3} lg={6} md={6} sm={6} xs={12}>
-                        <Paper elevation={3} className={'InfoBlock item4'}>
+                        <Paper elevation={3} className={'InfoBlock item4'} sx={{
+                            backgroundColor: 'error.dark'
+                        }}>
                             <Stack spacing={3}>
                                 <MenuBookOutlined/>
 

@@ -2,14 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import "./localization/Localization";
 
-import './assets/scss/colors.scss';
-import './assets/scss/style.scss';
-import './assets/scss/home.scss';
-import './assets/scss/about.scss';
-import './assets/scss/blog.scss';
-import './assets/scss/books.scss';
-import './assets/scss/videos.scss';
-import './assets/scss/video.scss';
+import './assets/scss/index.scss';
 
 import App from './App';
 import reportWebVitals from './tests/reportWebVitals';

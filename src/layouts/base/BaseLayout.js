@@ -1,19 +1,22 @@
 import * as React from 'react';
 import {useContext} from 'react';
 import PropTypes from "prop-types";
-import {Stack} from "@mui/material";
+import {Stack, useTheme} from "@mui/material";
 import {FooterElement} from "./elements/FooterElement";
 import {TopBarMenuElement} from "./elements/TopBarMenuElement";
 import {LanguageContext} from "../../base";
 
 export function BaseLayout(props) {
 
+    const theme = useTheme()
     const {isLocEn} = useContext(LanguageContext)
 
     return (
         <div className={`AppTable ${props.pageClassName} ${isLocEn ? 'EN-en' : 'RU-ru'}`}>
             <div className={"AppTableRow"}>
-                <header className={"AppTableCell"}>
+                <header className={"AppTableCell"} style={{
+                    backgroundColor: '#4d5d83'
+                }}>
                     <TopBarMenuElement/>
                 </header>
             </div>
@@ -29,7 +32,9 @@ export function BaseLayout(props) {
                 </main>
             </div>
             <div className={"AppTableRow"}>
-                <footer className={"AppTableCell"}>
+                <footer className={"AppTableCell"} style={{
+                    backgroundColor: theme.palette.primary.dark
+                }}>
                     <FooterElement/>
                 </footer>
             </div>

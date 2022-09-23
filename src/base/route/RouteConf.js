@@ -12,7 +12,7 @@ import {
     VideosPage,
 } from "../../pages";
 import * as React from "react";
-import {RouteType} from "./RouteType";
+import {ValueType} from "./ValueType";
 
 export const RouteConf = {
     delay: 200,
@@ -92,7 +92,7 @@ export const RouteConf = {
         article: {
             path: 'blog/article/:id',
             match: {
-                id: RouteType.integer,
+                id: ValueType.integer,
             },
             render: function (key, path) {
                 return <Route
@@ -113,7 +113,7 @@ export const RouteConf = {
         review: {
             path: 'blog/review/:id',
             match: {
-                id: RouteType.integer,
+                id: ValueType.integer,
             },
             render: function (key, path) {
                 return <Route
@@ -152,7 +152,7 @@ export const RouteConf = {
         book: {
             path: '/book/:id',
             match: {
-                id: RouteType.integer,
+                id: ValueType.integer,
             },
             render: function (key, path) {
                 return <Route
@@ -191,7 +191,7 @@ export const RouteConf = {
         video: {
             path: '/video/:id',
             match: {
-                id: RouteType.integer,
+                id: ValueType.integer,
             },
             render: function (key, path) {
                 return <Route

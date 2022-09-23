@@ -1,8 +1,8 @@
 import {createTheme} from '@mui/material/styles';
-import {palette} from "./impl/palette.js";
+import {paletteDark} from "./impl/paletteDark";
 import {typography} from "./impl/typography.js";
 
-export const AppTheme = createTheme({
+export const AppThemeDark = createTheme({
     breakpoints: {
         values: {
             xs: 420,
@@ -12,6 +12,6 @@ export const AppTheme = createTheme({
             xl: 1536,
         },
     },
-    palette: palette(),
+    palette: paletteDark(),
     typography: typography,
 });

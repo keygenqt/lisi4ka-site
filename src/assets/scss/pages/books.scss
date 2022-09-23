@@ -1,6 +1,3 @@
-// color variants
-@import 'colors.scss';
-
 .Books-Page .BooksContent {
   margin-bottom: 60px;
 }
@@ -11,14 +8,12 @@
 }
 
 .Books-Page .BooksContent .BooksTitleHeader {
-  background-color: $secondaryMain;
   margin-bottom: 60px;
   padding: 60px 0 60px 0;
   text-align: center;
 }
 
 .Books-Page .BooksContent .BooksTitleHeader .Title h2 {
-  color: $primaryMain;
 }
 
 .Books-Page .BooksContent .BooksTitleHeader .Lottie {
@@ -27,7 +22,6 @@
 }
 
 .Books-Page .BooksContent .BooksTitleHeader .Title h6 {
-  color: $primaryDark;
   white-space: break-spaces;
 }
 

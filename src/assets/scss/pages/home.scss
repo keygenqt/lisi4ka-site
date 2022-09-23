@@ -1,12 +1,8 @@
-// color variants
-@import 'colors.scss';
-
 /*************************/
 /** ITEM Main ************/
 /*************************/
 
 .ItemMainContainer {
-  background: $secondaryMain;
   width: 100%;
   padding: 140px 0;
   position: relative;
@@ -19,11 +15,9 @@
 
 .ItemMainContainer .TitleMain {
   white-space: pre;
-  color: $primaryMain;
 }
 
 .ItemMainContainer .SubtitleMain {
-  color: $warningDark;
   position: relative;
 }
 
@@ -34,7 +28,6 @@
   top: 34px;
   height: 3px;
   border-radius: 2px;
-  background: $warningDark;
 }
 
 .ItemMainContainer:before {
@@ -44,7 +37,7 @@
   top: 0;
   bottom: 0;
   width: 50%;
-  background: linear-gradient(180deg, $primaryDark 0%, $secondaryDark 100%);
+   background: linear-gradient(180deg, #3e4862 0%, #edacac 100%);
 }
 
 .ItemMainContainer .Content {
@@ -153,7 +146,6 @@
   top: -730px;
   height: 1900px;
   width: 1800px;
-  background: $secondaryMain;
   border-radius: 30%;
   -webkit-animation: waveSpin 20s linear infinite;
   -moz-animation: waveSpin 20s linear infinite;
@@ -184,7 +176,6 @@
 .Circle {
   width: 60px;
   height: 60px;
-  background: $successMain;
   border-radius: 50%;
   top: -76px;
   right: 84px;
@@ -196,7 +187,6 @@
   height: 40px;
   right: 25px;
   top: 183px;
-  background: $warningMain;
 }
 
 .Circle.item3 {
@@ -204,7 +194,6 @@
   height: 25px;
   right: 250px;
   top: -3px;
-  background: $errorMain;
 }
 
 .Circle.item4 {
@@ -212,7 +201,6 @@
   height: 36px;
   right: 551px;
   top: 121px;
-  background: $infoMain;
 }
 
 /*************************/
@@ -221,7 +209,7 @@
 .ItemBlocksContainer {
   padding: 130px 0;
   text-align: center;
-  background-image: url('../images/home/bg_home.png');
+  background-image: url('../../images/home/bg_home.png');
   background-repeat: repeat-x;
   background-position: center;
   color: white !important;
@@ -230,7 +218,6 @@
 
 .ItemBlocksContainer:after {
   content: "";
-  background: $primaryMain + db;
   position: absolute;
   top: 0;
   left: 0;
@@ -289,38 +276,6 @@
   opacity: 1;
 }
 
-.ItemBlocksContainer .InfoBlock.item1 {
-  background: $infoDark;
-}
-
-.ItemBlocksContainer .InfoBlock.item2 {
-  background: $warningDark;
-}
-
-.ItemBlocksContainer .InfoBlock.item3 {
-  background: $errorDark;
-}
-
-.ItemBlocksContainer .InfoBlock.item4 {
-  background: $successDark;
-}
-
-.ItemBlocksContainer .InfoBlock.item1 .BoxWithButton button svg {
-  color: $infoDark;
-}
-
-.ItemBlocksContainer .InfoBlock.item2 .BoxWithButton button svg {
-  color: $warningDark;
-}
-
-.ItemBlocksContainer .InfoBlock.item3 .BoxWithButton button svg {
-  color: $errorDark;
-}
-
-.ItemBlocksContainer .InfoBlock.item4 .BoxWithButton button svg {
-  color: $successDark;
-}
-
 .ItemBlocksContainer .InfoBlock svg {
   font-size: 50px;
 }
@@ -335,7 +290,7 @@
 /** ITEM Review **********/
 /*************************/
 .ItemReviewContainer {
-  background-image: url('../images/home/header-bg-team.jpg');
+  background-image: url('../../images/home/header-bg-team.jpg');
   position: relative;
   padding: 80px 0;
   background-repeat: no-repeat;
@@ -345,7 +300,6 @@
 
 .ItemReviewContainer:after {
   content: "";
-  background: $primaryMain + db;
   position: absolute;
   top: 0;
   left: 0;
@@ -366,10 +320,6 @@
   -webkit-filter: inherit !important;
   filter: none !important;
   opacity: 1 !important;
-}
-
-.ItemReviewContainer .Content .MuiFab-circular svg {
-  color: $primaryMain;
 }
 
 .ItemReviewContainer .Content .MuiIconButton-sizeMedium {
@@ -401,7 +351,6 @@
 }
 
 .ItemAboutMeContainer .title {
-  color: $infoMain;
   font-size: 80px;
   font-weight: 700;
   line-height: 1em;
@@ -410,11 +359,10 @@
   position: relative;
 }
 
-.ItemAboutMeContainer .title:before {
+.ItemAboutMeContainer .title:after {
   content: "";
   width: 10px;
   height: 10px;
-  background: $infoMain;
   border-radius: 30%;
   top: 58px;
   right: -19px;
@@ -429,7 +377,6 @@
 }
 
 .ItemAboutMeContainer .subtitle {
-  color: $grayDark;
   font-weight: normal;
 }
 
@@ -472,7 +419,6 @@
 }
 
 .ItemProudContainer .title {
-  color: $warningMain;
   font-size: 80px;
   font-weight: 700;
   line-height: 1em;
@@ -485,7 +431,6 @@
   content: "";
   width: 10px;
   height: 10px;
-  background: $warningMain;
   border-radius: 30%;
   top: 58px;
   right: -19px;
@@ -494,29 +439,12 @@
 }
 
 .ItemProudContainer .subtitle {
-  color: $grayDark;
   font-weight: normal;
 }
 
 .ItemProudContainer .MuiGrid-item .MuiSvgIcon-root {
   font-size: 36px;
   stroke-width: 1;
-}
-
-.ItemProudContainer .MuiGrid-item:nth-child(1) .MuiSvgIcon-root {
-  color: $errorMain;
-}
-
-.ItemProudContainer .MuiGrid-item:nth-child(2) .MuiSvgIcon-root {
-  color: $successMain;
-}
-
-.ItemProudContainer .MuiGrid-item:nth-child(3) .MuiSvgIcon-root {
-  color: $infoMain;
-}
-
-.ItemProudContainer .MuiGrid-item:nth-child(4) .MuiSvgIcon-root {
-  color: $warningMain;
 }
 
 @media (max-width: 1000px) {
@@ -573,7 +501,6 @@
   bottom: -260px;
   left: 24px;
   right: 24px;
-  background: $primaryMain;
   overflow: hidden;
   color: white;
   padding: 40px;
@@ -591,7 +518,6 @@
   height: 500px;
   top: -300px;
   right: -130px;
-  background: $secondaryDark;
   border-radius: 50%;
 }
 

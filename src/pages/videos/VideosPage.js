@@ -184,7 +184,9 @@ export function VideosPage() {
 
     return (
         <Stack className={'VideosContent'}>
-            <Box className={'VideosTitleHeader'}>
+            <Box className={'VideosTitleHeader'} sx={{
+                backgroundColor: 'secondary.main'
+            }}>
                 <Container maxWidth={"lg"}>
                     <Stack className={'Title'} spacing={3}>
                         <Typography gutterBottom variant="h2" sx={{

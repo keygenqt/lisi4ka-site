@@ -81,30 +81,6 @@ const data = [
         rating: 5,
         isBookmark: false
     },
-    {
-        id: 8,
-        image: ConstantImages.books.book8,
-        title: 'The Little Prince',
-        author: 'Antoine de Saint-Exupéry',
-        rating: 4,
-        isBookmark: false
-    },
-    {
-        id: 9,
-        image: ConstantImages.books.book8,
-        title: 'The Little Prince',
-        author: 'Antoine de Saint-Exupéry',
-        rating: 4,
-        isBookmark: false
-    },
-    {
-        id: 10,
-        image: ConstantImages.books.book8,
-        title: 'The Little Prince',
-        author: 'Antoine de Saint-Exupéry',
-        rating: 4,
-        isBookmark: false
-    }
 ]
 
 function CardItemBook(props) {
@@ -264,7 +240,9 @@ export function BooksPage() {
 
     return (
         <Stack className={'BooksContent'}>
-            <Box className={'BooksTitleHeader'}>
+            <Box className={'BooksTitleHeader'} sx={{
+                backgroundColor: 'secondary.main'
+            }}>
                 <Container maxWidth={"lg"}>
                     <Stack className={'Title'} spacing={3}>
                         <Typography gutterBottom variant="h2" sx={{

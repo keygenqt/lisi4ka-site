@@ -12,7 +12,9 @@ export function MySkillsElement(props) {
 
     return (
         <Stack className={'AboutMySkillsContent'}>
-            <Box className={'AboutMySkillsTitleHeader'}>
+            <Box className={'AboutMySkillsTitleHeader'} sx={{
+                backgroundColor: 'secondary.main'
+            }}>
                 <Container maxWidth={"lg"}>
                     <Stack className={'Title'} spacing={3}>
                         <Typography gutterBottom variant="h2" sx={{

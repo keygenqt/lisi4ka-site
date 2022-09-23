@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import {Box, CircularProgress, Container, Fab, Paper, Stack, ToggleButtonGroup, Typography, Zoom} from "@mui/material";
 import YouTube from "react-youtube";
 import {
+    Brightness6Outlined,
     HeadphonesOutlined,
     MoveUpOutlined,
     PauseCircleOutlined,
@@ -11,8 +12,9 @@ import {
     SkipPreviousOutlined,
     TranslateOutlined
 } from "@mui/icons-material";
-import {useWindowScroll} from "../../base";
+import {AppCache, useLocalStorage, useWindowScroll} from "../../base";
 import {ToggleButton} from "@mui/lab";
+import {ValueType} from "../../base/route/ValueType";
 
 let videoElement = null;
 let intervalChangeIndex = null;
@@ -281,6 +283,7 @@ export function VideoPage() {
 
     const {y} = useWindowScroll()
     const boxYouTubeFrameRef = React.useRef(null)
+    const darkMode = useLocalStorage("darkMode", ValueType.bool);
 
     const [isStartPreview, setIsStartPreview] = useState(true);
     const [isToggleInterval, setIsToggleInterval] = useState(false);
@@ -288,7 +291,7 @@ export function VideoPage() {
     const [isPaused, setIsPaused] = useState(true);
     const [indexAction, setIndexAction] = useState(-1);
 
-    const [alignment, setAlignment] = React.useState([]);
+    const [alignment, setAlignment] = React.useState(AppCache.booleanGet('darkMode') ? ['darkMode'] : []);
 
     const handleChange = (event, newAlignment) => {
         setAlignment(newAlignment);
@@ -335,6 +338,14 @@ export function VideoPage() {
             disablekb: 1,
         },
     };
+
+    useEffect(() => {
+        if (alignment.includes('darkMode')) {
+            AppCache.booleanSet('darkMode', true)
+        } else {
+            AppCache.booleanSet('darkMode', false)
+        }
+    }, [alignment]);
 
     useEffect(() => {
         if (isInit && videoElement?.target?.i) {
@@ -397,7 +408,14 @@ export function VideoPage() {
         content.push(
             <Typography
                 key={`item-${index}`}
-                className={(index === indexAction ? (isPaused ? 'Active Pause' : 'Active') : '')}
+                className={isPaused && index === indexAction ? 'Pause' : ''}
+                sx={darkMode ? {
+                    backgroundColor: index === indexAction ? '#dedede' : '#444444',
+                    color: index === indexAction ? '#252525' : '#f1f1f1',
+                } : {
+                    backgroundColor: index === indexAction ? '#444444' : '#e9e9e9',
+                    color: index === indexAction ? '#ffffff' : '#000000',
+                }}
                 onClick={() => {
                     seekTo(index)
                 }}
@@ -412,7 +430,7 @@ export function VideoPage() {
             <Stack spacing={3}>
 
                 <Stack spacing={1}>
-                    <Typography variant="h5">
+                    <Typography variant="h5" color="text.primary">
                         {data.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
@@ -436,6 +454,9 @@ export function VideoPage() {
                     <ToggleButton value="frameTranslate" aria-label="bold">
                         <TranslateOutlined/>
                     </ToggleButton>
+                    <ToggleButton value="darkMode" aria-label="bold">
+                        <Brightness6Outlined/>
+                    </ToggleButton>
                 </ToggleButtonGroup>
 
                 <Box
@@ -450,7 +471,7 @@ export function VideoPage() {
                     >
                         <Box sx={{
                             height: '40px',
-                            backgroundColor: 'white',
+                            backgroundColor: 'background.default',
                             marginBottom: '-10px'
                         }}/>
 

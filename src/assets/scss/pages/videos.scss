@@ -1,6 +1,3 @@
-// color variants
-@import 'colors.scss';
-
 .Videos-Page .VideosContent {
   margin-bottom: 60px;
 }
@@ -11,14 +8,9 @@
 }
 
 .Videos-Page .VideosContent .VideosTitleHeader {
-  background-color: $secondaryMain;
   margin-bottom: 60px;
   padding: 60px 0 60px 0;
   text-align: center;
-}
-
-.Videos-Page .VideosContent .VideosTitleHeader .Title h2 {
-  color: $primaryMain;
 }
 
 .Videos-Page .VideosContent .VideosTitleHeader .Lottie {
@@ -27,7 +19,6 @@
 }
 
 .Videos-Page .VideosContent .VideosTitleHeader .Title h6 {
-  color: $primaryDark;
   white-space: break-spaces;
 }
 

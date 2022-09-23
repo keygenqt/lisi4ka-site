@@ -53,7 +53,12 @@ export function ReviewsElement(props) {
     </Stack>)
 
     return (
-        <Stack className={'ItemReviewContainer'}>
+        <Stack className={'ItemReviewContainer'} sx={{
+            '&:after': {
+                backgroundColor: 'primary.dark',
+                opacity: '0.9'
+            }
+        }}>
             <Box className={'Content'}>
                 <Container maxWidth={'lg'}>
                     <Carousel

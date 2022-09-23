@@ -15,11 +15,11 @@ export function QuestionsElement(props) {
         <Stack className={'AboutQuestionsElementContainer'}>
             <Container maxWidth={'md'}>
                 <Stack spacing={3}>
-                    <Typography variant="h2" align={'center'}>
+                    <Typography variant="h2" align={'center'} color="text.primary">
                         {t('pages.about.t_questions_title')}
                     </Typography>
 
-                    <Typography variant="subtitle2" align={'center'}>
+                    <Typography variant="subtitle2" align={'center'} color="text.primary">
                         {t('pages.about.t_questions_subtitle')}
                     </Typography>
 

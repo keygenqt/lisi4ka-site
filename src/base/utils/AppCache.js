@@ -4,30 +4,6 @@ import {MD5} from "crypto-js";
  * App for work with cache
  */
 export const AppCache = {
-
-    ////////////////////////////
-    // Request cache
-
-    requestIsHas: function (method) {
-        return localStorage.getItem(AppCache._requestKey(method)) !== null
-    },
-
-    requestGet: function (method) {
-        return JSON.parse(localStorage.getItem(AppCache._requestKey(method)));
-    },
-
-    requestSet: function (method, response) {
-        localStorage.setItem(AppCache._requestKey(method), JSON.stringify(response))
-    },
-
-    requestClear: function (method) {
-        localStorage.removeItem(AppCache._requestKey(method))
-    },
-
-    _requestKey: function (method) {
-        return `request-${MD5(method.toString())}`
-    },
-
     ////////////////////////////
     // Int
 
@@ -36,7 +12,7 @@ export const AppCache = {
     },
 
     intSet: function (key, value) {
-        localStorage.setItem(key, `${value}`)
+        AppCache._setItem(key, value)
     },
 
     ////////////////////////////
@@ -47,7 +23,18 @@ export const AppCache = {
     },
 
     stringSet: function (key, value) {
-        localStorage.setItem(key, value)
+        AppCache._setItem(key, value)
+    },
+
+    ////////////////////////////
+    // Boolean
+
+    booleanGet: function (key) {
+        return localStorage.getItem(key) === 'true'
+    },
+
+    booleanSet: function (key, value) {
+        AppCache._setItem(key, value)
     },
 
     ////////////////////////////
@@ -60,4 +47,27 @@ export const AppCache = {
     clearAll: function () {
         localStorage.clear()
     },
+
+    ////////////////////////////
+    // Private
+    _setItem: function (key, value) {
+        localStorage.setItem(key, `${value}`)
+        const el = document.querySelector('#root');
+        const hash = MD5(AppCache._allStorage().toString())
+        if (el.dataset.cache !== hash) {
+            el.dataset.cache = hash
+        }
+    },
+
+    _allStorage: function () {
+        let values = [],
+            keys = Object.keys(localStorage),
+            i = keys.length;
+
+        while (i--) {
+            values.push(localStorage.getItem(keys[i]));
+        }
+
+        return values;
+    }
 };

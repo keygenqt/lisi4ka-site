@@ -217,7 +217,9 @@ export function BlogPage() {
 
     return (
         <Stack className={'BlogContent'}>
-            <Box className={'BlogTitleHeader'}>
+            <Box className={'BlogTitleHeader'} sx={{
+                backgroundColor: 'secondary.main'
+            }}>
                 <Container maxWidth={"lg"}>
                     <Stack className={'Title'} spacing={3}>
                         <Typography gutterBottom variant="h2" sx={{
@@ -257,12 +259,12 @@ export function BlogPage() {
                     <Grid item xl={3} lg={3} md={4} sm={12} xs={12} className={'Filter'}>
                         <Stack spacing={3}>
 
-                            <Typography variant={'h4'}>
+                            <Typography variant={'h4'} color="text.primary">
                                 {t('pages.blog.t_filter_title')}
                             </Typography>
 
                             <Stack spacing={0}>
-                                <Accordion disableGutters>
+                                <Accordion disableGutters variant={'outlined'}>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreOutlined/>}
                                         aria-controls="panel1a-content"
@@ -283,7 +285,9 @@ export function BlogPage() {
                                         </FormControl>
                                     </AccordionDetails>
                                 </Accordion>
-                                <Accordion disableGutters>
+                                <Accordion disableGutters variant={'outlined'} sx={{
+                                    marginTop: '-1px'
+                                }}>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreOutlined/>}
                                         aria-controls="panel1a-content"

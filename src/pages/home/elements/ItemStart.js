@@ -36,14 +36,6 @@ function CardItem(props) {
                     </Typography>
                 </Stack>
             </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <Favorite/>
-                </IconButton>
-                <IconButton aria-label="share">
-                    <Share/>
-                </IconButton>
-            </CardActions>
         </Card>
     )
 }
@@ -56,11 +48,11 @@ export function ItemStart(props) {
         <Stack className={'ItemStartContainer'}>
             <Container maxWidth="lg">
                 <Stack spacing={3}>
-                    <Typography gutterBottom variant="h2">
+                    <Typography gutterBottom variant="h2" color="text.primary">
                         {t('pages.home.t_start_title')}
                     </Typography>
 
-                    <Typography gutterBottom variant="subtitle2">
+                    <Typography gutterBottom variant="subtitle2" color="text.primary">
                         {t('pages.home.t_start_subtitle')}
                     </Typography>
                 </Stack>
@@ -88,7 +80,12 @@ export function ItemStart(props) {
                     </Grid>
                 </Grid>
 
-                <Paper elevation={5} className={'StartBlock'}>
+                <Paper elevation={5} className={'StartBlock'} sx={{
+                    backgroundColor: '#4d5d83',
+                    '&:after': {
+                        backgroundColor: '#edacac'
+                    }
+                }}>
                     <Stack
                         className={'Content'}
                         direction="row"
