@@ -163,6 +163,14 @@ export const ruLocalization = {
                 't_videos_card_time': 'Продолжительность',
                 't_videos_card_author': 'Автор',
             },
+            video: {
+                't_video_mode_keep': 'Держать на странице',
+                't_video_mode_pause': 'Пауза после фразы',
+                't_video_mode_loop': 'Зациклить фразу',
+                't_video_mode_hide': 'Скрыть видео',
+                't_video_mode_ru': 'Показать русский',
+                't_video_mode_dark': 'Включить темный режим',
+            },
             error: {
                 t_text: 'Страница не найдена',
                 t_subtext: 'Страница, которую вы ищете, не существует',

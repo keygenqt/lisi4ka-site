@@ -1,10 +1,24 @@
 import * as React from 'react';
-import {useEffect, useState} from 'react';
-import {Box, CircularProgress, Container, Fab, Paper, Stack, ToggleButtonGroup, Typography, Zoom} from "@mui/material";
+import {useCallback, useContext, useEffect, useState} from 'react';
+import {
+    Box,
+    CircularProgress,
+    Container,
+    Fab,
+    Paper,
+    Stack,
+    ToggleButton,
+    ToggleButtonGroup,
+    Tooltip,
+    Typography,
+    Zoom
+} from "@mui/material";
 import YouTube from "react-youtube";
 import {
+    AvTimerOutlined,
     Brightness6Outlined,
     HeadphonesOutlined,
+    LoopOutlined,
     MoveUpOutlined,
     PauseCircleOutlined,
     PlayCircleOutline,
@@ -12,8 +26,7 @@ import {
     SkipPreviousOutlined,
     TranslateOutlined
 } from "@mui/icons-material";
-import {AppCache, useLocalStorage, useWindowScroll} from "../../base";
-import {ToggleButton} from "@mui/lab";
+import {AppCache, LanguageContext, useLocalStorage, useWindowScroll} from "../../base";
 import {ValueType} from "../../base/route/ValueType";
 
 let videoElement = null;
@@ -284,24 +297,32 @@ export function VideoPage() {
     const {y} = useWindowScroll()
     const boxYouTubeFrameRef = React.useRef(null)
     const darkMode = useLocalStorage("darkMode", ValueType.bool);
+    const {t} = useContext(LanguageContext)
 
     const [isStartPreview, setIsStartPreview] = useState(true);
     const [isToggleInterval, setIsToggleInterval] = useState(false);
     const [isInit, setIsInit] = useState(false);
     const [isPaused, setIsPaused] = useState(true);
     const [indexAction, setIndexAction] = useState(-1);
+    const [indexActionSentence, setIndexActionSentence] = useState(-1);
 
-    const [alignment, setAlignment] = React.useState(AppCache.booleanGet('darkMode') ? ['darkMode'] : []);
+    const [modeFrameState, setModeFrameState] = React.useState([]);
+    const [modePlayerState, setModePlayerState] = React.useState(null);
+    const [modeVisibleState, setModeVisibleState] = React.useState(AppCache.booleanGet('darkMode') ? ['darkMode'] : []);
 
-    const handleChange = (event, newAlignment) => {
-        setAlignment(newAlignment);
+    const handleChangeModeFrame = (event, newValue) => {
+        setModeFrameState(newValue);
     };
 
-    const togglePause = () => {
-        setIsPaused(!isPaused);
+    const handleChangeModePlayer = (event, newValue) => {
+        setModePlayerState(newValue);
     };
 
-    const seekTo = (index) => {
+    const handleChangeModeVisible = (event, newValue) => {
+        setModeVisibleState(newValue);
+    };
+
+    const seekTo = useCallback((index) => {
         if (isInit) {
             clearInterval(intervalChangeIndex)
             setIndexAction(index)
@@ -309,17 +330,29 @@ export function VideoPage() {
             videoElement.target.playVideo();
             setIsToggleInterval(!isToggleInterval)
         }
+    }, [isInit, isToggleInterval]);
+
+    const togglePause = () => {
+        if (isInit) {
+            setIsPaused(!isPaused);
+        }
     };
 
     const onClickPrevious = () => {
         if (isInit) {
             seekTo(indexAction - 1)
+            if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
+                setIndexActionSentence(indexAction - 1)
+            }
         }
     };
 
     const onClickNext = () => {
         if (isInit) {
             seekTo(indexAction + 1)
+            if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
+                setIndexActionSentence(indexAction + 1)
+            }
         }
     };
 
@@ -340,12 +373,12 @@ export function VideoPage() {
     };
 
     useEffect(() => {
-        if (alignment.includes('darkMode')) {
+        if (modeVisibleState.includes('darkMode')) {
             AppCache.booleanSet('darkMode', true)
         } else {
             AppCache.booleanSet('darkMode', false)
         }
-    }, [alignment]);
+    }, [modeVisibleState]);
 
     useEffect(() => {
         if (isInit && videoElement?.target?.i) {
@@ -374,11 +407,22 @@ export function VideoPage() {
 
                     // console.log(seconds)
 
+                    if (modePlayerState !== 'sentencePause' && modePlayerState !== 'sentenceLoop') {
+                        setIndexActionSentence(-1)
+                    }
+
                     setIndexAction(-1)
                     for (let i = 0; i < data.content.length; i++) {
                         const end = data.content[i].end ? data.content[i].end : data.content[i + 1].start
                         if (data.content[i].start <= seconds && end > seconds) {
-                            setIndexAction(i)
+                            if (indexActionSentence >= 0 && indexActionSentence !== i) {
+                                seekTo(indexActionSentence)
+                                if (modePlayerState === 'sentencePause') {
+                                    videoElement?.target?.pauseVideo();
+                                }
+                            } else {
+                                setIndexAction(i)
+                            }
                             break;
                         }
                     }
@@ -389,7 +433,7 @@ export function VideoPage() {
         return () => {
             clearInterval(intervalChangeIndex);
         };
-    }, [isInit, isToggleInterval]);
+    }, [indexActionSentence, modePlayerState, isInit, isToggleInterval, seekTo]);
 
     const _onReady = (event) => {
         videoElement = event;
@@ -417,10 +461,15 @@ export function VideoPage() {
                     color: index === indexAction ? '#ffffff' : '#000000',
                 }}
                 onClick={() => {
+                    if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
+                        setIndexActionSentence(index)
+                    } else {
+                        setIndexActionSentence(-1)
+                    }
                     seekTo(index)
                 }}
             >
-                {alignment.includes('frameTranslate') ? item.textRu : item.text}
+                {modeVisibleState.includes('frameTranslate') ? item.textRu : item.text}
             </Typography>
         )
     })
@@ -438,36 +487,112 @@ export function VideoPage() {
                     </Typography>
                 </Stack>
 
-                <ToggleButtonGroup
-                    size="small"
-                    color="primary"
-                    value={alignment}
-                    onChange={handleChange}
-                    aria-label="Platform"
-                >
-                    <ToggleButton value="frameScroll" aria-label="bold">
-                        <MoveUpOutlined/>
-                    </ToggleButton>
-                    <ToggleButton value="frameHide" aria-label="bold">
-                        <HeadphonesOutlined/>
-                    </ToggleButton>
-                    <ToggleButton value="frameTranslate" aria-label="bold">
-                        <TranslateOutlined/>
-                    </ToggleButton>
-                    <ToggleButton value="darkMode" aria-label="bold">
-                        <Brightness6Outlined/>
-                    </ToggleButton>
-                </ToggleButtonGroup>
+                <Stack spacing={1} direction={'row'}>
+                    <ToggleButtonGroup
+                        size="small"
+                        color="primary"
+                        value={modeFrameState}
+                        onChange={handleChangeModeFrame}
+                        aria-label="Group"
+                    >
+                        <Tooltip title={t('pages.video.t_video_mode_keep')} placement="top">
+                            <ToggleButton
+                                selected={modeFrameState.includes('frameScroll')}
+                                value="frameScroll"
+                                aria-label="bold"
+                            >
+                                <MoveUpOutlined/>
+                            </ToggleButton>
+                        </Tooltip>
+
+                        <Tooltip title={t('pages.video.t_video_mode_hide')} placement="top">
+                            <ToggleButton
+                                selected={modeFrameState.includes('frameHide')}
+                                value="frameHide"
+                                aria-label="bold"
+                            >
+                                <HeadphonesOutlined/>
+                            </ToggleButton>
+                        </Tooltip>
+
+                    </ToggleButtonGroup>
+
+                    <ToggleButtonGroup
+                        size="small"
+                        color="primary"
+                        exclusive
+                        value={modePlayerState}
+                        onChange={handleChangeModePlayer}
+                        aria-label="Group"
+                    >
+                        <Tooltip title={t('pages.video.t_video_mode_pause')} placement="top">
+                            <ToggleButton
+                                selected={modePlayerState === 'sentencePause'}
+                                value="sentencePause"
+                                aria-label="bold"
+                                onClick={() => {
+                                    setIndexActionSentence(indexAction)
+                                }}
+                            >
+                                <AvTimerOutlined/>
+                            </ToggleButton>
+                        </Tooltip>
+
+                        <Tooltip title={t('pages.video.t_video_mode_loop')} placement="top">
+                            <ToggleButton
+                                selected={modePlayerState === 'sentenceLoop'}
+                                value="sentenceLoop"
+                                aria-label="bold"
+                                onClick={() => {
+                                    setIndexActionSentence(indexAction)
+                                }}
+                            >
+                                <LoopOutlined/>
+                            </ToggleButton>
+                        </Tooltip>
+
+                    </ToggleButtonGroup>
+
+                    <ToggleButtonGroup
+                        size="small"
+                        color="primary"
+                        value={modeVisibleState}
+                        onChange={handleChangeModeVisible}
+                        aria-label="Group"
+                    >
+                        <Tooltip title={t('pages.video.t_video_mode_ru')} placement="top">
+                            <ToggleButton
+                                selected={modeVisibleState.includes('frameTranslate')}
+                                value="frameTranslate"
+                                aria-label="bold"
+                            >
+                                <TranslateOutlined/>
+                            </ToggleButton>
+                        </Tooltip>
+
+                        <Tooltip title={t('pages.video.t_video_mode_dark')} placement="top">
+                            <ToggleButton
+                                selected={modeVisibleState.includes('darkMode')}
+                                value="darkMode"
+                                aria-label="bold"
+                            >
+                                <Brightness6Outlined/>
+                            </ToggleButton>
+                        </Tooltip>
+
+                    </ToggleButtonGroup>
+                </Stack>
+
 
                 <Box
                     ref={boxYouTubeFrameRef}
-                    className={'BoxYouTubeMove' + (alignment.includes('frameHide') ? ' Audio' : '')}
+                    className={'BoxYouTubeMove' + (modeFrameState.includes('frameHide') ? ' Audio' : '')}
                     sx={{
                         marginTop: '0px !important'
                     }}
                 >
                     <Box
-                        className={'BoxYouTubeFrame' + (alignment.includes('frameScroll') && y > boxYouTubeFrameRef.current?.offsetTop ? ' Fix' : '')}
+                        className={'BoxYouTubeFrame' + (modeFrameState.includes('frameScroll') && y > boxYouTubeFrameRef.current?.offsetTop ? ' Fix' : '')}
                     >
                         <Box sx={{
                             height: '40px',
@@ -478,7 +603,7 @@ export function VideoPage() {
                         <Box
                             className={'BoxYouTubeFrameRad'}
                             sx={{
-                                display: alignment.includes('frameHide') ? 'none' : 'block'
+                                display: modeFrameState.includes('frameHide') ? 'none' : 'block'
                             }}
                         >
 

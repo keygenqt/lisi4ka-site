@@ -164,6 +164,14 @@ export const enLocalization = {
                 't_videos_card_time': 'Duration',
                 't_videos_card_author': 'Author',
             },
+            video: {
+                't_video_mode_keep': 'Keep on page',
+                't_video_mode_pause': 'Pause after a sentence',
+                't_video_mode_loop': 'Loop a sentence',
+                't_video_mode_hide': 'Hide video',
+                't_video_mode_ru': 'Show Russian',
+                't_video_mode_dark': 'Enable Dark Mode',
+            },
             error: {
                 t_text: 'Page not found',
                 t_subtext: 'The Page you are looking for doesn\'t exist',
