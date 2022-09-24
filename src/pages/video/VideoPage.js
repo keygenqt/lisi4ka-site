@@ -4,8 +4,8 @@ import {
     Box,
     CircularProgress,
     Container,
-    Fab,
-    Paper,
+    Fab, FormControl, InputLabel, MenuItem,
+    Paper, Select,
     Stack,
     ToggleButton,
     ToggleButtonGroup,
@@ -33,361 +33,460 @@ import {useParams} from "react-router";
 let videoElement = null;
 let intervalChangeIndex = null;
 
-const datas = [
-    {
-        id: 1,
-        idYouTube: 'kLvuZtpQaSs',
-        title: 'Hollywood in 1950\'s vs NOW!',
-        author: 'AwakenWithJP',
-        content: [
-            {
-                start: 0,
-                text: 'We\'ve received reports in substantial evidence that you\'re involved in communist activities.',
-                textRu: 'Мы получили отчеты, свидетельствующие о том, что вы причастны к коммунистической деятельности.'
-            },
-            {
-                start: 6.280918043869018,
-                text: 'For the record.',
-                textRu: 'Для записи.'
-            },
-            {
-                start: 7.5219620267028805,
-                text: 'Are you a communist?',
-                textRu: 'Вы коммунист?'
-            },
-            {
-                start: 9.629176036239623,
-                text: 'Yes I am.',
-                textRu: 'Да.'
-            },
-            {
-                start: 10.651088047683716,
-                text: 'You\'re blacklisted.',
-                textRu: 'Вы в черном списке.'
-            },
-            {
-                start: 11.760320051498413,
-                text: 'Get then out of here.',
-                textRu: 'Убирайся тогда отсюда.'
-            },
-            {
-                start: 12.919629118255615,
-                text: 'Are you a communist?',
-                textRu: 'Вы коммунист?'
-            },
-            {
-                start: 14.70633897329712,
-                text: 'No I am not.',
-                textRu: 'Нет, я не.'
-            },
-            {
-                start: 16.171769045776367,
-                text: 'You\'re blacklisted.',
-                textRu: 'Вы в черном списке.'
-            },
-            {
-                start: 17.560807904632567,
-                text: 'You\'ll never work in this industry again.',
-                textRu: 'Ты больше никогда не будешь работать в этой отрасли.'
-            },
-            {
-                start: 20.153153080108642,
-                text: 'Do you support the president of this country.',
-                textRu: 'Вы поддерживаете президента этой страны.'
-            },
-            {
-                start: 23.169926946594237,
-                text: 'Yes i do.',
-                textRu: 'Да.'
-            },
-            {
-                start: 24.31979594468689,
-                text: 'Great.',
-                textRu: 'Великолепно.'
-            },
-            {
-                start: 25.511659011444093,
-                text: 'Do you support the president of this country?',
-                textRu: 'Вы поддерживаете президента этой страны?'
-            },
-            {
-                start: 28.29172595994568,
-                text: 'Which one?',
-                textRu: 'Который из?'
-            },
-            {
-                start: 29.111827148773192,
-                text: 'Biden.',
-                textRu: 'Байден.'
-            },
-            {
-                start: 29.87043115640259,
-                text: 'Yes I do.',
-                textRu: 'Да.'
-            },
-            {
-                start: 30.751411977111818,
-                text: 'And Trump?',
-                textRu: 'И Трамп?'
-            },
-            {
-                start: 32.04181711825562,
-                text: 'Absolutely not.',
-                textRu: 'Точно нет.'
-            },
-            {
-                start: 33.244049792098996,
-                text: 'Excellent.',
-                textRu: 'Превосходно.'
-            },
-            {
-                start: 34.207284893188475,
-                text: 'Do you think it\'s appropriate to show sexually explicit movie scenes to children.',
-                textRu: 'Считаете ли вы уместным показывать детям откровенно сексуальные сцены из фильмов?'
-            },
-            {
-                start: 40.50005489318848,
-                text: 'No sir it would be completely inappropriate to do so.',
-                textRu: 'Нет, сэр, это было бы совершенно неуместно.'
-            },
-            {
-                start: 44.2354659294281,
-                text: 'Exactly.',
-                textRu: 'В яблочко.'
-            },
-            {
-                start: 45.267344998092655,
-                text: 'Do you think it\'s appropriate to sexualize children in TV shows and films.',
-                textRu: 'Считаете ли вы уместным сексуализировать детей в сериалах и фильмах.'
-            },
-            {
-                start: 50.48116606484985,
-                text: 'Yeah it would be inappropriate not to.',
-                textRu: 'Да и неуместно было бы.'
-            },
-            {
-                start: 52.79935989700317,
-                text: 'Phenomenal.',
-                textRu: 'Феноменальный.'
-            },
-            {
-                start: 53.76377289128113,
-                text: 'Now as a part of the hollywood artistic community.',
-                textRu: 'Теперь как часть голливудского артистического сообщества.'
-            },
-            {
-                start: 56.87106904768372,
-                text: 'How do you view the importance of creativity and original thought.',
-                textRu: 'Как вы относитесь к важности творчества и оригинальной мысли.'
-            },
-            {
-                start: 61.40101897901916,
-                text: 'I think that\'s what\'s most important.',
-                textRu: 'Я думаю, это самое главное.'
-            },
-            {
-                start: 63.12856301525879,
-                text: 'Because everything we do is based on that and that\'s what people want to see.',
-                textRu: 'Потому что все, что мы делаем, основано на этом, и это то, что люди хотят видеть.'
-            },
-            {
-                start: 68.75487590463256,
-                text: 'How do you view the importance of creativity and original thought in our industry.',
-                textRu: 'Как вы оцениваете важность творчества и оригинального мышления в нашей отрасли?'
-            },
-            {
-                start: 74.0100531411438,
-                text: 'I think quite frankly it interferes with what\'s most important in our pictures.',
-                textRu: 'Я думаю, откровенно говоря, это мешает тому, что является самым важным в наших картинах.'
-            },
-            {
-                start: 78.77894696566773,
-                text: 'Diversity.',
-                textRu: 'Разнообразие.'
-            },
-            {
-                start: 79.46351208964539,
-                text: 'Because that\'s what people want to see most and whatever whatever.',
-                textRu: 'Потому что это то, что люди хотят видеть больше всего и что угодно.'
-            },
-            {
-                start: 82.8056239256134,
-                text: 'She-Hulk and Bat-Girl are great movies.',
-                textRu: 'Женщина-Халк и Бэт-Гёрл — отличные фильмы.'
-            },
-            {
-                start: 86.62731294659424,
-                text: 'Have you or have you not ever read the work of Karl Marx.',
-                textRu: 'Вы когда-нибудь читали или не читали работы Карла Маркса.'
-            },
-            {
-                start: 91.25473710681153,
-                text: 'No sir just like i\'m supposed to i have never read a word of that.',
-                textRu: 'Нет, сэр, как и положено, я никогда не читал ни слова об этом.'
-            },
-            {
-                start: 95.33634311444092,
-                text: 'You better keep it that way.',
-                textRu: 'Лучше так и продолжай.'
-            },
-            {
-                start: 97.72634101144409,
-                text: 'Have you or have you not ever read the work of Karl Marx.',
-                textRu: 'Вы когда-нибудь читали или не читали работы Карла Маркса.'
-            },
-            {
-                start: 102.03369908964539,
-                text: 'Of course i\'ve memorized every word of it like i\'m supposed to.',
-                textRu: 'Конечно, я запомнил каждое слово, как и должен был.'
-            },
-            {
-                start: 105.56686211062623,
-                text: 'Do you have any ties to the chinese communist party.',
-                textRu: 'Есть ли у вас какие-либо связи с китайской коммунистической партией?'
-            },
-            {
-                start: 109.0784720038147,
-                text: 'Of course not.',
-                textRu: 'Конечно нет.'
-            },
-            {
-                start: 110.08401805149842,
-                text: 'I\'m aware of the national security risk that ties to communist activity carries and understand it has no place in hollywood.',
-                textRu: 'Я осознаю угрозу национальной безопасности, которую несут связи с коммунистической деятельностью, и понимаю, что ей нет места в Голливуде.'
-            },
-            {
-                start: 117.03943095994568,
-                text: 'Do you have any ties to the chinese communist party.',
-                textRu: 'Есть ли у вас какие-либо связи с китайской коммунистической партией?'
-            },
-            {
-                start: 120.72405194850159,
-                text: 'Yeah and i understand that being loyal to their funding and sympathetic to their messaging is important to the success of our major studios and my paycheck.',
-                textRu: 'Да, и я понимаю, что лояльность к их финансированию и сочувствие к их сообщениям важны для успеха наших крупных студий и моей зарплаты.'
-            },
-            {
-                start: 129.7604627882843,
-                text: 'We have seven new roles that you would be an excellent fit for.',
-                textRu: 'У нас есть семь новых ролей, на которые вы бы отлично подошли.'
-            },
-            {
-                start: 134.08070096566772,
-                text: 'Do you think hollywood should hire and not hire actors based on their race.',
-                textRu: 'Считаете ли вы, что Голливуд должен нанимать, а не нанимать актеров на основе их расы?'
-            },
-            {
-                start: 139.07229911825563,
-                text: 'Yes.',
-                textRu: 'Да.'
-            },
-            {
-                start: 140.04521992179872,
-                text: 'Should hollywood hire and not hire actors on the basis of their race.',
-                textRu: 'Голливуд должен нанимать, а не нанимать актеров на основе их расы.'
-            },
-            {
-                start: 145.51435487602235,
-                end: 146.31435487602235,
-                text: 'Yes.',
-                textRu: 'Да.'
-            },
-        ]
-    },
-    {
-        id: 1,
-        idYouTube: 'sD1-rS_TM2o',
-        title: 'Kids vocabulary - Solar System - planets - Learn English for kids - English educational video',
-        author: 'English Singsing',
-        content: [
-            {
-                start: 1.656077824523926,
-                text: 'English Singsing',
-                textRu: 'Английское пение'
-            },
-            {
-                start: 8.174486954223632,
-                text: 'Solar System',
-                textRu: 'Солнечная система'
-            },
-            {
-                start: 13.079295202178955,
-                text: 'Sun',
-                textRu: 'Солнце'
-            },
-            {
-                start: 16.59592902861023,
-                text: 'The Sun is very big and hot.',
-                textRu: 'Солнце очень большое и горячее.'
-            },
-            {
-                start: 21.709993133514403,
-                text: 'Sun',
-                textRu: 'Солнце'
-            },
-            {
-                start: 27.519520059127807,
-                text: 'There are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.',
-                textRu: 'Есть Меркурий, Венера, Земля, Марс, Юпитер, Сатурн, Уран и Нептун.'
-            },
-            {
-                start: 37.04731095422363,
-                text: 'They go around the Sun.',
-                textRu: 'Они вращаются вокруг Солнца.'
-            },
-            {
-                start: 42.27239091798401,
-                text: 'Solar System',
-                textRu: 'Солнечная система'
-            },
-            {
-                start: 45.096568034332276,
-                text: 'This is our Solar System.',
-                textRu: 'Это наша Солнечная система.'
-            },
-            {
-                start: 49.562771200271604,
-                text: 'Solar System',
-                textRu: 'Солнечная система'
-            },
-            {
-                start: 57.34356797711182,
-                text: 'Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, and Sun.',
-                textRu: 'Меркурий, Венера, Земля, Марс, Юпитер, Сатурн, Уран, Нептун и Солнце.'
-            },
-            {
-                start: 70.75704804577637,
-                end: 72.75704804577637,
-                text: 'Mercury',
-                textRu: 'Меркурий'
-            },
-        ]
-    },
-    {
-        id: 1,
-        idYouTube: '3sXaq0NNZjo',
-        title: 'The Tell-Tale Heart by Edgar Allan Poe',
-        author: 'Justin Franco',
-        content: [
-            {
-                start: 1.0427259408721924,
-                end: 4.656077824523926,
-                text: 'The Tell-Tale Heart by Edgar Allan Poe',
-                textRu: 'Сердце-обличитель Эдгара Аллана По'
-            },
-        ]
+const data = {
+    id: 1,
+    idYouTube: 'sD1-rS_TM2o',
+    title: 'Kids vocabulary - Solar System - planets - Learn English for kids - English educational video',
+    author: 'English Singsing',
+    str: {
+        English: "1\n" +
+            "00:00:08,160 --> 00:00:09,560\n" +
+            "Solar System\n" +
+            "\n" +
+            "2\n" +
+            "00:00:13,940 --> 00:00:15,000\n" +
+            "Sun\n" +
+            "\n" +
+            "3\n" +
+            "00:00:16,620 --> 00:00:20,180\n" +
+            "The Sun is very big and hot.\n" +
+            "\n" +
+            "4\n" +
+            "00:00:22,140 --> 00:00:23,100\n" +
+            "Sun\n" +
+            "\n" +
+            "5\n" +
+            "00:00:27,660 --> 00:00:36,260\n" +
+            "There are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.\n" +
+            "\n" +
+            "6\n" +
+            "00:00:36,980 --> 00:00:39,860\n" +
+            "They go around the Sun.\n" +
+            "\n" +
+            "7\n" +
+            "00:00:41,840 --> 00:00:44,460\n" +
+            "Solar System\n" +
+            "\n" +
+            "8\n" +
+            "00:00:45,180 --> 00:00:48,340\n" +
+            "This is our Solar System.\n" +
+            "\n" +
+            "9\n" +
+            "00:00:49,800 --> 00:00:51,480\n" +
+            "Solar System\n" +
+            "\n" +
+            "10\n" +
+            "00:00:57,400 --> 00:01:08,980\n" +
+            "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, and Sun.\n" +
+            "\n" +
+            "11\n" +
+            "00:01:11,240 --> 00:01:12,780\n" +
+            "Mercury\n" +
+            "\n" +
+            "12\n" +
+            "00:01:13,820 --> 00:01:18,420\n" +
+            "Mercury is the closest planet to the Sun.\n" +
+            "\n" +
+            "13\n" +
+            "00:01:20,640 --> 00:01:21,820\n" +
+            "Venus\n" +
+            "\n" +
+            "14\n" +
+            "00:01:22,900 --> 00:01:27,500\n" +
+            "Venus is the brightest planet in the sky.\n" +
+            "\n" +
+            "15\n" +
+            "00:01:29,720 --> 00:01:30,780\n" +
+            "Earth\n" +
+            "\n" +
+            "16\n" +
+            "00:01:31,820 --> 00:01:34,420\n" +
+            "Earth is our planet.\n" +
+            "\n" +
+            "17\n" +
+            "00:01:36,520 --> 00:01:37,800\n" +
+            "Mars\n" +
+            "\n" +
+            "18\n" +
+            "00:01:38,660 --> 00:01:41,680\n" +
+            "Mars is a red planet.\n" +
+            "\n" +
+            "19\n" +
+            "00:01:43,920 --> 00:01:45,240\n" +
+            "Jupiter\n" +
+            "\n" +
+            "20\n" +
+            "00:01:46,240 --> 00:01:49,880\n" +
+            "Jupiter is the largest planet.\n" +
+            "\n" +
+            "21\n" +
+            "00:01:51,780 --> 00:01:53,100\n" +
+            "Saturn\n" +
+            "\n" +
+            "22\n" +
+            "00:01:54,380 --> 00:01:58,160\n" +
+            "Saturn is the planet with the rings.\n" +
+            "\n" +
+            "23\n" +
+            "00:02:00,020 --> 00:02:01,640\n" +
+            "Uranus\n" +
+            "\n" +
+            "24\n" +
+            "00:02:03,000 --> 00:02:07,060\n" +
+            "Uranus is very cold and cloudy.\n" +
+            "\n" +
+            "25\n" +
+            "00:02:08,880 --> 00:02:10,500\n" +
+            "Neptune\n" +
+            "\n" +
+            "26\n" +
+            "00:02:11,760 --> 00:02:14,620\n" +
+            "Neptune is made of gas.\n" +
+            "\n" +
+            "27\n" +
+            "00:02:16,600 --> 00:02:27,580\n" +
+            "Sun, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune\n" +
+            "\n" +
+            "28\n" +
+            "00:02:29,340 --> 00:02:32,440\n" +
+            "This is our solar system.\n",
+        Korean: "1\n" +
+            "00:00:00,110 --> 00:00:01,770\n" +
+            "co\n" +
+            "\n" +
+            "2\n" +
+            "00:00:01,770 --> 00:00:04,790\n" +
+            "뭘 쌩쌩\n" +
+            "\n" +
+            "3\n" +
+            "00:00:07,620 --> 00:00:10,230\n" +
+            "써먹을 수 있어요\n" +
+            "\n" +
+            "4\n" +
+            "00:00:10,230 --> 00:00:12,180\n" +
+            "5\n" +
+            "\n" +
+            "5\n" +
+            "00:00:12,180 --> 00:00:15,990\n" +
+            "및 뭐 싸워야 합니다\n" +
+            "\n" +
+            "6\n" +
+            "00:00:15,990 --> 00:00:18,840\n" +
+            "좌 우 씨 버스 안에 스페어 2 -\n" +
+            "\n" +
+            "7\n" +
+            "00:00:18,840 --> 00:00:23,450\n" +
+            "na ei 에이 뭐 싸이\n" +
+            "\n" +
+            "8\n" +
+            "00:00:23,450 --> 00:00:27,500\n" +
+            "와 적고 5\n" +
+            "\n" +
+            "9\n" +
+            "00:00:27,630 --> 00:00:29,509\n" +
+            "이제와 뭘 퀴\n" +
+            "\n" +
+            "10\n" +
+            "00:00:29,509 --> 00:00:31,169\n" +
+            "tesol\n" +
+            "\n" +
+            "11\n" +
+            "00:00:31,169 --> 00:00:32,189\n" +
+            "ol\n" +
+            "\n" +
+            "12\n" +
+            "00:00:32,189 --> 00:00:36,300\n" +
+            "튜브를 쌀을 유아인 어스 안나 2\n" +
+            "\n" +
+            "13\n" +
+            "00:00:36,300 --> 00:00:40,580\n" +
+            "으 아 아 이거 어바웃 얻었어요\n" +
+            "\n" +
+            "14\n" +
+            "00:00:40,580 --> 00:00:45,090\n" +
+            "오오오 오오오 썩 알 수 있어요\n" +
+            "\n" +
+            "15\n" +
+            "00:00:45,090 --> 00:00:49,290\n" +
+            "ms 싸울 쏘가리 쌈\n" +
+            "\n" +
+            "16\n" +
+            "00:00:49,290 --> 00:00:52,760\n" +
+            "목 써 걸 수 있어요\n" +
+            "\n" +
+            "17\n" +
+            "00:00:52,760 --> 00:00:57,450\n" +
+            "[음악]\n" +
+            "\n" +
+            "18\n" +
+            "00:00:57,450 --> 00:01:02,070\n" +
+            "아 멀티 위 럭비 4 스플 금 멀\n" +
+            "\n" +
+            "19\n" +
+            "00:01:02,070 --> 00:01:05,670\n" +
+            "거침 패를 속살을 교외에 있는 거 금\n" +
+            "\n" +
+            "20\n" +
+            "00:01:05,670 --> 00:01:06,990\n" +
+            "낮 질문\n" +
+            "\n" +
+            "21\n" +
+            "00:01:06,990 --> 00:01:08,130\n" +
+            "애한 5성 마이\n" +
+            "\n" +
+            "22\n" +
+            "00:01:08,130 --> 00:01:10,750\n" +
+            "[음악]\n" +
+            "\n" +
+            "23\n" +
+            "00:01:10,750 --> 00:01:12,860\n" +
+            "cork\n" +
+            "\n" +
+            "24\n" +
+            "00:01:12,860 --> 00:01:16,400\n" +
+            "작 마 ks 타코 하우스의 스프 아\n" +
+            "\n" +
+            "25\n" +
+            "00:01:16,400 --> 00:01:19,210\n" +
+            "4 주다 썰 n\n" +
+            "\n" +
+            "26\n" +
+            "00:01:19,210 --> 00:01:22,910\n" +
+            "및 mens 착복\n" +
+            "\n" +
+            "27\n" +
+            "00:01:22,910 --> 00:01:25,940\n" +
+            "beans 비스타 vista 아 4\n" +
+            "\n" +
+            "28\n" +
+            "00:01:25,940 --> 00:01:28,810\n" +
+            "옛날 쓰다 2\n" +
+            "\n" +
+            "29\n" +
+            "00:01:28,810 --> 00:01:30,890\n" +
+            "ee\n" +
+            "\n" +
+            "30\n" +
+            "00:01:30,890 --> 00:01:32,080\n" +
+            "to\n" +
+            "\n" +
+            "31\n" +
+            "00:01:32,080 --> 00:01:34,610\n" +
+            "wolf 안에\n" +
+            "\n" +
+            "32\n" +
+            "00:01:34,610 --> 00:01:37,850\n" +
+            "아 뭐 및 마을\n" +
+            "\n" +
+            "33\n" +
+            "00:01:37,850 --> 00:01:38,720\n" +
+            "착\n" +
+            "\n" +
+            "34\n" +
+            "00:01:38,720 --> 00:01:41,590\n" +
+            "멀 희성 말 거야 는\n" +
+            "\n" +
+            "35\n" +
+            "00:01:41,590 --> 00:01:43,369\n" +
+            "[음악]\n" +
+            "\n" +
+            "36\n" +
+            "00:01:43,369 --> 00:01:45,229\n" +
+            "귀 슈벨은\n" +
+            "\n" +
+            "37\n" +
+            "00:01:45,229 --> 00:01:50,869\n" +
+            "초밥 슈퍼를 있어 얼 z 포함해\n" +
+            "\n" +
+            "38\n" +
+            "00:01:50,869 --> 00:01:53,149\n" +
+            "뭐 쌀 으\n" +
+            "\n" +
+            "39\n" +
+            "00:01:53,149 --> 00:01:57,650\n" +
+            "적법 싸 룬 써봐야 낸 wa\n" +
+            "\n" +
+            "40\n" +
+            "00:01:57,650 --> 00:02:00,170\n" +
+            "[음악]\n" +
+            "\n" +
+            "41\n" +
+            "00:02:00,170 --> 00:02:01,940\n" +
+            "2 5회 인 어스\n" +
+            "\n" +
+            "42\n" +
+            "00:02:01,940 --> 00:02:03,039\n" +
+            "정보\n" +
+            "\n" +
+            "43\n" +
+            "00:02:03,039 --> 00:02:04,570\n" +
+            "uas\n" +
+            "\n" +
+            "44\n" +
+            "00:02:04,570 --> 00:02:07,070\n" +
+            "looper 2\n" +
+            "\n" +
+            "45\n" +
+            "00:02:07,070 --> 00:02:08,150\n" +
+            "아\n" +
+            "\n" +
+            "46\n" +
+            "00:02:08,150 --> 00:02:10,580\n" +
+            "무희 낫츠\n" +
+            "\n" +
+            "47\n" +
+            "00:02:10,580 --> 00:02:11,870\n" +
+            "적고 5\n" +
+            "\n" +
+            "48\n" +
+            "00:02:11,870 --> 00:02:15,610\n" +
+            "몇 주민 스매 잃어야\n" +
+            "\n" +
+            "49\n" +
+            "00:02:15,950 --> 00:02:16,670\n" +
+            "르\n" +
+            "\n" +
+            "50\n" +
+            "00:02:16,670 --> 00:02:22,310\n" +
+            "악산 정말 키위 앞이 4 걸 까 말\n" +
+            "\n" +
+            "51\n" +
+            "00:02:22,310 --> 00:02:23,480\n" +
+            "기운 패를\n" +
+            "\n" +
+            "52\n" +
+            "00:02:23,480 --> 00:02:29,450\n" +
+            "쌀은 교 웨이 4 컴 납치 물 적합\n" +
+            "\n" +
+            "53\n" +
+            "00:02:29,450 --> 00:02:33,569\n" +
+            "테스 옳소 가 있어\n" +
+            "\n" +
+            "54\n" +
+            "00:02:33,569 --> 00:02:34,909\n" +
+            "5\n" +
+            "\n" +
+            "55\n" +
+            "00:02:34,909 --> 00:02:38,239\n" +
+            "woo 5\n" +
+            "\n" +
+            "56\n" +
+            "00:02:38,510 --> 00:02:41,299\n" +
+            "썩을 수 있어요\n" +
+            "\n" +
+            "57\n" +
+            "00:02:41,299 --> 00:02:43,230\n" +
+            "#5 5\n" +
+            "\n" +
+            "58\n" +
+            "00:02:43,230 --> 00:02:45,360\n" +
+            "싼\n" +
+            "\n" +
+            "59\n" +
+            "00:02:45,360 --> 00:02:47,610\n" +
+            "do\n" +
+            "\n" +
+            "60\n" +
+            "00:02:47,610 --> 00:02:48,770\n" +
+            "분만 게임\n" +
+            "\n" +
+            "61\n" +
+            "00:02:48,770 --> 00:02:51,480\n" +
+            "[음악]\n" +
+            "\n" +
+            "62\n" +
+            "00:02:51,480 --> 00:02:53,549\n" +
+            "ves\n" +
+            "\n" +
+            "63\n" +
+            "00:02:53,549 --> 00:02:57,319\n" +
+            "to 5 5 5\n" +
+            "\n" +
+            "64\n" +
+            "00:02:57,319 --> 00:02:59,150\n" +
+            "to\n" +
+            "\n" +
+            "65\n" +
+            "00:02:59,150 --> 00:03:01,340\n" +
+            "my\n" +
+            "\n" +
+            "66\n" +
+            "00:03:01,340 --> 00:03:03,840\n" +
+            "cool\n" +
+            "\n" +
+            "67\n" +
+            "00:03:03,840 --> 00:03:05,110\n" +
+            "주역들을\n" +
+            "\n" +
+            "68\n" +
+            "00:03:05,110 --> 00:03:07,739\n" +
+            "[음악]\n" +
+            "\n" +
+            "69\n" +
+            "00:03:07,739 --> 00:03:09,739\n" +
+            "쌀 a\n" +
+            "\n" +
+            "70\n" +
+            "00:03:09,739 --> 00:03:11,940\n" +
+            "cool\n" +
+            "\n" +
+            "71\n" +
+            "00:03:11,940 --> 00:03:14,069\n" +
+            "이오레 이날 s4\n" +
+            "\n" +
+            "72\n" +
+            "00:03:14,069 --> 00:03:15,410\n" +
+            "coo\n" +
+            "\n" +
+            "73\n" +
+            "00:03:15,410 --> 00:03:17,060\n" +
+            "인 얇지\n" +
+            "\n" +
+            "74\n" +
+            "00:03:17,060 --> 00:03:19,090\n" +
+            "[음악]\n" +
+            "\n" +
+            "75\n" +
+            "00:03:19,090 --> 00:03:22,560\n" +
+            "으아아 합니다\n"
     }
-]
+}
 
 export function VideoPage() {
 
     let {id} = useParams();
 
-    const data = datas[id]
+    function getSecond(value) {
+        const [time, ms] = value.split(',')
+        const [h, m, s] = time.split(':')
+        return parseFloat(`${(parseInt(h) * 60 * 60) + (parseInt(m) * 60) + parseInt(s)}.${ms}`);
+    }
+
+    function expensiveComputation(name) {
+        let str = []
+        data.str[name].split("\n\n").forEach((item) => {
+            // eslint-disable-next-line no-unused-vars
+            const [_, time, text] = item.split("\n")
+            const [start, end] = time.split(" --> ")
+            const obj = {
+                time: time,
+                start: getSecond(start),
+                end: getSecond(end),
+                text: text,
+            }
+            str.push(obj)
+        })
+        return str
+    }
+
+    const [str, setStr] = useState([]);
 
     const {y} = useWindowScroll()
     const boxYouTubeFrameRef = React.useRef(null)
     const darkMode = useLocalStorage("darkMode", ValueType.bool);
     const {t} = useContext(LanguageContext)
+
+    const [language, setLanguage] = useState('English');
 
     const [isStartPreview, setIsStartPreview] = useState(true);
     const [isToggleInterval, setIsToggleInterval] = useState(false);
@@ -416,7 +515,7 @@ export function VideoPage() {
         if (isInit) {
             clearInterval(intervalChangeIndex)
             setIndexAction(index)
-            videoElement.target.seekTo(data.content[index].start);
+            videoElement.target.seekTo(str[index].start);
             videoElement.target.playVideo();
             setIsToggleInterval(!isToggleInterval)
         }
@@ -471,6 +570,10 @@ export function VideoPage() {
     }, [modeVisibleState]);
 
     useEffect(() => {
+        setStr(expensiveComputation(language))
+    }, [language]);
+
+    useEffect(() => {
         if (isInit && videoElement?.target?.i) {
             if (isPaused) {
                 videoElement?.target?.pauseVideo();
@@ -503,22 +606,17 @@ export function VideoPage() {
 
                     setIndexAction(-1)
 
-                    if (indexActionSentence + 1 === data.content.length) {
+                    if (indexActionSentence + 1 === str.length) {
                         setIndexAction(indexActionSentence)
-
-                        const end = data.content[indexActionSentence].end
-                            ? data.content[indexActionSentence].end : data.content[indexActionSentence + 1].start
-
-                        if (end < seconds) {
+                        if (str[indexActionSentence].end < seconds) {
                             seekTo(indexActionSentence)
                             if (modePlayerState === 'sentencePause') {
                                 videoElement?.target?.pauseVideo();
                             }
                         }
                     } else {
-                        for (let i = 0; i < data.content.length; i++) {
-                            const end = data.content[i].end ? data.content[i].end : data.content[i + 1].start
-                            if (data.content[i].start <= seconds && end > seconds) {
+                        for (let i = 0; i < str.length; i++) {
+                            if (str[i].start <= seconds && str[i].end > seconds) {
                                 if (indexActionSentence >= 0 && indexActionSentence !== i) {
                                     seekTo(indexActionSentence)
                                     if (modePlayerState === 'sentencePause') {
@@ -531,7 +629,6 @@ export function VideoPage() {
                             }
                         }
                     }
-
                 }
             }, 50);
         }
@@ -554,7 +651,7 @@ export function VideoPage() {
 
     const content = []
 
-    data.content.forEach((item, index) => {
+    str.forEach((item, index) => {
         content.push(
             <Typography
                 key={`item-${index}`}
@@ -743,7 +840,7 @@ export function VideoPage() {
 
                                     <Box>
                                         <Fab
-                                            disabled={!isInit || isPaused || indexAction >= data.content.length - 1 || indexAction === -1}
+                                            disabled={!isInit || isPaused || indexAction >= str.length - 1 || indexAction === -1}
                                             size="small"
                                             onClick={onClickNext}
                                             color="primary"
@@ -754,43 +851,66 @@ export function VideoPage() {
 
                                 </Stack>
 
-
-                                <ToggleButtonGroup
-                                    size="small"
-                                    color="primary"
-                                    exclusive
-                                    value={modePlayerState}
-                                    onChange={handleChangeModePlayer}
-                                    aria-label="Group"
+                                <Stack
+                                    spacing={2}
+                                    direction={'row'}
+                                    alignItems="center"
                                 >
-                                    <Tooltip title={t('pages.video.t_video_mode_pause')} placement="top">
-                                        <ToggleButton
-                                            selected={modePlayerState === 'sentencePause'}
-                                            value="sentencePause"
-                                            aria-label="bold"
-                                            onClick={() => {
-                                                setIndexActionSentence(indexAction)
+                                    <FormControl size="small">
+                                        <InputLabel id="demo-simple-select-label">Language</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={language}
+                                            label="Language"
+                                            onChange={(event) => {
+                                                setLanguage(event.target.value)
                                             }}
                                         >
-                                            <AvTimerOutlined/>
-                                        </ToggleButton>
-                                    </Tooltip>
+                                            {Object.keys(data.str).map((option) => (
+                                                <MenuItem key={`cat-${option}`} value={option}>
+                                                    {option}
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+                                    </FormControl>
 
-                                    <Tooltip title={t('pages.video.t_video_mode_loop')} placement="top">
-                                        <ToggleButton
-                                            selected={modePlayerState === 'sentenceLoop'}
-                                            value="sentenceLoop"
-                                            aria-label="bold"
-                                            onClick={() => {
-                                                setIndexActionSentence(indexAction)
-                                            }}
-                                        >
-                                            <LoopOutlined/>
-                                        </ToggleButton>
-                                    </Tooltip>
+                                    <ToggleButtonGroup
+                                        size="small"
+                                        color="primary"
+                                        exclusive
+                                        value={modePlayerState}
+                                        onChange={handleChangeModePlayer}
+                                        aria-label="Group"
+                                    >
+                                        <Tooltip title={t('pages.video.t_video_mode_pause')} placement="top">
+                                            <ToggleButton
+                                                selected={modePlayerState === 'sentencePause'}
+                                                value="sentencePause"
+                                                aria-label="bold"
+                                                onClick={() => {
+                                                    setIndexActionSentence(indexAction)
+                                                }}
+                                            >
+                                                <AvTimerOutlined/>
+                                            </ToggleButton>
+                                        </Tooltip>
 
-                                </ToggleButtonGroup>
+                                        <Tooltip title={t('pages.video.t_video_mode_loop')} placement="top">
+                                            <ToggleButton
+                                                selected={modePlayerState === 'sentenceLoop'}
+                                                value="sentenceLoop"
+                                                aria-label="bold"
+                                                onClick={() => {
+                                                    setIndexActionSentence(indexAction)
+                                                }}
+                                            >
+                                                <LoopOutlined/>
+                                            </ToggleButton>
+                                        </Tooltip>
 
+                                    </ToggleButtonGroup>
+                                </Stack>
 
                             </Stack>
                         </Paper>
