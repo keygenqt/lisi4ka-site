@@ -533,41 +533,7 @@ export function VideoPage() {
 
                     </ToggleButtonGroup>
 
-                    <ToggleButtonGroup
-                        size="small"
-                        color="primary"
-                        exclusive
-                        value={modePlayerState}
-                        onChange={handleChangeModePlayer}
-                        aria-label="Group"
-                    >
-                        <Tooltip title={t('pages.video.t_video_mode_pause')} placement="top">
-                            <ToggleButton
-                                selected={modePlayerState === 'sentencePause'}
-                                value="sentencePause"
-                                aria-label="bold"
-                                onClick={() => {
-                                    setIndexActionSentence(indexAction)
-                                }}
-                            >
-                                <AvTimerOutlined/>
-                            </ToggleButton>
-                        </Tooltip>
 
-                        <Tooltip title={t('pages.video.t_video_mode_loop')} placement="top">
-                            <ToggleButton
-                                selected={modePlayerState === 'sentenceLoop'}
-                                value="sentenceLoop"
-                                aria-label="bold"
-                                onClick={() => {
-                                    setIndexActionSentence(indexAction)
-                                }}
-                            >
-                                <LoopOutlined/>
-                            </ToggleButton>
-                        </Tooltip>
-
-                    </ToggleButtonGroup>
 
                     <ToggleButtonGroup
                         size="small"
@@ -659,37 +625,84 @@ export function VideoPage() {
                                 alignItems="center"
                                 justifyContent='space-between'
                             >
-                                <Box>
-                                    <Fab
-                                        disabled={!isInit || isPaused || indexAction < 1}
-                                        size="small"
-                                        onClick={onClickPrevious}
-                                        color="primary"
-                                    >
-                                        <SkipPreviousOutlined/>
-                                    </Fab>
-                                </Box>
 
-                                <Box>
-                                    <Fab
-                                        disabled={!isInit}
-                                        onClick={togglePause}
-                                        color="primary"
-                                    >
-                                        {isPaused ? <PlayCircleOutline/> : <PauseCircleOutlined/>}
-                                    </Fab>
-                                </Box>
+                                <Stack
+                                    spacing={2}
+                                    direction={'row'}
+                                    alignItems="center"
+                                >
 
-                                <Box>
-                                    <Fab
-                                        disabled={!isInit || isPaused || indexAction >= data.content.length - 1 || indexAction === -1}
-                                        size="small"
-                                        onClick={onClickNext}
-                                        color="primary"
-                                    >
-                                        <SkipNextOutlined/>
-                                    </Fab>
-                                </Box>
+                                    <Box>
+                                        <Fab
+                                            disabled={!isInit || isPaused || indexAction < 1}
+                                            size="small"
+                                            onClick={onClickPrevious}
+                                            color="primary"
+                                        >
+                                            <SkipPreviousOutlined/>
+                                        </Fab>
+                                    </Box>
+
+                                    <Box>
+                                        <Fab
+                                            disabled={!isInit}
+                                            onClick={togglePause}
+                                            color="primary"
+                                        >
+                                            {isPaused ? <PlayCircleOutline/> : <PauseCircleOutlined/>}
+                                        </Fab>
+                                    </Box>
+
+                                    <Box>
+                                        <Fab
+                                            disabled={!isInit || isPaused || indexAction >= data.content.length - 1 || indexAction === -1}
+                                            size="small"
+                                            onClick={onClickNext}
+                                            color="primary"
+                                        >
+                                            <SkipNextOutlined/>
+                                        </Fab>
+                                    </Box>
+
+                                </Stack>
+
+
+                                <ToggleButtonGroup
+                                    size="small"
+                                    color="primary"
+                                    exclusive
+                                    value={modePlayerState}
+                                    onChange={handleChangeModePlayer}
+                                    aria-label="Group"
+                                >
+                                    <Tooltip title={t('pages.video.t_video_mode_pause')} placement="top">
+                                        <ToggleButton
+                                            selected={modePlayerState === 'sentencePause'}
+                                            value="sentencePause"
+                                            aria-label="bold"
+                                            onClick={() => {
+                                                setIndexActionSentence(indexAction)
+                                            }}
+                                        >
+                                            <AvTimerOutlined/>
+                                        </ToggleButton>
+                                    </Tooltip>
+
+                                    <Tooltip title={t('pages.video.t_video_mode_loop')} placement="top">
+                                        <ToggleButton
+                                            selected={modePlayerState === 'sentenceLoop'}
+                                            value="sentenceLoop"
+                                            aria-label="bold"
+                                            onClick={() => {
+                                                setIndexActionSentence(indexAction)
+                                            }}
+                                        >
+                                            <LoopOutlined/>
+                                        </ToggleButton>
+                                    </Tooltip>
+
+                                </ToggleButtonGroup>
+
 
                             </Stack>
                         </Paper>

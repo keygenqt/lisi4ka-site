@@ -26,10 +26,11 @@ import {
     ExpandMore,
     MenuOutlined,
     PlayCircleOutline,
+    YouTube,
     ReceiptLong,
     ReceiptOutlined,
     Settings,
-    TranslateOutlined
+    TranslateOutlined, OndemandVideoOutlined, Face3Outlined
 } from "@mui/icons-material";
 import {Link} from "react-router-dom";
 import {ConstantImages, LanguageContext, NavigateContext, useLocalStorage, useWindowResize} from "../../../base";
@@ -42,23 +43,36 @@ export function TopBarMenuElement(props) {
     const {route, routes} = useContext(NavigateContext)
 
     const [isLogin, setIsLogin] = React.useState(false);
-    const [open, setOpen] = React.useState(false);
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const canBeOpen = open && Boolean(anchorEl);
-    const id = canBeOpen ? 'transition-popper' : undefined;
 
     const sizeWindow = useWindowResize()
 
     // State menu list
     const [collapseState, setCollapseState] = React.useState(false);
-    const [subMenuOpen, setSubMenuOpen] = React.useState(false);
+    const [subMenuOpenBlog, setSubMenuOpenBlog] = React.useState(false);
+    const [subMenuOpenYouTube, setSubMenuOpenYouTube] = React.useState(false);
 
-    const handleClick = () => {
-        setSubMenuOpen(!subMenuOpen);
+    // menu blog
+    const [openBlog, setOpenBlog] = React.useState(false);
+    const [anchorElBlog, setAnchorElBlog] = React.useState(null);
+    const canBeOpenBlog = openBlog && Boolean(anchorElBlog);
+    const idBlog = canBeOpenBlog ? 'transition-popper' : undefined;
+
+    const [openYouTube, setOpenYouTube] = React.useState(false);
+    const [anchorElYouTube, setAnchorElYouTube] = React.useState(null);
+    const canBeOpenYouTube = openYouTube && Boolean(anchorElYouTube);
+    const idYouTube = canBeOpenYouTube ? 'transition-popper' : undefined;
+
+    const handleClickSubMenuBlog = () => {
+        setSubMenuOpenBlog(!subMenuOpenBlog);
+    };
+
+    const handleClickSubMenuYouTube = () => {
+        setSubMenuOpenYouTube(!subMenuOpenYouTube);
     };
 
     useEffect(() => {
-        setOpen(false)
+        setOpenBlog(false)
+        setOpenYouTube(false)
     }, [sizeWindow])
 
     return (
@@ -112,37 +126,47 @@ export function TopBarMenuElement(props) {
                                             component="nav"
                                             aria-labelledby="nested-list-subheader"
                                         >
-                                            {/* Books */}
-                                            <ListItemButton onClick={() => {
-                                                setCollapseState(false)
-                                                route.toLocation(routes.books)
-                                            }}>
+                                            <ListItemButton onClick={handleClickSubMenuYouTube}>
                                                 <ListItemIcon>
-                                                    <BookOutlined/>
+                                                    <YouTube/>
                                                 </ListItemIcon>
-                                                <ListItemText primary={t('layouts.header.t_books')}/>
+                                                <ListItemText primary={t('layouts.header.t_youtube')}/>
+                                                {subMenuOpenYouTube ? <ExpandLess/> : <ExpandMore/>}
                                             </ListItemButton>
 
-                                            {/* Videos */}
-                                            <ListItemButton onClick={() => {
-                                                setCollapseState(false)
-                                                route.toLocation(routes.videos)
-                                            }}>
-                                                <ListItemIcon>
-                                                    <PlayCircleOutline/>
-                                                </ListItemIcon>
-                                                <ListItemText primary={t('layouts.header.t_videos')}/>
-                                            </ListItemButton>
+                                            <Collapse in={subMenuOpenYouTube} timeout="auto" unmountOnExit>
+                                                <List component="div" disablePadding>
 
-                                            <ListItemButton onClick={handleClick}>
+                                                    <ListItemButton sx={{pl: 4}} onClick={() => {
+                                                        setCollapseState(false)
+                                                        route.toLocation(routes.youtubeBooks)
+                                                    }}>
+                                                        <ListItemIcon>
+                                                            <BookOutlined/>
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={t('layouts.header.t_books')}/>
+                                                    </ListItemButton>
+                                                    <ListItemButton sx={{pl: 4}} onClick={() => {
+                                                        setCollapseState(false)
+                                                        route.toLocation(routes.youtubeVideos)
+                                                    }}>
+                                                        <ListItemIcon>
+                                                            <OndemandVideoOutlined/>
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={t('layouts.header.t_videos')}/>
+                                                    </ListItemButton>
+                                                </List>
+                                            </Collapse>
+
+                                            <ListItemButton onClick={handleClickSubMenuBlog}>
                                                 <ListItemIcon>
                                                     <ReceiptLong/>
                                                 </ListItemIcon>
                                                 <ListItemText primary={t('layouts.header.t_blog')}/>
-                                                {subMenuOpen ? <ExpandLess/> : <ExpandMore/>}
+                                                {subMenuOpenBlog ? <ExpandLess/> : <ExpandMore/>}
                                             </ListItemButton>
 
-                                            <Collapse in={subMenuOpen} timeout="auto" unmountOnExit>
+                                            <Collapse in={subMenuOpenBlog} timeout="auto" unmountOnExit>
                                                 <List component="div" disablePadding>
 
                                                     <ListItemButton sx={{pl: 4}} onClick={() => {
@@ -165,13 +189,23 @@ export function TopBarMenuElement(props) {
                                                     </ListItemButton>
                                                 </List>
                                             </Collapse>
+
+                                            {/* About */}
+                                            <ListItemButton onClick={() => {
+                                                setCollapseState(false)
+                                                route.toLocation(routes.about)
+                                            }}>
+                                                <ListItemIcon>
+                                                    <Face3Outlined/>
+                                                </ListItemIcon>
+                                                <ListItemText primary={t('layouts.header.t_about')}/>
+                                            </ListItemButton>
                                         </List>
                                     </Paper>
                                 </Collapse>
                             </Box>
 
                         </ClickAwayListener>
-
 
                     </Stack>
 
@@ -185,18 +219,18 @@ export function TopBarMenuElement(props) {
                             direction={'row'}
                             spacing={2}
                         >
-                            {/* Books */}
-                            <Button onClick={() => {
-                                route.toLocation(routes.books)
-                            }}>
-                                {t('layouts.header.t_books')}
-                            </Button>
-
-                            {/* Videos */}
-                            <Button onClick={() => {
-                                route.toLocation(routes.videos)
-                            }}>
-                                {t('layouts.header.t_videos')}
+                            {/* YouTube */}
+                            <Button
+                                startIcon={<YouTube/>}
+                                endIcon={<ArrowDropDown/>}
+                                onClick={(event) => {
+                                    setAnchorElYouTube(event.currentTarget);
+                                    event.stopPropagation();
+                                    setOpenYouTube((previousOpen) => !previousOpen);
+                                    setOpenBlog(false)
+                                }}
+                            >
+                                {t('layouts.header.t_youtube')}
                             </Button>
 
                             {/* Blog */}
@@ -204,12 +238,20 @@ export function TopBarMenuElement(props) {
                                 startIcon={<ReceiptLong/>}
                                 endIcon={<ArrowDropDown/>}
                                 onClick={(event) => {
-                                    setAnchorEl(event.currentTarget);
+                                    setAnchorElBlog(event.currentTarget);
                                     event.stopPropagation();
-                                    setOpen((previousOpen) => !previousOpen);
+                                    setOpenBlog((previousOpen) => !previousOpen);
+                                    setOpenYouTube(false)
                                 }}
                             >
                                 {t('layouts.header.t_blog')}
+                            </Button>
+
+                            {/* About */}
+                            <Button onClick={() => {
+                                route.toLocation(routes.about)
+                            }}>
+                                {t('layouts.header.t_about')}
                             </Button>
                         </Stack>
 
@@ -247,12 +289,72 @@ export function TopBarMenuElement(props) {
                     </Stack>
 
                     <ClickAwayListener onClickAway={() => {
-                        setOpen(false);
+                        setOpenYouTube(false);
                     }}>
                         <Popper
-                            id={id}
-                            open={open}
-                            anchorEl={anchorEl}
+                            id={idYouTube}
+                            open={openYouTube}
+                            anchorEl={anchorElYouTube}
+                            transition
+                            placement="bottom"
+                            sx={{
+                                zIndex: 1
+                            }}
+                            popperOptions={{
+                                modifiers: [
+                                    {
+                                        name: 'offset',
+                                        options: {
+                                            offset: [-0, 5]
+                                        }
+                                    }
+                                ]
+                            }}
+                        >
+                            {({TransitionProps}) => (
+                                <Fade {...TransitionProps} timeout={350}>
+                                    <Paper>
+                                        <Stack spacing={1} className={'MenuPopper'}>
+
+                                            <Button
+                                                sx={darkMode ? {color: '#fff'} : {}}
+                                                startIcon={<BookOutlined/>}
+                                                onClick={() => {
+                                                    setOpenYouTube(false)
+                                                    route.toLocation(routes.youtubeBooks)
+                                                }}
+                                            >
+                                                <Box>
+                                                    {t('layouts.header.t_books')}
+                                                </Box>
+                                            </Button>
+                                            <Divider/>
+                                            <Button
+                                                sx={(darkMode ? {color: '#fff'} : {})}
+                                                startIcon={<OndemandVideoOutlined/>}
+                                                onClick={() => {
+                                                    setOpenYouTube(false)
+                                                    route.toLocation(routes.youtubeVideos)
+                                                }}
+                                            >
+                                                <Box>
+                                                    {t('layouts.header.t_videos')}
+                                                </Box>
+                                            </Button>
+                                        </Stack>
+                                    </Paper>
+                                </Fade>
+                            )}
+                        </Popper>
+                    </ClickAwayListener>
+
+                    <ClickAwayListener onClickAway={() => {
+                        setOpenBlog(false);
+                    }}>
+                        <Popper
+                            id={idBlog}
+                            open={openBlog}
+                            anchorEl={anchorElBlog}
                             transition
                             placement="bottom"
                             sx={{
@@ -277,7 +379,7 @@ export function TopBarMenuElement(props) {
                                                 sx={darkMode ? {color: '#fff'} : {}}
                                                 startIcon={<ReceiptOutlined/>}
                                                 onClick={() => {
-                                                    setOpen(false)
+                                                    setOpenBlog(false)
                                                     route.toLocation(routes.blogArticles)
                                                 }}
                                             >
@@ -290,7 +392,7 @@ export function TopBarMenuElement(props) {
                                                 sx={(darkMode ? {color: '#fff'} : {})}
                                                 startIcon={<TranslateOutlined/>}
                                                 onClick={() => {
-                                                    setOpen(false)
+                                                    setOpenBlog(false)
                                                     route.toLocation(routes.blogReviews)
                                                 }}
                                             >

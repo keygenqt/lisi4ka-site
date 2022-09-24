@@ -3,9 +3,11 @@ export const ruLocalization = {
         layouts: {
             header: {
                 t_title: '@lisi4ka',
+                t_about: 'Обо мне',
                 t_blog: 'Блог',
                 t_articles: 'Статьи',
                 t_reviews: 'Разборы',
+                t_youtube: 'YouTube',
                 t_books: 'Книги',
                 t_videos: 'Видео',
                 t_sign_in: 'Войти',
@@ -17,9 +19,11 @@ export const ruLocalization = {
                 t_block1_email: 'Емейл:',
                 t_block1_phone: 'Телефон:',
                 // block 2
-                t_block2_title: 'Навигация',
+                // block 2
+                t_block2_title_youtube: 'YouTube',
+                t_block2_link_videos: 'Видео',
                 t_block2_link_books: 'Книги',
-                t_block2_link_video_detailing: 'Видео',
+                t_block2_title_blog: 'Блог',
                 t_block2_link_articles: 'Статьи',
                 t_block2_link_reviews: 'Разборы',
                 // block 3
@@ -144,24 +148,23 @@ export const ruLocalization = {
 
                 't_filter_btn': 'Пременить',
             },
-            books: {
-                't_books_title': 'Книги',
-                't_books_subtitle': 'Книги для учебы которые доступны в открытом доступе.\nАудио книга совмещена с текстом и можно прослушать каждое предложение отдельно. ',
-                't_books_search': 'Поиск...',
-                't_books_search_group_param': 'По параметрам',
-                't_books_search_group_param_1': 'Закладки',
-                't_books_search_group_param_2': 'Рейтинг',
-                't_books_search_group_title': 'По названию',
-                't_books_search_group_author': 'По автору',
-                't_books_btn_read': 'Читать',
-            },
-            videos: {
-                't_videos_title': 'Видео',
-                't_videos_subtitle': 'Видео с интерактивными субтитрами.\nСмотрите, читайте, изучайте что сказал ваш любимый блогер (ну или мой).',
-                't_videos_search': 'Поиск...',
-                't_videos_btn_read': 'Смотреть',
-                't_videos_card_time': 'Продолжительность',
-                't_videos_card_author': 'Автор',
+            youtube: {
+                't_youtube_title': 'YouTube',
+                't_youtube_subtitle': 'Видео с интерактивными субтитрами.\n' +
+                    'Смотрите, читайте, изучайте, что сказал ваш любимый блогер. Слушайте или читайте книги.',
+                't_youtube_search': 'Поиск...',
+                't_youtube_btn_read': 'Перейти',
+                't_youtube_card_time': 'Продолжительность',
+                't_youtube_card_author': 'Автор',
+                't_filter_title': 'Конфигурация',
+                't_filter_types_title': 'Типы',
+                't_filter_types_item_1': 'Книги',
+                't_filter_types_item_2': 'Видео',
+                't_filter_sort_title': 'Сортировка',
+                't_filter_sort_item_1': 'Недавно добавленный',
+                't_filter_sort_item_3': 'По алфавиту',
+                't_filter_sort_item_2': 'Больше всего лайков',
+                't_filter_btn': 'Пременить',
             },
             video: {
                 't_video_mode_keep': 'Держать на странице',

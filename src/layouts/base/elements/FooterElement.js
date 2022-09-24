@@ -114,20 +114,27 @@ export function FooterElement(props) {
                                 <Stack spacing={2}>
 
                                     <Typography variant="h6" color="#ffffff">
-                                        {t('layouts.footer.t_block2_title')}
+                                        {t('layouts.footer.t_block2_title_youtube')}
                                     </Typography>
 
                                     <Stack spacing={1} className={'Links'}>
-                                        <Link to={routes.books.path}>
+                                        <Link to={routes.youtubeBooks.path}>
                                             <Typography variant="body1">
                                                 {t('layouts.footer.t_block2_link_books')}
                                             </Typography>
                                         </Link>
-                                        <Link to={routes.videos.path}>
+                                        <Link to={routes.youtubeVideos.path}>
                                             <Typography variant="body1">
-                                                {t('layouts.footer.t_block2_link_video_detailing')}
+                                                {t('layouts.footer.t_block2_link_videos')}
                                             </Typography>
                                         </Link>
+                                    </Stack>
+
+                                    <Typography variant="h6" color="#ffffff">
+                                        {t('layouts.footer.t_block2_title_blog')}
+                                    </Typography>
+
+                                    <Stack spacing={1} className={'Links'}>
                                         <Link to={routes.blogArticles.path}>
                                             <Typography variant="body1">
                                                 {t('layouts.footer.t_block2_link_articles')}
