@@ -4,13 +4,19 @@ import {
     Box,
     CircularProgress,
     Container,
-    Fab, FormControl, InputLabel, MenuItem,
-    Paper, Select,
+    Fab,
+    FormControl,
+    InputLabel,
+    MenuItem,
+    Paper,
+    Select,
     Stack,
     ToggleButton,
     ToggleButtonGroup,
     Tooltip,
-    Typography, useMediaQuery, useTheme,
+    Typography,
+    useMediaQuery,
+    useTheme,
     Zoom
 } from "@mui/material";
 import YouTube from "react-youtube";
@@ -498,6 +504,9 @@ export function VideoPage() {
     const [indexAction, setIndexAction] = useState(-1);
     const [indexActionSentence, setIndexActionSentence] = useState(-1);
 
+    const [indexActionPreview, setIndexActionPreview] = useState(-1);
+    const [indexActionNext, setIndexActionNext] = useState(0);
+
     const [modeFrameState, setModeFrameState] = React.useState([]);
     const [modePlayerState, setModePlayerState] = React.useState(null);
     const [modeVisibleState, setModeVisibleState] = React.useState(AppCache.booleanGet('darkMode') ? ['darkMode'] : []);
@@ -532,18 +541,18 @@ export function VideoPage() {
 
     const onClickPrevious = () => {
         if (isInit) {
-            seekTo(indexAction - 1)
+            seekTo(indexActionPreview)
             if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
-                setIndexActionSentence(indexAction - 1)
+                setIndexActionSentence(indexActionPreview)
             }
         }
     };
 
     const onClickNext = () => {
         if (isInit) {
-            seekTo(indexAction + 1)
+            seekTo(indexActionNext)
             if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
-                setIndexActionSentence(indexAction + 1)
+                setIndexActionSentence(indexActionNext)
             }
         }
     };
@@ -608,8 +617,13 @@ export function VideoPage() {
                     }
 
                     setIndexAction(-1)
+                    setIndexActionPreview(-1)
 
                     if (indexActionSentence + 1 === str.length) {
+
+                        setIndexActionPreview(indexActionSentence - 1)
+                        setIndexActionNext(-1)
+
                         setIndexAction(indexActionSentence)
                         if (str[indexActionSentence].end < seconds) {
                             seekTo(indexActionSentence)
@@ -619,6 +633,15 @@ export function VideoPage() {
                         }
                     } else {
                         for (let i = 0; i < str.length; i++) {
+
+                            if ((str[i].start <= seconds && str[i].end > seconds)
+                                || (str[i].end <= seconds && Boolean(str[i + 1]) && str[i + 1].start > seconds)) {
+                                setIndexActionNext(i + 1)
+                                if (i > 0) {
+                                    setIndexActionPreview(i - 1)
+                                }
+                            }
+
                             if (str[i].start <= seconds && str[i].end > seconds) {
                                 if (indexActionSentence >= 0 && indexActionSentence !== i) {
                                     seekTo(indexActionSentence)
@@ -823,7 +846,7 @@ export function VideoPage() {
 
                                     <Box>
                                         <Fab
-                                            disabled={!isInit || isPaused || indexAction < 1}
+                                            disabled={!isInit || isPaused || indexActionPreview < 0}
                                             size="small"
                                             onClick={onClickPrevious}
                                             color="primary"
@@ -844,7 +867,7 @@ export function VideoPage() {
 
                                     <Box>
                                         <Fab
-                                            disabled={!isInit || isPaused || indexAction >= str.length - 1 || indexAction === -1}
+                                            disabled={!isInit || isPaused || indexActionNext >= str.length || indexActionNext === -1}
                                             size="small"
                                             onClick={onClickNext}
                                             color="primary"
