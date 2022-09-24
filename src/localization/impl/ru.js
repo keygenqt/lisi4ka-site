@@ -171,8 +171,8 @@ export const ruLocalization = {
                 't_video_mode_pause': 'Пауза после фразы',
                 't_video_mode_loop': 'Зациклить фразу',
                 't_video_mode_hide': 'Скрыть видео',
-                't_video_mode_ru': 'Показать русский',
                 't_video_mode_dark': 'Включить темный режим',
+                't_video_mode_language': 'Язык',
             },
             error: {
                 t_text: 'Страница не найдена',

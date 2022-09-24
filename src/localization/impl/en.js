@@ -171,8 +171,8 @@ export const enLocalization = {
                 't_video_mode_pause': 'Pause after a sentence',
                 't_video_mode_loop': 'Loop a sentence',
                 't_video_mode_hide': 'Hide video',
-                't_video_mode_ru': 'Show Russian',
                 't_video_mode_dark': 'Enable Dark Mode',
+                't_video_mode_language': 'Language',
             },
             error: {
                 t_text: 'Page not found',

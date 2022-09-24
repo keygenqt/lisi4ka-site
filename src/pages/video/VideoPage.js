@@ -753,16 +753,6 @@ export function VideoPage() {
                         onChange={handleChangeModeVisible}
                         aria-label="Group"
                     >
-                        <Tooltip title={t('pages.video.t_video_mode_ru')} placement="top">
-                            <ToggleButton
-                                selected={modeVisibleState.includes('frameTranslate')}
-                                value="frameTranslate"
-                                aria-label="bold"
-                            >
-                                <TranslateOutlined/>
-                            </ToggleButton>
-                        </Tooltip>
-
                         <Tooltip title={t('pages.video.t_video_mode_dark')} placement="top">
                             <ToggleButton
                                 selected={modeVisibleState.includes('darkMode')}
@@ -775,7 +765,6 @@ export function VideoPage() {
 
                     </ToggleButtonGroup>
                 </Stack>
-
 
                 <Box
                     ref={boxYouTubeFrameRef}
@@ -885,12 +874,12 @@ export function VideoPage() {
                                     justifyContent='flex-end'
                                 >
                                     <FormControl size="small">
-                                        <InputLabel id="demo-simple-select-label">Language</InputLabel>
+                                        <InputLabel id="demo-simple-select-label">{t('pages.video.t_video_mode_language')}</InputLabel>
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
                                             value={language}
-                                            label="Language"
+                                            label={t('pages.video.t_video_mode_language')}
                                             onChange={(event) => {
                                                 setLanguage(event.target.value)
                                             }}
