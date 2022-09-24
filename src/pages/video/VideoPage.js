@@ -804,7 +804,7 @@ export function VideoPage() {
                             </Box>
                         </Box>
 
-                        <Paper variant="outlined" sx={{
+                        <Paper className={'Control'} variant="outlined" sx={{
                             padding: 2
                         }}>
                             <Stack

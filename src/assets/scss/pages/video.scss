@@ -26,6 +26,12 @@
   position: relative;
 }
 
+.Video-Page .BoxYouTubeFrame .Control {
+  position: relative;
+  z-index: 1;
+  margin-top: -2px;
+}
+
 .Video-Page .BoxYouTubeFrame {
   margin: 0 auto;
   overflow: hidden;
