@@ -27,13 +27,6 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 
 const data = [
     {
-        id: 1,
-        idYouTube: 'kLvuZtpQaSs',
-        title: 'Hollywood in 1950\'s vs NOW!',
-        author: 'AwakenWithJP',
-        type: 'video'
-    },
-    {
         id: 2,
         idYouTube: '3sXaq0NNZjo',
         title: 'The Tell-Tale Heart by Edgar Allan Poe',
@@ -41,49 +34,56 @@ const data = [
         type: 'book'
     },
     {
-        id: 3,
-        idYouTube: 'P2emFurIekk',
-        title: 'How to Offend Everyone',
+        id: 0,
+        idYouTube: 'kLvuZtpQaSs',
+        title: 'Hollywood in 1950\'s vs NOW!',
         author: 'AwakenWithJP',
         type: 'video'
     },
     {
-        id: 4,
+        id: 1,
+        idYouTube: 'sD1-rS_TM2o',
+        title: 'Kids vocabulary - Solar System - planets - Learn English for kids - English educational video',
+        author: 'English Singsing',
+        type: 'video'
+    },
+    {
+        id: 0,
         idYouTube: 'xBfZ2-0U4ck',
         title: 'Unboxing MacBook Pro M2',
         author: 'Alex Ziskind',
         type: 'video'
     },
     {
-        id: 5,
+        id: 0,
         idYouTube: 'd1HIopKBb3w',
         title: 'What Spiritual People Are Like During the Quarantine',
         author: 'AwakenWithJP',
         type: 'video'
     },
     {
-        id: 6,
+        id: 0,
         idYouTube: 'mvtrGOjmmTU',
         title: 'We’re Controlling You Even MORE Now! - News Update',
         author: 'AwakenWithJP',
         type: 'video'
     },
     {
-        id: 7,
+        id: 0,
         idYouTube: 'h6Cfbb3pJFI',
         title: 'Apple M1 vs Intel Core i9 and Docker Preview - First Look',
         author: 'Alex Ziskind',
         type: 'video'
     },
     {
-        id: 8,
+        id: 0,
         idYouTube: 'OxQDmxFyHsA',
         title: 'What Liberals Think Conservative Companies are Like',
         author: 'AwakenWithJP',
         type: 'video'
     },
     {
-        id: 9,
+        id: 0,
         idYouTube: '-kgNeyZNatk',
         title: 'Github Copilot has a HIDDEN SKILL',
         author: 'Alex Ziskind',
