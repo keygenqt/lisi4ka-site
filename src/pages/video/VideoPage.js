@@ -343,15 +343,18 @@ export function VideoPage() {
                                 }
                             }
 
-                            if (str[i].start <= seconds && str[i].end > seconds) {
-                                if (indexActionSentence >= 0 && indexActionSentence !== i) {
+                            if ((str[i].end <= seconds && Boolean(str[i + 1]) && str[i + 1].start > seconds)) {
+                                if (indexActionSentence >= 0 && indexActionSentence === i) {
+                                    setIndexAction(i)
                                     seekTo(indexActionSentence)
                                     if (modePlayerState === 'sentencePause') {
                                         videoElement?.target?.pauseVideo();
                                     }
-                                } else {
-                                    setIndexAction(i)
                                 }
+                            }
+
+                            if (str[i].start <= seconds && str[i].end > seconds) {
+                                setIndexAction(i)
                                 break;
                             }
                         }
