@@ -10,7 +10,7 @@ import {
     ToggleButton,
     ToggleButtonGroup,
     Tooltip,
-    Typography,
+    Typography, useMediaQuery, useTheme,
     Zoom
 } from "@mui/material";
 import YouTube from "react-youtube";
@@ -481,6 +481,9 @@ export function VideoPage() {
 
     const [str, setStr] = useState([]);
 
+    const theme = useTheme()
+    const isSM = useMediaQuery(theme.breakpoints.down('sm'));
+
     const {y} = useWindowScroll()
     const boxYouTubeFrameRef = React.useRef(null)
     const darkMode = useLocalStorage("darkMode", ValueType.bool);
@@ -598,7 +601,7 @@ export function VideoPage() {
                 ) {
                     const seconds = videoElement.target.getCurrentTime();
 
-                    console.log(seconds)
+                    // console.log(seconds)
 
                     if (modePlayerState !== 'sentencePause' && modePlayerState !== 'sentenceLoop') {
                         setIndexActionSentence(-1)
@@ -806,8 +809,8 @@ export function VideoPage() {
                         }}>
                             <Stack
                                 spacing={2}
-                                direction={'row'}
-                                alignItems="center"
+                                alignItems={isSM ? 'auto' : 'center'}
+                                direction={isSM ? 'column' : 'row'}
                                 justifyContent='space-between'
                             >
 
@@ -815,6 +818,7 @@ export function VideoPage() {
                                     spacing={2}
                                     direction={'row'}
                                     alignItems="center"
+                                    justifyContent='space-between'
                                 >
 
                                     <Box>
@@ -855,6 +859,7 @@ export function VideoPage() {
                                     spacing={2}
                                     direction={'row'}
                                     alignItems="center"
+                                    justifyContent='flex-end'
                                 >
                                     <FormControl size="small">
                                         <InputLabel id="demo-simple-select-label">Language</InputLabel>

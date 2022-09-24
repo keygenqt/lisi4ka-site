@@ -112,6 +112,9 @@
   .Video-Page .BoxYouTubeFrame.Fix {
     width: calc(100% - 32px);
   }
+  .Video-Page .BoxYouTubeMove.Audio {
+    height: 175px !important;
+  }
 }
 
 @media (max-width: 800px) {
@@ -134,7 +137,7 @@
 
 @media (max-width: 600px) {
   .Video-Page .BoxYouTubeMove {
-    height: 475px;
+    height: 530px;
   }
   .Video-Page .BoxYouTubeFrame .IFrame {
     height: 350px;
@@ -143,7 +146,7 @@
 
 @media (max-width: 500px) {
   .Video-Page .BoxYouTubeMove {
-    height: 425px;
+    height: 480px;
   }
   .Video-Page .BoxYouTubeFrame .IFrame {
     height: 300px;
@@ -152,7 +155,7 @@
 
 @media (max-width: 400px) {
   .Video-Page .BoxYouTubeMove {
-    height: 375px;
+    height: 430px;
   }
   .Video-Page .BoxYouTubeFrame .IFrame {
     height: 250px;
@@ -161,7 +164,7 @@
 
 @media (max-width: 350px) {
   .Video-Page .BoxYouTubeMove {
-    height: 325px;
+    height: 380px;
   }
   .Video-Page .BoxYouTubeFrame .IFrame {
     height: 200px;
