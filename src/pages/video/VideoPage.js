@@ -249,7 +249,7 @@ export function VideoPage() {
                                 }
                             }
 
-                            if ((str[i].end <= seconds && Boolean(str[i + 1]) && str[i + 1].start > seconds)) {
+                            if ((str[i].end <= seconds + 0.06 && Boolean(str[i + 1]) && str[i + 1].start > seconds)) {
                                 if (indexActionSentence >= 0 && indexActionSentence === i) {
                                     setIndexAction(i)
                                     seekTo(indexActionSentence)
@@ -300,32 +300,36 @@ export function VideoPage() {
                     color: index === indexAction ? '#ffffff' : '#000000',
                 }}
                 onClick={() => {
-                    if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
-                        setIndexActionSentence(index)
-                    } else {
-                        setIndexActionSentence(-1)
+                    if (isInit) {
+                        if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
+                            setIndexActionSentence(index)
+                        } else {
+                            setIndexActionSentence(-1)
+                        }
+                        seekTo(index)
                     }
-                    seekTo(index)
                 }}
                 onContextMenu={(e) => {
-                    if (language === 'English' || language === 'Russian') {
-                        function generateGetBoundingClientRect(x = 0, y = 0) {
-                            return () => ({
-                                width: 0,
-                                height: 0,
-                                top: e.clientY,
-                                right: e.clientX,
-                                bottom: e.clientY,
-                                left: e.clientX,
-                            });
-                        }
+                    if (isInit) {
+                        if (language === 'English' || language === 'Russian') {
+                            function generateGetBoundingClientRect(x = 0, y = 0) {
+                                return () => ({
+                                    width: 0,
+                                    height: 0,
+                                    top: e.clientY,
+                                    right: e.clientX,
+                                    bottom: e.clientY,
+                                    left: e.clientX,
+                                });
+                            }
 
-                        const virtualElement = {
-                            getBoundingClientRect: generateGetBoundingClientRect(),
-                        };
-                        setAnchorElSubMenu(virtualElement);
-                        setItemSubMenu(item)
-                        e.preventDefault();
+                            const virtualElement = {
+                                getBoundingClientRect: generateGetBoundingClientRect(),
+                            };
+                            setAnchorElSubMenu(virtualElement);
+                            setItemSubMenu(item)
+                            e.preventDefault();
+                        }
                     }
                 }}
             >
