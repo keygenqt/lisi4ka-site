@@ -6,9 +6,14 @@ import {
     Button,
     Card,
     CardContent,
-    CardMedia, Checkbox,
+    CardMedia,
     CircularProgress,
-    Container, FormControl, FormControlLabel, FormGroup, Grid, Radio, RadioGroup,
+    Container,
+    FormControl,
+    FormControlLabel,
+    Grid,
+    Radio,
+    RadioGroup,
     Stack,
     TextField,
     Typography,
@@ -22,7 +27,7 @@ import {ConstantLottie} from "../../base/constants/ConstantLottie";
 import Masonry from '@mui/lab/Masonry';
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
-import {BookOutlined, ExpandMoreOutlined, OndemandVideoOutlined} from "@mui/icons-material";
+import {ExpandMoreOutlined} from "@mui/icons-material";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import {YouTubeData} from "../video/data/YouTubeData";
 
@@ -181,7 +186,8 @@ export function VideosPage() {
                                     id="combo-box-demo"
                                     groupBy={(option) => option.author}
                                     options={autocompleteSort}
-                                    renderInput={(params) => <TextField {...params} label={t('pages.videos.t_videos_search')}/>}
+                                    renderInput={(params) => <TextField {...params}
+                                                                        label={t('pages.videos.t_videos_search')}/>}
                                 />
 
                                 <Stack spacing={0}>

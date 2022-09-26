@@ -19,6 +19,7 @@ import {str_8_en} from "./id_8/str_8_en";
 import {str_8_ru} from "./id_8/str_8_ru";
 import {str_9_en} from "./id_9/str_9_en";
 import {str_9_ru} from "./id_9/str_9_ru";
+import {str_8_pt} from "./id_8/str_8_pt";
 
 export const YouTubeData = [
     {
@@ -99,7 +100,8 @@ export const YouTubeData = [
         author: 'Yegor Bugayenko / Егор Бугаенко',
         str: {
             English: str_8_en,
-            Russian: str_8_ru
+            Russian: str_8_ru,
+            Portuguese: str_8_pt,
         }
     },
     {

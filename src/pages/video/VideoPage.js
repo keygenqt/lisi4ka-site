@@ -65,14 +65,15 @@ export function VideoPage() {
 
         let str = []
         data.str[name].trim().split("\n\n").forEach((item) => {
-            const [index, time, text] = item.split("\n")
+            const [index, time] = item.trim().split("\n")
             const [start, end] = time.split(" --> ")
+            const text = item.trim().replace(index + "\n", "").replace(time + "\n", "")
             const obj = {
                 index: index,
                 time: time,
                 start: getSecond(start),
                 end: getSecond(end),
-                text: text.trim(),
+                text: text,
             }
             str.push(obj)
         })
