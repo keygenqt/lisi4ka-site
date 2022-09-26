@@ -1,7 +1,7 @@
 export const str_3_en = `
 1
 00:00:03,360 --> 00:00:05,320
-Theme 4  Weather
+Theme 4. Weather.
 
 2
 00:00:15,260 --> 00:00:16,880

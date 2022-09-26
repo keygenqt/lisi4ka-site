@@ -1,11 +1,11 @@
 export const str_2_en = `
 1
 00:00:01,720 --> 00:00:03,360
-English Singsing
+English Singsing.
 
 2
 00:00:05,060 --> 00:00:06,420
-Body song
+Body song.
 
 5
 00:00:12,120 --> 00:00:13,160
@@ -21,19 +21,19 @@ Body song!
 
 8
 00:00:17,720 --> 00:00:19,180
-Bop bop bop
+Bop bop bop.
 
 9
 00:00:19,180 --> 00:00:21,000
-Body body bop bop bop
+Body body bop bop bop.
 
 10
 00:00:21,100 --> 00:00:22,320
-Bop bop bop
+Bop bop bop.
 
 11
 00:00:22,320 --> 00:00:24,340
-Body body bop bop
+Body body bop bop.
 
 12
 00:00:24,540 --> 00:00:26,020
@@ -57,27 +57,27 @@ Tap tap tap my body.
 
 17
 00:00:34,500 --> 00:00:35,820
-Bop bop bop
+Bop bop bop.
 
 18
 00:00:35,820 --> 00:00:37,160
-Everybody bop bop
+Everybody bop bop.
 
 19
 00:00:37,840 --> 00:00:38,840
-Bop bop bop
+Bop bop bop.
 
 20
 00:00:38,840 --> 00:00:40,840
-Body body bop bop bop
+Body body bop bop bop.
 
 21
 00:00:41,020 --> 00:00:42,020
-Bop bop bop
+Bop bop bop.
 
 22
 00:00:42,140 --> 00:00:44,140
-Body body bop bop
+Body body bop bop.
 
 23
 00:00:44,340 --> 00:00:46,000
@@ -101,27 +101,27 @@ Shaking Shaking Shaking my body.
 
 28
 00:00:54,440 --> 00:00:55,980
-Bop bop bop
+Bop bop bop.
 
 29
 00:00:55,980 --> 00:00:57,320
-Everybody bop bop
+Everybody bop bop.
 
 30
 00:00:57,660 --> 00:00:58,800
-Bop Bop bop
+Bop Bop bop.
 
 31
 00:00:58,920 --> 00:01:00,380
-Body body bop bop bop
+Body body bop bop bop.
 
 32
 00:01:00,380 --> 00:01:02,000
-Bop Bop bop
+Bop Bop bop.
 
 33
 00:01:02,120 --> 00:01:03,840
-Body body bop bop bop
+Body body bop bop bop.
 
 34
 00:01:04,099 --> 00:01:05,880
@@ -141,18 +141,17 @@ Touching my feet.
 
 38
 00:01:10,820 --> 00:01:13,900
-Touching Touching Touching my body
+Touching Touching Touching my body.
 
 39
 00:01:14,160 --> 00:01:15,340
-Bop bop bop
+Bop bop bop.
 
 40
 00:01:15,400 --> 00:01:17,000
-Everybody bop bop
+Everybody bop bop.
 
 41
 00:01:17,220 --> 00:01:18,220
 Yeah!
-
 `
