@@ -161,12 +161,28 @@ export const ruLocalization = {
                 't_filter_btn': 'Пременить',
             },
             video: {
-                't_video_mode_keep': 'Держать на странице',
                 't_video_mode_pause': 'Пауза после фразы',
                 't_video_mode_loop': 'Зациклить фразу',
-                't_video_mode_hide': 'Скрыть видео',
-                't_video_mode_dark': 'Включить темный режим',
+
+                't_video_mode_video_hide': 'Скрыть видео',
+                't_video_mode_video_show': 'Показать видео',
+
+                't_video_mode_text_hide': 'Скрыть текст',
+                't_video_mode_text_show': 'Показать текст',
+
+                't_video_mode_align_justify': 'Выровнять',
+                't_video_mode_align_left': 'Слева',
+                't_video_mode_align_center': 'Центр',
+
+                't_video_mode_keep': 'Закрепить на странице',
+                't_video_mode_unkeep': 'Открепить от страницы',
+
+                't_video_mode_dark_enable': 'Включить темный режим',
+                't_video_mode_dark_disable': 'Выключить темный режим',
+
                 't_video_mode_language': 'Язык',
+                't_video_tr_yandex': 'Yandex',
+                't_video_tr_google': 'Google',
             },
             error: {
                 t_text: 'Страница не найдена',
