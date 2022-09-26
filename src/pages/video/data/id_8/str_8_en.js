@@ -34,11 +34,11 @@ So where do I stand?
 So what's right?
 
 13
-00:00:30,243 --> 00:00:31,076
+00:00:30,243 --> 00:00:30,576
 What's wrong?
 
 14
-00:00:31,076 --> 00:00:32,770
+00:00:30,576 --> 00:00:32,770
 Do programmers have to work a lot?
 
 15
