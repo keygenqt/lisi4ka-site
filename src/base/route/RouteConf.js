@@ -4,13 +4,10 @@ import {
     AboutPage,
     ArticlePage,
     BlogPage,
-    BookPage,
-    BooksPage,
     HomePage,
     ReviewPage,
     VideoPage,
     VideosPage,
-    YouTubePage,
 } from "../../pages";
 import * as React from "react";
 import {ValueType} from "./ValueType";
@@ -132,8 +129,8 @@ export const RouteConf = {
                 />
             }
         },
-        youtube: {
-            path: '/youtube',
+        videos: {
+            path: '/videos',
             render: function (key, path) {
                 return <Route
                     key={key}
@@ -142,52 +139,16 @@ export const RouteConf = {
                     element={
                         <BaseLayout
                             disablePadding={true}
-                            pageClassName={'YouTube-Page'}
+                            pageClassName={'Videos-Page'}
                         >
-                            <YouTubePage/>
+                            <VideosPage/>
                         </BaseLayout>
                     }
                 />
             }
         },
-        youtubeBooks: {
-            path: '/youtube/books',
-            render: function (key, path) {
-                return <Route
-                    key={key}
-                    exact
-                    path={path}
-                    element={
-                        <BaseLayout
-                            disablePadding={true}
-                            pageClassName={'YouTube-Page'}
-                        >
-                            <YouTubePage/>
-                        </BaseLayout>
-                    }
-                />
-            }
-        },
-        youtubeVideos: {
-            path: '/youtube/videos',
-            render: function (key, path) {
-                return <Route
-                    key={key}
-                    exact
-                    path={path}
-                    element={
-                        <BaseLayout
-                            disablePadding={true}
-                            pageClassName={'YouTube-Page'}
-                        >
-                            <YouTubePage/>
-                        </BaseLayout>
-                    }
-                />
-            }
-        },
-        youtubeVideo: {
-            path: '/youtube/:id',
+        video: {
+            path: '/videos/:id',
             match: {
                 id: ValueType.integer,
             },

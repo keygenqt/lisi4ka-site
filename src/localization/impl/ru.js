@@ -22,7 +22,6 @@ export const ruLocalization = {
                 // block 2
                 t_block2_title_youtube: 'YouTube',
                 t_block2_link_videos: 'Видео',
-                t_block2_link_books: 'Книги',
                 t_block2_title_blog: 'Блог',
                 t_block2_link_articles: 'Статьи',
                 t_block2_link_reviews: 'Разборы',
@@ -148,18 +147,13 @@ export const ruLocalization = {
 
                 't_filter_btn': 'Пременить',
             },
-            youtube: {
-                't_youtube_title': 'YouTube',
-                't_youtube_subtitle': 'Видео с интерактивными субтитрами.\n' +
+            videos: {
+                't_videos_title': 'YouTube',
+                't_videos_subtitle': 'Видео с интерактивными субтитрами.\n' +
                     'Смотрите, читайте, изучайте, что сказал ваш любимый блогер. Слушайте или читайте книги.',
-                't_youtube_search': 'Поиск...',
-                't_youtube_btn_read': 'Перейти',
-                't_youtube_card_time': 'Продолжительность',
-                't_youtube_card_author': 'Автор',
+                't_videos_search': 'Поиск...',
+                't_videos_btn_read': 'Перейти',
                 't_filter_title': 'Конфигурация',
-                't_filter_types_title': 'Типы',
-                't_filter_types_item_1': 'Книги',
-                't_filter_types_item_2': 'Видео',
                 't_filter_sort_title': 'Сортировка',
                 't_filter_sort_item_1': 'Недавно добавленный',
                 't_filter_sort_item_3': 'По алфавиту',

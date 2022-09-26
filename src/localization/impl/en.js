@@ -21,7 +21,6 @@ export const enLocalization = {
                 // block 2
                 t_block2_title_youtube: 'YouTube',
                 t_block2_link_videos: 'Videos',
-                t_block2_link_books: 'Books',
                 t_block2_title_blog: 'Blog',
                 t_block2_link_articles: 'Articles',
                 t_block2_link_reviews: 'Reviews',
@@ -148,18 +147,13 @@ export const enLocalization = {
                 't_filter_btn': 'Apply',
                 't_books_btn_read': 'Read',
             },
-            youtube: {
-                't_youtube_title': 'YouTube',
-                't_youtube_subtitle': 'Video with interactive subtitles.\n' +
+            videos: {
+                't_videos_title': 'YouTube',
+                't_videos_subtitle': 'Video with interactive subtitles.\n' +
                     'Watch, read, study what your favorite blogger said. Listen or read books.',
-                't_youtube_search': 'Search...',
-                't_youtube_btn_read': 'Open',
-                't_youtube_card_time': 'Duration',
-                't_youtube_card_author': 'Author',
+                't_videos_search': 'Search...',
+                't_videos_btn_read': 'Open',
                 't_filter_title': 'Configuration',
-                't_filter_types_title': 'Types',
-                't_filter_types_item_1': 'Books',
-                't_filter_types_item_2': 'Video',
                 't_filter_sort_title': 'Sort',
                 't_filter_sort_item_1': 'Recently added',
                 't_filter_sort_item_3': 'Alphabetically',

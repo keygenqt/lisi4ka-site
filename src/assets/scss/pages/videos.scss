@@ -1,0 +1,68 @@
+.Videos-Page .VideosContent {
+  margin-bottom: 60px;
+}
+
+.Videos-Page .MuiMasonry-root {
+  width: calc(100% + 24px);
+  margin-left: -12px;
+}
+
+.Videos-Page .VideosContent .VideosTitleHeader {
+  margin-bottom: 60px;
+  padding: 60px 0 60px 0;
+  text-align: center;
+}
+
+.Videos-Page .VideosContent .VideosTitleHeader .Lottie {
+  width: 300px;
+  margin: -45px auto;
+}
+
+.Videos-Page .VideosContent .VideosTitleHeader .Title h6 {
+  white-space: break-spaces;
+}
+
+.Videos-Page .VideosContent .MuiAutocomplete-root {
+  max-width: 435px;
+  width: 100%;
+  float: right;
+}
+
+.Videos-Page .VideosContent .MuiCardContent-root:last-child {
+  padding-bottom: 16px;
+}
+
+.Videos-Page .VideosContent .ImageCard {
+  position: relative;
+}
+
+.Videos-Page .VideosContent .ImageCard .MuiBox-root {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, #3e486257 55%, #283044e0 68%);
+  text-align: center;
+}
+
+.Videos-Page .VideosContent .ImageCard .MuiBox-root .MuiSvgIcon-root{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.Videos-Page .VideosContent .ImageCard .MuiBox-root .MuiButton-root {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+@media (max-width: 450px) {
+  .Videos-Page .VideosContent .VideosTitleHeader .Lottie {
+    width: 200px;
+  }
+  .Videos-Page .VideosContent .VideosTitleHeader .Title h6 {
+    white-space: normal;
+  }
+}

@@ -5,4 +5,4 @@ export * from './blog/BlogPage';
 export * from './review/ReviewPage';
 export * from './video/VideoPage';
 export * from './about/AboutPage';
-export * from './youtube/YouTubePage';
+export * from './videos/VideosPage';

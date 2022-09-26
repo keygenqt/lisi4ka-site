@@ -29,153 +29,36 @@ import {
     PauseCircleOutlined,
     PlayCircleOutline,
     SkipNextOutlined,
-    SkipPreviousOutlined,
-    TranslateOutlined
+    SkipPreviousOutlined
 } from "@mui/icons-material";
 import {AppCache, LanguageContext, useLocalStorage, useWindowScroll} from "../../base";
 import {ValueType} from "../../base/route/ValueType";
 import {useParams} from "react-router";
+import {YouTubeData} from "./data/YouTubeData";
 
 let videoElement = null;
 let intervalChangeIndex = null;
 
-const data = {
-    id: 1,
-    idYouTube: 'sD1-rS_TM2o',
-    title: 'Kids vocabulary - Solar System - planets - Learn English for kids - English educational video',
-    author: 'English Singsing',
-    str: {
-        English: "1\n" +
-            "00:00:08,160 --> 00:00:09,560\n" +
-            "Solar System\n" +
-            "\n" +
-            "2\n" +
-            "00:00:13,940 --> 00:00:15,000\n" +
-            "Sun\n" +
-            "\n" +
-            "3\n" +
-            "00:00:16,620 --> 00:00:20,180\n" +
-            "The Sun is very big and hot.\n" +
-            "\n" +
-            "4\n" +
-            "00:00:22,140 --> 00:00:23,100\n" +
-            "Sun\n" +
-            "\n" +
-            "5\n" +
-            "00:00:27,660 --> 00:00:36,260\n" +
-            "There are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.\n" +
-            "\n" +
-            "6\n" +
-            "00:00:36,980 --> 00:00:39,860\n" +
-            "They go around the Sun.\n" +
-            "\n" +
-            "7\n" +
-            "00:00:41,840 --> 00:00:44,460\n" +
-            "Solar System\n" +
-            "\n" +
-            "8\n" +
-            "00:00:45,180 --> 00:00:48,340\n" +
-            "This is our Solar System.\n" +
-            "\n" +
-            "9\n" +
-            "00:00:49,800 --> 00:00:51,480\n" +
-            "Solar System\n" +
-            "\n" +
-            "10\n" +
-            "00:00:57,400 --> 00:01:08,980\n" +
-            "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, and Sun.\n" +
-            "\n" +
-            "11\n" +
-            "00:01:11,240 --> 00:01:12,780\n" +
-            "Mercury\n" +
-            "\n" +
-            "12\n" +
-            "00:01:13,820 --> 00:01:18,420\n" +
-            "Mercury is the closest planet to the Sun.\n" +
-            "\n" +
-            "13\n" +
-            "00:01:20,640 --> 00:01:21,820\n" +
-            "Venus\n" +
-            "\n" +
-            "14\n" +
-            "00:01:22,900 --> 00:01:27,500\n" +
-            "Venus is the brightest planet in the sky.\n" +
-            "\n" +
-            "15\n" +
-            "00:01:29,720 --> 00:01:30,780\n" +
-            "Earth\n" +
-            "\n" +
-            "16\n" +
-            "00:01:31,820 --> 00:01:34,420\n" +
-            "Earth is our planet.\n" +
-            "\n" +
-            "17\n" +
-            "00:01:36,520 --> 00:01:37,800\n" +
-            "Mars\n" +
-            "\n" +
-            "18\n" +
-            "00:01:38,660 --> 00:01:41,680\n" +
-            "Mars is a red planet.\n" +
-            "\n" +
-            "19\n" +
-            "00:01:43,920 --> 00:01:45,240\n" +
-            "Jupiter\n" +
-            "\n" +
-            "20\n" +
-            "00:01:46,240 --> 00:01:49,880\n" +
-            "Jupiter is the largest planet.\n" +
-            "\n" +
-            "21\n" +
-            "00:01:51,780 --> 00:01:53,100\n" +
-            "Saturn\n" +
-            "\n" +
-            "22\n" +
-            "00:01:54,380 --> 00:01:58,160\n" +
-            "Saturn is the planet with the rings.\n" +
-            "\n" +
-            "23\n" +
-            "00:02:00,020 --> 00:02:01,640\n" +
-            "Uranus\n" +
-            "\n" +
-            "24\n" +
-            "00:02:03,000 --> 00:02:07,060\n" +
-            "Uranus is very cold and cloudy.\n" +
-            "\n" +
-            "25\n" +
-            "00:02:08,880 --> 00:02:10,500\n" +
-            "Neptune\n" +
-            "\n" +
-            "26\n" +
-            "00:02:11,760 --> 00:02:14,620\n" +
-            "Neptune is made of gas.\n" +
-            "\n" +
-            "27\n" +
-            "00:02:16,600 --> 00:02:27,580\n" +
-            "Sun, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune\n" +
-            "\n" +
-            "28\n" +
-            "00:02:29,340 --> 00:02:32,440\n" +
-            "This is our solar system.\n",
-    }
-}
-
 export function VideoPage() {
 
-    let {id} = useParams();
+    const {id} = useParams();
 
-    function getSecond(value) {
-        const [time, ms] = value.split(',')
-        const [h, m, s] = time.split(':')
-        return parseFloat(`${(parseInt(h) * 60 * 60) + (parseInt(m) * 60) + parseInt(s)}.${ms}`);
-    }
+    const [data] = useState(YouTubeData.find(x => x.id === parseInt(id)))
 
     function expensiveComputation(name) {
+
+        function getSecond(value) {
+            const [time, ms] = value.split(',')
+            const [h, m, s] = time.split(':')
+            return parseFloat(`${(parseInt(h) * 60 * 60) + (parseInt(m) * 60) + parseInt(s)}.${ms}`);
+        }
+
         let str = []
-        data.str[name].split("\n\n").forEach((item) => {
-            // eslint-disable-next-line no-unused-vars
-            const [_, time, text] = item.split("\n")
+        data.str[name].trim().split("\n\n").forEach((item) => {
+            const [index, time, text] = item.split("\n")
             const [start, end] = time.split(" --> ")
             const obj = {
+                index: index,
                 time: time,
                 start: getSecond(start),
                 end: getSecond(end),
@@ -402,7 +285,7 @@ export function VideoPage() {
                     seekTo(index)
                 }}
             >
-                {modeVisibleState.includes('frameTranslate') ? item.textRu : item.text}
+                {item.text}
             </Typography>
         )
     })
@@ -578,7 +461,8 @@ export function VideoPage() {
                                     justifyContent='flex-end'
                                 >
                                     <FormControl size="small">
-                                        <InputLabel id="demo-simple-select-label">{t('pages.video.t_video_mode_language')}</InputLabel>
+                                        <InputLabel
+                                            id="demo-simple-select-label">{t('pages.video.t_video_mode_language')}</InputLabel>
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"

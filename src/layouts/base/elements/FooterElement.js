@@ -114,23 +114,6 @@ export function FooterElement(props) {
                                 <Stack spacing={2}>
 
                                     <Typography variant="h6" color="#ffffff">
-                                        {t('layouts.footer.t_block2_title_youtube')}
-                                    </Typography>
-
-                                    <Stack spacing={1} className={'Links'}>
-                                        <Link to={routes.youtubeBooks.path}>
-                                            <Typography variant="body1">
-                                                {t('layouts.footer.t_block2_link_books')}
-                                            </Typography>
-                                        </Link>
-                                        <Link to={routes.youtubeVideos.path}>
-                                            <Typography variant="body1">
-                                                {t('layouts.footer.t_block2_link_videos')}
-                                            </Typography>
-                                        </Link>
-                                    </Stack>
-
-                                    <Typography variant="h6" color="#ffffff">
                                         {t('layouts.footer.t_block2_title_blog')}
                                     </Typography>
 
@@ -143,6 +126,18 @@ export function FooterElement(props) {
                                         <Link to={routes.blogReviews.path}>
                                             <Typography variant="body1">
                                                 {t('layouts.footer.t_block2_link_reviews')}
+                                            </Typography>
+                                        </Link>
+                                    </Stack>
+
+                                    <Typography variant="h6" color="#ffffff">
+                                        {t('layouts.footer.t_block2_title_youtube')}
+                                    </Typography>
+
+                                    <Stack spacing={1} className={'Links'}>
+                                        <Link to={routes.videos.path}>
+                                            <Typography variant="body1">
+                                                {t('layouts.footer.t_block2_link_videos')}
                                             </Typography>
                                         </Link>
                                     </Stack>
