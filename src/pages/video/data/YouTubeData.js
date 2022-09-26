@@ -13,6 +13,12 @@ import {str_5_en} from "./id_5/str_5_en";
 import {str_5_ru} from "./id_5/str_5_ru";
 import {str_6_en} from "./id_6/str_6_en";
 import {str_6_ru} from "./id_6/str_6_ru";
+import {str_7_en} from "./id_7/str_7_en";
+import {str_7_ru} from "./id_7/str_7_ru";
+import {str_8_en} from "./id_8/str_8_en";
+import {str_8_ru} from "./id_8/str_8_ru";
+import {str_9_en} from "./id_9/str_9_en";
+import {str_9_ru} from "./id_9/str_9_ru";
 
 export const YouTubeData = [
     {
@@ -73,6 +79,37 @@ export const YouTubeData = [
         str: {
             English: str_6_en,
             Russian: str_6_ru
+        }
+    },
+
+    {
+        id: 7,
+        idYouTube: 'o_S1aSLoh14',
+        title: 'M192: Find a way to structure your opinion after each interview of a new candidate',
+        author: 'Yegor Bugayenko / Егор Бугаенко',
+        str: {
+            English: str_7_en,
+            Russian: str_7_ru
+        }
+    },
+    {
+        id: 8,
+        idYouTube: 'SNAULZ4KRak',
+        title: 'M194: Keep a balance between work for money and investments into yourself',
+        author: 'Yegor Bugayenko / Егор Бугаенко',
+        str: {
+            English: str_8_en,
+            Russian: str_8_ru
+        }
+    },
+    {
+        id: 9,
+        idYouTube: 'TF8MKOfo3gI',
+        title: 'M189: How would you decide who deserves to be authors of a published paper?',
+        author: 'Yegor Bugayenko / Егор Бугаенко',
+        str: {
+            English: str_9_en,
+            Russian: str_9_ru
         }
     },
 ];
