@@ -45,7 +45,7 @@ function CardItemVideo(props) {
                     component="img"
                     height="145"
                     image={`https://img.youtube.com/vi/${props.idYouTube}/hqdefault.jpg`}
-                    alt="Paella dish"
+                    alt={props.title}
                 />
                 <Box>
                     <Button
