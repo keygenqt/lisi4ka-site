@@ -146,7 +146,20 @@ export function VideoPage() {
     useEffect(() => {
         if (Boolean(videoElement) && !isPaused) {
             intervalChangeIndex = setInterval(async () => {
-                if (videoElement
+
+                if (videoElement.target.playerInfo.playerState === 0) {
+                    setIsShowImagePreview(true)
+                    setIsPaused(true)
+                    setIndexAction(-1)
+                    setIndexActionNext(0)
+                    setIndexActionPreview(-1)
+                    setIndexActionSentence(-1)
+                    setModePlayerState(null)
+                    videoElement.target.seekTo(0);
+                    videoElement?.target?.pauseVideo();
+                    clearInterval(intervalChangeIndex)
+                }
+                else if (videoElement
                     && videoElement.target.getCurrentTime() > 0
                     && videoElement.target.playerInfo.playerState === 1
                 ) {
