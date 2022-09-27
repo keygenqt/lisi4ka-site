@@ -25,7 +25,8 @@ import {
     Brightness6Outlined,
     FormatAlignCenterOutlined,
     FormatAlignJustifyOutlined,
-    FormatAlignLeftOutlined, HourglassEmptyOutlined,
+    FormatAlignLeftOutlined,
+    HourglassEmptyOutlined,
     LoopOutlined,
     MoveUpOutlined,
     PauseCircleOutlined,
@@ -113,6 +114,13 @@ export function VideoPage() {
     }, [data, language]);
 
     useEffect(() => {
+        setModeVisibleState([
+            darkMode ? 'darkMode' : null,
+            isBlockAttach ? 'isBlockAttach' : null,
+        ])
+    }, [isBlockAttach, darkMode]);
+
+    useEffect(() => {
         AppCache.booleanSet('darkMode', modeVisibleState.includes('darkMode'))
         AppCache.booleanSet('VideoPage_isBlockAttach', modeVisibleState.includes('isBlockAttach'))
     }, [modeVisibleState]);
@@ -158,8 +166,7 @@ export function VideoPage() {
                     videoElement.target.seekTo(0);
                     videoElement?.target?.pauseVideo();
                     clearInterval(intervalChangeIndex)
-                }
-                else if (videoElement
+                } else if (videoElement
                     && videoElement.target.getCurrentTime() > 0
                     && videoElement.target.playerInfo.playerState === 1
                 ) {
