@@ -5,19 +5,19 @@ import {AppCache} from "../utils/AppCache";
 /**
  * Sync state to local storage so that it persists through a page refresh.
  */
-export function useLocalStorage(key, valueType = ValueType.string) {
+export function useLocalStorage(key, valueType = ValueType.string, defaultValue = null) {
 
     const getValueType = useCallback(
         () => {
             switch (valueType) {
                 case ValueType.bool:
-                    return AppCache.booleanGet(key)
+                    return AppCache.booleanGet(key, defaultValue)
                 case ValueType.integer:
-                    return AppCache.intGet(key)
+                    return AppCache.intGet(key, defaultValue)
                 default:
-                    return AppCache.stringGet(key)
+                    return AppCache.stringGet(key, defaultValue)
             }
-        }, [key, valueType]);
+        }, [defaultValue, key, valueType]);
 
     const [value, setValue] = useState(getValueType());
 

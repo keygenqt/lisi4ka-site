@@ -2,17 +2,13 @@ import * as React from 'react';
 import {useCallback, useContext, useEffect, useState} from 'react';
 import {
     Box,
-    Button,
     CircularProgress,
-    ClickAwayListener,
     Container,
     Fab,
-    Fade,
     FormControl,
     InputLabel,
     MenuItem,
     Paper,
-    Popper,
     Select,
     Stack,
     ToggleButton,
@@ -37,179 +33,118 @@ import {
     SkipNextOutlined,
     SkipPreviousOutlined,
     TitleOutlined,
-    TranslateOutlined,
     VideocamOutlined
 } from "@mui/icons-material";
-import {AppCache, LanguageContext, NavigateContext, useLocalStorage, useWindowScroll} from "../../base";
-import {ValueType} from "../../base/route/ValueType";
+import {AppCache, LanguageContext, useLocalStorage, useWindowScroll} from "../../base";
 import {useParams} from "react-router";
 import {YouTubeData} from "./data/YouTubeData";
+import {AppUtils} from "../../base/utils/AppUtils";
+import {StrText} from "../videos/elements/StrText";
+import {ValueType} from "../../base/route/ValueType";
 
-let videoElement = null;
 let intervalChangeIndex = null;
 
 export function VideoPage() {
 
+    // id item from url params
     const {id} = useParams();
-
-    const {route} = useContext(NavigateContext)
     const [data] = useState(YouTubeData.find(x => x.id === parseInt(id)))
 
-    function expensiveComputation(name) {
-
-        function getSecond(value) {
-            const [time, ms] = value.split(',')
-            const [h, m, s] = time.split(':')
-            return parseFloat(`${(parseInt(h) * 60 * 60) + (parseInt(m) * 60) + parseInt(s)}.${ms}`);
-        }
-
-        let str = []
-        data.str[name].trim().split("\n\n").forEach((item) => {
-            const [index, time] = item.trim().split("\n")
-            const [start, end] = time.split(" --> ")
-            const text = item.trim().replace(index + "\n", "").replace(time + "\n", "")
-            const obj = {
-                index: index,
-                time: time,
-                start: getSecond(start),
-                end: getSecond(end),
-                text: text,
-            }
-            str.push(obj)
-        })
-        return str
-    }
-
-    const [str, setStr] = useState([]);
-
-    const theme = useTheme()
-    const isSM = useMediaQuery(theme.breakpoints.down('sm'));
-
+    // hooks
     const {y} = useWindowScroll()
-    const boxYouTubeFrameRef = React.useRef(null)
-    const darkMode = useLocalStorage("darkMode", ValueType.bool);
     const {t} = useContext(LanguageContext)
+    const isSM = useMediaQuery(useTheme().breakpoints.down('sm'));
 
+    // site dark mode
+    const darkMode = useLocalStorage("darkMode", ValueType.bool, false);
+
+    // page save state after refresh
+    const isShowVideo = useLocalStorage("VideoPage_isShowVideo", ValueType.bool, true);
+    const isShowText = useLocalStorage("VideoPage_isShowText", ValueType.bool, true);
+    const isBlockAttach = useLocalStorage("VideoPage_isBlockAttach", ValueType.bool, false);
+    const textAlign = useLocalStorage("VideoPage_textAlign", ValueType.string, 'justify');
+
+    // elements
+    const boxYouTubeFrameRef = React.useRef(null)
+
+    // states
+    const [str, setStr] = useState([]);
     const [language, setLanguage] = useState('English');
 
-    const [anchorElSubMenu, setAnchorElSubMenu] = useState(null);
-    const [itemSubMenu, setItemSubMenu] = useState(null);
-
-    const [isStartPreview, setIsStartPreview] = useState(true);
-    const [isToggleInterval, setIsToggleInterval] = useState(false);
-    const [isInit, setIsInit] = useState(false);
+    // video state
+    const [isShowImagePreview, setIsShowImagePreview] = useState(true);
+    const [videoElement, setVideoElement] = useState(null);
     const [isPaused, setIsPaused] = useState(true);
+    const [isAfterStr, setIsAfterStr] = useState(false);
+
+    // text state
     const [indexAction, setIndexAction] = useState(-1);
     const [indexActionSentence, setIndexActionSentence] = useState(-1);
 
+    // preview state
     const [indexActionPreview, setIndexActionPreview] = useState(-1);
+
+    // next state
     const [indexActionNext, setIndexActionNext] = useState(0);
 
-    const [modeFrameState, setModeFrameState] = React.useState(['showText', 'showVideo']);
+    // modes state
+    const [modeFrameState, setModeFrameState] = React.useState([
+        isShowVideo ? 'isShowVideo' : null,
+        isShowText ? 'isShowText' : null,
+    ]);
+    const [modeVisibleState, setModeVisibleState] = React.useState([
+        darkMode ? 'darkMode' : null,
+        isBlockAttach ? 'isBlockAttach' : null,
+    ]);
     const [modePlayerState, setModePlayerState] = React.useState(null);
-    const [modeVisibleState, setModeVisibleState] = React.useState(AppCache.booleanGet('darkMode') ? ['darkMode'] : []);
-    const [modeAlignState, setModeAlignState] = React.useState(['alignJustify']);
 
-    const handleChangeModeFrame = (event, newValue) => {
-        setModeFrameState(newValue);
-    };
-
-    const handleChangeModePlayer = (event, newValue) => {
-        setModePlayerState(newValue);
-    };
-
-    const handleChangeModeVisible = (event, newValue) => {
-        setModeVisibleState(newValue);
-    };
-
-    const handleChangeModeAlign = (event, newValue) => {
-        setModeAlignState(newValue);
-    };
-
+    // callback video control
     const seekTo = useCallback((index) => {
-        if (isInit) {
-            clearInterval(intervalChangeIndex)
+        if (Boolean(videoElement)) {
             setIndexAction(index)
             videoElement.target.seekTo(str[index].start);
             videoElement.target.playVideo();
-            setIsToggleInterval(!isToggleInterval)
         }
-    }, [isInit, isToggleInterval]);
+    }, [videoElement, str]);
 
-    const togglePause = () => {
-        if (isInit) {
-            setIsPaused(!isPaused);
-        }
-    };
-
-    const onClickPrevious = () => {
-        if (isInit) {
-            seekTo(indexActionPreview)
-            if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
-                setIndexActionSentence(indexActionPreview)
-            }
-        }
-    };
-
-    const onClickNext = () => {
-        if (isInit) {
-            seekTo(indexActionNext)
-            if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
-                setIndexActionSentence(indexActionNext)
-            }
-        }
-    };
-
-    const opts = {
-        height: '100%',
-        width: '100%',
-        playerVars: {
-            enablejsapi: 1,
-            playsinline: 1,
-            autoplay: 0,
-            controls: 0,
-            rel: 0,
-            showinfo: 0,
-            showsearch: 0,
-            modestbranding: 1,
-            disablekb: 1,
-        },
-    };
+    // effects
+    useEffect(() => {
+        setStr(AppUtils.parseStr(data.str[language]))
+    }, [data, language]);
 
     useEffect(() => {
-        setAnchorElSubMenu(null);
-    }, [y]);
-
-    useEffect(() => {
-        if (modeVisibleState.includes('darkMode')) {
-            AppCache.booleanSet('darkMode', true)
-        } else {
-            AppCache.booleanSet('darkMode', false)
-        }
+        AppCache.booleanSet('darkMode', modeVisibleState.includes('darkMode'))
+        AppCache.booleanSet('VideoPage_isBlockAttach', modeVisibleState.includes('isBlockAttach'))
     }, [modeVisibleState]);
 
     useEffect(() => {
-        setStr(expensiveComputation(language))
-    }, [language]);
+        AppCache.booleanSet('VideoPage_isShowVideo', modeFrameState.includes('isShowVideo'))
+        AppCache.booleanSet('VideoPage_isShowText', modeFrameState.includes('isShowText'))
+    }, [modeFrameState]);
 
+    // change state video
     useEffect(() => {
-        if (isInit && videoElement?.target?.i) {
-            if (isPaused) {
-                videoElement?.target?.pauseVideo();
-            } else {
-                setIsStartPreview(false)
-                if (indexAction !== -1) {
-                    seekTo(indexAction)
-                } else {
-                    videoElement?.target.playVideo();
+        if (Boolean(videoElement) && videoElement?.target?.i) {
+            try {
+                if (isPaused) {
+                    clearInterval(intervalChangeIndex)
+                    videoElement?.target?.pauseVideo();
+                } else if (videoElement.target.playerInfo.playerState !== 1) {
+                    setIsShowImagePreview(false)
+                    if (indexAction !== -1) {
+                        seekTo(indexAction)
+                    } else {
+                        videoElement?.target.playVideo();
+                    }
                 }
+            } catch (e) {
             }
         }
-    }, [isInit, isPaused]);
+    }, [indexAction, isPaused, videoElement, seekTo]);
 
-    //get current time and video status in real time
+    // get current time and video status in real time
     useEffect(() => {
-        if (isInit) {
+        if (Boolean(videoElement) && !isPaused) {
             intervalChangeIndex = setInterval(async () => {
                 if (videoElement
                     && videoElement.target.getCurrentTime() > 0
@@ -217,13 +152,10 @@ export function VideoPage() {
                 ) {
                     const seconds = videoElement.target.getCurrentTime();
 
-                    // console.log(seconds)
-
                     if (modePlayerState !== 'sentencePause' && modePlayerState !== 'sentenceLoop') {
                         setIndexActionSentence(-1)
                     }
 
-                    setIndexAction(-1)
                     setIndexActionPreview(-1)
 
                     if (indexActionSentence + 1 === str.length) {
@@ -235,10 +167,12 @@ export function VideoPage() {
                         if (str[indexActionSentence].end < seconds) {
                             seekTo(indexActionSentence)
                             if (modePlayerState === 'sentencePause') {
-                                videoElement?.target?.pauseVideo();
+                                setIsPaused(true)
                             }
                         }
                     } else {
+                        let findIndex = -1
+
                         for (let i = 0; i < str.length; i++) {
 
                             if ((str[i].start <= seconds && str[i].end > seconds)
@@ -254,16 +188,19 @@ export function VideoPage() {
                                     setIndexAction(i)
                                     seekTo(indexActionSentence)
                                     if (modePlayerState === 'sentencePause') {
-                                        videoElement?.target?.pauseVideo();
+                                        setIsPaused(true)
                                     }
                                 }
                             }
 
                             if (str[i].start <= seconds && str[i].end > seconds) {
-                                setIndexAction(i)
+                                findIndex = i
                                 break;
                             }
                         }
+
+                        setIsAfterStr(str.length === 0 || str[str.length - 1].end < seconds)
+                        setIndexAction(findIndex)
                     }
                 }
             }, 50);
@@ -272,146 +209,11 @@ export function VideoPage() {
         return () => {
             clearInterval(intervalChangeIndex);
         };
-    }, [indexActionSentence, modePlayerState, isInit, isToggleInterval, seekTo]);
 
-    const _onReady = (event) => {
-        videoElement = event;
-        setIsInit(true)
-    };
-
-    const _onStateChange = () => {
-        if (isInit) {
-            setIsPaused(videoElement.target.playerInfo.playerState === 2);
-        }
-    };
-
-    const content = []
-
-    str.forEach((item, index) => {
-        content.push(
-            <Typography
-                key={`item-${index}`}
-                className={isPaused && index === indexAction ? 'Pause' : ''}
-                sx={darkMode ? {
-                    backgroundColor: index === indexAction ? '#dedede' : '#444444',
-                    color: index === indexAction ? '#252525' : '#f1f1f1',
-                } : {
-                    backgroundColor: index === indexAction ? '#444444' : '#e9e9e9',
-                    color: index === indexAction ? '#ffffff' : '#000000',
-                }}
-                onClick={() => {
-                    if (isInit) {
-                        if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
-                            setIndexActionSentence(index)
-                        } else {
-                            setIndexActionSentence(-1)
-                        }
-                        seekTo(index)
-                    }
-                }}
-                onContextMenu={(e) => {
-                    if (isInit) {
-                        if (language === 'English' || language === 'Russian') {
-                            function generateGetBoundingClientRect(x = 0, y = 0) {
-                                return () => ({
-                                    width: 0,
-                                    height: 0,
-                                    top: e.clientY,
-                                    right: e.clientX,
-                                    bottom: e.clientY,
-                                    left: e.clientX,
-                                });
-                            }
-
-                            const virtualElement = {
-                                getBoundingClientRect: generateGetBoundingClientRect(),
-                            };
-                            setAnchorElSubMenu(virtualElement);
-                            setItemSubMenu(item)
-                            e.preventDefault();
-                        }
-                    }
-                }}
-            >
-                {item.text}
-            </Typography>
-        )
-    })
+    }, [isPaused, indexAction, indexActionSentence, modePlayerState, seekTo, str, videoElement]);
 
     return (
         <Container className={'VideoContent'} maxWidth={"md"}>
-
-            <ClickAwayListener onClickAway={() => {
-                setAnchorElSubMenu(null);
-            }}>
-                <Popper
-                    id={'MenuRightClick'}
-                    open={Boolean(anchorElSubMenu)}
-                    anchorEl={anchorElSubMenu}
-                    transition
-                    placement="bottom"
-                    sx={{
-                        zIndex: 1
-                    }}
-                    popperOptions={{
-                        modifiers: [
-                            {
-                                name: 'offset',
-                                options: {
-                                    offset: [0, 10]
-                                }
-                            },
-                        ]
-                    }}
-                >
-                    {({TransitionProps}) => (
-                        <Fade {...TransitionProps} timeout={350}>
-                            <Paper sx={{p: 1}}>
-                                <Stack spacing={0}>
-                                    <Button
-                                        sx={{
-                                            padding: '6px 16px',
-                                            ...(darkMode ? {color: '#fff'} : {})
-                                        }}
-                                        startIcon={<TranslateOutlined/>}
-                                        onClick={() => {
-                                            if (language === 'English') {
-                                                route.openUrlNewTab(`https://translate.yandex.com/?lang=en-ru&text=${itemSubMenu.text}`)
-                                            }
-                                            if (language === 'Russian') {
-                                                route.openUrlNewTab(`https://translate.yandex.com/?lang=ru-en&text=${itemSubMenu.text}`)
-                                            }
-                                            setAnchorElSubMenu(null);
-                                        }}
-                                    >
-                                        <Box>
-                                            {t('pages.video.t_video_tr_yandex')}
-                                        </Box>
-                                    </Button>
-                                    <Button
-                                        sx={(darkMode ? {color: '#fff'} : {})}
-                                        startIcon={<TranslateOutlined/>}
-                                        onClick={() => {
-                                            if (language === 'English') {
-                                                route.openUrlNewTab(`https://translate.google.com/?sl=en&tl=ru&op=translate&text=${itemSubMenu.text}`)
-                                            }
-                                            if (language === 'Russian') {
-                                                route.openUrlNewTab(`https://translate.google.com/?sl=ru&tl=en&op=translate&text=${itemSubMenu.text}`)
-                                            }
-                                            setAnchorElSubMenu(null);
-                                        }}
-                                    >
-                                        <Box>
-                                            {t('pages.video.t_video_tr_google')}
-                                        </Box>
-                                    </Button>
-                                </Stack>
-                            </Paper>
-                        </Fade>
-                    )}
-                </Popper>
-            </ClickAwayListener>
-
 
             <Stack spacing={3}>
 
@@ -425,20 +227,24 @@ export function VideoPage() {
                 </Stack>
 
                 <Stack spacing={1} direction={'row'}>
+
+                    {/*MODE*/}
                     <ToggleButtonGroup
                         size="small"
                         color="primary"
                         value={modeFrameState}
-                        onChange={handleChangeModeFrame}
+                        onChange={(event, newValue) => {
+                            setModeFrameState(newValue);
+                        }}
                         aria-label="Group"
                     >
                         <Tooltip
-                            title={modeFrameState.includes('showVideo') ? t('pages.video.t_video_mode_video_hide') : t('pages.video.t_video_mode_video_show')}
+                            title={modeFrameState.includes('isShowVideo') ? t('pages.video.t_video_mode_video_hide') : t('pages.video.t_video_mode_video_show')}
                             placement="top"
                         >
                             <ToggleButton
-                                selected={modeFrameState.includes('showVideo')}
-                                value="showVideo"
+                                selected={modeFrameState.includes('isShowVideo')}
+                                value="isShowVideo"
                                 aria-label="bold"
                             >
                                 <VideocamOutlined/>
@@ -446,12 +252,12 @@ export function VideoPage() {
                         </Tooltip>
 
                         <Tooltip
-                            title={modeFrameState.includes('showText') ? t('pages.video.t_video_mode_text_hide') : t('pages.video.t_video_mode_text_show')}
+                            title={modeFrameState.includes('isShowText') ? t('pages.video.t_video_mode_text_hide') : t('pages.video.t_video_mode_text_show')}
                             placement="top"
                         >
                             <ToggleButton
-                                selected={modeFrameState.includes('showText')}
-                                value="showText"
+                                selected={modeFrameState.includes('isShowText')}
+                                value="isShowText"
                                 aria-label="bold"
                             >
                                 <TitleOutlined/>
@@ -463,10 +269,12 @@ export function VideoPage() {
                     <ToggleButtonGroup
                         size="small"
                         color="primary"
-                        value={modeAlignState}
-                        disabled={!modeFrameState.includes('showText')}
+                        value={textAlign}
+                        disabled={!modeFrameState.includes('isShowText')}
                         exclusive
-                        onChange={handleChangeModeAlign}
+                        onChange={(event, newValue) => {
+                            AppCache.booleanSet('VideoPage_textAlign', newValue)
+                        }}
                         aria-label="Group"
                     >
                         <Tooltip
@@ -474,8 +282,8 @@ export function VideoPage() {
                             placement="top"
                         >
                             <ToggleButton
-                                selected={modeAlignState.includes('alignJustify') && modeFrameState.includes('showText')}
-                                value="alignJustify"
+                                selected={textAlign === 'justify' && modeFrameState.includes('isShowText')}
+                                value="justify"
                                 aria-label="bold"
                             >
                                 <FormatAlignJustifyOutlined/>
@@ -487,8 +295,8 @@ export function VideoPage() {
                             placement="top"
                         >
                             <ToggleButton
-                                selected={modeAlignState.includes('alignLeft') && modeFrameState.includes('showText')}
-                                value="alignLeft"
+                                selected={textAlign === 'left' && modeFrameState.includes('isShowText')}
+                                value="left"
                                 aria-label="bold"
                             >
                                 <FormatAlignLeftOutlined/>
@@ -500,8 +308,8 @@ export function VideoPage() {
                             placement="top"
                         >
                             <ToggleButton
-                                selected={modeAlignState.includes('alignCenter') && modeFrameState.includes('showText')}
-                                value="alignCenter"
+                                selected={textAlign === 'center' && modeFrameState.includes('isShowText')}
+                                value="center"
                                 aria-label="bold"
                             >
                                 <FormatAlignCenterOutlined/>
@@ -514,16 +322,18 @@ export function VideoPage() {
                         size="small"
                         color="primary"
                         value={modeVisibleState}
-                        onChange={handleChangeModeVisible}
+                        onChange={(event, newValue) => {
+                            setModeVisibleState(newValue);
+                        }}
                         aria-label="Group"
                     >
                         <Tooltip
-                            title={modeVisibleState.includes('frameScroll') ? t('pages.video.t_video_mode_unkeep') : t('pages.video.t_video_mode_keep')}
+                            title={modeVisibleState.includes('isBlockAttach') ? t('pages.video.t_video_mode_unkeep') : t('pages.video.t_video_mode_keep')}
                             placement="top"
                         >
                             <ToggleButton
-                                selected={modeVisibleState.includes('frameScroll')}
-                                value="frameScroll"
+                                selected={modeVisibleState.includes('isBlockAttach')}
+                                value='isBlockAttach'
                                 aria-label="bold"
                             >
                                 <MoveUpOutlined/>
@@ -546,15 +356,16 @@ export function VideoPage() {
                     </ToggleButtonGroup>
                 </Stack>
 
+                {/*VIDEO BOX*/}
                 <Box
                     ref={boxYouTubeFrameRef}
-                    className={'BoxYouTubeMove' + (modeFrameState.includes('showVideo') ? '' : ' Audio')}
+                    className={'BoxYouTubeMove' + (modeFrameState.includes('isShowVideo') ? '' : ' Audio')}
                     sx={{
                         marginTop: '0px !important'
                     }}
                 >
                     <Box
-                        className={'BoxYouTubeFrame' + (modeVisibleState.includes('frameScroll') && y > boxYouTubeFrameRef.current?.offsetTop ? ' Fix' : '')}
+                        className={'BoxYouTubeFrame' + (modeVisibleState.includes('isBlockAttach') && y > boxYouTubeFrameRef.current?.offsetTop ? ' Fix' : '')}
                     >
                         <Box sx={{
                             height: '40px',
@@ -565,27 +376,50 @@ export function VideoPage() {
                         <Box
                             className={'BoxYouTubeFrameRad'}
                             sx={{
-                                display: modeFrameState.includes('showVideo') ? 'block' : 'none'
+                                display: modeFrameState.includes('isShowVideo') ? 'block' : 'none'
                             }}
                         >
 
                             <YouTube
                                 className={'IFrame'}
                                 videoId={data.idYouTube}
-                                opts={opts}
-                                onReady={_onReady}
-                                onStateChange={_onStateChange}
+                                opts={{
+                                    height: '100%',
+                                    width: '100%',
+                                    playerVars: {
+                                        enablejsapi: 1,
+                                        playsinline: 1,
+                                        autoplay: 0,
+                                        controls: 0,
+                                        rel: 0,
+                                        showinfo: 0,
+                                        showsearch: 0,
+                                        modestbranding: 1,
+                                        disablekb: 1,
+                                    },
+                                }}
+                                onReady={(event) => {
+                                    setVideoElement(event)
+                                }}
+                                onStateChange={() => {
+                                    if (videoElement.target.playerInfo.playerState === 1) {
+                                        setIsPaused(false)
+                                    }
+                                    if (videoElement.target.playerInfo.playerState === 2) {
+                                        setIsPaused(true)
+                                    }
+                                }}
                             />
 
                             <Box className={'ContainerButton AppTable'} sx={{
-                                display: (isStartPreview ? 'auto' : 'none')
+                                display: (isShowImagePreview ? 'auto' : 'none')
                             }}>
                                 <Box className={'AppTableRow'}>
                                     <Box className={'AppTableCell'} sx={{
                                         backgroundImage: `url(https://img.youtube.com/vi/${data.idYouTube}/hqdefault.jpg)`
                                     }}>
                                         <Stack className={'ContainerButtonItems'} alignItems={"center"}>
-                                            {!isInit ? (
+                                            {!Boolean(videoElement) ? (
                                                 <Zoom timeout={1000} in={true}>
                                                     <CircularProgress color={'warning'}/>
                                                 </Zoom>
@@ -596,6 +430,7 @@ export function VideoPage() {
                             </Box>
                         </Box>
 
+                        {/*VIDEO CONTROL*/}
                         <Paper className={'Control'} variant="outlined" sx={{
                             padding: 2
                         }}>
@@ -615,9 +450,17 @@ export function VideoPage() {
 
                                     <Box>
                                         <Fab
-                                            disabled={!isInit || isPaused || indexActionPreview < 0}
+                                            disabled={!Boolean(videoElement) || isPaused || indexActionPreview < 0}
                                             size="small"
-                                            onClick={onClickPrevious}
+                                            onClick={() => {
+                                                if (indexAction !== indexActionPreview) {
+                                                    clearInterval(intervalChangeIndex)
+                                                    seekTo(indexActionPreview)
+                                                    if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
+                                                        setIndexActionSentence(indexActionPreview)
+                                                    }
+                                                }
+                                            }}
                                             color="primary"
                                         >
                                             <SkipPreviousOutlined/>
@@ -626,8 +469,10 @@ export function VideoPage() {
 
                                     <Box>
                                         <Fab
-                                            disabled={!isInit}
-                                            onClick={togglePause}
+                                            disabled={!Boolean(videoElement)}
+                                            onClick={() => {
+                                                setIsPaused(!isPaused)
+                                            }}
                                             color="primary"
                                         >
                                             {isPaused ? <PlayCircleOutline/> : <PauseCircleOutlined/>}
@@ -636,9 +481,17 @@ export function VideoPage() {
 
                                     <Box>
                                         <Fab
-                                            disabled={!isInit || isPaused || indexActionNext >= str.length || indexActionNext === -1}
+                                            disabled={!Boolean(videoElement) || isPaused || indexActionNext >= str.length || indexActionNext === -1}
                                             size="small"
-                                            onClick={onClickNext}
+                                            onClick={() => {
+                                                if (indexAction !== indexActionNext) {
+                                                    clearInterval(intervalChangeIndex)
+                                                    seekTo(indexActionNext)
+                                                    if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
+                                                        setIndexActionSentence(indexActionNext)
+                                                    }
+                                                }
+                                            }}
                                             color="primary"
                                         >
                                             <SkipNextOutlined/>
@@ -676,18 +529,21 @@ export function VideoPage() {
                                     <ToggleButtonGroup
                                         size="small"
                                         color="primary"
+                                        disabled={isAfterStr}
                                         exclusive
                                         value={modePlayerState}
-                                        onChange={handleChangeModePlayer}
+                                        onChange={(event, newValue) => {
+                                            setModePlayerState(newValue);
+                                        }}
                                         aria-label="Group"
                                     >
                                         <Tooltip title={t('pages.video.t_video_mode_pause')} placement="top">
                                             <ToggleButton
-                                                selected={modePlayerState === 'sentencePause'}
+                                                selected={modePlayerState === 'sentencePause' && !isAfterStr}
                                                 value="sentencePause"
                                                 aria-label="bold"
                                                 onClick={() => {
-                                                    setIndexActionSentence(indexAction)
+                                                    setIndexActionSentence(indexAction === -1 ? indexActionNext : indexAction)
                                                 }}
                                             >
                                                 <AvTimerOutlined/>
@@ -696,11 +552,11 @@ export function VideoPage() {
 
                                         <Tooltip title={t('pages.video.t_video_mode_loop')} placement="top">
                                             <ToggleButton
-                                                selected={modePlayerState === 'sentenceLoop'}
+                                                selected={modePlayerState === 'sentenceLoop' && !isAfterStr}
                                                 value="sentenceLoop"
                                                 aria-label="bold"
                                                 onClick={() => {
-                                                    setIndexActionSentence(indexAction)
+                                                    setIndexActionSentence(indexAction === -1 ? indexActionNext : indexAction)
                                                 }}
                                             >
                                                 <LoopOutlined/>
@@ -717,12 +573,24 @@ export function VideoPage() {
 
                 </Box>
 
-                <Box className={'VideoText'} sx={{
-                    display: modeFrameState.includes('showText') ? 'auto' : 'none',
-                    textAlign: (modeAlignState.includes('alignJustify') ? 'justify' : (modeAlignState.includes('alignLeft') ? 'left' : 'center')),
-                }}>
-                    {content}
-                </Box>
+                {/*TEXT*/}
+                {modeFrameState.includes('isShowText') ? <StrText
+                    items={str}
+                    action={indexAction}
+                    language={language}
+                    isInit={Boolean(videoElement)}
+                    isPaused={isPaused}
+                    textAlign={textAlign}
+                    onClick={(index) => {
+                        if (modePlayerState === 'sentencePause' || modePlayerState === 'sentenceLoop') {
+                            setIndexActionSentence(index)
+                        } else {
+                            setIndexActionSentence(-1)
+                        }
+                        setIsPaused(false)
+                        seekTo(index)
+                    }}
+                /> : null}
 
             </Stack>
         </Container>

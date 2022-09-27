@@ -7,8 +7,8 @@ export const AppCache = {
     ////////////////////////////
     // Int
 
-    intGet: function (key) {
-        return parseInt(localStorage.getItem(key)) ?? 0
+    intGet: function (key, defaultValue = 0) {
+        return parseInt(localStorage.getItem(key)) ?? defaultValue
     },
 
     intSet: function (key, value) {
@@ -18,8 +18,8 @@ export const AppCache = {
     ////////////////////////////
     // String
 
-    stringGet: function (key) {
-        return localStorage.getItem(key)
+    stringGet: function (key, defaultValue = '') {
+        return localStorage.getItem(key) ?? defaultValue
     },
 
     stringSet: function (key, value) {
@@ -29,8 +29,8 @@ export const AppCache = {
     ////////////////////////////
     // Boolean
 
-    booleanGet: function (key) {
-        return localStorage.getItem(key) === 'true'
+    booleanGet: function (key, defaultValue = false) {
+        return localStorage.getItem(key) === null ? defaultValue : localStorage.getItem(key) === 'true'
     },
 
     booleanSet: function (key, value) {
