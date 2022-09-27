@@ -28,6 +28,7 @@ import {
     FormatAlignLeftOutlined,
     HourglassEmptyOutlined,
     LoopOutlined,
+    ManageHistoryOutlined,
     MoveUpOutlined,
     PauseCircleOutlined,
     PlayCircleOutline,
@@ -54,7 +55,8 @@ export function VideoPage() {
     // hooks
     const {y} = useWindowScroll()
     const {t} = useContext(LanguageContext)
-    const isSM = useMediaQuery(useTheme().breakpoints.down('sm'));
+    const isXS500 = useMediaQuery(useTheme().breakpoints.down('xs500'));
+    const isMin = useMediaQuery(useTheme().breakpoints.down('min'));
 
     // site dark mode
     const darkMode = useLocalStorage("darkMode", ValueType.bool, false);
@@ -248,134 +250,151 @@ export function VideoPage() {
                     </Typography>
                 </Stack>
 
-                <Stack spacing={1} direction={'row'}>
-
-                    {/*MODE*/}
-                    <ToggleButtonGroup
-                        size="small"
-                        color="primary"
-                        value={modeFrameState}
-                        onChange={(event, newValue) => {
-                            setModeFrameState(newValue);
-                        }}
-                        aria-label="Group"
+                {/*MODE*/}
+                <Stack
+                    spacing={3}
+                    direction={isXS500 ? 'column-reverse' : 'row'}
+                    justifyContent={'space-between'}
+                >
+                    <Stack
+                        spacing={1}
+                        direction={'row'}
                     >
-                        <Tooltip
-                            title={modeFrameState.includes('isShowVideo') ? t('pages.video.t_video_mode_video_hide') : t('pages.video.t_video_mode_video_show')}
-                            placement="top"
+                        <ToggleButtonGroup
+                            size="small"
+                            color="primary"
+                            value={modeFrameState}
+                            onChange={(event, newValue) => {
+                                setModeFrameState(newValue);
+                            }}
+                            aria-label="Group"
                         >
-                            <ToggleButton
-                                selected={modeFrameState.includes('isShowVideo')}
-                                value="isShowVideo"
-                                aria-label="bold"
+                            <Tooltip
+                                title={modeFrameState.includes('isShowVideo') ? t('pages.video.t_video_mode_video_hide') : t('pages.video.t_video_mode_video_show')}
+                                placement="top"
                             >
-                                <VideocamOutlined/>
-                            </ToggleButton>
-                        </Tooltip>
+                                <ToggleButton
+                                    selected={modeFrameState.includes('isShowVideo')}
+                                    value="isShowVideo"
+                                    aria-label="bold"
+                                >
+                                    <VideocamOutlined/>
+                                </ToggleButton>
+                            </Tooltip>
 
-                        <Tooltip
-                            title={modeFrameState.includes('isShowText') ? t('pages.video.t_video_mode_text_hide') : t('pages.video.t_video_mode_text_show')}
-                            placement="top"
+                            <Tooltip
+                                title={modeFrameState.includes('isShowText') ? t('pages.video.t_video_mode_text_hide') : t('pages.video.t_video_mode_text_show')}
+                                placement="top"
+                            >
+                                <ToggleButton
+                                    selected={modeFrameState.includes('isShowText')}
+                                    value="isShowText"
+                                    aria-label="bold"
+                                >
+                                    <TitleOutlined/>
+                                </ToggleButton>
+                            </Tooltip>
+
+                        </ToggleButtonGroup>
+
+                        <ToggleButtonGroup
+                            size="small"
+                            color="primary"
+                            value={textAlign}
+                            disabled={!modeFrameState.includes('isShowText')}
+                            exclusive
+                            onChange={(event, newValue) => {
+                                AppCache.booleanSet('VideoPage_textAlign', newValue)
+                            }}
+                            aria-label="Group"
                         >
-                            <ToggleButton
-                                selected={modeFrameState.includes('isShowText')}
-                                value="isShowText"
-                                aria-label="bold"
+                            <Tooltip
+                                title={t('pages.video.t_video_mode_align_justify')}
+                                placement="top"
                             >
-                                <TitleOutlined/>
-                            </ToggleButton>
-                        </Tooltip>
+                                <ToggleButton
+                                    selected={textAlign === 'justify' && modeFrameState.includes('isShowText')}
+                                    value="justify"
+                                    aria-label="bold"
+                                >
+                                    <FormatAlignJustifyOutlined/>
+                                </ToggleButton>
+                            </Tooltip>
 
-                    </ToggleButtonGroup>
+                            <Tooltip
+                                title={t('pages.video.t_video_mode_align_left')}
+                                placement="top"
+                            >
+                                <ToggleButton
+                                    selected={textAlign === 'left' && modeFrameState.includes('isShowText')}
+                                    value="left"
+                                    aria-label="bold"
+                                >
+                                    <FormatAlignLeftOutlined/>
+                                </ToggleButton>
+                            </Tooltip>
 
-                    <ToggleButtonGroup
-                        size="small"
-                        color="primary"
-                        value={textAlign}
-                        disabled={!modeFrameState.includes('isShowText')}
-                        exclusive
-                        onChange={(event, newValue) => {
-                            AppCache.booleanSet('VideoPage_textAlign', newValue)
-                        }}
-                        aria-label="Group"
-                    >
-                        <Tooltip
-                            title={t('pages.video.t_video_mode_align_justify')}
-                            placement="top"
+                        </ToggleButtonGroup>
+
+                        <ToggleButtonGroup
+                            size="small"
+                            color="primary"
+                            value={modeVisibleState}
+                            onChange={(event, newValue) => {
+                                setModeVisibleState(newValue);
+                            }}
+                            aria-label="Group"
                         >
-                            <ToggleButton
-                                selected={textAlign === 'justify' && modeFrameState.includes('isShowText')}
-                                value="justify"
-                                aria-label="bold"
+                            <Tooltip
+                                title={modeVisibleState.includes('isBlockAttach') ? t('pages.video.t_video_mode_unkeep') : t('pages.video.t_video_mode_keep')}
+                                placement="top"
                             >
-                                <FormatAlignJustifyOutlined/>
-                            </ToggleButton>
-                        </Tooltip>
+                                <ToggleButton
+                                    selected={modeVisibleState.includes('isBlockAttach')}
+                                    value='isBlockAttach'
+                                    aria-label="bold"
+                                >
+                                    <MoveUpOutlined/>
+                                </ToggleButton>
+                            </Tooltip>
 
-                        <Tooltip
-                            title={t('pages.video.t_video_mode_align_left')}
-                            placement="top"
+                            <Tooltip
+                                title={modeVisibleState.includes('darkMode') ? t('pages.video.t_video_mode_dark_disable') : t('pages.video.t_video_mode_dark_enable')}
+                                placement="top"
+                            >
+                                <ToggleButton
+                                    selected={modeVisibleState.includes('darkMode')}
+                                    value="darkMode"
+                                    aria-label="bold"
+                                >
+                                    <Brightness6Outlined/>
+                                </ToggleButton>
+                            </Tooltip>
+
+                        </ToggleButtonGroup>
+                    </Stack>
+
+                    <FormControl size="small" sx={{
+                        minWidth: '130px'
+                    }}>
+                        <InputLabel
+                            id="demo-simple-select-label">{t('pages.video.t_video_mode_language')}</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={language}
+                            label={t('pages.video.t_video_mode_language')}
+                            onChange={(event) => {
+                                setLanguage(event.target.value)
+                            }}
                         >
-                            <ToggleButton
-                                selected={textAlign === 'left' && modeFrameState.includes('isShowText')}
-                                value="left"
-                                aria-label="bold"
-                            >
-                                <FormatAlignLeftOutlined/>
-                            </ToggleButton>
-                        </Tooltip>
-
-                        <Tooltip
-                            title={t('pages.video.t_video_mode_align_center')}
-                            placement="top"
-                        >
-                            <ToggleButton
-                                selected={textAlign === 'center' && modeFrameState.includes('isShowText')}
-                                value="center"
-                                aria-label="bold"
-                            >
-                                <FormatAlignCenterOutlined/>
-                            </ToggleButton>
-                        </Tooltip>
-
-                    </ToggleButtonGroup>
-
-                    <ToggleButtonGroup
-                        size="small"
-                        color="primary"
-                        value={modeVisibleState}
-                        onChange={(event, newValue) => {
-                            setModeVisibleState(newValue);
-                        }}
-                        aria-label="Group"
-                    >
-                        <Tooltip
-                            title={modeVisibleState.includes('isBlockAttach') ? t('pages.video.t_video_mode_unkeep') : t('pages.video.t_video_mode_keep')}
-                            placement="top"
-                        >
-                            <ToggleButton
-                                selected={modeVisibleState.includes('isBlockAttach')}
-                                value='isBlockAttach'
-                                aria-label="bold"
-                            >
-                                <MoveUpOutlined/>
-                            </ToggleButton>
-                        </Tooltip>
-
-                        <Tooltip
-                            title={modeVisibleState.includes('darkMode') ? t('pages.video.t_video_mode_dark_disable') : t('pages.video.t_video_mode_dark_enable')}
-                            placement="top"
-                        >
-                            <ToggleButton
-                                selected={modeVisibleState.includes('darkMode')}
-                                value="darkMode"
-                                aria-label="bold"
-                            >
-                                <Brightness6Outlined/>
-                            </ToggleButton>
-                        </Tooltip>
-
-                    </ToggleButtonGroup>
+                            {Object.keys(data.str).map((option) => (
+                                <MenuItem key={`cat-${option}`} value={option}>
+                                    {option}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </Stack>
 
                 {/*VIDEO BOX*/}
@@ -460,14 +479,14 @@ export function VideoPage() {
                             padding: 2
                         }}>
                             <Stack
-                                spacing={2}
-                                alignItems={isSM ? 'auto' : 'center'}
-                                direction={isSM ? 'column' : 'row'}
+                                spacing={1}
+                                alignItems={'center'}
+                                direction={'row'}
                                 justifyContent='space-between'
                             >
 
                                 <Stack
-                                    spacing={2}
+                                    spacing={1}
                                     direction={'row'}
                                     alignItems="center"
                                     justifyContent='space-between'
@@ -494,6 +513,7 @@ export function VideoPage() {
 
                                     <Box>
                                         <Fab
+                                            size={isMin ? 'small' : 'large'}
                                             disabled={!Boolean(videoElement)}
                                             onClick={() => {
                                                 setIsPaused(!isPaused)
@@ -535,25 +555,7 @@ export function VideoPage() {
                                     alignItems="center"
                                     justifyContent='flex-end'
                                 >
-                                    <FormControl size="small">
-                                        <InputLabel
-                                            id="demo-simple-select-label">{t('pages.video.t_video_mode_language')}</InputLabel>
-                                        <Select
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            value={language}
-                                            label={t('pages.video.t_video_mode_language')}
-                                            onChange={(event) => {
-                                                setLanguage(event.target.value)
-                                            }}
-                                        >
-                                            {Object.keys(data.str).map((option) => (
-                                                <MenuItem key={`cat-${option}`} value={option}>
-                                                    {option}
-                                                </MenuItem>
-                                            ))}
-                                        </Select>
-                                    </FormControl>
+
 
                                     <ToggleButtonGroup
                                         size="small"
