@@ -235,7 +235,9 @@ export function VideoPage() {
     return (
         <Container className={'VideoContent'} maxWidth={"md"}>
 
-            <Stack spacing={3}>
+            <Stack spacing={3} sx={{
+                position: 'relative'
+            }}>
 
                 <Stack spacing={1}>
                     <Typography variant="h5" color="text.primary">
@@ -379,15 +381,18 @@ export function VideoPage() {
                 {/*VIDEO BOX*/}
                 <Box
                     ref={boxYouTubeFrameRef}
-                    className={'BoxYouTubeMove' + (modeFrameState.includes('isShowVideo') ? '' : ' Audio')}
+                    className={[
+                        'BoxYouTubeMove',
+                        (modeVisibleState.includes('isBlockAttach') && y > boxYouTubeFrameRef.current?.offsetTop ? 'isSticky' : ''),
+                    ].join(' ')}
                     sx={{
                         marginTop: '0px !important'
                     }}
                 >
                     <Box
-                        className={'BoxYouTubeFrame' + (modeVisibleState.includes('isBlockAttach') && y > boxYouTubeFrameRef.current?.offsetTop ? ' Fix' : '')}
+                        className={'BoxYouTubeFrame'}
                     >
-                        <Box sx={{
+                        <Box className={'LineFrame'} sx={{
                             height: '40px',
                             backgroundColor: 'background.default',
                             marginBottom: '-10px'

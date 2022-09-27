@@ -1,22 +1,18 @@
+.Video-Page .VideoContent {
+  position: relative;
+}
+
 .Video-Page .BoxYouTubeMove {
   position: relative;
   z-index: 1;
-  height: 600px;
 }
 
-.Video-Page .BoxYouTubeMove.Audio {
-  height: 120px !important;
-}
-
-.Video-Page .BoxYouTubeFrame.Fix {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  max-width: 867px;
+.Video-Page .BoxYouTubeMove.isSticky {
+  position: sticky;
   top: 0;
   right: 0;
   left: 0;
-  scrollbar-gutter: stable;
+  width: 100%;
 }
 
 .Video-Page .BoxYouTubeFrameRad {
@@ -126,72 +122,45 @@
   opacity: 1;
 }
 
-@media (max-width: 940px) {
-  .Video-Page .BoxYouTubeFrame.Fix {
-    width: calc(100% - 48px);
-  }
-}
-
-@media (max-width: 600px) {
-  .Video-Page .BoxYouTubeFrame.Fix {
-    width: calc(100% - 32px);
-  }
-  .Video-Page .BoxYouTubeMove.Audio {
-    height: 175px !important;
-  }
-}
-
 @media (max-width: 800px) {
-  .Video-Page .BoxYouTubeMove {
-    height: 575px;
-  }
-  .Video-Page .BoxYouTubeFrame .IFrame {
-    height: 450px;
+  .Video-Page .BoxYouTubeFrameRad {
+    height: 415px;
   }
 }
 
 @media (max-width: 700px) {
-  .Video-Page .BoxYouTubeMove {
-    height: 525px;
-  }
-  .Video-Page .BoxYouTubeFrame .IFrame {
-    height: 400px;
+  .Video-Page .BoxYouTubeFrameRad {
+    height: 360px;
   }
 }
 
 @media (max-width: 600px) {
-  .Video-Page .BoxYouTubeMove {
-    height: 530px;
-  }
-  .Video-Page .BoxYouTubeFrame .IFrame {
-    height: 350px;
-  }
-}
-
-@media (max-width: 500px) {
-  .Video-Page .BoxYouTubeMove {
-    height: 480px;
-  }
-  .Video-Page .BoxYouTubeFrame .IFrame {
+  .Video-Page .BoxYouTubeFrameRad {
     height: 300px;
   }
 }
 
-@media (max-width: 400px) {
-  .Video-Page .BoxYouTubeMove {
-    height: 430px;
+@media (max-width: 500px) {
+  .Video-Page .BoxYouTubeFrameRad {
+    height: 255px;
   }
-  .Video-Page .BoxYouTubeFrame .IFrame {
-    height: 250px;
+}
+
+@media (max-width: 450px) {
+  .Video-Page .BoxYouTubeFrameRad {
+    height: 211px;
+  }
+}
+
+@media (max-width: 400px) {
+  .Video-Page .BoxYouTubeFrameRad {
+    height: 200px;
   }
 }
 
 @media (max-width: 350px) {
-  .Video-Page .BoxYouTubeMove {
-    height: 380px;
-  }
-  .Video-Page .BoxYouTubeFrame .IFrame {
-    height: 200px;
+  .Video-Page .BoxYouTubeFrameRad {
+    height: 170px;
   }
   .Video-Page .VideoContent .VideoText {
     line-height: 33px;
