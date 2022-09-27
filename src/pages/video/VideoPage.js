@@ -25,7 +25,7 @@ import {
     Brightness6Outlined,
     FormatAlignCenterOutlined,
     FormatAlignJustifyOutlined,
-    FormatAlignLeftOutlined,
+    FormatAlignLeftOutlined, HourglassEmptyOutlined,
     LoopOutlined,
     MoveUpOutlined,
     PauseCircleOutlined,
@@ -39,7 +39,7 @@ import {AppCache, LanguageContext, useLocalStorage, useWindowScroll} from "../..
 import {useParams} from "react-router";
 import {YouTubeData} from "./data/YouTubeData";
 import {AppUtils} from "../../base/utils/AppUtils";
-import {StrText} from "../videos/elements/StrText";
+import {StrText} from "./elements/StrText";
 import {ValueType} from "../../base/route/ValueType";
 
 let intervalChangeIndex = null;
@@ -488,7 +488,11 @@ export function VideoPage() {
                                             }}
                                             color="primary"
                                         >
-                                            {isPaused ? <PlayCircleOutline/> : <PauseCircleOutlined/>}
+                                            {Boolean(videoElement) ? (
+                                                isPaused ? <PlayCircleOutline/> : <PauseCircleOutlined/>
+                                            ) : (
+                                                <HourglassEmptyOutlined/>
+                                            )}
                                         </Fab>
                                     </Box>
 
@@ -590,6 +594,7 @@ export function VideoPage() {
                 {modeFrameState.includes('isShowText') ? <StrText
                     items={str}
                     action={indexAction}
+                    nextAction={indexActionNext}
                     language={language}
                     isInit={Boolean(videoElement)}
                     isPaused={isPaused}

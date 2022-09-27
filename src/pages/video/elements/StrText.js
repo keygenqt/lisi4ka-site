@@ -12,6 +12,7 @@ export function StrText(props) {
     const {
         items = [],
         action = 0,
+        nextAction = 0,
         language = 'English',
         isInit = false,
         isPaused = true,
@@ -116,6 +117,7 @@ export function StrText(props) {
                 index={index}
                 item={item}
                 action={action}
+                nextAction={nextAction !== -1 && action === -1 ? nextAction : -1}
                 language={language}
                 isInit={isInit}
                 isPaused={isPaused}
@@ -155,6 +157,7 @@ export function StrText(props) {
 StrText.propTypes = {
     items: PropTypes.array.isRequired,
     action: PropTypes.number.isRequired,
+    nextAction: PropTypes.number.isRequired,
     language: PropTypes.string.isRequired,
     isInit: PropTypes.bool.isRequired,
     isPaused: PropTypes.bool.isRequired,
@@ -169,23 +172,26 @@ function _TextItem(props) {
         item,
         index,
         action,
+        nextAction,
         isPaused,
         onClick,
         onContextMenu,
     } = props
 
-    // hooks
     const darkMode = useLocalStorage("darkMode", ValueType.bool);
+
+    const isAction = index === action
+    const isNext = index === nextAction && index !== 0
 
     return (<Typography
         key={`item-${index}`}
-        className={isPaused && index === action ? 'Pause' : ''}
+        className={[(isPaused && isAction ? 'Pause' : ''), (isNext ? 'Next' : '')].join(' ')}
         sx={darkMode ? {
-            backgroundColor: index === action ? '#dedede' : '#444444',
-            color: index === action ? '#252525' : '#f1f1f1',
+            backgroundColor: isAction ? '#dedede' : '#444444',
+            color: isAction ? '#252525' : '#f1f1f1',
         } : {
-            backgroundColor: index === action ? '#444444' : '#e9e9e9',
-            color: index === action ? '#ffffff' : '#000000',
+            backgroundColor: isAction ? '#444444' : '#e9e9e9',
+            color: isAction ? '#ffffff' : '#000000',
         }}
         onClick={onClick}
         onContextMenu={onContextMenu}

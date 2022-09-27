@@ -101,10 +101,29 @@
   -ms-user-select: none;
   user-select: none;
   position: relative;
+  transition-duration: 300ms;
 }
 
 .Video-Page .VideoContent .VideoText p.Pause {
   opacity: 0.6;
+}
+
+.Video-Page .VideoContent .VideoText p:after {
+  content: "";
+  border-radius: 8px;
+  position: absolute;
+  display: inline;
+  width: 6px;
+  height: 6px;
+  top: 10px;
+  left: -3px;
+  background: #51c0ff;
+  transition-duration: 200ms;
+  opacity: 0;
+}
+
+.Video-Page .VideoContent .VideoText p.Next:after {
+  opacity: 1;
 }
 
 @media (max-width: 940px) {
