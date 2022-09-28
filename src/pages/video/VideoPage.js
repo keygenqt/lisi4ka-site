@@ -469,7 +469,15 @@ export function VideoPage() {
 
                                 <Box className={'ShadowPreview'}/>
 
-
+                                {!Boolean(videoElement) ? (
+                                    <Stack align={'center'} className={'Loader'}>
+                                        <Zoom timeout={1000} in={true} sx={{
+                                            height: '100%'
+                                        }}>
+                                            <CircularProgress color={'info'}/>
+                                        </Zoom>
+                                    </Stack>
+                                ) : null}
 
                             </Box>
                         </Box>

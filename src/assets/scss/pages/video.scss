@@ -63,6 +63,17 @@
   background: linear-gradient(180deg, #3e486217 0%, #283044de 100%);
 }
 
+.Video-Page .BoxYouTubeFrame .ContainerButton .Loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .Video-Page .BoxYouTubeFrame .ContainerButton .MuiCircularProgress-root {
   width: 70px !important;
   height: 70px !important;
