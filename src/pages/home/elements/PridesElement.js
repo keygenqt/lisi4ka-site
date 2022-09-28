@@ -24,9 +24,20 @@ export function PridesElement(props) {
                         {t('pages.home.t_prides_subtitle')}
                     </Typography>
 
-                    <Grid container spacing={0} rowSpacing={3}>
+                    <Grid container spacing={0} rowSpacing={3} sx={{
+                        '& .MuiGrid-item': {
+                            '@media (max-width: 420px)': {
+                                width: '50%'
+                            }
+                        },
+                        '& .MuiTypography-caption': {
+                            '@media (max-width: 420px)': {
+                                whiteSpace: 'pre'
+                            }
+                        }
+                    }}>
 
-                        <Grid item xl={3} lg={3} md={3} sm={3} xs={6}>
+                        <Grid item xl={3} lg={3} md={3} sm={6} xs={6}>
                             <Stack spacing={1}>
                                 <Box className={'SvgIcon'}>
                                     <AccessTimeOutlined color={'error'}/>
@@ -44,7 +55,7 @@ export function PridesElement(props) {
                             </Stack>
                         </Grid>
 
-                        <Grid item xl={3} lg={3} md={3} sm={3} xs={6}>
+                        <Grid item xl={3} lg={3} md={3} sm={6} xs={6}>
                             <Stack spacing={1}>
                                 <Box className={'SvgIcon'}>
                                     <Diversity1Outlined color={'warning'}/>
@@ -62,7 +73,7 @@ export function PridesElement(props) {
                             </Stack>
                         </Grid>
 
-                        <Grid item xl={3} lg={3} md={3} sm={3} xs={6}>
+                        <Grid item xl={3} lg={3} md={3} sm={6} xs={6}>
                             <Stack spacing={1}>
 
                                 <Box className={'SvgIcon'}>
@@ -81,7 +92,7 @@ export function PridesElement(props) {
                             </Stack>
                         </Grid>
 
-                        <Grid item xl={3} lg={3} md={3} sm={3} xs={6}>
+                        <Grid item xl={3} lg={3} md={3} sm={6} xs={6}>
                             <Stack spacing={1}>
                                 <Box className={'SvgIcon'}>
                                     <MonitorHeartOutlined color={'success'}/>

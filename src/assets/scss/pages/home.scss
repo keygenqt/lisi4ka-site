@@ -396,6 +396,9 @@
   .ItemAboutMeContainer h1.title {
     font-size: 60px;
   }
+  .ItemAboutMeContainer h1.title:after {
+    top: 42px;
+  }
   .ItemAboutMeContainer .title:before {
     top: 41px;
   }
@@ -464,13 +467,16 @@
     font-size: 60px;
   }
   .ItemProudContainer .title:after {
-    top: 41px;
+    top: 42px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 470px) {
+  .ItemProudContainer .title {
+    width: 100%;
+  }
   .ItemProudContainer .title:after {
-    top: 101px;
+    display: none;
   }
 }
 
