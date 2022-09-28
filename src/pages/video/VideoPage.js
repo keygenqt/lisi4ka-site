@@ -470,14 +470,12 @@ export function VideoPage() {
                                         backgroundImage: `url(https://img.youtube.com/vi/${data.idYouTube}/sddefault.jpg)`
                                     }}>
                                         <Stack className={'ContainerButtonItems'} alignItems={"center"}>
-                                            {!Boolean(videoElement) ? (
+                                            {!Boolean(videoElement) || true ? (
                                                 <Zoom timeout={1000} in={true}>
                                                     <CircularProgress color={'warning'}/>
                                                 </Zoom>
                                             ) : (
-                                                <Zoom timeout={1000} in={true}>
-                                                    <Box sx={{height: 20, width: 20}}/>
-                                                </Zoom>
+                                                <Box sx={{height: 70, width: 70}}/>
                                             )}
                                         </Stack>
                                     </Box>
