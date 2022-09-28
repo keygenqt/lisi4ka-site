@@ -1,19 +1,7 @@
 import * as React from 'react';
 import {useContext} from 'react';
-import {
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    CardMedia,
-    Container,
-    Grid,
-    IconButton,
-    Paper,
-    Stack,
-    Typography
-} from "@mui/material";
-import {Favorite, Share, Shop} from "@mui/icons-material";
+import {Button, Card, CardContent, CardMedia, Container, Grid, Paper, Stack, Typography} from "@mui/material";
+import {Shop} from "@mui/icons-material";
 import {ConstantImages, LanguageContext} from "../../../base";
 
 function CardItem(props) {

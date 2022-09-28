@@ -478,7 +478,7 @@
 /** ITEM Start ***********/
 /*************************/
 .ItemStartContainer {
-  padding: 120px 0 180px;
+  padding: 120px 0 120px;
   text-align: center;
 }
 
@@ -496,6 +496,7 @@
 }
 
 .ItemStartContainer .StartBlock {
+  display: none;
   text-align: left;
   position: absolute;
   bottom: -260px;
@@ -523,7 +524,6 @@
 
 @media (max-width: 1000px) {
   .ItemStartContainer {
-    padding: 90px 0 110px;
     text-align: center;
   }
   .ItemStartContainer .StartBlock {
@@ -533,7 +533,7 @@
 
 @media (max-width: 700px) {
   .ItemStartContainer {
-    padding: 60px 0 110px;
+    padding: 60px 0 60px;
     text-align: center;
   }
   .ItemStartContainer .StartBlock {
@@ -543,7 +543,7 @@
 
 @media (max-width: 500px) {
   .ItemStartContainer {
-    padding: 60px 0 90px;
+    padding: 60px 0 60px;
     text-align: center;
   }
   .ItemStartContainer .StartBlock {
@@ -554,7 +554,7 @@
 
 @media (max-width: 450px) {
   .ItemStartContainer {
-    padding: 60px 0 110px;
+    padding: 60px 0 60px;
   }
   .ItemStartContainer .StartBlock .Content {
     display: block;

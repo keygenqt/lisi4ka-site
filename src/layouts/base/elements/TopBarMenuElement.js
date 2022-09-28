@@ -20,17 +20,16 @@ import {
 } from "@mui/material";
 import {
     ArrowDropDown,
-    BookOutlined,
     CloseOutlined,
     ExpandLess,
     ExpandMore,
+    Face3Outlined,
     MenuOutlined,
-    PlayCircleOutline,
-    YouTube,
     ReceiptLong,
     ReceiptOutlined,
     Settings,
-    TranslateOutlined, OndemandVideoOutlined, Face3Outlined
+    TranslateOutlined,
+    YouTube
 } from "@mui/icons-material";
 import {Link} from "react-router-dom";
 import {ConstantImages, LanguageContext, NavigateContext, useLocalStorage, useWindowResize} from "../../../base";
@@ -49,7 +48,6 @@ export function TopBarMenuElement(props) {
     // State menu list
     const [collapseState, setCollapseState] = React.useState(false);
     const [subMenuOpenBlog, setSubMenuOpenBlog] = React.useState(false);
-    const [subMenuOpenYouTube, setSubMenuOpenYouTube] = React.useState(false);
 
     // menu blog
     const [openBlog, setOpenBlog] = React.useState(false);

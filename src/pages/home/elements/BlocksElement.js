@@ -3,16 +3,17 @@ import {useContext} from 'react';
 import {Box, Container, Fab, Grid, Paper, Stack, Typography} from "@mui/material";
 import {
     ArrowForward,
-    MenuBookOutlined,
     NotificationsOutlined,
     PlayCircleOutlined,
+    ReceiptLongOutlined,
     TranslateOutlined
 } from "@mui/icons-material";
-import {LanguageContext} from "../../../base";
+import {LanguageContext, NavigateContext} from "../../../base";
 
 export function BlocksElement(props) {
 
     const {t} = useContext(LanguageContext)
+    const {route, routes} = useContext(NavigateContext)
 
     return (
         <Box className={'ItemBlocksContainer'} sx={{
@@ -41,7 +42,7 @@ export function BlocksElement(props) {
                             backgroundColor: 'info.dark'
                         }}>
                             <Stack spacing={3}>
-                                <TranslateOutlined/>
+                                <PlayCircleOutlined/>
 
                                 <Typography gutterBottom variant="h5">
                                     {t('pages.home.t_blocks_item1_title')}
@@ -52,7 +53,9 @@ export function BlocksElement(props) {
                                         {t('pages.home.t_blocks_item1_text')}
                                     </Typography>
 
-                                    <Fab>
+                                    <Fab onClick={() => {
+                                        route.toLocation(routes.videos)
+                                    }}>
                                         <ArrowForward/>
                                     </Fab>
                                 </Box>
@@ -77,7 +80,9 @@ export function BlocksElement(props) {
                                         {t('pages.home.t_blocks_item2_text')}
                                     </Typography>
 
-                                    <Fab>
+                                    <Fab onClick={() => {
+                                        route.toLocation(routes.blogReviews)
+                                    }}>
                                         <ArrowForward/>
                                     </Fab>
                                 </Box>
@@ -89,7 +94,7 @@ export function BlocksElement(props) {
                             backgroundColor: 'success.dark'
                         }}>
                             <Stack spacing={3}>
-                                <PlayCircleOutlined/>
+                                <ReceiptLongOutlined/>
 
                                 <Typography gutterBottom variant="h5">
                                     {t('pages.home.t_blocks_item3_title')}
@@ -101,7 +106,9 @@ export function BlocksElement(props) {
                                         {t('pages.home.t_blocks_item3_text')}
                                     </Typography>
 
-                                    <Fab>
+                                    <Fab onClick={() => {
+                                        route.toLocation(routes.blogArticles)
+                                    }}>
                                         <ArrowForward/>
                                     </Fab>
                                 </Box>
@@ -113,7 +120,7 @@ export function BlocksElement(props) {
                             backgroundColor: 'error.dark'
                         }}>
                             <Stack spacing={3}>
-                                <MenuBookOutlined/>
+                                <TranslateOutlined/>
 
                                 <Typography gutterBottom variant="h5">
                                     {t('pages.home.t_blocks_item4_title')}
@@ -124,7 +131,9 @@ export function BlocksElement(props) {
                                         {t('pages.home.t_blocks_item4_text')}
                                     </Typography>
 
-                                    <Fab>
+                                    <Fab onClick={() => {
+                                        route.toLocation(routes.videos)
+                                    }}>
                                         <ArrowForward/>
                                     </Fab>
                                 </Box>
