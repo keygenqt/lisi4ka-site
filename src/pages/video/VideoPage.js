@@ -428,7 +428,7 @@ export function VideoPage() {
                                 display: modeFrameState.includes('isShowVideo') ? 'block' : 'none',
                                 borderTopRightRadius: '10px',
                                 borderTopLeftRadius: '10px',
-                                borderRadius: '10px',
+                                borderRadius: '50px',
                                 overflow: 'hidden',
                                 position: 'relative'
                             }}
@@ -473,12 +473,8 @@ export function VideoPage() {
                                 <Box className={'ShadowPreview'}/>
 
                                 {!Boolean(videoElement) ? (
-                                    <Stack align={'center'} className={'Loader'}>
-                                        <Zoom timeout={1000} in={true} sx={{
-                                            height: '100%'
-                                        }}>
-                                            <CircularProgress color={'info'}/>
-                                        </Zoom>
+                                    <Stack className={'Loader'}>
+                                        <CircularProgress color={'info'}/>
                                     </Stack>
                                 ) : null}
 
