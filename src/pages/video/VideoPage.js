@@ -474,7 +474,7 @@ export function VideoPage() {
                                                 <Zoom timeout={1000} in={true}>
                                                     <CircularProgress color={'warning'}/>
                                                 </Zoom>
-                                            ) : null}
+                                            ) : ' '}
                                         </Stack>
                                     </Box>
                                 </Box>
