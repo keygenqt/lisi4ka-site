@@ -474,7 +474,12 @@ export function VideoPage() {
 
                             <Box className={'ContainerButton'} sx={{
                                 display: (isShowImagePreview ? 'block' : 'none'),
-                                backgroundImage: `url(https://img.youtube.com/vi/${data.idYouTube}/sddefault.jpg)`
+                                backgroundImage: `url(https://img.youtube.com/vi/${data.idYouTube}/sddefault.jpg)`,
+                                borderTopRightRadius: '10px',
+                                borderTopLeftRadius: '10px',
+                                borderRadius: '10px',
+                                overflow: 'hidden',
+                                position: 'relative'
                             }}>
 
                                 <Box className={'ShadowPreview'}/>
