@@ -470,7 +470,7 @@ export function VideoPage() {
                                         backgroundImage: `url(https://img.youtube.com/vi/${data.idYouTube}/sddefault.jpg)`
                                     }}>
                                         <Stack className={'ContainerButtonItems'} alignItems={"center"}>
-                                            {!Boolean(videoElement) || true ? (
+                                            {!Boolean(videoElement) ? (
                                                 <Zoom timeout={1000} in={true}>
                                                     <CircularProgress color={'warning'}/>
                                                 </Zoom>
