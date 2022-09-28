@@ -463,7 +463,7 @@ export function VideoPage() {
                             />
 
                             <Box className={'ContainerButton AppTable'} sx={{
-                                display: (isShowImagePreview ? 'auto' : 'none')
+                                display: (isShowImagePreview ? 'table' : 'none')
                             }}>
                                 <Box className={'AppTableRow'}>
                                     <Box className={'AppTableCell'} sx={{
