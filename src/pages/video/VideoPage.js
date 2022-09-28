@@ -469,18 +469,7 @@ export function VideoPage() {
 
                                 <Box className={'ShadowPreview'}/>
 
-                                {!Boolean(videoElement) ? (
-                                    <Box className={'AppTable'} sx={{
-                                        position: 'relative',
-                                        zIndex: 1
-                                    }}>
-                                        <Box className={'AppTableRow'}>
-                                            <Box className={'AppTableCell'}>
-                                                <CircularProgress color={'info'}/>
-                                            </Box>
-                                        </Box>
-                                    </Box>
-                                ) : null}
+
 
                             </Box>
                         </Box>
