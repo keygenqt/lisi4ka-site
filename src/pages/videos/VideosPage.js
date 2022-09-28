@@ -166,7 +166,7 @@ export function VideosPage() {
                                     }} animationData={ConstantLottie.empty}/>
                                 </Stack>
                             ) : (
-                                <Stack spacing={4}>
+                                <Stack spacing={1}>
 
                                     <Masonry columns={isMD ? (isSM ? 1 : 2) : 3} spacing={4}>
                                         {content}

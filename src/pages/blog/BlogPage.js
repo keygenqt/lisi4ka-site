@@ -178,7 +178,9 @@ export function BlogPage(props) {
     };
 
     return (
-        <Stack className={'BlogContent'}>
+        <Stack className={'BlogContent'} sx={{
+            marginBottom: pagesCount > 1 ? '36px' : '60px'
+        }}>
             <Box className={'BlogTitleHeader'} sx={{
                 backgroundColor: 'secondary.main'
             }}>
