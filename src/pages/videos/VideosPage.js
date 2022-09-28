@@ -162,10 +162,15 @@ export function VideosPage() {
                                     {content}
                                 </Masonry>
 
-                                <Box ref={loadingRef}>
+                                <Box ref={loadingRef} sx={{
+                                    marginTop: loading ? 'auto' : '0 !important'
+                                }}>
                                     {loading ? (
                                         <Zoom timeout={1000} in={true}>
-                                            <Stack alignItems={"center"}>
+                                            <Stack alignItems={"center"} sx={{
+                                                position: 'relative',
+                                                top: '-10px'
+                                            }}>
                                                 <CircularProgress/>
                                             </Stack>
                                         </Zoom>

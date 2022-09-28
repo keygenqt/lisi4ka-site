@@ -1,5 +1,5 @@
 .Videos-Page .VideosContent {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .Videos-Page .MuiMasonry-root {
@@ -57,6 +57,13 @@
   bottom: 10px;
   right: 10px;
 }
+
+@media (max-width: 900px) {
+  .Videos-Page .Filter {
+    display: none;
+  }
+}
+
 
 @media (max-width: 450px) {
   .Videos-Page .VideosContent .VideosTitleHeader .Lottie {
