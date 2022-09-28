@@ -428,7 +428,6 @@ export function VideoPage() {
                                 display: modeFrameState.includes('isShowVideo') ? 'block' : 'none',
                                 borderTopRightRadius: '10px',
                                 borderTopLeftRadius: '10px',
-                                borderRadius: '10px',
                                 overflow: 'hidden',
                                 position: 'relative'
                             }}
