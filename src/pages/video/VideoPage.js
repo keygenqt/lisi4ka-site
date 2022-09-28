@@ -476,9 +476,7 @@ export function VideoPage() {
                                     }}>
                                         <Box className={'AppTableRow'}>
                                             <Box className={'AppTableCell'}>
-                                                <Zoom timeout={1000} in={true}>
-                                                    <CircularProgress color={'info'}/>
-                                                </Zoom>
+                                                <CircularProgress color={'info'}/>
                                             </Box>
                                         </Box>
                                     </Box>
