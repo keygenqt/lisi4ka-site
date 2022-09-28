@@ -419,14 +419,15 @@ export function VideoPage() {
                         className={'BoxYouTubeFrame'}
                     >
                         <Box className={'LineFrame'} sx={{
-                            height: '40px',
+                            height: '30px',
                             backgroundColor: 'background.default',
-                            marginBottom: '-10px'
                         }}/>
 
                         <Box
                             sx={{
                                 display: modeFrameState.includes('isShowVideo') ? 'block' : 'none',
+                                borderTopRightRadius: '10px',
+                                borderTopLeftRadius: '10px',
                                 borderRadius: '10px',
                                 overflow: 'hidden',
                                 position: 'relative'
