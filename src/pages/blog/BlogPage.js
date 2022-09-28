@@ -227,7 +227,7 @@ export function BlogPage(props) {
                                             setPage(value);
                                         }}
                                         size={isMD ? 'small' : 'medium'}
-                                        count={Math.round(filterData.length / 2.0)}
+                                        count={pagesCount}
                                         renderItem={(item) => (
                                             <PaginationItem
                                                 components={{previous: ArrowBackOutlined, next: ArrowForwardOutlined}}
@@ -318,7 +318,7 @@ export function BlogPage(props) {
                                                 <FormControlLabel
                                                     value="item_2"
                                                     control={<Radio/>}
-                                                    label={t('pages.blog.t_filter_sort_item_3')}
+                                                    label={t('pages.blog.t_filter_sort_item_2')}
                                                 />
                                             </RadioGroup>
                                         </FormControl>

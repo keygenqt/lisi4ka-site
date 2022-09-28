@@ -23,12 +23,10 @@ import YouTube from "react-youtube";
 import {
     AvTimerOutlined,
     Brightness6Outlined,
-    FormatAlignCenterOutlined,
     FormatAlignJustifyOutlined,
     FormatAlignLeftOutlined,
     HourglassEmptyOutlined,
     LoopOutlined,
-    ManageHistoryOutlined,
     MoveUpOutlined,
     PauseCircleOutlined,
     PlayCircleOutline,
@@ -39,7 +37,7 @@ import {
 } from "@mui/icons-material";
 import {AppCache, LanguageContext, useLocalStorage, useWindowScroll} from "../../base";
 import {useParams} from "react-router";
-import {YouTubeData} from "./data/YouTubeData";
+import {YouTubeData} from "../videos/data/YouTubeData";
 import {AppUtils} from "../../base/utils/AppUtils";
 import {StrText} from "./elements/StrText";
 import {ValueType} from "../../base/route/ValueType";

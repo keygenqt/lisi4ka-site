@@ -141,8 +141,7 @@ export const enLocalization = {
                 't_filter_types_item_2': 'Reviews',
                 't_filter_sort_title': 'Sort',
                 't_filter_sort_item_1': 'Recently added',
-                't_filter_sort_item_3': 'Alphabetically',
-                't_filter_sort_item_2': 'Most likes',
+                't_filter_sort_item_2': 'Alphabetically',
                 't_books_btn_read': 'Read',
             },
             videos: {
@@ -151,11 +150,16 @@ export const enLocalization = {
                     'Watch, read, study what your favorite blogger said. Listen or read books.',
                 't_videos_search': 'Search...',
                 't_videos_btn_read': 'Open',
+
+                't_filter_types_title': 'Levels',
+                't_filter_types_item_1': 'Level 1',
+                't_filter_types_item_2': 'Level 2',
+                't_filter_types_item_3': 'Level 3',
+
                 't_filter_title': 'Configuration',
                 't_filter_sort_title': 'Sort',
-                't_filter_sort_item_1': 'Recently added',
-                't_filter_sort_item_3': 'Alphabetically',
-                't_filter_sort_item_2': 'Most likes',
+                't_filter_sort_item_1': 'By Date',
+                't_filter_sort_item_2': 'Alphabetically',
             },
             video: {
                 't_video_mode_pause': 'Pause after a sentence',
