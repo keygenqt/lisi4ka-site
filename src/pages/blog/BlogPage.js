@@ -32,7 +32,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Lottie from "lottie-react";
 import {ConstantLottie} from "../../base/constants/ConstantLottie";
 import {BlogData} from "./data/BlogData";
-import {AppUtils} from "../../base/utils/AppUtils";
 
 function CardItemArticle(props) {
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useContext} from 'react';
 import PropTypes from "prop-types";
-import {Stack, useTheme} from "@mui/material";
+import {useTheme} from "@mui/material";
 import {FooterElement} from "./elements/FooterElement";
 import {TopBarMenuElement} from "./elements/TopBarMenuElement";
 import {LanguageContext} from "../../base";

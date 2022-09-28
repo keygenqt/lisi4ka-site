@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Container, Stack, Typography} from "@mui/material";
+import {Container, Stack} from "@mui/material";
 import Lottie from "lottie-react";
 import {ConstantLottie} from "../../base/constants/ConstantLottie";
 
