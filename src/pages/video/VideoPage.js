@@ -462,24 +462,28 @@ export function VideoPage() {
                                 }}
                             />
 
-                            <Box className={'ContainerButton AppTable'} sx={{
-                                display: (isShowImagePreview ? 'table' : 'none')
+                            <Box className={'ContainerButton'} sx={{
+                                display: (isShowImagePreview ? 'block' : 'none'),
+                                backgroundImage: `url(https://img.youtube.com/vi/${data.idYouTube}/sddefault.jpg)`
                             }}>
-                                <Box className={'AppTableRow'}>
-                                    <Box className={'AppTableCell'} sx={{
-                                        backgroundImage: `url(https://img.youtube.com/vi/${data.idYouTube}/sddefault.jpg)`
+
+                                <Box className={'ShadowPreview'}/>
+
+                                {!Boolean(videoElement) ? (
+                                    <Box className={'AppTable'} sx={{
+                                        position: 'relative',
+                                        zIndex: 1
                                     }}>
-                                        <Stack className={'ContainerButtonItems'} alignItems={"center"}>
-                                            {!Boolean(videoElement) ? (
+                                        <Box className={'AppTableRow'}>
+                                            <Box className={'AppTableCell'}>
                                                 <Zoom timeout={1000} in={true}>
-                                                    <CircularProgress color={'warning'}/>
+                                                    <CircularProgress color={'info'}/>
                                                 </Zoom>
-                                            ) : (
-                                                <Box sx={{height: 70, width: 70}}/>
-                                            )}
-                                        </Stack>
+                                            </Box>
+                                        </Box>
                                     </Box>
-                                </Box>
+                                ) : null}
+
                             </Box>
                         </Box>
 
