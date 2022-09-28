@@ -428,13 +428,20 @@ export function VideoPage() {
                                 display: modeFrameState.includes('isShowVideo') ? 'block' : 'none',
                                 borderTopRightRadius: '10px',
                                 borderTopLeftRadius: '10px',
-                                borderRadius: '50px',
+                                borderRadius: '10px',
                                 overflow: 'hidden',
                                 position: 'relative'
                             }}
                         >
 
                             <YouTube
+                                style={{
+                                    borderTopRightRadius: '10px',
+                                    borderTopLeftRadius: '10px',
+                                    borderRadius: '10px',
+                                    overflow: 'hidden',
+                                    position: 'relative'
+                                }}
                                 className={'IFrame'}
                                 videoId={data.idYouTube}
                                 opts={{
@@ -474,7 +481,11 @@ export function VideoPage() {
 
                                 {!Boolean(videoElement) ? (
                                     <Stack className={'Loader'}>
-                                        <CircularProgress color={'info'}/>
+                                        <Zoom timeout={1000} in={true} sx={{
+                                            height: '100%'
+                                        }}>
+                                            <CircularProgress color={'info'}/>
+                                        </Zoom>
                                     </Stack>
                                 ) : null}
 
