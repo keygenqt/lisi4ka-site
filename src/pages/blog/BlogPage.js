@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useContext} from 'react';
+import {useContext, useEffect} from 'react';
 import {
     Avatar,
     Box,
@@ -15,7 +15,6 @@ import {
     FormControlLabel,
     FormGroup,
     Grid,
-    IconButton,
     Pagination,
     PaginationItem,
     Radio,
@@ -25,74 +24,19 @@ import {
     useMediaQuery,
     useTheme
 } from "@mui/material";
-import {ConstantImages, LanguageContext, NavigateContext} from "../../base";
-import {ArrowBackOutlined, ArrowForwardOutlined, ExpandMoreOutlined, Favorite} from "@mui/icons-material";
+import {LanguageContext, NavigateContext} from "../../base";
+import {ArrowBackOutlined, ArrowForwardOutlined, ExpandMoreOutlined} from "@mui/icons-material";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Lottie from "lottie-react";
 import {ConstantLottie} from "../../base/constants/ConstantLottie";
-
-const data = [
-    {
-        id: 1,
-        // en
-        title: 'How to learn words without pain to remember them',
-        description: 'Here will be the text that Julia will write. I have nothing to do with it, so for now I write what I can. For example, I was able to write this text for an example. But it was very short, so I\'ll add another thread. So I can write that this text should not be very short, otherwise there will be nothing to read. If you write a post, then you should have something to talk about and not write from the bold as I do now)',
-        content: '',
-        // ru
-        titleRu: 'Как выучить слова без боли, чтобы запомнить их',
-        descriptionRu: 'Здесь будет текст, который напишет Юля. Я тут ни при чем, поэтому пока пишу то, что могу. Например, я смог написать этот текст для примера. Но он быс сильно короткий поэтому я допишу че нить еще. Вот я могу написать что этот текст должен быть не очень коротким иначе читать то и нечго будет. Если пишешь пост то тебе должно быть о чем рассказать а не от болды писать как это делаю сейчас я )',
-        contentRu: '',
-        // common
-        image: ConstantImages.home.post1,
-        date: 111111,
-        topics: ['words', 'articles', 'blog'],
-        likeCount: 99,
-        likeIs: true,
-        type: 'article'
-    },
-    {
-        id: 2,
-        // en
-        title: 'How to sleep in class without students noticing',
-        description: 'Here will be the text that Julia will write. I have nothing to do with it, so for now I write what I can. For example, I was able to write this text for an example. But it was very short, so I\'ll add another thread. So I can write that this text should not be very short, otherwise there will be nothing to read. If you write a post, then you should have something to talk about and not write from the bold as I do now)',
-        content: '',
-        // ru
-        titleRu: 'Как спать в классе так, чтобы ученики не заметили',
-        descriptionRu: 'Здесь будет текст, который напишет Юля. Я тут ни при чем, поэтому пока пишу то, что могу. Например, я смог написать этот текст для примера. Но он быс сильно короткий поэтому я допишу че нить еще. Вот я могу написать что этот текст должен быть не очень коротким иначе читать то и нечго будет. Если пишешь пост то тебе должно быть о чем рассказать а не от болды писать как это делаю сейчас я )',
-        contentRu: '',
-        // common
-        image: ConstantImages.home.post2,
-        date: 111111,
-        topics: ['words', 'articles', 'blog'],
-        likeCount: 99,
-        likeIs: true,
-        type: 'article'
-    },
-    {
-        id: 3,
-        // en
-        title: 'Teaching untrained students with the super method',
-        description: 'Here will be the text that Julia will write. I have nothing to do with it, so for now I write what I can. For example, I was able to write this text for an example. But it was very short, so I\'ll add another thread. So I can write that this text should not be very short, otherwise there will be nothing to read. If you write a post, then you should have something to talk about and not write from the bold as I do now)',
-        content: '',
-        // ru
-        titleRu: 'Обучение неподготовленных студентов суперметодом',
-        descriptionRu: 'Здесь будет текст, который напишет Юля. Я тут ни при чем, поэтому пока пишу то, что могу. Например, я смог написать этот текст для примера. Но он быс сильно короткий поэтому я допишу че нить еще. Вот я могу написать что этот текст должен быть не очень коротким иначе читать то и нечго будет. Если пишешь пост то тебе должно быть о чем рассказать а не от болды писать как это делаю сейчас я )',
-        contentRu: '',
-        // common
-        image: ConstantImages.home.post3,
-        date: 111111,
-        topics: ['words', 'articles', 'blog', 'words1', 'articles2', 'blog3'],
-        likeCount: 99,
-        likeIs: true,
-        type: 'article'
-    }
-]
+import {BlogData} from "./data/BlogData";
+import {AppUtils} from "../../base/utils/AppUtils";
 
 function CardItemArticle(props) {
 
-    const {t} = useContext(LanguageContext)
+    const {t, isLocEn} = useContext(LanguageContext)
     const {route, routes} = useContext(NavigateContext)
 
     const topics = []
@@ -129,11 +73,18 @@ function CardItemArticle(props) {
                 }}>
                     {props.title}
                 </Typography>}
-                subheader="September 14, 2016"
+                subheader={new Intl
+                    .DateTimeFormat(isLocEn ? 'en-US' : 'ru-RU', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: '2-digit',
+                    })
+                    .format(props.createAt)}
             />
             <CardContent
                 sx={{
-                    paddingTop: 1
+                    paddingTop: 1,
+                    paddingBottom: 0
                 }}
             >
                 <Stack spacing={2}>
@@ -146,74 +97,85 @@ function CardItemArticle(props) {
                     </Box>
                 </Stack>
             </CardContent>
-            <CardActions disableSpacing>
-
-                <Stack
-                    width={'100%'}
-                    direction={'row'}
-                    spacing={3}
-                    justifyContent='space-between'
+            <CardActions sx={{
+                paddingLeft: 2,
+                paddingBottom: 2,
+                paddingTop: 2
+            }}>
+                <Button
+                    variant={'outlined'}
+                    size={'small'}
+                    onClick={() => {
+                        route.toLocation(routes.post, props.id)
+                    }}
                 >
-                    <Stack
-                        direction={'row'}
-                        spacing={1}
-                    >
-                        <IconButton aria-label="add to favorites">
-                            <Favorite/>
-                        </IconButton>
-
-                        <Typography gutterBottom variant="h4" sx={{
-                            paddingTop: '10px'
-                        }}>
-                            {99}
-                        </Typography>
-                    </Stack>
-
-                    <Button
-                        variant={'outlined'}
-                        size={'small'}
-                        sx={{
-                            height: 'fit-content',
-                            marginTop: '4px !important'
-                        }}
-                        onClick={() => {
-                            if (props.type === 'article') {
-                                route.toLocation(routes.article, props.id)
-                            } else {
-                                route.toLocation(routes.review, props.id)
-                            }
-                        }}
-                    >
-                        {t('pages.blog.t_blog_list_btn_more')}
-                    </Button>
-
-                </Stack>
-
-
+                    {t('pages.blog.t_blog_list_btn_more')}
+                </Button>
             </CardActions>
         </Card>
     )
 }
 
-export function BlogPage() {
+export function BlogPage(props) {
 
+    // hooks
     const theme = useTheme()
     const isMD = useMediaQuery(theme.breakpoints.down('md'));
     const {t, isLocEn} = useContext(LanguageContext)
 
+    // effects
+    useEffect(() => {
+        setEnableArticles(props.type === 'articles')
+        setEnableReview(props.type === 'reviews')
+    }, [props.type]);
+
+    // states
+    const [expanded, setExpanded] = React.useState('panel1');
+    const [enableArticles, setEnableArticles] = React.useState(props.type === 'articles');
+    const [enableReview, setEnableReview] = React.useState(props.type === 'reviews');
+    const [sortItems, setSortItems] = React.useState('item_1');
+    const [page, setPage] = React.useState(1);
+
+    // data
+    const countItemsPage = 3
     const content = []
 
-    data.forEach((item) => {
+    const filterData = BlogData.filter((item) => {
+        return (enableArticles && item.type === 'article') || (enableReview && item.type === 'review')
+    })
+
+    const sortData = filterData.sort((a, b) => {
+        if (sortItems === 'item_1') {
+            return b.createAt - a.createAt;
+        }
+        if (sortItems === 'item_2') {
+            if (isLocEn) {
+                return a.title.localeCompare(b.title)
+            } else {
+                return a.titleRu.localeCompare(b.titleRu)
+            }
+        }
+        return 0;
+    })
+
+    const pagesCount = Math.round(filterData.length / countItemsPage)
+
+    sortData.slice(countItemsPage * (page - 1), countItemsPage * (page - 1) + countItemsPage).forEach((item) => {
         content.push(<CardItemArticle
             key={item.id}
             id={item.id}
             image={item.image}
             title={isLocEn ? item.title : item.titleRu}
             description={isLocEn ? item.description : item.descriptionRu}
+            createAt={item.createAt}
             topics={item.topics}
-            type={item.type}
         />)
     })
+
+    // handles
+    const handleChangeFilter = (panel) => (event, newExpanded) => {
+        setExpanded(newExpanded ? panel : false);
+    };
 
     return (
         <Stack className={'BlogContent'}>
@@ -240,21 +202,44 @@ export function BlogPage() {
             <Container maxWidth={"lg"}>
                 <Grid container spacing={5} rowSpacing={3}>
                     <Grid item xl={9} lg={9} md={8} sm={12} xs={12}>
-                        <Stack spacing={4}>
 
-                            {content}
+                        {content.length === 0 ? (
+                            <Stack
+                                justifyContent="center"
+                                alignItems="center"
+                                sx={{
+                                    padding: 7
+                                }}
+                            >
+                                <Lottie style={{
+                                    width: 250,
+                                }} animationData={ConstantLottie.empty}/>
+                            </Stack>
+                        ) : (
+                            <Stack spacing={4}>
 
-                            <Pagination
-                                size={isMD ? 'small' : 'medium'}
-                                count={99}
-                                renderItem={(item) => (
-                                    <PaginationItem
-                                        components={{previous: ArrowBackOutlined, next: ArrowForwardOutlined}}
-                                        {...item}
+                                {content}
+
+                                {pagesCount !== 1 ? (
+                                    <Pagination
+                                        page={page}
+                                        onChange={(event, value) => {
+                                            setPage(value);
+                                        }}
+                                        size={isMD ? 'small' : 'medium'}
+                                        count={Math.round(filterData.length / 2.0)}
+                                        renderItem={(item) => (
+                                            <PaginationItem
+                                                components={{previous: ArrowBackOutlined, next: ArrowForwardOutlined}}
+                                                {...item}
+                                            />
+                                        )}
                                     />
-                                )}
-                            />
-                        </Stack>
+                                ) : null}
+
+                            </Stack>
+                        )}
+
                     </Grid>
                     <Grid item xl={3} lg={3} md={4} sm={12} xs={12} className={'Filter'}>
                         <Stack spacing={3}>
@@ -264,7 +249,11 @@ export function BlogPage() {
                             </Typography>
 
                             <Stack spacing={0}>
-                                <Accordion disableGutters variant={'outlined'}>
+                                <Accordion
+                                    expanded={expanded === 'panel1'}
+                                    onChange={handleChangeFilter('panel1')}
+                                    disableGutters variant={'outlined'}
+                                >
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreOutlined/>}
                                         aria-controls="panel1a-content"
@@ -277,10 +266,26 @@ export function BlogPage() {
                                     <AccordionDetails>
                                         <FormControl>
                                             <FormGroup>
-                                                <FormControlLabel control={<Checkbox defaultChecked/>}
-                                                                  label={t('pages.blog.t_filter_types_item_1')}/>
-                                                <FormControlLabel control={<Checkbox defaultChecked/>}
-                                                                  label={t('pages.blog.t_filter_types_item_2')}/>
+                                                <FormControlLabel
+                                                    control={
+                                                        <Checkbox
+                                                            checked={enableArticles}
+                                                            onChange={(event) => {
+                                                                setEnableArticles(event.target.checked)
+                                                            }}
+                                                        />}
+                                                    label={t('pages.blog.t_filter_types_item_1')}
+                                                />
+                                                <FormControlLabel
+                                                    control={
+                                                        <Checkbox
+                                                            checked={enableReview}
+                                                            onChange={(event) => {
+                                                                setEnableReview(event.target.checked)
+                                                            }}
+                                                        />}
+                                                    label={t('pages.blog.t_filter_types_item_2')}
+                                                />
                                             </FormGroup>
                                         </FormControl>
                                     </AccordionDetails>
@@ -299,23 +304,27 @@ export function BlogPage() {
                                     </AccordionSummary>
                                     <AccordionDetails>
                                         <FormControl>
-                                            <RadioGroup defaultValue={'item_1'}>
-                                                <FormControlLabel value="item_1" control={<Radio/>}
-                                                                  label={t('pages.blog.t_filter_sort_item_1')}/>
-                                                <FormControlLabel value="item_2" control={<Radio/>}
-                                                                  label={t('pages.blog.t_filter_sort_item_2')}/>
-                                                <FormControlLabel value="item_3" control={<Radio/>}
-                                                                  label={t('pages.blog.t_filter_sort_item_3')}/>
+                                            <RadioGroup
+                                                value={sortItems}
+                                                onChange={(event) => {
+                                                    setSortItems(event.target.value);
+                                                }}
+                                            >
+                                                <FormControlLabel
+                                                    value="item_1"
+                                                    control={<Radio/>}
+                                                    label={t('pages.blog.t_filter_sort_item_1')}
+                                                />
+                                                <FormControlLabel
+                                                    value="item_2"
+                                                    control={<Radio/>}
+                                                    label={t('pages.blog.t_filter_sort_item_3')}
+                                                />
                                             </RadioGroup>
                                         </FormControl>
                                     </AccordionDetails>
                                 </Accordion>
                             </Stack>
-
-                            <Button variant={'contained'}>
-                                {t('pages.blog.t_filter_btn')}
-                            </Button>
-
                         </Stack>
                     </Grid>
                 </Grid>

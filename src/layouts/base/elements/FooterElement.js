@@ -16,9 +16,10 @@ import {
     useTheme
 } from "@mui/material";
 import {Brightness4Outlined, Brightness5Outlined, Email, LinkedIn, Telegram} from "@mui/icons-material";
-import {AppCache, ConstantImages, LanguageContext, NavigateContext, useLocalStorage} from "../../../base";
+import {AppCache, LanguageContext, NavigateContext, useLocalStorage} from "../../../base";
 import {Link} from "react-router-dom";
 import {ValueType} from "../../../base/route/ValueType";
+import {BlogData} from "../../../pages/blog/data/BlogData";
 
 export function FooterElement(props) {
 
@@ -28,6 +29,32 @@ export function FooterElement(props) {
 
     const {t, i18n, isLocEn} = useContext(LanguageContext)
     const {route, routes} = useContext(NavigateContext)
+
+    const content = []
+
+    BlogData.reverse().slice(0, 2).forEach((item) => {
+        content.push(<Card key={item.id} className={'CardFooter'}>
+            <CardActionArea onClick={() => {
+                route.toLocation(routes.post, item.id)
+            }}>
+                <CardHeader
+                    avatar={
+                        <Avatar aria-label="recipe" src={item.image}>
+                            {item.title}
+                        </Avatar>
+                    }
+                    title={isLocEn ? item.title : item.titleRu}
+                    subheader={new Intl
+                        .DateTimeFormat(isLocEn ? 'en-US' : 'ru-RU', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: '2-digit',
+                        })
+                        .format(item.createAt)}
+                />
+            </CardActionArea>
+        </Card>)
+    })
 
     return (
         <Stack className={'FooterElement'}>
@@ -154,34 +181,7 @@ export function FooterElement(props) {
                                     </Typography>
 
                                     <Stack spacing={2}>
-                                        <Card className={'CardFooter'}>
-                                            <CardActionArea>
-                                                <CardHeader
-                                                    avatar={
-                                                        <Avatar aria-label="recipe" src={ConstantImages.home.post1}>
-                                                            R
-                                                        </Avatar>
-                                                    }
-                                                    title="How to learn words without pain to remember them"
-                                                    subheader="September 14, 2016"
-                                                />
-                                            </CardActionArea>
-                                        </Card>
-
-                                        <Card className={'CardFooter'}>
-                                            <CardActionArea>
-                                                <CardHeader
-                                                    avatar={
-                                                        <Avatar aria-label="recipe" src={ConstantImages.home.post2}>
-                                                            R
-                                                        </Avatar>
-                                                    }
-                                                    title="How to sleep in class without students noticing"
-                                                    subheader="September 14, 2016"
-                                                />
-                                            </CardActionArea>
-                                        </Card>
-
+                                        {content}
                                     </Stack>
 
                                 </Stack>

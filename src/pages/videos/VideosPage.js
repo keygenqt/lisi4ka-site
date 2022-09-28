@@ -222,11 +222,6 @@ export function VideosPage() {
                                         </AccordionDetails>
                                     </Accordion>
                                 </Stack>
-
-                                <Button variant={'contained'}>
-                                    {t('pages.videos.t_filter_btn')}
-                                </Button>
-
                             </Stack>
                         </Grid>
 

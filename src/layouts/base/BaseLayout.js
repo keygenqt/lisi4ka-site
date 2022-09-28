@@ -24,11 +24,8 @@ export function BaseLayout(props) {
                 <main className={"AppTableCell"} style={{
                     padding: props.disablePadding ? 0 : '60px 0',
                     background: props.background ? props.background : 'inherit',
-                    verticalAlign: props.isCenter ? 'middle' : 'top'
                 }}>
-                    <Stack>
-                        {props.children}
-                    </Stack>
+                    {props.children}
                 </main>
             </div>
             <div className={"AppTableRow"}>

@@ -43,6 +43,7 @@ import {YouTubeData} from "./data/YouTubeData";
 import {AppUtils} from "../../base/utils/AppUtils";
 import {StrText} from "./elements/StrText";
 import {ValueType} from "../../base/route/ValueType";
+import {ErrorPage} from "../error/ErrorPage";
 
 let intervalChangeIndex = null;
 
@@ -112,7 +113,9 @@ export function VideoPage() {
 
     // effects
     useEffect(() => {
-        setStr(AppUtils.parseStr(data.str[language]))
+        if (data) {
+            setStr(AppUtils.parseStr(data.str[language]))
+        }
     }, [data, language]);
 
     useEffect(() => {
@@ -233,6 +236,12 @@ export function VideoPage() {
         };
 
     }, [isPaused, indexAction, indexActionSentence, modePlayerState, seekTo, str, videoElement]);
+
+    if (!data) {
+        return (
+            <ErrorPage/>
+        )
+    }
 
     return (
         <Container className={'VideoContent'} maxWidth={"md"}>
@@ -460,7 +469,7 @@ export function VideoPage() {
                             }}>
                                 <Box className={'AppTableRow'}>
                                     <Box className={'AppTableCell'} sx={{
-                                        backgroundImage: `url(https://img.youtube.com/vi/${data.idYouTube}/hqdefault.jpg)`
+                                        backgroundImage: `url(https://img.youtube.com/vi/${data.idYouTube}/sddefault.jpg)`
                                     }}>
                                         <Stack className={'ContainerButtonItems'} alignItems={"center"}>
                                             {!Boolean(videoElement) ? (

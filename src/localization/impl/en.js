@@ -143,8 +143,6 @@ export const enLocalization = {
                 't_filter_sort_item_1': 'Recently added',
                 't_filter_sort_item_3': 'Alphabetically',
                 't_filter_sort_item_2': 'Most likes',
-
-                't_filter_btn': 'Apply',
                 't_books_btn_read': 'Read',
             },
             videos: {
@@ -158,7 +156,6 @@ export const enLocalization = {
                 't_filter_sort_item_1': 'Recently added',
                 't_filter_sort_item_3': 'Alphabetically',
                 't_filter_sort_item_2': 'Most likes',
-                't_filter_btn': 'Apply',
             },
             video: {
                 't_video_mode_pause': 'Pause after a sentence',

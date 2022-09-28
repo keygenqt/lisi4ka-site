@@ -1,14 +1,6 @@
 import {Route} from "react-router-dom";
 import {BaseLayout} from "../../layouts/base/BaseLayout";
-import {
-    AboutPage,
-    ArticlePage,
-    BlogPage,
-    HomePage,
-    ReviewPage,
-    VideoPage,
-    VideosPage,
-} from "../../pages";
+import {AboutPage, ArticlePage, BlogPage, HomePage, VideoPage, VideosPage,} from "../../pages";
 import * as React from "react";
 import {ValueType} from "./ValueType";
 
@@ -63,7 +55,9 @@ export const RouteConf = {
                             disablePadding={true}
                             pageClassName={'Blog-Page'}
                         >
-                            <BlogPage/>
+                            <BlogPage
+                                type={'articles'}
+                            />
                         </BaseLayout>
                     }
                 />
@@ -81,14 +75,16 @@ export const RouteConf = {
                             disablePadding={true}
                             pageClassName={'Blog-Page'}
                         >
-                            <BlogPage/>
+                            <BlogPage
+                                type={'reviews'}
+                            />
                         </BaseLayout>
                     }
                 />
             }
         },
-        article: {
-            path: 'blog/article/:id',
+        post: {
+            path: 'blog/:id',
             match: {
                 id: ValueType.integer,
             },
@@ -99,31 +95,9 @@ export const RouteConf = {
                     path={path}
                     element={
                         <BaseLayout
-                            isCenter={true}
                             pageClassName={'Article-Page'}
                         >
                             <ArticlePage/>
-                        </BaseLayout>
-                    }
-                />
-            }
-        },
-        review: {
-            path: 'blog/review/:id',
-            match: {
-                id: ValueType.integer,
-            },
-            render: function (key, path) {
-                return <Route
-                    key={key}
-                    exact
-                    path={path}
-                    element={
-                        <BaseLayout
-                            isCenter={true}
-                            pageClassName={'Review-Page'}
-                        >
-                            <ReviewPage/>
                         </BaseLayout>
                     }
                 />
@@ -159,6 +133,7 @@ export const RouteConf = {
                     path={path}
                     element={
                         <BaseLayout
+                            disablePadding={true}
                             pageClassName={'Video-Page'}
                         >
                             <VideoPage/>

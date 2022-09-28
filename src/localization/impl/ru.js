@@ -144,8 +144,6 @@ export const ruLocalization = {
                 't_filter_sort_item_1': 'Недавно добавленный',
                 't_filter_sort_item_3': 'По алфавиту',
                 't_filter_sort_item_2': 'Больше всего лайков',
-
-                't_filter_btn': 'Пременить',
             },
             videos: {
                 't_videos_title': 'YouTube',
@@ -158,7 +156,6 @@ export const ruLocalization = {
                 't_filter_sort_item_1': 'Недавно добавленный',
                 't_filter_sort_item_3': 'По алфавиту',
                 't_filter_sort_item_2': 'Больше всего лайков',
-                't_filter_btn': 'Пременить',
             },
             video: {
                 't_video_mode_pause': 'Пауза после фразы',

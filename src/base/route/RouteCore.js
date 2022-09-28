@@ -321,7 +321,13 @@ export default class RouteCore {
                                 pageClassName={'Error-Page'}
                                 key={pageIndex}
                                 path={path}
-                                element={<ErrorPage/>}
+                                element={<BaseLayout
+                                    pageClassName={'Error-Page'}
+                                    isCenter={true}
+                                    disablePadding={true}
+                                >
+                                    <ErrorPage/>
+                                </BaseLayout>}
                             />
                         )
                     } else {
@@ -342,6 +348,7 @@ export default class RouteCore {
                         path="*"
                         element={
                             <BaseLayout
+                                disablePadding={true}
                                 pageClassName={'Error-Page'}
                                 isCenter={true}
                             >
