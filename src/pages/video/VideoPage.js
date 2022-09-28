@@ -425,9 +425,11 @@ export function VideoPage() {
                         }}/>
 
                         <Box
-                            className={'BoxYouTubeFrameRad'}
                             sx={{
-                                display: modeFrameState.includes('isShowVideo') ? 'block' : 'none'
+                                display: modeFrameState.includes('isShowVideo') ? 'block' : 'none',
+                                borderRadius: '10px',
+                                overflow: 'hidden',
+                                position: 'relative'
                             }}
                         >
 
