@@ -144,6 +144,9 @@ export const ruLocalization = {
                 't_filter_sort_item_1': 'По дате',
                 't_filter_sort_item_2': 'По алфавиту',
             },
+            article: {
+                t_date: "Написано",
+            },
             videos: {
                 't_videos_title': 'YouTube',
                 't_videos_subtitle': 'Видео с интерактивными субтитрами.\n' +

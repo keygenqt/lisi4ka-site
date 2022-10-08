@@ -144,6 +144,9 @@ export const enLocalization = {
                 't_filter_sort_item_2': 'Alphabetically',
                 't_books_btn_read': 'Read',
             },
+            article: {
+                t_date: "Written on",
+            },
             videos: {
                 't_videos_title': 'YouTube',
                 't_videos_subtitle': 'Video with interactive subtitles.\n' +

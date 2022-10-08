@@ -95,6 +95,7 @@ export const RouteConf = {
                     path={path}
                     element={
                         <BaseLayout
+                            disablePadding={true}
                             pageClassName={'Article-Page'}
                         >
                             <ArticlePage/>
