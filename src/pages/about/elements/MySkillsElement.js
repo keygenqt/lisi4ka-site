@@ -20,13 +20,13 @@ export function MySkillsElement(props) {
                         <Typography gutterBottom variant="h2" sx={{
                             marginBottom: 4
                         }}>
-                            {t('pages.about.t_experience_title')}
+                            {t('pages.about.t_skills_title')}
                         </Typography>
 
                         <Lottie className={'Lottie'} animationData={ConstantLottie.aboutIcon}/>
 
                         <Typography gutterBottom variant="subtitle2">
-                            {t('pages.about.t_experience_subtitle')}
+                            {t('pages.about.t_skills_subtitle')}
                         </Typography>
                     </Stack>
 
