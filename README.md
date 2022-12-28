@@ -1,11 +1,11 @@
 Teacher's personal website
 ===================
 
-*In progress*
-
 ![alt text](data/logo192.png)
 
 **Used:** [React](https://reactjs.org/) + [MUI](https://mui.com/) :heart:
+
+![picture](data/preview/preview-1000.png)
 
 # License
 
