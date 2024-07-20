@@ -1,9 +1,9 @@
 version: "3"
+name: lisi4ka
 
 services:
-  # https://nodejs.org
   node:
-    container_name: lws-node
+    container_name: js-build
     restart: no
     build:
       context: .
@@ -18,9 +18,8 @@ services:
     volumes:
       - ../:/var/www/src
 
-  # https://nginx.org/
   nginx:
-    container_name: lws-nginx
+    container_name: nginx
     depends_on:
       - node
     build:
