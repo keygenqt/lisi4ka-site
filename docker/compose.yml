@@ -3,7 +3,7 @@ name: lisi4ka
 
 services:
   node:
-    container_name: js-build
+    container_name: lisi4ka-js-build
     restart: no
     build:
       context: .
@@ -19,7 +19,7 @@ services:
       - ../:/var/www/src
 
   nginx:
-    container_name: nginx
+    container_name: lisi4ka-nginx
     depends_on:
       - node
     build:
